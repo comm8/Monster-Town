@@ -148,13 +148,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201763301}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.26723832, y: 0, z: 0, w: 0.9636305}
   m_LocalPosition: {x: -123.62021, y: 64.779274, z: -30.317677}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 31, y: 0, z: 0}
 --- !u!114 &201763304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,14 +193,32 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   AccelTime: 1
-  zoom: 0
+  zoom: 1
   zoomRot:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  rot: 0
+  rot: 1
   zoomAlti:
     serializedVersion: 2
     m_Curve:
@@ -225,9 +243,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  alti: 50
-  scrollmult: 0
-  StartOffset: {x: 0, y: 65, z: 0}
+  alti: 40
+  scrollmult: 0.5
+  localOffset: {x: 0, y: 0, z: 0}
+  localRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &311216457
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,8 +561,8 @@ MonoBehaviour:
     mutator:
       rid: 7371035251894648838
   rotation:
-    enabled: 0
-    mode: 0
+    enabled: 1
+    mode: 4
     space: 1
     deltaTimeSource: 1
     mutator:

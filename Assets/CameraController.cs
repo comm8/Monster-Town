@@ -21,9 +21,11 @@ public class CameraController : MonoBehaviour
     [SerializeField] AnimationCurve zoomAlti;
     [SerializeField] float alti;
     [SerializeField] float scrollmult;
-    float zoompercent;
 
-    [SerializeField] Vector3 StartOffset;
+    [SerializeField] Vector3 localOffset;
+    [SerializeField] Vector3 localRotation;
+
+
 
 
 
@@ -32,7 +34,7 @@ public class CameraController : MonoBehaviour
     {
         inputActions = new Inputactions3D();
         inputActions.Player.Enable();
-        zoompercent = .5f;
+        zoom = .5f;
     }
     void OnDestroy()
     {
@@ -52,22 +54,27 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    void UpdateZoom()
-    {
-        zoompercent += inputActions.Player.Scroll.ReadValue<float>();
-        math.clamp(zoom, 0f, alti);
-    }
 
     private void Update()
     {
         UpdateTimer();
-        UpdateZoom();
 
-        transform.position.Set(transform.position.x, zoomAlti.Evaluate(inputActions.Player.Scroll.ReadValue<float>()) * alti, transform.position.z );
-   
+        //localRotation = new Vector3(0, (zoomRot.Evaluate(zoom) * alti), 0);
+        //transform.rotation = Quaternion.Euler(localRotation - transform.rotation.eulerAngles);
 
-        Vector2 move = math.normalize(inputActions.Player.Move.ReadValue<Vector2>()) * speedMult * curve.Evaluate(timer/ AccelTime);
-        transform.position += new Vector3(move.x,0,move.y) * Time.deltaTime;
+        float deltaScroll =  inputActions.Player.Scroll.ReadValue<float>() * scrollmult * Time.deltaTime;
+
+
+        Vector2 move = math.normalize(inputActions.Player.Move.ReadValue<Vector2>()) * Time.deltaTime * speedMult * curve.Evaluate(timer/ AccelTime);
+     
+        transform.position += new Vector3(move.x, 0, move.y);
+        transform.position += new Vector3(0, (zoomAlti.Evaluate(zoom + deltaScroll) - zoomAlti.Evaluate(zoom)) * alti, 0);
+
+        //transform.position += new Vector3(0, zoomRot.Evaluate(zoom + deltaScroll), 0);
+
+
+        zoom += deltaScroll;
+        zoom = math.clamp(zoom, 0f, 1f);
     }
 
 
