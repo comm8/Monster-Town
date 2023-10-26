@@ -28,6 +28,8 @@ public class CameraController : MonoBehaviour
 
    [SerializeField] Transform rotFreeTransform;
 
+    [SerializeField] Vector3 anchorPoint;
+
 
 
 
@@ -89,7 +91,7 @@ public class CameraController : MonoBehaviour
                 Debug.Log(-math.cos(transform.eulerAngles.x));
                 Debug.Log(hypotenuse);
 
-                Rayhitpoint = transform.TransformDirection(Vector3.forward * hypotenuse);
+                Rayhitpoint = transform.TransformDirection(Vector3.forward) * hypotenuse + transform.position;
             }
 
             transform.RotateAround(Rayhitpoint, Vector3.up, inputActions.Player.Look.ReadValue<Vector2>().x * Time.deltaTime * rotateSpeed);
