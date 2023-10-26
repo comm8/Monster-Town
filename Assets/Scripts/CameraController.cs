@@ -78,13 +78,18 @@ public class CameraController : MonoBehaviour
 
 
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 300))
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 500))
             {
                 Rayhitpoint = hit.point;
             }
             else
             {
-                Rayhitpoint = transform.TransformDirection(Vector3.forward * 300);
+                float hypotenuse = transform.position.y / -math.cos(transform.eulerAngles.x) ;
+                Debug.Log(transform.position.y);
+                Debug.Log(-math.cos(transform.eulerAngles.x));
+                Debug.Log(hypotenuse);
+
+                Rayhitpoint = transform.TransformDirection(Vector3.forward * hypotenuse);
             }
 
             transform.RotateAround(Rayhitpoint, Vector3.up, inputActions.Player.Look.ReadValue<Vector2>().x * Time.deltaTime * rotateSpeed);
@@ -101,19 +106,16 @@ public class CameraController : MonoBehaviour
        float deltaScroll = ClampDeltaScroll();
 
 
-        Vector2 DesiredMovement = inputActions.Player.Move.ReadValue<Vector2>() * Time.deltaTime * movementMultiplier * (zoomPercentage + 0.7f) * accelerationCurve.Evaluate(accelerationTimer/ accelerationTime);
+        rotFreeTransform.position = transform.position;
+        rotFreeTransform.Rotate(Vector3.up*(transform.eulerAngles.y - rotFreeTransform.eulerAngles.y));
+        Vector2 DesiredMovement =  inputActions.Player.Move.ReadValue<Vector2>() * Time.deltaTime * movementMultiplier * (zoomPercentage + 0.7f) * accelerationCurve.Evaluate(accelerationTimer/ accelerationTime);
 
 
-        transform.position += new Vector3(DesiredMovement.x, (ZoomAltitudeCurve.Evaluate(zoomPercentage + deltaScroll) - ZoomAltitudeCurve.Evaluate(zoomPercentage)) * zoomPeakAltitude, DesiredMovement.y);
+        transform.position += rotFreeTransform.TransformDirection(new Vector3(DesiredMovement.x, (ZoomAltitudeCurve.Evaluate(zoomPercentage + deltaScroll) - ZoomAltitudeCurve.Evaluate(zoomPercentage)) * zoomPeakAltitude, DesiredMovement.y));
 
         transform.Rotate((zoomRotationCurve.Evaluate(zoomPercentage + deltaScroll) - zoomRotationCurve.Evaluate(zoomPercentage)) * zoomFullRotationAmount, 0, 0);
         RotateCamera();
 
         zoomPercentage += deltaScroll;
     }
-   
-
-
-    
-
 }

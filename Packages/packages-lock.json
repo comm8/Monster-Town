@@ -295,7 +295,7 @@
       "url": "https://packages.unity.com"
     },
     "wtf.cmd.tools": {
-      "version": "file:C:/Users/jiraa/Downloads/UnityTools-main",
+      "version": "file:C:/Users/1eacomeau/Downloads/UnityTools-main",
       "depth": 0,
       "source": "local",
       "dependencies": {

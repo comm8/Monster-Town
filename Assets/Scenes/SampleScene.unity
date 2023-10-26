@@ -244,7 +244,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   zoomPeakAltitude: 130
-  scrollWheelMultiplier: 0.15
+  scrollWheelMultiplier: 0.4
   rotateSpeed: 40
   rotFreeTransform: {fileID: 2000462230}
 --- !u!1 &311216457
@@ -583,7 +583,7 @@ MonoBehaviour:
         dynamicsX:
           settings:
             frequency:
-              range: {x: 2.4, y: 2.4}
+              range: {x: 1.5, y: 1.5}
               limit: {x: 0, y: 20}
               _forceFixedValue: 1
             damping:
@@ -605,7 +605,7 @@ MonoBehaviour:
         dynamicsY:
           settings:
             frequency:
-              range: {x: 2.4, y: 2.4}
+              range: {x: 1.5, y: 1.5}
               limit: {x: 0, y: 20}
               _forceFixedValue: 1
             damping:
@@ -627,7 +627,7 @@ MonoBehaviour:
         dynamicsZ:
           settings:
             frequency:
-              range: {x: 2.4, y: 2.4}
+              range: {x: 1.5, y: 1.5}
               limit: {x: 0, y: 20}
               _forceFixedValue: 1
             damping:
@@ -673,7 +673,7 @@ MonoBehaviour:
             unstableAutoReset: 0
             deltaTimeScale:
               range: {x: 1, y: 1}
-              limit: {x: 0, y: 5}
+              limit: {x: 1, y: 1}
               _forceFixedValue: 1
         dynamicsY:
           settings:
@@ -695,7 +695,7 @@ MonoBehaviour:
             unstableAutoReset: 0
             deltaTimeScale:
               range: {x: 1, y: 1}
-              limit: {x: 0, y: 5}
+              limit: {x: 1, y: 1}
               _forceFixedValue: 1
         dynamicsZ:
           settings:
@@ -717,7 +717,7 @@ MonoBehaviour:
             unstableAutoReset: 0
             deltaTimeScale:
               range: {x: 1, y: 1}
-              limit: {x: 0, y: 5}
+              limit: {x: 1, y: 1}
               _forceFixedValue: 1
         dynamicsW:
           settings:
@@ -739,7 +739,7 @@ MonoBehaviour:
             unstableAutoReset: 0
             deltaTimeScale:
               range: {x: 1, y: 1}
-              limit: {x: 0, y: 5}
+              limit: {x: 1, y: 1}
               _forceFixedValue: 1
         dynamicsUpwards:
           dynamicsX:
