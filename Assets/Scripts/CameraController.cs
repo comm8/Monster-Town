@@ -63,7 +63,7 @@ public class CameraController : MonoBehaviour
 
     private float ClampDeltaScroll()
     {
-        float deltaScroll = inputActions.Player.Scroll.ReadValue<float>() * Time.deltaTime;
+        float deltaScroll = inputActions.Player.Scroll.ReadValue<float>() ;
 
         if(allowRotation)
         {
@@ -100,14 +100,11 @@ public class CameraController : MonoBehaviour
             else
             {
                 float hypotenuse = transform.position.y / -math.cos(transform.eulerAngles.x) ;
-                Debug.Log(transform.position.y);
-                Debug.Log(-math.cos(transform.eulerAngles.x));
-                Debug.Log(hypotenuse);
 
-                Rayhitpoint = transform.TransformDirection(Vector3.forward) * hypotenuse + transform.position;
+                Rayhitpoint = transform.TransformPoint(Vector3.forward  * hypotenuse) + transform.position;
             }
 
-            transform.RotateAround(Rayhitpoint, Vector3.up, inputActions.Player.Look.ReadValue<Vector2>().x * Time.deltaTime);
+            transform.RotateAround(Rayhitpoint, Vector3.up, inputActions.Player.Look.ReadValue<Vector2>().x);
         }
         else
         {
