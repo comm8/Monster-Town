@@ -295,12 +295,13 @@
       "url": "https://packages.unity.com"
     },
     "wtf.cmd.tools": {
-      "version": "file:C:/Users/1eacomeau/Downloads/UnityTools-main",
+      "version": "https://github.com/cmdwtf/UnityTools.git",
       "depth": 0,
-      "source": "local",
+      "source": "git",
       "dependencies": {
         "com.unity.inputsystem": "1.3.0"
-      }
+      },
+      "hash": "948844e2efacff389f027fa925ec634671581486"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

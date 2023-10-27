@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 public class CameraController : MonoBehaviour
@@ -21,16 +22,14 @@ public class CameraController : MonoBehaviour
     [SerializeField] float zoomFullRotationAmount;
     [SerializeField] AnimationCurve ZoomAltitudeCurve;
     [SerializeField] float zoomPeakAltitude;
-    [SerializeField] float scrollWheelMultiplier;
 
 
-    [SerializeField] float rotateSpeed;
 
    [SerializeField] Transform rotFreeTransform;
 
-    [SerializeField] Vector3 anchorPoint;
+    [SerializeField] bool usingController;
 
-
+    bool allowRotation;
 
 
     // Start is called before the first frame update
@@ -57,9 +56,21 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    private void CheckAllowRotation()
+    {
+        allowRotation = (inputActions.Player.RotationMode.ReadValue<float>() > .02f || usingController);
+    }
+
     private float ClampDeltaScroll()
     {
-        float deltaScroll = inputActions.Player.Scroll.ReadValue<float>() * scrollWheelMultiplier * Time.deltaTime;
+        float deltaScroll = inputActions.Player.Scroll.ReadValue<float>() * Time.deltaTime;
+
+        if(allowRotation)
+        {
+            deltaScroll += inputActions.Player.Look.ReadValue<Vector2>().y;
+        }
+
+
         if (deltaScroll + zoomPercentage > 1)
         {
             deltaScroll = 1 - zoomPercentage;
@@ -68,12 +79,14 @@ public class CameraController : MonoBehaviour
         {
             deltaScroll = -zoomPercentage;
         }
+
+
         return deltaScroll;
     }
 
     private void RotateCamera()
     {
-        if (inputActions.Player.RotationMode.ReadValue<float>() > .5f)
+        if (allowRotation)
         {
             Vector3 Rayhitpoint;
             UnityEngine.Cursor.lockState = CursorLockMode.Locked;
@@ -94,17 +107,18 @@ public class CameraController : MonoBehaviour
                 Rayhitpoint = transform.TransformDirection(Vector3.forward) * hypotenuse + transform.position;
             }
 
-            transform.RotateAround(Rayhitpoint, Vector3.up, inputActions.Player.Look.ReadValue<Vector2>().x * Time.deltaTime * rotateSpeed);
+            transform.RotateAround(Rayhitpoint, Vector3.up, inputActions.Player.Look.ReadValue<Vector2>().x * Time.deltaTime);
         }
         else
         {
-            UnityEngine.Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
     private void Update()
     {
         UpdateTimer();
+        CheckAllowRotation();
        float deltaScroll = ClampDeltaScroll();
 
 
