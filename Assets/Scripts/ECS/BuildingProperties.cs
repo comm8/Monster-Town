@@ -1,5 +1,4 @@
 using Unity.Entities;
-using Unity.Transforms;
 using Unity.Mathematics;
 using Unity.Burst;
 using BuildingTools;
@@ -7,13 +6,9 @@ using BuildingTools;
 [BurstCompile]
     public struct BuildingProperties : IComponentData
     {
+        public BuildingType buildingType;
        public MonsterType monsterType;
-
-
-
-
-
-
+        public int slotID;
 
     }
 
@@ -57,15 +52,36 @@ namespace BuildingTools
         NoUnit
         }
 
+        public enum BuildingType
+        {
+          Farm,
+          Lumber_Yard,
+          Mine,
+          Inn,
+          Forge,
+          NecroMansion,
+          Fishing_Dock,
+          Light_House,
+          Apothecary,
+          Armory
+        }
+
     [BurstCompile]
     public static class BuildingUtils
     {
-        public static int GetListPos()
+        public static int2 SlotIDToCoords(int slotID, int tileSize)
         {
-            return 0;
+            int mod = slotID%tileSize;
+            return new int2(mod,slotID - mod);
         }
 
+        public static int CoordsToSlotID(int2 coords, int tileSize)
+        {
+            return coords.x + (coords.y * tileSize);
+        }
+    }
 
 
-    } 
+
+
 }
