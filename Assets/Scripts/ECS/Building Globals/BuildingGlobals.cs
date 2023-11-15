@@ -7,5 +7,6 @@ namespace BuildingTools
      public struct BuildingGlobals : IComponentData
  {
    public int gridSize;
+   public Entity buildingPrefab;
  }
 }

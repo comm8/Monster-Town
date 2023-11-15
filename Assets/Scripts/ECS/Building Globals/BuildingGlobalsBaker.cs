@@ -11,6 +11,7 @@ public class BuildingGlobalsBaker : Baker<BuildingGlobalsMono>
             AddComponent(playerEntity, new BuildingGlobals
             {
                 gridSize = authoring.gridSize,
+                buildingPrefab = GetEntity(authoring.buildingPrefab, TransformUsageFlags.Dynamic)
             });
         }
     }
