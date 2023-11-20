@@ -260,6 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridSize: 16
   buildingPrefab: {fileID: 1968520076397765545, guid: 06c9dbe3aa1eb2a47a1b9903a6811e90, type: 3}
+  finishedEntityCreation: 1
 --- !u!4 &1671239800
 Transform:
   m_ObjectHideFlags: 0

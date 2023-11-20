@@ -10,28 +10,41 @@ public partial struct BuildingGridInit : ISystem
 {
 
     [BurstCompile]
-    public void OnCreate(ref SystemState state) {state.RequireForUpdate<BuildingGlobals>();}
+    public void OnCreate(ref SystemState state) { state.RequireForUpdate<BuildingGlobals>(); }
     [BurstCompile]
     public void OnDestroy(ref SystemState state) { }
 
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
-        state.Enabled = false;
+
         var buildingGlobals = SystemAPI.GetSingleton<BuildingGlobals>();
 
-        EntityCommandBuffer commandBuffer = new EntityCommandBuffer(Allocator.Temp);
-
-        for (int i = 0; i < math.pow(buildingGlobals.gridSize,2); i++)
+        if (buildingGlobals.finishedEntityCreation == false)
         {
-            commandBuffer.Instantiate(buildingGlobals.buildingPrefab);
+            buildingGlobals.finishedEntityCreation = true;
+            EntityCommandBuffer commandBuffer = new EntityCommandBuffer(Allocator.Temp);
+            for (int i = 0; i < math.pow(buildingGlobals.gridSize, 2); i++)
+            {
+                commandBuffer.Instantiate(buildingGlobals.buildingPrefab);
+            }
+
+            commandBuffer.Playback(state.EntityManager);
+            commandBuffer.Dispose();
         }
-        commandBuffer.Playback(state.EntityManager);
-        commandBuffer.Dispose();
-
+        else
+        {
+            int i = 0;
+            foreach (var buildingAspect in SystemAPI.Query<BuildingAspect>())
+            {
+                buildingAspect.Position = new float3(i, 0, 0);
+                i++;
+            }
+            state.Enabled = false;
+        }
     }
-
-
 }
+
+
 
 
