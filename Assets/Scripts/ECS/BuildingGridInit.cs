@@ -3,6 +3,7 @@ using Unity.Burst;
 using Unity.Collections;
 using BuildingTools;
 using Unity.Mathematics;
+using System.Diagnostics;
 
 [BurstCompile]
 [UpdateInGroup(typeof(InitializationSystemGroup))]
@@ -19,8 +20,7 @@ public partial struct BuildingGridInit : ISystem
     {
 
         var buildingGlobals = SystemAPI.GetSingleton<BuildingGlobals>();
-
-        if (buildingGlobals.finishedEntityCreation == false)
+        if (buildingGlobals.finishedEntityCreation)
         {
             buildingGlobals.finishedEntityCreation = true;
             EntityCommandBuffer commandBuffer = new EntityCommandBuffer(Allocator.Temp);

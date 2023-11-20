@@ -10,7 +10,7 @@ public class BuildingGlobalsBaker : Baker<BuildingGlobalsMono>
         {
             gridSize = authoring.gridSize,
             buildingPrefab = GetEntity(authoring.buildingPrefab, TransformUsageFlags.Dynamic),
-            finishedEntityCreation = authoring.finishedEntityCreation
+            //finishedEntityCreation = authoring.finishedEntityCreation
         });
     }
 }
