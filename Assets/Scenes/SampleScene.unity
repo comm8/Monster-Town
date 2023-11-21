@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.6105764, g: 0.6596704, b: 0.7578583, a: 1}
+  m_AmbientSkyColor: {r: 0.7013681, g: 0.7577623, b: 0.8705505, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1.2
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf26f9abf82728498b6f71ca0d655fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementMultiplier: 90
+  movementMultiplier: 80
   accelerationCurve:
     serializedVersion: 2
     m_Curve:
@@ -192,7 +192,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  accelerationTime: 1
+  accelerationTime: 1.5
   zoomPercentage: 0.5
   zoomRotationCurve:
     serializedVersion: 2
@@ -639,15 +639,15 @@ MonoBehaviour:
         dynamicsX:
           settings:
             frequency:
-              range: {x: 1.9, y: 1.9}
+              range: {x: 0.5, y: 0.5}
               limit: {x: 0, y: 20}
               _forceFixedValue: 1
             damping:
-              range: {x: 1.88, y: 1.88}
+              range: {x: 1.31, y: 1.31}
               limit: {x: 0, y: 2}
               _forceFixedValue: 1
             responsiveness:
-              range: {x: 1.4, y: 1.4}
+              range: {x: 1.59, y: 1.59}
               limit: {x: -5, y: 5}
               _forceFixedValue: 1
             solvingStrategy: 6
@@ -661,15 +661,15 @@ MonoBehaviour:
         dynamicsY:
           settings:
             frequency:
-              range: {x: 1.9, y: 1.9}
+              range: {x: 0.5, y: 0.5}
               limit: {x: 0, y: 20}
               _forceFixedValue: 1
             damping:
-              range: {x: 1.88, y: 1.88}
+              range: {x: 1.31, y: 1.31}
               limit: {x: 0, y: 2}
               _forceFixedValue: 1
             responsiveness:
-              range: {x: 1.4, y: 1.4}
+              range: {x: 1.59, y: 1.59}
               limit: {x: -5, y: 5}
               _forceFixedValue: 1
             solvingStrategy: 6
@@ -683,15 +683,15 @@ MonoBehaviour:
         dynamicsZ:
           settings:
             frequency:
-              range: {x: 1.9, y: 1.9}
+              range: {x: 0.5, y: 0.5}
               limit: {x: 0, y: 20}
               _forceFixedValue: 1
             damping:
-              range: {x: 1.88, y: 1.88}
+              range: {x: 1.31, y: 1.31}
               limit: {x: 0, y: 2}
               _forceFixedValue: 1
             responsiveness:
-              range: {x: 1.4, y: 1.4}
+              range: {x: 1.59, y: 1.59}
               limit: {x: -5, y: 5}
               _forceFixedValue: 1
             solvingStrategy: 6
