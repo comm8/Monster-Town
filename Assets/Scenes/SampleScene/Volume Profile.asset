@@ -24,10 +24,10 @@ MonoBehaviour:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0
-          value: 0
-          inSlope: 1.6996301
-          outSlope: 1.6996301
+          time: 0.014836796
+          value: 0.018987358
+          inSlope: 1.2797468
+          outSlope: 1.2797468
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
     m_Value: 0
   saturation:
     m_OverrideState: 1
-    m_Value: 1.25
+    m_Value: 15.75
 --- !u!114 &-6034177138450659825
 MonoBehaviour:
   m_ObjectHideFlags: 3
