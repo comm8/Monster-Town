@@ -223,8 +223,8 @@ Transform:
   m_GameObject: {fileID: 311216457}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 1, z: 20}
+  m_LocalPosition: {x: 75, y: 0, z: 75}
+  m_LocalScale: {x: 16, y: 1, z: 16}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -260,7 +260,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridSize: 16
   buildingPrefab: {fileID: 1968520076397765545, guid: 06c9dbe3aa1eb2a47a1b9903a6811e90, type: 3}
-  finishedEntityCreation: 1
 --- !u!4 &1671239800
 Transform:
   m_ObjectHideFlags: 0

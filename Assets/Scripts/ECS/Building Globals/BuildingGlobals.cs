@@ -8,7 +8,5 @@ namespace BuildingTools
   {
     public int gridSize;
     public Entity buildingPrefab;
-
-    public bool finishedEntityCreation;
   }
 }
