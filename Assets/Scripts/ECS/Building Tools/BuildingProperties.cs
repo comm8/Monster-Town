@@ -11,7 +11,9 @@ public struct BuildingProperties : IComponentData
     public MonsterType monsterType;
     public int slotID;
 
+
 }
+
 
 [BurstCompile]
 public readonly partial struct BuildingAspect : IAspect
@@ -47,7 +49,7 @@ namespace BuildingTools
 
 
 
-    public enum ResourceType
+    public enum ResourceType : byte
     {
         Lumber,
         Charcoal,
@@ -58,7 +60,7 @@ namespace BuildingTools
         Cursed_Alloy
     }
 
-    public enum MonsterType
+    public enum MonsterType : byte
     {
         Kobold,
         Orc,
@@ -73,7 +75,25 @@ namespace BuildingTools
         NoUnit
     }
 
-    public enum BuildingType
+    [BurstCompile]
+    public struct ResourceTable
+    {
+        /*
+        public ResourceValue[] KoboldProduction;
+        public ResourceValue[] OrcProduction;
+        public ResourceValue[] MimicProduction;
+        public ResourceValue[] ClownProduction;
+        public ResourceValue[] WyvernProduction;
+        public ResourceValue[] GargoyleProduction;
+        public ResourceValue[] GorgonProduction;
+        public ResourceValue[] MindflayerProduction;
+        public ResourceValue[] PlantoidProduction;
+        public ResourceValue[] SkeletonProduction;
+        */
+
+    }
+
+    public enum BuildingType : byte
     {
         Farm,
         Lumber_Yard,
