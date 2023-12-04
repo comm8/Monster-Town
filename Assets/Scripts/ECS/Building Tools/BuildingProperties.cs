@@ -3,6 +3,8 @@ using Unity.Mathematics;
 using Unity.Burst;
 using BuildingTools;
 using Unity.Transforms;
+using Unity.Collections;
+using System;
 
 [BurstCompile]
 public struct BuildingProperties : IComponentData
@@ -40,8 +42,8 @@ namespace BuildingTools
 {
 
     [BurstCompile]
-
-    public struct ResourceValue
+    [Serializable]
+    public class ResourceValue
     {
         public int Amount;
         public ResourceType Type;
@@ -75,22 +77,19 @@ namespace BuildingTools
         NoUnit
     }
 
-    [BurstCompile]
+
     public struct ResourceTable
     {
-        /*
-        public ResourceValue[] KoboldProduction;
-        public ResourceValue[] OrcProduction;
-        public ResourceValue[] MimicProduction;
-        public ResourceValue[] ClownProduction;
-        public ResourceValue[] WyvernProduction;
-        public ResourceValue[] GargoyleProduction;
-        public ResourceValue[] GorgonProduction;
-        public ResourceValue[] MindflayerProduction;
-        public ResourceValue[] PlantoidProduction;
-        public ResourceValue[] SkeletonProduction;
-        */
-
+        public FixedList32Bytes<ResourceTable> KoboldProduction;
+        public FixedList32Bytes<ResourceTable> OrcProduction;
+        public FixedList32Bytes<ResourceTable> MimicProduction;
+        public FixedList32Bytes<ResourceTable> ClownProduction;
+        public FixedList32Bytes<ResourceTable> WyvernProduction;
+        public FixedList32Bytes<ResourceTable> GargoyleProduction;
+        public FixedList32Bytes<ResourceTable> GorgonProduction;
+        public FixedList32Bytes<ResourceTable> MindflayerProduction;
+        public FixedList32Bytes<ResourceTable> PlantoidProduction;
+        public FixedList32Bytes<ResourceTable> SkeletonProduction;
     }
 
     public enum BuildingType : byte

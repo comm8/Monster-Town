@@ -307,7 +307,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.40943396, g: 0.791565, b: 1, a: 1}
+  m_Color: {r: 0.69855815, g: 0.8207234, b: 0.8867924, a: 1}
   m_Intensity: 0.56
   m_Range: 10
   m_SpotAngle: 30
@@ -477,7 +477,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.9433962, g: 0.87591773, b: 0.8490566, a: 1}
+  m_Color: {r: 1, g: 0.9610849, b: 0.9481132, a: 1}
   m_Intensity: 0.69
   m_Range: 10
   m_SpotAngle: 30
@@ -1486,7 +1486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sunTransform: {fileID: 705507995}
   moonTransform: {fileID: 280129801}
-  speedMultiplier: 10
+  speedMultiplier: 30
   SunColor:
     serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 1}
