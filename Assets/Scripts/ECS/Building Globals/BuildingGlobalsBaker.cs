@@ -1,17 +1,25 @@
 using BuildingTools;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+
 using Unity.Entities;
 public class BuildingGlobalsBaker : Baker<BuildingGlobalsMono>
+{
+    public override void Bake(BuildingGlobalsMono authoring)
     {
-        public override void Bake(BuildingGlobalsMono authoring)
+        var playerEntity = GetEntity(TransformUsageFlags.Dynamic);
+        AddComponent(playerEntity, new BuildingGlobals
         {
-            var playerEntity = GetEntity(TransformUsageFlags.Dynamic);
-            AddComponent(playerEntity, new BuildingGlobals
-            {
-                gridSize = authoring.gridSize,
-                buildingPrefab = GetEntity(authoring.buildingPrefab, TransformUsageFlags.Dynamic)
-            });
-        }
+            gridSize = authoring.gridSize,
+            buildingPrefab = GetEntity(authoring.buildingPrefab, TransformUsageFlags.Dynamic),
+            farmResourceTable = authoring.resourceGlobals.farmResourceTable,
+            lumber_YardResourceTable = authoring.resourceGlobals.farmResourceTable,
+            mineResourceTable = authoring.resourceGlobals.farmResourceTable,
+            innResourceTable = authoring.resourceGlobals.farmResourceTable,
+            forgeResourceTable = authoring.resourceGlobals.farmResourceTable,
+            necroMansionResourceTable = authoring.resourceGlobals.farmResourceTable,
+            fishing_DockResourceTable = authoring.resourceGlobals.farmResourceTable,
+            light_HouseResourceTable = authoring.resourceGlobals.farmResourceTable, 
+            apothecaryResourceTable = authoring.resourceGlobals.farmResourceTable,
+            armoryResourceTable = authoring.resourceGlobals.farmResourceTable
+        });
     }
+}
