@@ -2,10 +2,13 @@ using UnityEngine;
 using Unity.Collections;
 using BuildingTools;
 using System;
+using Unity.Burst;
 
+[BurstCompile]
 public class BuildingGlobalsMono : MonoBehaviour
 {
     [Serializable]
+    [BurstCompile]
     public struct ResourceGlobals
     {
         public ResourceTable farmResourceTable;
@@ -20,16 +23,12 @@ public class BuildingGlobalsMono : MonoBehaviour
         public ResourceTable armoryResourceTable;
     }
 
+
     
     [SerializeField] public ResourceGlobals resourceGlobals;
 
      public int gridSize;
      public GameObject buildingPrefab;
-
-    private void Start()
-    {
-       
-    }
 
 }
 

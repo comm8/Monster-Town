@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c01ad7d3d6d1934e94a17b31110e1a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSize: 1000
+  gridSize: 40
   buildingPrefab: {fileID: 1968520076397765545, guid: 06c9dbe3aa1eb2a47a1b9903a6811e90, type: 3}
 --- !u!4 &1671239800
 Transform:

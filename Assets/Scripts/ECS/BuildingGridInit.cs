@@ -40,7 +40,3 @@ public partial struct BuildingGridInit : ISystem
         state.Enabled = false;
     }
 }
-
-
-
-
