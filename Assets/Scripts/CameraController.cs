@@ -7,11 +7,11 @@ public class CameraController : MonoBehaviour
 {
     [Header("WASD Movement")]
     [SerializeField] float movementMultiplier;
-                               Inputactions3D inputActions;
+    Inputactions3D inputActions;
 
     [SerializeField] AnimationCurve accelerationCurve;
     [SerializeField] float accelerationTime;
-                              float accelerationTimer;
+    float accelerationTimer;
 
     [Header("Zoom Settings")]
     [SerializeField] float zoomPercentage;
@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] float MinRotation, MaxRotation;
 
 
-   [SerializeField] Transform rotFreeTransform;
+    [SerializeField] Transform rotFreeTransform;
 
     [SerializeField] bool usingController;
 
@@ -49,6 +49,7 @@ public class CameraController : MonoBehaviour
     }
 
 
+
     private void UpdateTimer()
     {
         if (inputActions.Player.Move.ReadValue<Vector2>().magnitude > Mathf.Epsilon)
@@ -68,9 +69,9 @@ public class CameraController : MonoBehaviour
 
     private float ClampDeltaScroll()
     {
-        float deltaScroll = inputActions.Player.Scroll.ReadValue<float>() ;
+        float deltaScroll = inputActions.Player.Scroll.ReadValue<float>();
 
-        if(allowRotation)
+        if (allowRotation)
         {
             deltaScroll += inputActions.Player.Look.ReadValue<Vector2>().y;
         }
@@ -89,25 +90,33 @@ public class CameraController : MonoBehaviour
         return deltaScroll;
     }
 
+    async void OnDrawGizmos()
+    {
+            float angleA = 90.0f - transform.eulerAngles.x; 
+
+            float lawOfSines = transform.position.y / math.sin(angleA);
+            float hypotenuse = lawOfSines * math.sin(90.0f - angleA);
+            Vector3 Rayhitpoint = transform.TransformDirection(Vector3.forward * hypotenuse) + transform.position;
+
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(Rayhitpoint, 1);
+        Gizmos.DrawLine(transform.position, Rayhitpoint);
+
+    }
     private void RotateCamera()
     {
         if (allowRotation)
         {
-            Vector3 Rayhitpoint;
             UnityEngine.Cursor.lockState = CursorLockMode.Locked;
 
+            float angleA = 90.0f - transform.eulerAngles.x; 
 
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 500))
-            {
-                Rayhitpoint = hit.point;
-            }
-            else
-            {
-                float hypotenuse = transform.position.y / -math.cos(transform.eulerAngles.x) ;
+            float lawOfSines = transform.position.y / math.sin(angleA);
+            float hypotenuse = lawOfSines * math.sin(90.0f - angleA);
 
-                Rayhitpoint = transform.TransformPoint(Vector3.forward  * hypotenuse) + transform.position;
-            }
+            Vector3 Rayhitpoint = transform.TransformDirection(Vector3.forward * hypotenuse) + transform.position;
+
 
             transform.RotateAround(Rayhitpoint, Vector3.up, inputActions.Player.Look.ReadValue<Vector2>().x);
         }
@@ -121,12 +130,12 @@ public class CameraController : MonoBehaviour
     {
         UpdateTimer();
         CheckAllowRotation();
-       float deltaScroll = ClampDeltaScroll();
+        float deltaScroll = ClampDeltaScroll();
 
 
         rotFreeTransform.position = transform.position;
-        rotFreeTransform.Rotate(Vector3.up*(transform.eulerAngles.y - rotFreeTransform.eulerAngles.y));
-        Vector2 DesiredMovement =  inputActions.Player.Move.ReadValue<Vector2>() * Time.deltaTime * movementMultiplier * (zoomPercentage + 0.7f) * accelerationCurve.Evaluate(accelerationTimer/ accelerationTime);
+        rotFreeTransform.Rotate(Vector3.up * (transform.eulerAngles.y - rotFreeTransform.eulerAngles.y));
+        Vector2 DesiredMovement = inputActions.Player.Move.ReadValue<Vector2>() * Time.deltaTime * movementMultiplier * (zoomPercentage + 0.7f) * accelerationCurve.Evaluate(accelerationTimer / accelerationTime);
 
 
         transform.position += rotFreeTransform.TransformDirection(new Vector3(DesiredMovement.x, 0, DesiredMovement.y));
