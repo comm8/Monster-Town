@@ -1,6 +1,5 @@
 using Unity.Entities;
 using Unity.Burst;
-using BuildingTools;
 
 namespace BuildingTools
 {

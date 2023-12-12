@@ -1,6 +1,6 @@
-using cmdwtf.UnityTools;
 using Unity.Mathematics;
 using UnityEngine;
+using CameraUtilities;
 
 
 public class CameraController : MonoBehaviour
@@ -19,12 +19,20 @@ public class CameraController : MonoBehaviour
     [SerializeField] AnimationCurve ZoomAltitudeCurve;
 
 
-    [Header("New Settings")]
+    [Header("Camera Clamping ")]
     [SerializeField] float MinAltitude, MaxAltitude;
     [SerializeField] float MinRotation, MaxRotation;
 
 
-    [SerializeField] Transform rotFreeTransform;
+    [Header("Transforms")]
+    [SerializeField] Transform rotFreeTransform, cameraTech;
+
+
+    [Header("Rotation Dampening")]
+    [SerializeField] float rotationVelocityDecay;
+    [SerializeField] float rotationVelocity;
+
+
 
     [SerializeField] bool usingController;
 
@@ -34,13 +42,12 @@ public class CameraController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(new(transform.position.x, MinAltitude, transform.position.x) , 1);
-        Gizmos.DrawSphere(new(transform.position.x, MaxAltitude, transform.position.x), 1);
+        //Gizmos.DrawSphere(new(transform.position.x, MinAltitude, transform.position.x) , 1);
+       // Gizmos.DrawSphere(new(transform.position.x, MaxAltitude, transform.position.x), 1);
 
-        float angleA = 90.0f - transform.eulerAngles.x;
-        float  hypotenuse = transform.position.y/math.cos(math.radians(angleA)); 
 
-        Vector3 Rayhitpoint = transform.TransformDirection(Vector3.forward * hypotenuse) + transform.position;
+        Vector3 Rayhitpoint =
+  transform.TransformDirection(Vector3.forward * CameraUtil.DistanceToPlane(transform.position, transform.rotation)) + transform.position;
         Gizmos.DrawSphere(Rayhitpoint, 1);
     }
 
@@ -98,22 +105,25 @@ public class CameraController : MonoBehaviour
 
     private void RotateCamera()
     {
+
+        rotationVelocity = 0.0f;
+        float angleA = 90.0f - transform.eulerAngles.x;
+        float hypotenuse = transform.position.y / math.cos(math.radians(angleA));
+
+        Vector3 Rayhitpoint = transform.TransformDirection(Vector3.forward * hypotenuse) + transform.position;
+
         if (allowRotation)
         {
-            UnityEngine.Cursor.lockState = CursorLockMode.Locked;
-
-            float angleA = 90.0f - transform.eulerAngles.x;
-            float hypotenuse = transform.position.y / math.cos(math.radians(angleA));
-
-            Vector3 Rayhitpoint = transform.TransformDirection(Vector3.forward * hypotenuse) + transform.position;
-
-
-            transform.RotateAround(Rayhitpoint, Vector3.up, inputActions.Player.Look.ReadValue<Vector2>().x);
+            Cursor.lockState = CursorLockMode.Locked;
+            rotationVelocity += inputActions.Player.Look.ReadValue<Vector2>().x;
         }
         else
         {
             Cursor.lockState = CursorLockMode.None;
         }
+
+        cameraTech.transform.RotateAround(Rayhitpoint, Vector3.up, rotationVelocity);
+
     }
 
     private void Update()
@@ -121,6 +131,7 @@ public class CameraController : MonoBehaviour
         UpdateTimer();
         CheckAllowRotation();
         float deltaScroll = ClampDeltaScroll();
+
 
 
         rotFreeTransform.position = transform.position;
