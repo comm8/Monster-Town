@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using cmdwtf.UnityTools;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 
 public class CameraController : MonoBehaviour
@@ -19,10 +16,12 @@ public class CameraController : MonoBehaviour
     [Header("Zoom Settings")]
     [SerializeField] float zoomPercentage;
     [SerializeField] AnimationCurve zoomRotationCurve;
-    [SerializeField] float zoomFullRotationAmount;
     [SerializeField] AnimationCurve ZoomAltitudeCurve;
-    [SerializeField] float zoomPeakAltitude;
 
+
+    [Header("New Settings")]
+    [SerializeField] float MinAltitude, MaxAltitude;
+    [SerializeField] float MinRotation, MaxRotation;
 
 
    [SerializeField] Transform rotFreeTransform;
@@ -32,7 +31,13 @@ public class CameraController : MonoBehaviour
     bool allowRotation;
 
 
-    // Start is called before the first frame update
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(new(transform.position.x, MinAltitude, transform.position.x) , 1);
+        Gizmos.DrawSphere(new(transform.position.x, MaxAltitude, transform.position.x), 1);
+    }
+
     void Awake()
     {
         inputActions = new Inputactions3D();
@@ -46,7 +51,7 @@ public class CameraController : MonoBehaviour
 
     private void UpdateTimer()
     {
-        if (inputActions.Player.Move.ReadValue<Vector2>().magnitude > 0.1f)
+        if (inputActions.Player.Move.ReadValue<Vector2>().magnitude > Mathf.Epsilon)
         {
             accelerationTimer += Time.deltaTime;
         }
@@ -124,9 +129,10 @@ public class CameraController : MonoBehaviour
         Vector2 DesiredMovement =  inputActions.Player.Move.ReadValue<Vector2>() * Time.deltaTime * movementMultiplier * (zoomPercentage + 0.7f) * accelerationCurve.Evaluate(accelerationTimer/ accelerationTime);
 
 
-        transform.position += rotFreeTransform.TransformDirection(new Vector3(DesiredMovement.x, (ZoomAltitudeCurve.Evaluate(zoomPercentage + deltaScroll) - ZoomAltitudeCurve.Evaluate(zoomPercentage)) * zoomPeakAltitude, DesiredMovement.y));
+        transform.position += rotFreeTransform.TransformDirection(new Vector3(DesiredMovement.x, 0, DesiredMovement.y));
+        transform.position = new(transform.position.x, math.lerp(MinAltitude, MaxAltitude, ZoomAltitudeCurve.Evaluate(zoomPercentage + deltaScroll)), transform.position.z);
 
-        transform.Rotate((zoomRotationCurve.Evaluate(zoomPercentage + deltaScroll) - zoomRotationCurve.Evaluate(zoomPercentage)) * zoomFullRotationAmount, 0, 0);
+        transform.Rotate(new(math.lerp(MinRotation, MaxRotation, zoomRotationCurve.Evaluate(zoomPercentage + deltaScroll)) - transform.eulerAngles.x, 0.0f, 0.0f));
         RotateCamera();
 
         zoomPercentage += deltaScroll;
