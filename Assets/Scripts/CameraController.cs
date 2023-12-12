@@ -36,6 +36,12 @@ public class CameraController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(new(transform.position.x, MinAltitude, transform.position.x) , 1);
         Gizmos.DrawSphere(new(transform.position.x, MaxAltitude, transform.position.x), 1);
+
+        float angleA = 90.0f - transform.eulerAngles.x;
+        float  hypotenuse = transform.position.y/math.cos(math.radians(angleA)); 
+
+        Vector3 Rayhitpoint = transform.TransformDirection(Vector3.forward * hypotenuse) + transform.position;
+        Gizmos.DrawSphere(Rayhitpoint, 1);
     }
 
     void Awake()
@@ -90,30 +96,14 @@ public class CameraController : MonoBehaviour
         return deltaScroll;
     }
 
-    async void OnDrawGizmos()
-    {
-            float angleA = 90.0f - transform.eulerAngles.x; 
-
-            float lawOfSines = transform.position.y / math.sin(angleA);
-            float hypotenuse = lawOfSines * math.sin(90.0f - angleA);
-            Vector3 Rayhitpoint = transform.TransformDirection(Vector3.forward * hypotenuse) + transform.position;
-
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(Rayhitpoint, 1);
-        Gizmos.DrawLine(transform.position, Rayhitpoint);
-
-    }
     private void RotateCamera()
     {
         if (allowRotation)
         {
             UnityEngine.Cursor.lockState = CursorLockMode.Locked;
 
-            float angleA = 90.0f - transform.eulerAngles.x; 
-
-            float lawOfSines = transform.position.y / math.sin(angleA);
-            float hypotenuse = lawOfSines * math.sin(90.0f - angleA);
+            float angleA = 90.0f - transform.eulerAngles.x;
+            float hypotenuse = transform.position.y / math.cos(math.radians(angleA));
 
             Vector3 Rayhitpoint = transform.TransformDirection(Vector3.forward * hypotenuse) + transform.position;
 
