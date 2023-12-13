@@ -38,19 +38,6 @@ public class CameraController : MonoBehaviour
 
     bool allowRotation;
 
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        //Gizmos.DrawSphere(new(transform.position.x, MinAltitude, transform.position.x) , 1);
-       // Gizmos.DrawSphere(new(transform.position.x, MaxAltitude, transform.position.x), 1);
-
-
-        Vector3 Rayhitpoint =
-  transform.TransformDirection(Vector3.forward * CameraUtil.DistanceToPlane(transform.position, transform.rotation)) + transform.position;
-        Gizmos.DrawSphere(Rayhitpoint, 1);
-    }
-
     void Awake()
     {
         inputActions = new Inputactions3D();
@@ -107,10 +94,8 @@ public class CameraController : MonoBehaviour
     {
 
         rotationVelocity = 0.0f;
-        float angleA = 90.0f - transform.eulerAngles.x;
-        float hypotenuse = transform.position.y / math.cos(math.radians(angleA));
 
-        Vector3 Rayhitpoint = transform.TransformDirection(Vector3.forward * hypotenuse) + transform.position;
+
 
         if (allowRotation)
         {
@@ -122,7 +107,11 @@ public class CameraController : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
 
-        cameraTech.transform.RotateAround(Rayhitpoint, Vector3.up, rotationVelocity);
+
+                RaycastHit hit;
+        Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit);
+
+cameraTech.transform.RotateAround(hit.point, Vector3.up, rotationVelocity);
 
     }
 
