@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.180285, g: 0.22571585, b: 0.30692393, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028504, g: 0.22571585, b: 0.30692396, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -763,15 +763,15 @@ MonoBehaviour:
         dynamicsX:
           settings:
             frequency:
-              range: {x: 2.37, y: 2.37}
+              range: {x: 2.7, y: 2.7}
               limit: {x: 0, y: 20}
               _forceFixedValue: 1
             damping:
-              range: {x: 0.42, y: 0.42}
+              range: {x: 0.66, y: 0.66}
               limit: {x: 0, y: 2}
               _forceFixedValue: 1
             responsiveness:
-              range: {x: 1.12, y: 1.12}
+              range: {x: 0.8, y: 0.8}
               limit: {x: -5, y: 5}
               _forceFixedValue: 1
             solvingStrategy: 6
@@ -785,15 +785,15 @@ MonoBehaviour:
         dynamicsY:
           settings:
             frequency:
-              range: {x: 2.37, y: 2.37}
+              range: {x: 2.7, y: 2.7}
               limit: {x: 0, y: 20}
               _forceFixedValue: 1
             damping:
-              range: {x: 0.42, y: 0.42}
+              range: {x: 0.66, y: 0.66}
               limit: {x: 0, y: 2}
               _forceFixedValue: 1
             responsiveness:
-              range: {x: 1.12, y: 1.12}
+              range: {x: 0.8, y: 0.8}
               limit: {x: -5, y: 5}
               _forceFixedValue: 1
             solvingStrategy: 6
@@ -807,15 +807,15 @@ MonoBehaviour:
         dynamicsZ:
           settings:
             frequency:
-              range: {x: 2.37, y: 2.37}
+              range: {x: 2.7, y: 2.7}
               limit: {x: 0, y: 20}
               _forceFixedValue: 1
             damping:
-              range: {x: 0.42, y: 0.42}
+              range: {x: 0.66, y: 0.66}
               limit: {x: 0, y: 2}
               _forceFixedValue: 1
             responsiveness:
-              range: {x: 1.12, y: 1.12}
+              range: {x: 0.8, y: 0.8}
               limit: {x: -5, y: 5}
               _forceFixedValue: 1
             solvingStrategy: 6
@@ -1662,8 +1662,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef5843edc1b3d3f42b80df3e331d338e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sunTransform: {fileID: 705507995}
-  moonTransform: {fileID: 280129801}
+--- !u!4 &1694131985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694131983}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1694131986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694131983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: fe2ab8c765098474f894cb6be58791e6, type: 2}
+--- !u!114 &1694131987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694131983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba01481bd03672b429e97f869262b89a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 201763302}
+  sunTransform: {fileID: 0}
+  moonTransform: {fileID: 0}
   speedMultiplier: 0
   SunColor:
     serializedVersion: 2
@@ -1725,51 +1770,6 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
---- !u!4 &1694131985
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1694131983}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1694131986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1694131983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsGlobal: 1
-  priority: 0
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: fe2ab8c765098474f894cb6be58791e6, type: 2}
---- !u!114 &1694131987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1694131983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba01481bd03672b429e97f869262b89a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 201763302}
 --- !u!1 &1770614239
 GameObject:
   m_ObjectHideFlags: 0
