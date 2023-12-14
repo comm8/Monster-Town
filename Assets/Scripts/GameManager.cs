@@ -19,6 +19,12 @@ namespace MonstroCity
 
         [SerializeField] Gradient SunColor, moonColor;
 
+        [Header("Selection")]
+
+        [SerializeField] Transform Selection;
+        [SerializeField] Material material;
+
+
         //
         void Update()
         {
@@ -32,7 +38,9 @@ namespace MonstroCity
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             Physics.Raycast(ray, out hit);
-            Debug.Log("CURRENT UI" + MonstroUtil.PositionToTile(hit.point));
+            Selection.position = new Vector3(MonstroUtil.PositionToTile(hit.point).x * 10, 0, MonstroUtil.PositionToTile(hit.point).y * 10);
+            var tempe = hit.point - Selection.position;
+            material.SetVector("_Top_Offset", tempe);
 
             var EM = World.DefaultGameObjectInjectionWorld.EntityManager;
             //Somehow get the the corresponding Tile from ECS
