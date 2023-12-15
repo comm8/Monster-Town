@@ -1,0 +1,1695 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: DynamicsTransform
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: 639fe01bb2ef4335be6d2757fb204ae1, type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: targetTransform
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: position.enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: position.mode
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: position.space
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: position.deltaTimeSource
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: position.mutator
+    value: 7371035251894648838
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rotation.enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rotation.mode
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rotation.space
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rotation.deltaTimeSource
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rotation.mutator
+    value: 7371035251894648839
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: scale.enabled
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: scale.mode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: scale.space
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: scale.deltaTimeSource
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: scale.mutator
+    value: 7371035251894648840
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838]
+    value: cmdwtf.UnityTools cmdwtf.UnityTools.Dynamics.DynamicsVector3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.frequency.range.x
+    value: 2.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.frequency.range.y
+    value: 2.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.frequency.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.frequency.limit.y
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.frequency._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.damping.range.x
+    value: 0.66
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.damping.range.y
+    value: 0.66
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.damping.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.damping.limit.y
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.damping._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.responsiveness.range.x
+    value: 0.8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.responsiveness.range.y
+    value: 0.8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.responsiveness.limit.x
+    value: -5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.responsiveness.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.responsiveness._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.solvingStrategy
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.inputSampleMode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.unstableHandlingMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.unstableAutoReset
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.deltaTimeScale.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.deltaTimeScale.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.deltaTimeScale.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.deltaTimeScale.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsX.settings.deltaTimeScale._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.frequency.range.x
+    value: 2.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.frequency.range.y
+    value: 2.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.frequency.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.frequency.limit.y
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.frequency._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.damping.range.x
+    value: 0.66
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.damping.range.y
+    value: 0.66
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.damping.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.damping.limit.y
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.damping._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.responsiveness.range.x
+    value: 0.8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.responsiveness.range.y
+    value: 0.8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.responsiveness.limit.x
+    value: -5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.responsiveness.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.responsiveness._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.solvingStrategy
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.inputSampleMode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.unstableHandlingMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.unstableAutoReset
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.deltaTimeScale.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.deltaTimeScale.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.deltaTimeScale.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.deltaTimeScale.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsY.settings.deltaTimeScale._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.frequency.range.x
+    value: 2.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.frequency.range.y
+    value: 2.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.frequency.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.frequency.limit.y
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.frequency._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.damping.range.x
+    value: 0.66
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.damping.range.y
+    value: 0.66
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.damping.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.damping.limit.y
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.damping._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.responsiveness.range.x
+    value: 0.8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.responsiveness.range.y
+    value: 0.8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.responsiveness.limit.x
+    value: -5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.responsiveness.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.responsiveness._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.solvingStrategy
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.inputSampleMode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.unstableHandlingMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.unstableAutoReset
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.deltaTimeScale.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.deltaTimeScale.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.deltaTimeScale.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.deltaTimeScale.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].dynamicsZ.settings.deltaTimeScale._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].modifyX
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].modifyY
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648838].modifyZ
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839]
+    value: cmdwtf.UnityTools cmdwtf.UnityTools.Dynamics.DynamicsQuaternion
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].rotationType
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.frequency.range.x
+    value: 11
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.frequency.range.y
+    value: 11
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.frequency.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.frequency.limit.y
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.frequency._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.damping.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.damping.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.damping.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.damping.limit.y
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.damping._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.responsiveness.range.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.responsiveness.range.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.responsiveness.limit.x
+    value: -5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.responsiveness.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.responsiveness._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.solvingStrategy
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.inputSampleMode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.unstableHandlingMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.unstableAutoReset
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.deltaTimeScale.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.deltaTimeScale.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.deltaTimeScale.limit.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.deltaTimeScale.limit.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsX.settings.deltaTimeScale._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.frequency.range.x
+    value: 11
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.frequency.range.y
+    value: 11
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.frequency.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.frequency.limit.y
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.frequency._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.damping.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.damping.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.damping.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.damping.limit.y
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.damping._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.responsiveness.range.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.responsiveness.range.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.responsiveness.limit.x
+    value: -5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.responsiveness.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.responsiveness._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.solvingStrategy
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.inputSampleMode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.unstableHandlingMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.unstableAutoReset
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.deltaTimeScale.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.deltaTimeScale.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.deltaTimeScale.limit.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.deltaTimeScale.limit.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsY.settings.deltaTimeScale._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.frequency.range.x
+    value: 11
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.frequency.range.y
+    value: 11
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.frequency.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.frequency.limit.y
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.frequency._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.damping.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.damping.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.damping.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.damping.limit.y
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.damping._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.responsiveness.range.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.responsiveness.range.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.responsiveness.limit.x
+    value: -5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.responsiveness.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.responsiveness._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.solvingStrategy
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.inputSampleMode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.unstableHandlingMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.unstableAutoReset
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.deltaTimeScale.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.deltaTimeScale.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.deltaTimeScale.limit.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.deltaTimeScale.limit.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsZ.settings.deltaTimeScale._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.frequency.range.x
+    value: 11
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.frequency.range.y
+    value: 11
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.frequency.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.frequency.limit.y
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.frequency._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.damping.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.damping.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.damping.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.damping.limit.y
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.damping._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.responsiveness.range.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.responsiveness.range.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.responsiveness.limit.x
+    value: -5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.responsiveness.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.responsiveness._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.solvingStrategy
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.inputSampleMode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.unstableHandlingMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.unstableAutoReset
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.deltaTimeScale.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.deltaTimeScale.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.deltaTimeScale.limit.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.deltaTimeScale.limit.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsW.settings.deltaTimeScale._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.frequency.range.x
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.frequency.range.y
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.frequency.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.frequency.limit.y
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.frequency._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.damping.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.damping.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.damping.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.damping.limit.y
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.damping._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.responsiveness.range.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.responsiveness.range.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.responsiveness.limit.x
+    value: -5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.responsiveness.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.responsiveness._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.solvingStrategy
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.inputSampleMode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.unstableHandlingMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.unstableAutoReset
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.deltaTimeScale.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.deltaTimeScale.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.deltaTimeScale.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.deltaTimeScale.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsX.settings.deltaTimeScale._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.frequency.range.x
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.frequency.range.y
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.frequency.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.frequency.limit.y
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.frequency._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.damping.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.damping.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.damping.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.damping.limit.y
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.damping._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.responsiveness.range.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.responsiveness.range.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.responsiveness.limit.x
+    value: -5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.responsiveness.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.responsiveness._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.solvingStrategy
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.inputSampleMode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.unstableHandlingMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.unstableAutoReset
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.deltaTimeScale.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.deltaTimeScale.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.deltaTimeScale.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.deltaTimeScale.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsY.settings.deltaTimeScale._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.frequency.range.x
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.frequency.range.y
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.frequency.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.frequency.limit.y
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.frequency._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.damping.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.damping.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.damping.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.damping.limit.y
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.damping._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.responsiveness.range.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.responsiveness.range.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.responsiveness.limit.x
+    value: -5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.responsiveness.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.responsiveness._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.solvingStrategy
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.inputSampleMode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.unstableHandlingMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.unstableAutoReset
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.deltaTimeScale.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.deltaTimeScale.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.deltaTimeScale.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.deltaTimeScale.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.dynamicsZ.settings.deltaTimeScale._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.modifyX
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.modifyY
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsUpwards.modifyZ
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.frequency.range.x
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.frequency.range.y
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.frequency.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.frequency.limit.y
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.frequency._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.damping.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.damping.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.damping.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.damping.limit.y
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.damping._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.responsiveness.range.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.responsiveness.range.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.responsiveness.limit.x
+    value: -5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.responsiveness.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.responsiveness._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.solvingStrategy
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.inputSampleMode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.unstableHandlingMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.unstableAutoReset
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.deltaTimeScale.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.deltaTimeScale.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.deltaTimeScale.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.deltaTimeScale.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsX.settings.deltaTimeScale._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.frequency.range.x
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.frequency.range.y
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.frequency.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.frequency.limit.y
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.frequency._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.damping.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.damping.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.damping.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.damping.limit.y
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.damping._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.responsiveness.range.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.responsiveness.range.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.responsiveness.limit.x
+    value: -5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.responsiveness.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.responsiveness._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.solvingStrategy
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.inputSampleMode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.unstableHandlingMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.unstableAutoReset
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.deltaTimeScale.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.deltaTimeScale.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.deltaTimeScale.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.deltaTimeScale.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsY.settings.deltaTimeScale._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.frequency.range.x
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.frequency.range.y
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.frequency.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.frequency.limit.y
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.frequency._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.damping.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.damping.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.damping.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.damping.limit.y
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.damping._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.responsiveness.range.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.responsiveness.range.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.responsiveness.limit.x
+    value: -5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.responsiveness.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.responsiveness._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.solvingStrategy
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.inputSampleMode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.unstableHandlingMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.unstableAutoReset
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.deltaTimeScale.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.deltaTimeScale.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.deltaTimeScale.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.deltaTimeScale.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.dynamicsZ.settings.deltaTimeScale._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.modifyX
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.modifyY
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].dynamicsForward.modifyZ
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648839].normalizeSign
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840]
+    value: cmdwtf.UnityTools cmdwtf.UnityTools.Dynamics.DynamicsVector3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.frequency.range.x
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.frequency.range.y
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.frequency.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.frequency.limit.y
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.frequency._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.damping.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.damping.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.damping.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.damping.limit.y
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.damping._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.responsiveness.range.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.responsiveness.range.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.responsiveness.limit.x
+    value: -5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.responsiveness.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.responsiveness._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.solvingStrategy
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.inputSampleMode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.unstableHandlingMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.unstableAutoReset
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.deltaTimeScale.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.deltaTimeScale.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.deltaTimeScale.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.deltaTimeScale.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsX.settings.deltaTimeScale._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.frequency.range.x
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.frequency.range.y
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.frequency.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.frequency.limit.y
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.frequency._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.damping.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.damping.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.damping.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.damping.limit.y
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.damping._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.responsiveness.range.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.responsiveness.range.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.responsiveness.limit.x
+    value: -5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.responsiveness.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.responsiveness._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.solvingStrategy
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.inputSampleMode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.unstableHandlingMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.unstableAutoReset
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.deltaTimeScale.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.deltaTimeScale.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.deltaTimeScale.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.deltaTimeScale.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsY.settings.deltaTimeScale._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.frequency.range.x
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.frequency.range.y
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.frequency.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.frequency.limit.y
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.frequency._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.damping.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.damping.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.damping.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.damping.limit.y
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.damping._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.responsiveness.range.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.responsiveness.range.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.responsiveness.limit.x
+    value: -5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.responsiveness.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.responsiveness._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.solvingStrategy
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.inputSampleMode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.unstableHandlingMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.unstableAutoReset
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.deltaTimeScale.range.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.deltaTimeScale.range.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.deltaTimeScale.limit.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.deltaTimeScale.limit.y
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].dynamicsZ.settings.deltaTimeScale._forceFixedValue
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].modifyX
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].modifyY
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: managedReferences[7371035251894648840].modifyZ
+    value: 1
+    objectReference: {fileID: 0}
+  m_ExcludedProperties: []
