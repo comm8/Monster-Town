@@ -18,8 +18,9 @@ public partial struct BuildingGridInit : ISystem
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
+        var buildingList = new BuildingAspectListBuffer();
+        var buildingGlobals = SystemAPI.GetSingleton<BuildingGlobals>();    
 
-        var buildingGlobals = SystemAPI.GetSingleton<BuildingGlobals>();
         EntityCommandBuffer commandBuffer = new EntityCommandBuffer(Allocator.Temp);
 
         for (int i = 0; i < math.pow(buildingGlobals.gridSize, 2); i++)
