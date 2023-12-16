@@ -3077,7 +3077,6 @@ GameObject:
   - component: {fileID: 2031518428}
   - component: {fileID: 2031518427}
   - component: {fileID: 2031518426}
-  - component: {fileID: 2031518425}
   - component: {fileID: 2031518429}
   m_Layer: 0
   m_Name: Selection
@@ -3086,27 +3085,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &2031518425
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2031518424}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2031518426
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3184,7 +3162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 639fe01bb2ef4335be6d2757fb204ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTransform: {fileID: 0}
+  targetTransform: {fileID: 1065296651}
   position:
     enabled: 1
     mode: 4
@@ -3193,15 +3171,15 @@ MonoBehaviour:
     mutator:
       rid: 5087348323297787904
   rotation:
-    enabled: 1
-    mode: 4
+    enabled: 0
+    mode: 0
     space: 1
     deltaTimeSource: 1
     mutator:
       rid: 5087348323297787905
   scale:
-    enabled: 1
-    mode: 4
+    enabled: 0
+    mode: 0
     space: 1
     deltaTimeSource: 1
     mutator:
@@ -3215,15 +3193,15 @@ MonoBehaviour:
         dynamicsX:
           settings:
             frequency:
-              range: {x: 3, y: 3}
+              range: {x: 5, y: 5}
               limit: {x: 0, y: 20}
               _forceFixedValue: 1
             damping:
-              range: {x: 1, y: 1}
+              range: {x: 0.5, y: 0.5}
               limit: {x: 0, y: 2}
               _forceFixedValue: 1
             responsiveness:
-              range: {x: 0, y: 0}
+              range: {x: 1, y: 1}
               limit: {x: -5, y: 5}
               _forceFixedValue: 1
             solvingStrategy: 6
@@ -3237,15 +3215,15 @@ MonoBehaviour:
         dynamicsY:
           settings:
             frequency:
-              range: {x: 3, y: 3}
+              range: {x: 5, y: 5}
               limit: {x: 0, y: 20}
               _forceFixedValue: 1
             damping:
-              range: {x: 1, y: 1}
+              range: {x: 0.5, y: 0.5}
               limit: {x: 0, y: 2}
               _forceFixedValue: 1
             responsiveness:
-              range: {x: 0, y: 0}
+              range: {x: 1, y: 1}
               limit: {x: -5, y: 5}
               _forceFixedValue: 1
             solvingStrategy: 6
@@ -3259,15 +3237,15 @@ MonoBehaviour:
         dynamicsZ:
           settings:
             frequency:
-              range: {x: 3, y: 3}
+              range: {x: 5, y: 5}
               limit: {x: 0, y: 20}
               _forceFixedValue: 1
             damping:
-              range: {x: 1, y: 1}
+              range: {x: 0.5, y: 0.5}
               limit: {x: 0, y: 2}
               _forceFixedValue: 1
             responsiveness:
-              range: {x: 0, y: 0}
+              range: {x: 1, y: 1}
               limit: {x: -5, y: 5}
               _forceFixedValue: 1
             solvingStrategy: 6
