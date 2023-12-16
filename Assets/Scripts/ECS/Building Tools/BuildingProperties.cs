@@ -103,7 +103,8 @@ namespace BuildingTools
         Fishing_Dock,
         Light_House,
         Apothecary,
-        Armory
+        Armory,
+        None
     }
 
     [BurstCompile]
