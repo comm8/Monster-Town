@@ -10,6 +10,8 @@ namespace BuildingTools
     public int gridSize;
     public Entity buildingPrefab;
 
+   public BuildingAspectListBuffer aspectListBuffer;
+
 
     public ResourceTable farmResourceTable;
     public ResourceTable lumber_YardResourceTable;
