@@ -8,19 +8,20 @@ void CalculateOcularDepth_float( float3 RayOrigin, float3 Ray_Direction, float S
 
 Optical_Depth = 0;
 
+if(Scene_Depth < (Steps * Step_Length ))
+{
+    Steps = Scene_Depth/Step_Length;
+}
+
 for(int i = 0; i < Steps; i++)
 {
-    Optical_Depth +=  snoise((RayOrigin + (Ray_Direction * i * Step_Length)) * 10) * Step_Length * 0.2;
-
-    if(Scene_Depth >= (i * Step_Length))
-    {
-    break;
-    }
-
+    Optical_Depth += snoise((RayOrigin + (Ray_Direction * i))) * Step_Length;
 }
 
 Optical_Depth = (Optical_Depth * Steps)/Step_Length;
 }
+
+
 
 #endif
 
