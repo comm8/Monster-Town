@@ -19,9 +19,8 @@ for(int i = 0; i < Steps; i++)
 }
 
 Optical_Depth = (Optical_Depth * Steps)/Step_Length;
+ 
 }
-
-
 
 #endif
 

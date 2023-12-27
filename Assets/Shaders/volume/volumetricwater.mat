@@ -126,12 +126,12 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
-    - _StepLength: 0.12
-    - _Steps: 5.26
+    - _StepLength: 321.92
+    - _Steps: 9.88
     - _Surface: 1
     - _WorkflowMode: 1
     - _ZWrite: 0
-    - _visualize: 1
+    - _visualize: 2.02
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
