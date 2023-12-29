@@ -15,12 +15,11 @@ if(Scene_Depth < (Steps * Step_Length ))
 
 for(int i = 0; i < Steps; i++)
 {
-    Optical_Depth += cnoise((RayOrigin + (Ray_Direction * i))) * Step_Length;
+ Optical_Depth += (cnoise((RayOrigin + (Ray_Direction * i * Step_Length )) * 0.01) + 1.15)/2.3;
 }
 
-Optical_Depth = (Optical_Depth * Steps)/Step_Length;
- 
- Optical_Depth = (cnoise((RayOrigin + Ray_Direction) * 0.1) + 1.15)/2.3;
+Optical_Depth = Optical_Depth/Step_Length;
+
 }
 #endif
 
