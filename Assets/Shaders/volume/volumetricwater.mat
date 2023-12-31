@@ -112,28 +112,29 @@ Material:
     - _DstBlend: 10
     - _DstBlendAlpha: 10
     - _EnvironmentReflections: 1
+    - _Fog_radius: 1099.8
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _Noise_Scale: 0.12
+    - _Noise_Scale: 0.18
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 0
-    - _Sample_radius: 1468.53
+    - _Sample_radius: 122.9
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _StepLength: 19631
-    - _Steps: 30
+    - _Steps: 70
     - _Surface: 1
     - _WorkflowMode: 1
     - _ZWrite: 0
-    - _visualize: 5.2
+    - _visualize: 3
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
