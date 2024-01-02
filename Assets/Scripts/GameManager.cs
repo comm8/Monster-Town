@@ -1,6 +1,6 @@
 using UnityEngine;
 using Unity.Entities;
-
+using BuildingTools;
 namespace MonstroCity
 {
     public class GameManager : MonoBehaviour
@@ -22,7 +22,7 @@ namespace MonstroCity
         [Header("Selection")]
 
         [SerializeField] Transform Selection;
-        [SerializeField] Material material;
+        [SerializeField] BuildingType buildingType;
 
 
         //
@@ -40,7 +40,6 @@ namespace MonstroCity
             Physics.Raycast(ray, out hit);
             Selection.position = new Vector3(MonstroUtil.PositionToTile(hit.point).x * 10, 0, MonstroUtil.PositionToTile(hit.point).y * 10);
             var tempe = hit.point - Selection.position;
-            material.SetVector("_Top_Offset", tempe);
 
             var EM = World.DefaultGameObjectInjectionWorld.EntityManager;
             //Somehow get the the corresponding Tile from ECS
@@ -54,6 +53,19 @@ namespace MonstroCity
             moonTransform.Rotate(new Vector3(speedMultiplier, 0, 0) * deltaTime);
 
         }
+
+        public void SetTypeFarm()
+        {
+            buildingType = BuildingType.Farm;
+            Debug.Log(buildingType);
+        }
+
+        public void SetTypeEmpty()
+        {
+            buildingType = BuildingType.None;
+            Debug.Log(buildingType);
+        }
+
 
     }
 }

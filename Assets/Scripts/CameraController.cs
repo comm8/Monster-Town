@@ -63,7 +63,7 @@ public class CameraController : MonoBehaviour
 
     private void CheckAllowRotation()
     {
-        allowRotation = (inputActions.Player.RotationMode.ReadValue<float>() > .02f || usingController);
+        allowRotation = inputActions.Player.RotationMode.ReadValue<float>() > .02f || usingController;
     }
 
     private float ClampDeltaScroll()
@@ -94,7 +94,7 @@ public class CameraController : MonoBehaviour
 
         rotationVelocity = 0.0f;
 
-
+        rotationVelocity += inputActions.Player.Rotate.ReadValue<float>();
 
         if (allowRotation)
         {
