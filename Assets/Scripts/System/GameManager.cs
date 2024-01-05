@@ -74,7 +74,8 @@ public class GameManager : MonoBehaviour
        if(inputActions.Player.Fire.ReadValue<float>() > 0.5f) 
         {
             var curTile = tileProperties[BuildingUtils.CoordsToSlotID(SelectionGridPos, gridSize)];
-            Object.Destroy(curTile.gameObject);
+            //Object.Destroy(curTile.gameObject);
+            curTile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
         }
     }
 
