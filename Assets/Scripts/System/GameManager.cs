@@ -99,15 +99,60 @@ public class GameManager : MonoBehaviour
         TextMesh.text = curtime/6  + ":" + (curtime % 6) + "0";
     }
 
-    public void SetTypeFarm()
+    public void SetType(string type)
     {
-        buildingType = BuildingType.Farm;
-        Debug.Log(buildingType);
+        BuildingType building = BuildingType.Farm;
+
+        switch(type)
+        {
+            case "none" :
+                building = BuildingType.None;
+                break;
+
+            case "farm":
+                building = BuildingType.Farm;
+                break;
+
+            case "inn":
+                building = BuildingType.Inn;
+                break;
+
+            case "lumber yard":
+                building = BuildingType.Lumber_Yard;
+                break;
+
+            case "fishing dock":
+                building = BuildingType.Fishing_Dock;
+                break;
+
+            case "apothecary":
+                building = BuildingType.Apothecary;
+                break;
+
+            case "forge":
+                building = BuildingType.Forge;
+                break;
+
+            case "lighthouse":
+                building = BuildingType.Light_House;
+                break;
+
+            case "necromansion":
+                building = BuildingType.NecroMansion;
+                break;
+
+            case "mine":
+                building = BuildingType.Mine;
+                break;
+
+        }
+
+        SetType(building);
     }
 
-    public void SetTypeEmpty()
+    public void SetType(BuildingType type)
     {
-        buildingType = BuildingType.None;
+        buildingType = type;
         Debug.Log(buildingType);
     }
 
