@@ -2,7 +2,7 @@ using UnityEngine;
 using BuildingTools;
 using Unity.Mathematics;
 using TMPro;
-
+using UnityEngine.EventSystems;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int2 SelectionGridPos;
     [SerializeField] BuildingType buildingType;
 
+   public  bool pointerOverUI = false;
 
     //
     private void Awake()
@@ -61,13 +62,17 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-
+        pointerOverUI = EventSystem.current.IsPointerOverGameObject();
+        if(!pointerOverUI)
+        {
         GetCurrentTile();
+        SelectTile();
+        }
 
         
 
         UpdateDayNightCycle();
-        SelectTile();
+
     }
 
     void SelectTile()
@@ -75,7 +80,7 @@ public class GameManager : MonoBehaviour
        if(inputActions.Player.Fire.ReadValue<float>() > 0.5f) 
         {
             var curTile = tileProperties[BuildingUtils.CoordsToSlotID(SelectionGridPos, gridSize)];
-            //Object.Destroy(curTile.gameObject);
+            if(curTile == null) {return; }
             curTile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
         }
     }

@@ -37,10 +37,14 @@ public class CameraController : MonoBehaviour
 
     bool allowRotation;
 
+    GameManager gameManager;
+
     void Awake()
     {
+        gameManager = GameManager.instance;
         inputActions = new Inputactions3D();
         inputActions.Player.Enable();
+
     }
     void OnDestroy()
     {
@@ -63,7 +67,7 @@ public class CameraController : MonoBehaviour
 
     private void CheckAllowRotation()
     {
-        allowRotation = inputActions.Player.RotationMode.ReadValue<float>() > .02f || usingController;
+        allowRotation = (inputActions.Player.RotationMode.ReadValue<float>() > .02f || usingController);
     }
 
     private float ClampDeltaScroll()
