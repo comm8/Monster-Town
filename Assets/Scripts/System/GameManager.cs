@@ -1,6 +1,7 @@
 using UnityEngine;
 using BuildingTools;
 using Unity.Mathematics;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,10 +32,10 @@ public class GameManager : MonoBehaviour
     [Header("Day Night Cycle")]
 
     [SerializeField] Transform sunTransform, moonTransform;
-    [SerializeField] float speedMultiplier;
-
-
     [SerializeField] Gradient SunColor, moonColor;
+
+    [SerializeField] float speedMultiplier;
+    [SerializeField] TMP_Text TextMesh;
 
     [Header("Selection")]
 
@@ -94,7 +95,8 @@ public class GameManager : MonoBehaviour
 
         sunTransform.Rotate(new Vector3(speedMultiplier, 0, 0) * deltaTime);
         moonTransform.Rotate(new Vector3(speedMultiplier, 0, 0) * deltaTime);
-
+        int curtime = (int)(Time.time/2);
+        TextMesh.text = curtime/6  + ":" + (curtime % 6) + "0";
     }
 
     public void SetTypeFarm()

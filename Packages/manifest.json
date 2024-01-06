@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "com.jimmycushnie.noisynodes": "https://github.com/JimmyCushnie/Noisy-Nodes.git",
+    "com.unity.2d.sprite": "1.0.0",
     "com.unity.addressables": "1.21.19",
     "com.unity.collab-proxy": "2.0.5",
     "com.unity.feature.development": "1.0.1",
