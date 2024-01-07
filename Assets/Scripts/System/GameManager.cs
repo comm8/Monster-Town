@@ -79,9 +79,10 @@ public class GameManager : MonoBehaviour
     {
        if(inputActions.Player.Fire.ReadValue<float>() > 0.5f) 
         {
-            var curTile = tileProperties[BuildingUtils.CoordsToSlotID(SelectionGridPos, gridSize)];
-            if(curTile == null) {return; }
-            curTile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
+            var curTile = BuildingUtils.CoordsToSlotID(SelectionGridPos, gridSize);
+            if(curTile < tileProperties.Length && curTile >= 0) { tileProperties[curTile].GetComponentInChildren<TileAnimator>().playUpdateAnimation(); }
+
+
         }
     }
 
