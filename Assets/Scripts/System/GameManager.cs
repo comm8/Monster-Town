@@ -87,7 +87,6 @@ public class GameManager : MonoBehaviour
             var curTile = BuildingUtils.CoordsToSlotID(SelectionGridPos, gridSize);
             if(curTile < tileProperties.Length && curTile >= 0) 
             {
-                //tileProperties[curTile].GetComponentInChildren<TileAnimator>().playUpdateAnimation();
                 placeTile(tileProperties[curTile], buildingType);
             }
 
@@ -200,7 +199,7 @@ public class GameManager : MonoBehaviour
                 desiredModel = modelList.ApothecaryModel; break;
         }
         tile.model = Instantiate(desiredModel, tile.modelTransform);
-
+        tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
     }
 
 
