@@ -2224,12 +2224,13 @@ RectTransform:
   - {fileID: 1923255784}
   - {fileID: 343557936}
   - {fileID: 801294449}
+  - {fileID: 1513747914}
   m_Father: {fileID: 239510048}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 69.01105, y: 0}
-  m_SizeDelta: {x: 1000, y: 100}
+  m_AnchoredPosition: {x: 8.757996, y: 0}
+  m_SizeDelta: {x: 1200.8435, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &690318884
 GameObject:
@@ -4335,6 +4336,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1846839712}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1513747913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1513747914}
+  - component: {fileID: 1513747916}
+  - component: {fileID: 1513747915}
+  m_Layer: 5
+  m_Name: Thype
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1513747914
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513747913}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.32, y: 0.32, z: 0.32}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 669113330}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -674, y: -5.4}
+  m_SizeDelta: {x: 202.8525, y: 202.852}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1513747915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513747913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 69cf32486199f354f8eb2d6196cda9a7, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1513747916
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513747913}
+  m_CullTransparentMesh: 1
 --- !u!1 &1563734352
 GameObject:
   m_ObjectHideFlags: 0
@@ -5273,8 +5349,19 @@ MonoBehaviour:
   SelectionGridPos:
     x: 0
     y: 0
-  buildingType: 0
+  buildingType: 10
   pointerOverUI: 0
+  modelList:
+    EmptyPlot: {fileID: 6430576442529985957, guid: ddf27286751280048b045950a593598b, type: 3}
+    FarmModel: {fileID: 4463137463556503104, guid: cab6da6cf7bda194a9785582167d910c, type: 3}
+    InnModel: {fileID: 6391764774371186972, guid: 8dfac28a338473d4dbf1a278efe28ff3, type: 3}
+    LumberModel: {fileID: 6391764774371186972, guid: 7f947af620e51784d853f8ab61628cb3, type: 3}
+    FishingModel: {fileID: 0}
+    ForgeModel: {fileID: 0}
+    ApothecaryModel: {fileID: 6391764774371186972, guid: 26c00ca5d4802d241ad576d527aef8a0, type: 3}
+    LighthouseModel: {fileID: 0}
+    Necromansion: {fileID: 6391764774371186972, guid: e17df6ec88b3c704fb84626a2964cb87, type: 3}
+    MineModel: {fileID: 6391764774371186972, guid: 4aedb47219fe37f4daa38e9f9adc65da, type: 3}
 --- !u!114 &1694131988
 MonoBehaviour:
   m_ObjectHideFlags: 0

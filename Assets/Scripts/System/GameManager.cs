@@ -3,6 +3,8 @@ using BuildingTools;
 using Unity.Mathematics;
 using TMPro;
 using UnityEngine.EventSystems;
+using System;
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -45,6 +47,8 @@ public class GameManager : MonoBehaviour
 
    public  bool pointerOverUI = false;
 
+    public ModelList modelList;
+
     //
     private void Awake()
     {
@@ -77,10 +81,15 @@ public class GameManager : MonoBehaviour
 
     void SelectTile()
     {
+
        if(inputActions.Player.Fire.ReadValue<float>() > 0.5f) 
         {
             var curTile = BuildingUtils.CoordsToSlotID(SelectionGridPos, gridSize);
-            if(curTile < tileProperties.Length && curTile >= 0) { tileProperties[curTile].GetComponentInChildren<TileAnimator>().playUpdateAnimation(); }
+            if(curTile < tileProperties.Length && curTile >= 0) 
+            {
+                //tileProperties[curTile].GetComponentInChildren<TileAnimator>().playUpdateAnimation();
+                placeTile(tileProperties[curTile], buildingType);
+            }
 
 
         }
@@ -150,7 +159,6 @@ public class GameManager : MonoBehaviour
             case "mine":
                 building = BuildingType.Mine;
                 break;
-
         }
 
         SetType(building);
@@ -159,10 +167,58 @@ public class GameManager : MonoBehaviour
     public void SetType(BuildingType type)
     {
         buildingType = type;
-        Debug.Log(buildingType);
     }
 
 
 
+    public void placeTile(TileProperties tile, BuildingType desired)
+    {
+        Destroy(tile.model);
+        GameObject desiredModel = modelList.EmptyPlot;
+
+        switch (desired)
+        {
+            case BuildingType.Farm:
+                desiredModel = modelList.FarmModel; break;
+
+            case BuildingType.Lumber_Yard: 
+                desiredModel = modelList.LumberModel; break;
+
+            case BuildingType.Mine:
+                desiredModel = modelList.MineModel; break;
+
+            case BuildingType.NecroMansion:
+                desiredModel = modelList.Necromansion; break;
+
+            case BuildingType.Inn:
+                desiredModel = modelList.InnModel; break;
+
+            case BuildingType.Forge:
+                desiredModel = modelList.ForgeModel; break;
+
+            case BuildingType.Apothecary:
+                desiredModel = modelList.ApothecaryModel; break;
+        }
+        tile.model = Instantiate(desiredModel, tile.modelTransform);
+
+    }
+
+
+}
+
+[Serializable]
+public class ModelList
+{
+    public GameObject EmptyPlot;
+    public GameObject FarmModel;
+    public GameObject InnModel;
+    public GameObject LumberModel;
+    public GameObject FishingModel;
+    public GameObject ForgeModel;
+    public GameObject ApothecaryModel;
+    public GameObject LighthouseModel;
+    public GameObject Necromansion;
+    public GameObject MineModel;
+    
 }
 

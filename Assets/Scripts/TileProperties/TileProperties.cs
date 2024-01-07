@@ -8,7 +8,8 @@ public class TileProperties : MonoBehaviour
 {
     public BuildingType buildingType;
     public MonsterType monsterType;
-    public int slotID;
+    public GameObject model;
+    public Transform modelTransform;
     }
 
 
