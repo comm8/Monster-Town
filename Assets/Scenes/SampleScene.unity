@@ -5515,7 +5515,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pop-up Panel
+  m_text: Welcome!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e9177c043d48754ebcce4d294868c64, type: 2}
   m_sharedMaterial: {fileID: 6154319437400250807, guid: 6e9177c043d48754ebcce4d294868c64, type: 2}
@@ -6036,9 +6036,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'This is a test popup panel.
-
-    Mess with my scale using the popup gameobject!!'
+  m_text: Select different Items from the hotbar and play around with placing items!
+    Hold right click to rotate, and WASD to move the camera.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e9177c043d48754ebcce4d294868c64, type: 2}
   m_sharedMaterial: {fileID: 6154319437400250807, guid: 6e9177c043d48754ebcce4d294868c64, type: 2}

@@ -7,29 +7,19 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+  
+    [HideInInspector] public static GameManager instance;
 
     [Header("Tile Utilities")]
 
     [SerializeField] Transform cameraTransform;
     Inputactions3D inputActions;
 
-    public int gridSize = 2;
+    public int gridSize = 20;
 
     public GameObject tilePrefab;
 
-    public ResourceTable farmResourceTable;
-    public ResourceTable lumber_YardResourceTable;
-    public ResourceTable mineResourceTable;
-    public ResourceTable innResourceTable;
-    public ResourceTable forgeResourceTable;
-    public ResourceTable necroMansionResourceTable;
-    public ResourceTable fishing_DockResourceTable;
-    public ResourceTable light_HouseResourceTable;
-    public ResourceTable apothecaryResourceTable;
-    public ResourceTable armoryResourceTable;
 
-    public TileProperties[] tileProperties;
 
     [Header("Day Night Cycle")]
 
@@ -44,11 +34,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform Selection;
     [SerializeField] int2 SelectionGridPos;
     [SerializeField] BuildingType buildingType;
-
    public  bool pointerOverUI = false;
 
-    public ModelList modelList;
+    [Header("Other")]
 
+    public ModelList modelList;
+    public ResourceTableList resourceTableList;
+    public TileProperties[] tileProperties;
     //
     private void Awake()
     {
@@ -219,5 +211,20 @@ public class ModelList
     public GameObject Necromansion;
     public GameObject MineModel;
     
+}
+
+[Serializable]
+public class ResourceTableList
+{
+    public ResourceTable farmResourceTable;
+    public ResourceTable lumber_YardResourceTable;
+    public ResourceTable mineResourceTable;
+    public ResourceTable innResourceTable;
+    public ResourceTable forgeResourceTable;
+    public ResourceTable necroMansionResourceTable;
+    public ResourceTable fishing_DockResourceTable;
+    public ResourceTable light_HouseResourceTable;
+    public ResourceTable apothecaryResourceTable;
+    public ResourceTable armoryResourceTable;
 }
 

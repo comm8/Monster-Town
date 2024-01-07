@@ -1,7 +1,6 @@
 using Unity.Mathematics;
 using Unity.Burst;
-using Unity.Collections;
-
+using System;
 
 namespace BuildingTools
 {
@@ -30,6 +29,7 @@ namespace BuildingTools
     
 
         [BurstCompile]
+        [Serializable]
         public class ResourceValue
         {
             public int Amount;
@@ -65,7 +65,8 @@ namespace BuildingTools
         }
 
 
-        public struct ResourceTable
+     [Serializable]
+         public class ResourceTable
         {
             public ResourceValue[] KoboldProduction;
             public ResourceValue[] OrcProduction;
