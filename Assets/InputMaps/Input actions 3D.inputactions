@@ -286,7 +286,7 @@
                     "id": "c9962a30-33ee-41fe-8703-a4a2aac52792",
                     "path": "1DAxis",
                     "interactions": "",
-                    "processors": "Scale(factor=0.001)",
+                    "processors": "Scale(factor=0.0007)",
                     "groups": "",
                     "action": "Scroll",
                     "isComposite": true,
