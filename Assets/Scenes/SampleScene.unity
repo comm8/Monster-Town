@@ -558,8 +558,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.3078447
-      value: 0.4817387
+      time: 0.5245185
+      value: 0.6537462
       inSlope: 1.3258812
       outSlope: 1.3258812
       tangentMode: 0
@@ -584,35 +584,33 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.3737248
-      outSlope: 0.3737248
+      inSlope: 0.5101572
+      outSlope: 0.5101572
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.19166666
+      outWeight: 0.19583334
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1.3485105
-      outSlope: 1.3485105
+      inSlope: 0.41798177
+      outSlope: 0.41798177
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.10833335
+      inWeight: 0.19166666
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   MinAltitude: 15
-  MaxAltitude: 150
-  MinRotation: 20
-  MaxRotation: 85
+  MaxAltitude: 100
+  MinRotation: 35
+  MaxRotation: 80
   rotFreeTransform: {fileID: 2000462230}
   cameraTech: {fileID: 1458118987}
   rotationVelocityDecay: 0.9999
   rotationVelocity: 0
   usingController: 0
-  mouseDefault: {fileID: 2800000, guid: f3c6634ab07884c4a87ccc4dae16b24a, type: 3}
-  mousePan: {fileID: 2800000, guid: ae3518fc09411294ea80c4bda788d516, type: 3}
 --- !u!1 &239510047
 GameObject:
   m_ObjectHideFlags: 0
@@ -5365,6 +5363,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 201763302}
   gridSize: 20
   tilePrefab: {fileID: 1968520076397765545, guid: 06c9dbe3aa1eb2a47a1b9903a6811e90, type: 3}
+  tileProperties: []
   sunTransform: {fileID: 705507995}
   moonTransform: {fileID: 280129801}
   SunColor:
@@ -5446,118 +5445,6 @@ MonoBehaviour:
     LighthouseModel: {fileID: 0}
     Necromansion: {fileID: 6391764774371186972, guid: e17df6ec88b3c704fb84626a2964cb87, type: 3}
     MineModel: {fileID: 6391764774371186972, guid: 4aedb47219fe37f4daa38e9f9adc65da, type: 3}
-  resourceTableList:
-    farmResourceTable:
-      KoboldProduction: []
-      OrcProduction: []
-      MimicProduction: []
-      ClownProduction: []
-      WyvernProduction: []
-      GargoyleProduction: []
-      GorgonProduction: []
-      MindflayerProduction: []
-      PlantoidProduction: []
-      SkeletonProduction: []
-    lumber_YardResourceTable:
-      KoboldProduction: []
-      OrcProduction: []
-      MimicProduction: []
-      ClownProduction: []
-      WyvernProduction: []
-      GargoyleProduction: []
-      GorgonProduction: []
-      MindflayerProduction: []
-      PlantoidProduction: []
-      SkeletonProduction: []
-    mineResourceTable:
-      KoboldProduction: []
-      OrcProduction: []
-      MimicProduction: []
-      ClownProduction: []
-      WyvernProduction: []
-      GargoyleProduction: []
-      GorgonProduction: []
-      MindflayerProduction: []
-      PlantoidProduction: []
-      SkeletonProduction: []
-    innResourceTable:
-      KoboldProduction: []
-      OrcProduction: []
-      MimicProduction: []
-      ClownProduction: []
-      WyvernProduction: []
-      GargoyleProduction: []
-      GorgonProduction: []
-      MindflayerProduction: []
-      PlantoidProduction: []
-      SkeletonProduction: []
-    forgeResourceTable:
-      KoboldProduction: []
-      OrcProduction: []
-      MimicProduction: []
-      ClownProduction: []
-      WyvernProduction: []
-      GargoyleProduction: []
-      GorgonProduction: []
-      MindflayerProduction: []
-      PlantoidProduction: []
-      SkeletonProduction: []
-    necroMansionResourceTable:
-      KoboldProduction: []
-      OrcProduction: []
-      MimicProduction: []
-      ClownProduction: []
-      WyvernProduction: []
-      GargoyleProduction: []
-      GorgonProduction: []
-      MindflayerProduction: []
-      PlantoidProduction: []
-      SkeletonProduction: []
-    fishing_DockResourceTable:
-      KoboldProduction: []
-      OrcProduction: []
-      MimicProduction: []
-      ClownProduction: []
-      WyvernProduction: []
-      GargoyleProduction: []
-      GorgonProduction: []
-      MindflayerProduction: []
-      PlantoidProduction: []
-      SkeletonProduction: []
-    light_HouseResourceTable:
-      KoboldProduction: []
-      OrcProduction: []
-      MimicProduction: []
-      ClownProduction: []
-      WyvernProduction: []
-      GargoyleProduction: []
-      GorgonProduction: []
-      MindflayerProduction: []
-      PlantoidProduction: []
-      SkeletonProduction: []
-    apothecaryResourceTable:
-      KoboldProduction: []
-      OrcProduction: []
-      MimicProduction: []
-      ClownProduction: []
-      WyvernProduction: []
-      GargoyleProduction: []
-      GorgonProduction: []
-      MindflayerProduction: []
-      PlantoidProduction: []
-      SkeletonProduction: []
-    armoryResourceTable:
-      KoboldProduction: []
-      OrcProduction: []
-      MimicProduction: []
-      ClownProduction: []
-      WyvernProduction: []
-      GargoyleProduction: []
-      GorgonProduction: []
-      MindflayerProduction: []
-      PlantoidProduction: []
-      SkeletonProduction: []
-  tileProperties: []
 --- !u!114 &1694131988
 MonoBehaviour:
   m_ObjectHideFlags: 0

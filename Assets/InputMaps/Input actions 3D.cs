@@ -308,7 +308,7 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
                     ""id"": ""c9962a30-33ee-41fe-8703-a4a2aac52792"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
-                    ""processors"": ""Scale(factor=0.0007)"",
+                    ""processors"": ""Scale(factor=0.001)"",
                     ""groups"": """",
                     ""action"": ""Scroll"",
                     ""isComposite"": true,
