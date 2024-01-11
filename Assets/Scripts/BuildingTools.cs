@@ -1,6 +1,8 @@
 using Unity.Mathematics;
 using Unity.Burst;
 using System;
+using UnityEngine;
+using Unity.Collections;
 
 namespace BuildingTools
 {
@@ -24,19 +26,46 @@ namespace BuildingTools
             return new((int)((InputPos.x + 5) / 10), (int)((InputPos.z + 5) / 10));
         }
 
+
+
+
+
     }
 
-    
+    public static class VectorExtensions
+    {
+        public static Vector3 X(float x)
+        {
+            return new Vector3(x, 0, 0);
+        }
 
-        [BurstCompile]
+        public static Vector3 Y(float y)
+        {
+            return new Vector3(0, y, 0);
+        }
+
+        public static Vector3 Z(float z)
+        {
+            return new Vector3(0, 0, z);
+        }
+
+        public static Vector3 XY(float x, float y) { return new Vector3(x, y, 0); }
+        public static Vector3 XZ(float x, float z) { return new Vector3(x, 0, z); }
+
+        public static Vector3 YZ(float y, float z) { return new Vector3(0, y, z); }
+
+    }
+
+
+
+
+    [BurstCompile]
         [Serializable]
         public class ResourceValue
         {
             public int Amount;
             public ResourceType Type;
         }
-
-
 
         public enum ResourceType : byte
         {
@@ -51,7 +80,7 @@ namespace BuildingTools
 
         public enum MonsterType : byte
         {
-            Kobold,
+            Kobold = 0,
             Orc,
             Mimic,
             Clown,
@@ -67,7 +96,7 @@ namespace BuildingTools
 
         public enum BuildingType : byte
         {
-            Farm,
+            Farm = 0,
             Lumber_Yard,
             Mine,
             Inn,
@@ -79,5 +108,8 @@ namespace BuildingTools
             Armory,
             None
         }
+
+
+
 }
 

@@ -41,7 +41,7 @@ namespace SerializableDictionary.Scripts
         }
 
         public int Count => Dictionary.Count;
-        public void Add(TKey key, TValue value) => Dictionary.Add(key, value);
+        public void Add(TKey key, TValue value) => Dictionary.Add(key, value); 
         public bool Remove(TKey key) => Dictionary.Remove(key);
         public void Clear() => Dictionary.Clear();
         public bool ContainsKey(TKey key) => Dictionary.ContainsKey(key);
