@@ -8,7 +8,6 @@ public class GridInitMono : MonoBehaviour
     void Start()
     {
 
-
         for (int i = 0; i < math.pow(GameManager.instance.gridSize, 2); i++)
         {
             int k = i % GameManager.instance.gridSize;
@@ -17,8 +16,8 @@ public class GridInitMono : MonoBehaviour
           TileProperties tileProperties =  entity.GetComponent<TileProperties>();
             tileProperties.model = Instantiate(GameManager.instance.modelDictionary.Get(BuildingTools.BuildingType.None), tileProperties.modelTransform);
             GameManager.instance.tileProperties[i] = tileProperties;
-
-            this.enabled = false;
+            entity.GetComponentInChildren<TileAnimator>().CacheDeltaPos();
         }
+        this.enabled = false;
     }
 }

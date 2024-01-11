@@ -200,11 +200,11 @@ Transform:
   m_GameObject: {fileID: 155993489}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: 5}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalPosition: {x: 95, y: 0, z: 95}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1831644332}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &168683707
 GameObject:
@@ -5361,7 +5361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 201763302}
-  gridSize: 20
+  gridSize: 40
   tilePrefab: {fileID: 1968520076397765545, guid: 06c9dbe3aa1eb2a47a1b9903a6811e90, type: 3}
   sunTransform: {fileID: 705507995}
   moonTransform: {fileID: 280129801}
@@ -5484,6 +5484,7 @@ MonoBehaviour:
       _value: {fileID: 0}
     - _key: 10
       _value: {fileID: 6430576442529985957, guid: ddf27286751280048b045950a593598b, type: 3}
+  border: {fileID: 155993493}
 --- !u!114 &1694131988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5950,38 +5951,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830574016}
   m_CullTransparentMesh: 1
---- !u!1 &1831644331
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1831644332}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1831644332
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1831644331}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: -5}
-  m_LocalScale: {x: 20, y: 20, z: 20}
-  m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 155993493}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1846839711
 GameObject:
   m_ObjectHideFlags: 0
@@ -7738,7 +7707,7 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1831644332}
+  - {fileID: 155993493}
   - {fileID: 1694131985}
   - {fileID: 1256285538}
   - {fileID: 1458118987}

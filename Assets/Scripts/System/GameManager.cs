@@ -43,11 +43,16 @@ public class GameManager : MonoBehaviour
     public SerializableDictionary<BuildingStats, ResourceValue[]> buildingOutputLookup;
     public SerializableDictionary<string, BuildingType> buildingNameDictionary;
     public SerializableDictionary<BuildingType, GameObject> modelDictionary;
+
+   [SerializeField] Transform border;
     //
     private void Awake()
     {
         inputActions = new Inputactions3D();
         inputActions.Player.Enable();
+
+        border.localScale = Vector3.one * gridSize * 10;
+        border.position = new Vector3 (gridSize/2, 0, gridSize / 2) *10 - new Vector3(5,0,5);
 
         instance = this;
         tileProperties = new TileProperties[gridSize*gridSize];
