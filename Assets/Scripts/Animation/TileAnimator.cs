@@ -9,39 +9,35 @@ public class TileAnimator : MonoBehaviour
     [SerializeField] DynamicsTransform dynamicsTransform;
 
     float timeAtClick;
-    
+    private void FixedUpdate()
+    {
+        transform.localScale = Vector3.one;
+    }
 
     public void playUpdateAnimation()
     {
-        dynamicsTransform.enabled = true;
+        if (!dynamicsTransform.enabled) {dynamicsTransform.enabled = true; enabled = true; StartCoroutine(CheckAllowSleep(3)); }
+
         transform.localScale = blendScale;
-        StartCoroutine(press());
+        
     }
 
     public void CacheDeltaPos()
     {
-        StartCoroutine(DisableDyamicTransform(0.2f));
+        StartCoroutine(CheckAllowSleep(2));
     }
 
-    IEnumerator press()
-    {
-        timeAtClick = Time.time;
-        yield return new WaitForFixedUpdate();
-        transform.localScale = Vector3.one;
-        StartCoroutine(DisableDyamicTransform(3));
-    }
-
-    IEnumerator DisableDyamicTransform(float seconds)
+    IEnumerator CheckAllowSleep(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        if (timeAtClick + seconds + 0.05 < Time.time)
+        if (timeAtClick + seconds + 0.1  < Time.time)
         {
-            StartCoroutine(DisableDyamicTransform(seconds));
+            StartCoroutine(CheckAllowSleep(seconds));
         }
         else
         {
-        transform.localScale = Vector3.one;
         dynamicsTransform.enabled = false;
+         enabled = false;
         }    
 
     }
