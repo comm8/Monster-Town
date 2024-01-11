@@ -1447,7 +1447,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: mine
+          m_StringArgument: Mine
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &354462925
@@ -2822,7 +2822,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: farm
+          m_StringArgument: Farm
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &963194225
@@ -3589,7 +3589,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: none
+          m_StringArgument: None
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1015383021
@@ -5433,129 +5433,57 @@ MonoBehaviour:
     y: 0
   buildingType: 10
   pointerOverUI: 0
-  modelList:
-    EmptyPlot: {fileID: 6430576442529985957, guid: ddf27286751280048b045950a593598b, type: 3}
-    FarmModel: {fileID: 4463137463556503104, guid: cab6da6cf7bda194a9785582167d910c, type: 3}
-    InnModel: {fileID: 6391764774371186972, guid: 8dfac28a338473d4dbf1a278efe28ff3, type: 3}
-    LumberModel: {fileID: 6391764774371186972, guid: 7f947af620e51784d853f8ab61628cb3, type: 3}
-    FishingModel: {fileID: 0}
-    ForgeModel: {fileID: 0}
-    ApothecaryModel: {fileID: 6391764774371186972, guid: 26c00ca5d4802d241ad576d527aef8a0, type: 3}
-    LighthouseModel: {fileID: 0}
-    Necromansion: {fileID: 6391764774371186972, guid: e17df6ec88b3c704fb84626a2964cb87, type: 3}
-    MineModel: {fileID: 6391764774371186972, guid: 4aedb47219fe37f4daa38e9f9adc65da, type: 3}
-  resourceTableList:
-    farmResourceTable:
-      KoboldProduction: []
-      OrcProduction: []
-      MimicProduction: []
-      ClownProduction: []
-      WyvernProduction: []
-      GargoyleProduction: []
-      GorgonProduction: []
-      MindflayerProduction: []
-      PlantoidProduction: []
-      SkeletonProduction: []
-    lumber_YardResourceTable:
-      KoboldProduction: []
-      OrcProduction: []
-      MimicProduction: []
-      ClownProduction: []
-      WyvernProduction: []
-      GargoyleProduction: []
-      GorgonProduction: []
-      MindflayerProduction: []
-      PlantoidProduction: []
-      SkeletonProduction: []
-    mineResourceTable:
-      KoboldProduction: []
-      OrcProduction: []
-      MimicProduction: []
-      ClownProduction: []
-      WyvernProduction: []
-      GargoyleProduction: []
-      GorgonProduction: []
-      MindflayerProduction: []
-      PlantoidProduction: []
-      SkeletonProduction: []
-    innResourceTable:
-      KoboldProduction: []
-      OrcProduction: []
-      MimicProduction: []
-      ClownProduction: []
-      WyvernProduction: []
-      GargoyleProduction: []
-      GorgonProduction: []
-      MindflayerProduction: []
-      PlantoidProduction: []
-      SkeletonProduction: []
-    forgeResourceTable:
-      KoboldProduction: []
-      OrcProduction: []
-      MimicProduction: []
-      ClownProduction: []
-      WyvernProduction: []
-      GargoyleProduction: []
-      GorgonProduction: []
-      MindflayerProduction: []
-      PlantoidProduction: []
-      SkeletonProduction: []
-    necroMansionResourceTable:
-      KoboldProduction: []
-      OrcProduction: []
-      MimicProduction: []
-      ClownProduction: []
-      WyvernProduction: []
-      GargoyleProduction: []
-      GorgonProduction: []
-      MindflayerProduction: []
-      PlantoidProduction: []
-      SkeletonProduction: []
-    fishing_DockResourceTable:
-      KoboldProduction: []
-      OrcProduction: []
-      MimicProduction: []
-      ClownProduction: []
-      WyvernProduction: []
-      GargoyleProduction: []
-      GorgonProduction: []
-      MindflayerProduction: []
-      PlantoidProduction: []
-      SkeletonProduction: []
-    light_HouseResourceTable:
-      KoboldProduction: []
-      OrcProduction: []
-      MimicProduction: []
-      ClownProduction: []
-      WyvernProduction: []
-      GargoyleProduction: []
-      GorgonProduction: []
-      MindflayerProduction: []
-      PlantoidProduction: []
-      SkeletonProduction: []
-    apothecaryResourceTable:
-      KoboldProduction: []
-      OrcProduction: []
-      MimicProduction: []
-      ClownProduction: []
-      WyvernProduction: []
-      GargoyleProduction: []
-      GorgonProduction: []
-      MindflayerProduction: []
-      PlantoidProduction: []
-      SkeletonProduction: []
-    armoryResourceTable:
-      KoboldProduction: []
-      OrcProduction: []
-      MimicProduction: []
-      ClownProduction: []
-      WyvernProduction: []
-      GargoyleProduction: []
-      GorgonProduction: []
-      MindflayerProduction: []
-      PlantoidProduction: []
-      SkeletonProduction: []
   tileProperties: []
+  buildingOutputLookup:
+    _pairs: []
+  buildingNameDictionary:
+    _pairs:
+    - _key: None
+      _value: 10
+    - _key: Farm
+      _value: 0
+    - _key: Inn
+      _value: 3
+    - _key: Lumber yard
+      _value: 1
+    - _key: Fishing dock
+      _value: 6
+    - _key: Apothecary
+      _value: 8
+    - _key: Forge
+      _value: 4
+    - _key: Lighthouse
+      _value: 7
+    - _key: Necromansion
+      _value: 5
+    - _key: Mine
+      _value: 2
+    - _key: Armory
+      _value: 9
+  modelDictionary:
+    _pairs:
+    - _key: 0
+      _value: {fileID: 4463137463556503104, guid: cab6da6cf7bda194a9785582167d910c, type: 3}
+    - _key: 1
+      _value: {fileID: 6391764774371186972, guid: 7f947af620e51784d853f8ab61628cb3, type: 3}
+    - _key: 2
+      _value: {fileID: 6391764774371186972, guid: 4aedb47219fe37f4daa38e9f9adc65da, type: 3}
+    - _key: 3
+      _value: {fileID: 6391764774371186972, guid: 8dfac28a338473d4dbf1a278efe28ff3, type: 3}
+    - _key: 4
+      _value: {fileID: 6391764774371186972, guid: 07af27bf6566f194f8e2643216e4d61f, type: 3}
+    - _key: 5
+      _value: {fileID: 6391764774371186972, guid: e17df6ec88b3c704fb84626a2964cb87, type: 3}
+    - _key: 6
+      _value: {fileID: 0}
+    - _key: 7
+      _value: {fileID: 0}
+    - _key: 8
+      _value: {fileID: 6391764774371186972, guid: 26c00ca5d4802d241ad576d527aef8a0, type: 3}
+    - _key: 9
+      _value: {fileID: 0}
+    - _key: 10
+      _value: {fileID: 6430576442529985957, guid: ddf27286751280048b045950a593598b, type: 3}
 --- !u!114 &1694131988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6500,7 +6428,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: lumber yard
+          m_StringArgument: Lumber yard
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1931796647
@@ -7669,7 +7597,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: necromansion
+          m_StringArgument: Necromansion
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &2113796517
