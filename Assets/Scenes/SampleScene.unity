@@ -1057,11 +1057,11 @@ GameObject:
   - component: {fileID: 311216459}
   - component: {fileID: 311216458}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!64 &311216458
 MeshCollider:
@@ -3373,7 +3373,7 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    quality: 4
+    quality: 3
     frameInfluence: 0.1
     jitterScale: 1
     mipBias: 0
