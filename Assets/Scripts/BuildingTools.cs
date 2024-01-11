@@ -65,21 +65,6 @@ namespace BuildingTools
         }
 
 
-     [Serializable]
-         public class ResourceTable
-        {
-            public ResourceValue[] KoboldProduction;
-            public ResourceValue[] OrcProduction;
-            public ResourceValue[] MimicProduction;
-            public ResourceValue[] ClownProduction;
-            public ResourceValue[] WyvernProduction;
-            public ResourceValue[] GargoyleProduction;
-            public ResourceValue[] GorgonProduction;
-            public ResourceValue[]MindflayerProduction;
-            public ResourceValue[] PlantoidProduction;
-            public ResourceValue[] SkeletonProduction;
-        }
-
         public enum BuildingType : byte
         {
             Farm,

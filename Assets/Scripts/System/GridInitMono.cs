@@ -15,7 +15,7 @@ public class GridInitMono : MonoBehaviour
             GameObject entity = Instantiate(GameManager.instance.tilePrefab, tileParent);
             entity.transform.position = new float3(k, 0, i / GameManager.instance.gridSize) * 10;
           TileProperties tileProperties =  entity.GetComponent<TileProperties>();
-            tileProperties.model = Instantiate(GameManager.instance.modelList.EmptyPlot, tileProperties.modelTransform);
+            tileProperties.model = Instantiate(GameManager.instance.modelDictionary.Get(BuildingTools.BuildingType.None), tileProperties.modelTransform);
             GameManager.instance.tileProperties[i] = tileProperties;
 
             this.enabled = false;

@@ -1,8 +1,5 @@
 using UnityEngine;
 using BuildingTools;
-using System.Collections.Generic;
-using System.Collections;
-using Unity.Mathematics;
 
 public class TileProperties : MonoBehaviour
 {

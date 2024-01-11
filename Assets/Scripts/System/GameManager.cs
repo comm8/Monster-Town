@@ -4,6 +4,7 @@ using Unity.Mathematics;
 using TMPro;
 using UnityEngine.EventSystems;
 using System;
+using SerializableDictionary.Scripts;
 
 public class GameManager : MonoBehaviour
 {
@@ -38,9 +39,10 @@ public class GameManager : MonoBehaviour
 
     [Header("Other")]
 
-    public ModelList modelList;
-    public ResourceTableList resourceTableList;
     public TileProperties[] tileProperties;
+    public SerializableDictionary<BuildingStats, ResourceValue[]> buildingOutputLookup;
+    public SerializableDictionary<string, BuildingType> buildingNameDictionary;
+    public SerializableDictionary<BuildingType, GameObject> modelDictionary;
     //
     private void Awake()
     {
@@ -107,57 +109,7 @@ public class GameManager : MonoBehaviour
 
     public void SetType(string type)
     {
-        BuildingType building = BuildingType.Farm;
-
-        switch(type)
-        {
-            case "none" :
-                building = BuildingType.None;
-                break;
-
-            case "farm":
-                building = BuildingType.Farm;
-                break;
-
-            case "inn":
-                building = BuildingType.Inn;
-                break;
-
-            case "lumber yard":
-                building = BuildingType.Lumber_Yard;
-                break;
-
-            case "fishing dock":
-                building = BuildingType.Fishing_Dock;
-                break;
-
-            case "apothecary":
-                building = BuildingType.Apothecary;
-                break;
-
-            case "forge":
-                building = BuildingType.Forge;
-                break;
-
-            case "lighthouse":
-                building = BuildingType.Light_House;
-                break;
-
-            case "necromansion":
-                building = BuildingType.NecroMansion;
-                break;
-
-            case "mine":
-                building = BuildingType.Mine;
-                break;
-        }
-
-        SetType(building);
-    }
-
-    public void SetType(BuildingType type)
-    {
-        buildingType = type;
+        buildingType = buildingNameDictionary.Get(type);
     }
 
 
@@ -165,66 +117,16 @@ public class GameManager : MonoBehaviour
     public void placeTile(TileProperties tile, BuildingType desired)
     {
         Destroy(tile.model);
-        GameObject desiredModel = modelList.EmptyPlot;
+        GameObject desiredModel = modelDictionary.Get(desired);
 
-        switch (desired)
-        {
-            case BuildingType.Farm:
-                desiredModel = modelList.FarmModel; break;
-
-            case BuildingType.Lumber_Yard: 
-                desiredModel = modelList.LumberModel; break;
-
-            case BuildingType.Mine:
-                desiredModel = modelList.MineModel; break;
-
-            case BuildingType.NecroMansion:
-                desiredModel = modelList.Necromansion; break;
-
-            case BuildingType.Inn:
-                desiredModel = modelList.InnModel; break;
-
-            case BuildingType.Forge:
-                desiredModel = modelList.ForgeModel; break;
-
-            case BuildingType.Apothecary:
-                desiredModel = modelList.ApothecaryModel; break;
-        }
         tile.model = Instantiate(desiredModel, tile.modelTransform);
         tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
     }
-
-
 }
 
 [Serializable]
-public class ModelList
+public class BuildingStats
 {
-    public GameObject EmptyPlot;
-    public GameObject FarmModel;
-    public GameObject InnModel;
-    public GameObject LumberModel;
-    public GameObject FishingModel;
-    public GameObject ForgeModel;
-    public GameObject ApothecaryModel;
-    public GameObject LighthouseModel;
-    public GameObject Necromansion;
-    public GameObject MineModel;
-    
+    public MonsterType monsterType;
+    public BuildingType buildingType;
 }
-
-[Serializable]
-public class ResourceTableList
-{
-    public ResourceTable farmResourceTable;
-    public ResourceTable lumber_YardResourceTable;
-    public ResourceTable mineResourceTable;
-    public ResourceTable innResourceTable;
-    public ResourceTable forgeResourceTable;
-    public ResourceTable necroMansionResourceTable;
-    public ResourceTable fishing_DockResourceTable;
-    public ResourceTable light_HouseResourceTable;
-    public ResourceTable apothecaryResourceTable;
-    public ResourceTable armoryResourceTable;
-}
-
