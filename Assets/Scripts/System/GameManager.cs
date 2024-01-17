@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
     public SerializableDictionary<BuildingStats, ResourceValue[]> buildingOutputLookup;
     public SerializableDictionary<string, BuildingType> buildingNameDictionary;
     public SerializableDictionary<BuildingType, GameObject> modelDictionary;
-
    [SerializeField] Transform border;
     //
     private void Awake()
