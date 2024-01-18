@@ -1,7 +1,6 @@
 using Unity.Mathematics;
 using UnityEngine;
 
-
 public class CameraController : MonoBehaviour
 {
     [Header("WASD Movement")]
@@ -31,12 +30,9 @@ public class CameraController : MonoBehaviour
     [SerializeField] float rotationVelocityDecay;
     [SerializeField] float rotationVelocity;
 
-
-
     [SerializeField] bool usingController;
 
     bool allowRotation;
-
 
     void Awake()
     {
@@ -127,12 +123,9 @@ cameraTech.transform.RotateAround(hit.point, Vector3.up, rotationVelocity);
         CheckAllowRotation();
         float deltaScroll = ClampDeltaScroll();
 
-
-
         rotFreeTransform.position = transform.position;
         rotFreeTransform.Rotate(Vector3.up * (transform.eulerAngles.y - rotFreeTransform.eulerAngles.y));
         Vector2 DesiredMovement = inputActions.Player.Move.ReadValue<Vector2>() * Time.deltaTime * movementMultiplier * (zoomPercentage + 0.7f) * accelerationCurve.Evaluate(accelerationTimer / accelerationTime);
-
 
         transform.position += rotFreeTransform.TransformDirection( Swizzle._x0y(DesiredMovement));
         transform.position = Swizzle.SetY(transform.position, math.lerp(MinAltitude, MaxAltitude, ZoomAltitudeCurve.Evaluate(zoomPercentage + deltaScroll)));
@@ -142,4 +135,5 @@ cameraTech.transform.RotateAround(hit.point, Vector3.up, rotationVelocity);
 
         zoomPercentage += deltaScroll;
     }
+
 }
