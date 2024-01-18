@@ -66,30 +66,24 @@ public class CameraController : MonoBehaviour
 
     private float ClampDeltaScroll()
     {
-        float deltaScroll = 0;
+        float deltaZoom = 0;
 
         if(!GameManager.instance.pointerOverUI)
         {
-            deltaScroll = inputActions.Player.Scroll.ReadValue<float>();
+            deltaZoom = inputActions.Player.Scroll.ReadValue<float>();
         }
 
         if (allowRotation)
         {
-            deltaScroll += inputActions.Player.Look.ReadValue<Vector2>().y;
+            deltaZoom += inputActions.Player.Look.ReadValue<Vector2>().y;
         }
 
-
-        if (deltaScroll + zoomPercentage > 1)
+        if (deltaZoom + zoomPercentage > 1 || deltaZoom + zoomPercentage < 0)
         {
-            deltaScroll = 1 - zoomPercentage;
-        }
-        else if (deltaScroll + zoomPercentage < 0)
-        {
-            deltaScroll = -zoomPercentage;
+            deltaZoom = 0;
         }
 
-
-        return deltaScroll;
+        return deltaZoom;
     }
 
     private void RotateCamera()
@@ -113,7 +107,7 @@ public class CameraController : MonoBehaviour
                 RaycastHit hit;
         Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit);
 
-cameraTech.transform.RotateAround(hit.point, Vector3.up, rotationVelocity);
+        cameraTech.transform.RotateAround(hit.point, Vector3.up, rotationVelocity);
 
     }
 
@@ -121,19 +115,19 @@ cameraTech.transform.RotateAround(hit.point, Vector3.up, rotationVelocity);
     {
         UpdateTimer();
         CheckAllowRotation();
-        float deltaScroll = ClampDeltaScroll();
+        float deltaZoom = ClampDeltaScroll();
 
         rotFreeTransform.position = transform.position;
         rotFreeTransform.Rotate(Vector3.up * (transform.eulerAngles.y - rotFreeTransform.eulerAngles.y));
         Vector2 DesiredMovement = inputActions.Player.Move.ReadValue<Vector2>() * Time.deltaTime * movementMultiplier * (zoomPercentage + 0.7f) * accelerationCurve.Evaluate(accelerationTimer / accelerationTime);
 
         transform.position += rotFreeTransform.TransformDirection( Swizzle._x0y(DesiredMovement));
-        transform.position = Swizzle.SetY(transform.position, math.lerp(MinAltitude, MaxAltitude, ZoomAltitudeCurve.Evaluate(zoomPercentage + deltaScroll)));
+        transform.position = Swizzle.SetY(transform.position, math.lerp(MinAltitude, MaxAltitude, ZoomAltitudeCurve.Evaluate(zoomPercentage + deltaZoom)));
 
-        transform.Rotate(Swizzle._x00(math.lerp(MinRotation, MaxRotation, zoomRotationCurve.Evaluate(zoomPercentage + deltaScroll)) - transform.eulerAngles.x));
+        transform.Rotate(Swizzle._x00(math.lerp(MinRotation, MaxRotation, zoomRotationCurve.Evaluate(zoomPercentage + deltaZoom)) - transform.eulerAngles.x));
         RotateCamera();
 
-        zoomPercentage += deltaScroll;
+        zoomPercentage += deltaZoom;
     }
 
 }
