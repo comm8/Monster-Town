@@ -115,5 +115,11 @@ namespace BuildingTools
         public bool left, right, bottom, top, center;
     }
 
+    [Serializable]
+    public class BuildingStats
+    {
+        public MonsterType monsterType;
+        public BuildingType buildingType;
+    }
 }
 
