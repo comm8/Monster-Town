@@ -109,7 +109,11 @@ namespace BuildingTools
             None
         }
 
-
+    [Serializable]
+    public class RoadTable
+    {
+        public bool left, right, bottom, top, center;
+    }
 
 }
 

@@ -35,7 +35,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform Selection;
     [SerializeField] int2 SelectionGridPos;
     [SerializeField] BuildingType buildingType;
-   public  bool pointerOverUI = false;
+    public bool pointerOverUI = false;
+    int2[] buildingDragHistory; 
+
 
     [Header("Other")]
 
@@ -43,7 +45,12 @@ public class GameManager : MonoBehaviour
     public SerializableDictionary<BuildingStats, ResourceValue[]> buildingOutputLookup;
     public SerializableDictionary<string, BuildingType> buildingNameDictionary;
     public SerializableDictionary<BuildingType, GameObject> modelDictionary;
-   [SerializeField] Transform border;
+
+    [SerializeField] SerializableDictionary<RoadTable, Vector2> roadShapeDictionary;
+
+    [SerializeField] Transform border;
+
+    bool tryPlace;
     //
     private void Awake()
     {
@@ -64,6 +71,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        checkLeftClick();
+
         pointerOverUI = EventSystem.current.IsPointerOverGameObject();
         if(!pointerOverUI)
         {
@@ -71,24 +80,19 @@ public class GameManager : MonoBehaviour
         SelectTile();
         }
 
-        
-
         UpdateDayNightCycle();
 
     }
 
     void SelectTile()
     {
-
-       if(inputActions.Player.Fire.ReadValue<float>() > 0.5f) 
+       if(tryPlace) 
         {
             var curTile = BuildingUtils.CoordsToSlotID(SelectionGridPos, gridSize);
             if(curTile < tileProperties.Length && curTile >= 0) 
             {
                 placeTile(tileProperties[curTile], buildingType);
             }
-
-
         }
     }
 
@@ -126,6 +130,38 @@ public class GameManager : MonoBehaviour
         tile.model = Instantiate(desiredModel, tile.modelTransform);
         tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
     }
+
+
+    void onStartPlace()
+    {
+
+    }
+
+    void onEndPlace()
+    {
+
+    }
+
+    void checkLeftClick()
+    {
+        if(tryPlace)
+        {
+            if(inputActions.Player.Fire.ReadValue<float>() < 0.5f)
+            { 
+                onEndPlace();
+                tryPlace = false;
+            }
+        }
+        else
+        {
+            if (inputActions.Player.Fire.ReadValue<float>() > 0.5f)
+            {
+                onStartPlace();
+                tryPlace = true;
+            }
+        }
+    }
+
 }
 
 [Serializable]
