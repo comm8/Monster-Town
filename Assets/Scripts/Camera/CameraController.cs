@@ -89,9 +89,7 @@ public class CameraController : MonoBehaviour
     private void RotateCamera()
     {
 
-        rotationVelocity = 0.0f;
-
-        rotationVelocity += inputActions.Player.Rotate.ReadValue<float>();
+        rotationVelocity = inputActions.Player.Rotate.ReadValue<float>();
 
         if (allowRotation)
         {
@@ -119,6 +117,7 @@ public class CameraController : MonoBehaviour
 
         rotFreeTransform.position = transform.position;
         rotFreeTransform.Rotate(Vector3.up * (transform.eulerAngles.y - rotFreeTransform.eulerAngles.y));
+
         Vector2 DesiredMovement = inputActions.Player.Move.ReadValue<Vector2>() * Time.deltaTime * movementMultiplier * (zoomPercentage + 0.7f) * accelerationCurve.Evaluate(accelerationTimer / accelerationTime);
 
         transform.position += rotFreeTransform.TransformDirection( Swizzle._x0y(DesiredMovement));

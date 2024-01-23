@@ -54,13 +54,14 @@ public class GameManager : MonoBehaviour
     //
     private void Awake()
     {
+        instance = this;
         inputActions = new Inputactions3D();
         inputActions.Player.Enable();
 
         border.localScale = Vector3.one * gridSize * 10;
         border.position = new Vector3 (gridSize/2, 0, gridSize / 2) *10 - new Vector3(5,0,5);
 
-        instance = this;
+
         tileProperties = new TileProperties[gridSize*gridSize];
     }
 
@@ -98,19 +99,18 @@ public class GameManager : MonoBehaviour
 
     void GetCurrentTile()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        Physics.Raycast(ray, out hit);
+        Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit);
         SelectionGridPos = BuildingUtils.PositionToTile(hit.point);
-        Selection.position = new Vector3(SelectionGridPos.x * 10, 0, SelectionGridPos.y * 10);
+        Selection.position = new Vector3(SelectionGridPos.x, 0, SelectionGridPos.y) * 10;
     }
 
     void UpdateDayNightCycle()
     {
         float deltaTime = Time.deltaTime;
-
-        sunTransform.Rotate(new Vector3(speedMultiplier, 0, 0) * deltaTime);
-        moonTransform.Rotate(new Vector3(speedMultiplier, 0, 0) * deltaTime);
+       
+        sunTransform.Rotate(VectorExtensions.X(speedMultiplier * deltaTime));
+        moonTransform.Rotate(VectorExtensions.X(speedMultiplier * deltaTime));
+        //
         int curtime = (int)(Time.time/2);
         TextMesh.text = curtime/6  + ":" + (curtime % 6) + "0";
     }
@@ -142,6 +142,16 @@ public class GameManager : MonoBehaviour
 
     }
 
+    void OnEnterTile()
+    {
+
+    }
+
+    void OnExitTile()
+    {
+
+    }
+
     void checkLeftClick()
     {
         if(tryPlace)
@@ -164,9 +174,3 @@ public class GameManager : MonoBehaviour
 
 }
 
-[Serializable]
-public class BuildingStats
-{
-    public MonsterType monsterType;
-    public BuildingType buildingType;
-}
