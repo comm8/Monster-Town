@@ -12,14 +12,17 @@ public class TerrainGenerator : MonoBehaviour
     Vector3[] verticies;
     int[] triangles;
     Vector2[] UVs;
+    [SerializeField] Texture2D heightmap;
 
     int gridsize;
     // Start is called before the first frame update
     void Start()
     {
+        gridsize = GameManager.instance.gridSize * 8;
+        heightmap = new Texture2D(gridsize, gridsize, TextureFormat.R8, false);
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
-        gridsize = GameManager.instance.gridSize * 10;
+
         GenerateMesh();
 
 
@@ -72,13 +75,20 @@ public class TerrainGenerator : MonoBehaviour
 
 
         UpdateMesh();
+        heightmap.Apply();
+        GetComponent<Renderer>().material.SetTexture("_BaseMap", heightmap);
     }
 
-    float generateTerrainnoise(float x, float z)
+    float generateTerrainnoise(int x, int z)
     {
-        float y = 0;
-        y = Mathf.PerlinNoise(x*0.05f, z* 0.05f) *5 ;
-        return y;
+        
+        Vector2 UV = new Vector2(x - (x%10), z - (z%10)) + (Vector2.one * -5f);
+        UV = UV / GameManager.instance.gridSize;
+
+       float y = Mathf.PerlinNoise(UV.x,UV.y);
+        heightmap.SetPixel(x, z, new Color((int)math.lerp(0, 255, y), 0,0), 0);
+
+        return y *10 ;
     }
 
     void UpdateMesh()
