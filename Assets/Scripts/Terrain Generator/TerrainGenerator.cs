@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
-
+using UnityEngine.Rendering;
 
 [RequireComponent(typeof(MeshFilter))]
 public class TerrainGenerator : MonoBehaviour
@@ -18,7 +18,7 @@ public class TerrainGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gridsize = GameManager.instance.gridSize * 8;
+        gridsize = GameManager.instance.gridSize * 10;
         heightmap = new Texture2D(gridsize, gridsize, TextureFormat.R8, false);
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
@@ -76,20 +76,10 @@ public class TerrainGenerator : MonoBehaviour
 
         UpdateMesh();
         heightmap.Apply();
-        GetComponent<Renderer>().material.SetTexture("_BaseMap", heightmap);
+        //GetComponent<Renderer>().material.SetTexture("_BaseMap", heightmap);
     }
 
-    float generateTerrainnoise(int x, int z)
-    {
-        
-        Vector2 UV = new Vector2(x - (x%10), z - (z%10)) + (Vector2.one * -5f);
-        UV = UV / GameManager.instance.gridSize;
 
-       float y = Mathf.PerlinNoise(UV.x,UV.y);
-        heightmap.SetPixel(x, z, new Color((int)math.lerp(0, 255, y), 0,0), 0);
-
-        return y *10 ;
-    }
 
     void UpdateMesh()
     {
@@ -111,4 +101,32 @@ public class TerrainGenerator : MonoBehaviour
         //meshCollider.convex = true;
         meshCollider.providesContacts = true;
     }
+    
+    
+    float generateTerrainnoise(int x, int z)
+    {
+        Vector2 UV = new Vector2(x ,z);
+        Vector2 UVCenter = new Vector2(x%1 + 0.5f, z%1 + 0.5f);
+
+
+        float distToCenterSquare = getRepeatingGradient(UV.x) * getRepeatingGradient(UV.y);
+        distToCenterSquare = math.pow(distToCenterSquare, 0.6f);
+
+        Vector2 AdjustedUV = math.lerp(UVCenter, UVCenter, distToCenterSquare);
+
+        AdjustedUV = AdjustedUV / GameManager.instance.gridSize;
+
+       float y = Mathf.PerlinNoise(AdjustedUV.x * 0.1f, AdjustedUV.y * 0.1f);
+        if (y < 0.35) { y -= 0.1f; }
+
+        heightmap.SetPixel(x, z, new Color(y,0,0));
+
+        return y *30;
+    }
+
+    float getRepeatingGradient(float x)
+    {
+        return math.abs((x % 1) - 0.5f);
+    }
+
 }

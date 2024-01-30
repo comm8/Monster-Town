@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform sunTransform, moonTransform;
     [SerializeField] Gradient SunColor, moonColor;
 
+
     [SerializeField] float speedMultiplier;
     [SerializeField] TMP_Text TextMesh;
 
@@ -108,8 +109,11 @@ public class GameManager : MonoBehaviour
     {
         float deltaTime = Time.deltaTime;
        
-        sunTransform.Rotate(VectorExtensions.X(speedMultiplier * deltaTime));
-        moonTransform.Rotate(VectorExtensions.X(speedMultiplier * deltaTime));
+        sunTransform.Rotate(VectorExtensions.X(speedMultiplier * deltaTime * 360));
+        moonTransform.Rotate(VectorExtensions.X(speedMultiplier * deltaTime * 360));
+
+        //RenderSettings.ambientIntensity = math.sin(Time.time * speedMultiplier);
+
         //
         int curtime = (int)(Time.time/2);
         TextMesh.text = curtime/6  + ":" + (curtime % 6) + "0";
