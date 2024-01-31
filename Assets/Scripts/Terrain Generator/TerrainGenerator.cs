@@ -37,7 +37,7 @@ public class TerrainGenerator : MonoBehaviour
         {
             for (int x = 0; x <= gridsize; x++)
             {
-                verticies[i] = new Vector3(x,  generateTerrainnoise(x, z) , z);
+                verticies[i] = new Vector3(x,  0 , z);
                 i++;
             }
         }
