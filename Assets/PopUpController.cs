@@ -10,8 +10,14 @@ public class PopUpController : MonoBehaviour
 
     public float width;
     public float height;
-    // Start is called before the first frame update
-   
+
+    private void Awake()
+    {
+        width = rectTransform.rect.width;
+        height = rectTransform.rect.height;
+        
+
+    }
 
     // Update is called once per frame
     void Update()
