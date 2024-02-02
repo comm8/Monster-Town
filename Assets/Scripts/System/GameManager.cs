@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Transform border;
 
-    bool tryPlace;
+    bool Interacting;
     //
     private void Awake()
     {
@@ -76,12 +76,20 @@ public class GameManager : MonoBehaviour
 
     void SelectTile()
     {
-       if(tryPlace) 
+       if(Interacting) 
         {
             var curTile = BuildingUtils.CoordsToSlotID(SelectionGridPos, gridSize);
             if(curTile < tileProperties.Length && curTile >= 0) 
             {
-                placeTile(tileProperties[curTile], buildingType);
+                var tile = tileProperties[curTile];
+                if (tile.buildingType != BuildingType.None && buildingType != BuildingType.None)
+                {
+                    interactWithTile(tile); 
+                }
+                else
+                {
+                    placeTile(tileProperties[curTile], buildingType);
+                }
             }
         }
     }
@@ -105,16 +113,18 @@ public class GameManager : MonoBehaviour
 
     public void placeTile(TileProperties tile, BuildingType desired)
     {
-        //if 
-        Debug.Log(tile.buildingType + " " + desired);
-        if (tile.buildingType != BuildingType.None && desired != BuildingType.None) { return;}
         Destroy(tile.model);
         GameObject desiredModel = modelDictionary.Get(desired);
 
         tile.model = Instantiate(desiredModel, tile.modelTransform);
+        tile.buildingType = desired;
         tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
     }
 
+    public void interactWithTile(TileProperties tile)
+    {
+        tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
+    }
 
     void onStartPlace()
     {
@@ -138,12 +148,12 @@ public class GameManager : MonoBehaviour
 
     void checkLeftClick()
     {
-        if(tryPlace)
+        if(Interacting)
         {
             if(inputActions.Player.Fire.ReadValue<float>() < 0.5f)
             { 
                 onEndPlace();
-                tryPlace = false;
+                Interacting = false;
             }
         }
         else
@@ -151,7 +161,7 @@ public class GameManager : MonoBehaviour
             if (inputActions.Player.Fire.ReadValue<float>() > 0.5f)
             {
                 onStartPlace();
-                tryPlace = true;
+                Interacting = true;
             }
         }
     }
