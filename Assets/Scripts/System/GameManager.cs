@@ -1,7 +1,6 @@
 using UnityEngine;
 using BuildingTools;
 using Unity.Mathematics;
-using TMPro;
 using UnityEngine.EventSystems;
 using SerializableDictionary.Scripts;
 
@@ -13,11 +12,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform cameraTransform;
     Inputactions3D inputActions;
     public int gridSize = 20;
-
     public GameObject tilePrefab;
 
     [Header("Selection")]
-
     [SerializeField] Transform Selection;
     [SerializeField] int2 SelectionGridPos;
     [SerializeField] BuildingType buildingType;
@@ -25,9 +22,11 @@ public class GameManager : MonoBehaviour
     int2[] buildingDragHistory; 
 
 
-    [Header("Other")]
-
+    [Header("Memory")]
     public TileProperties[] tileProperties;
+    public MonsterStats[] monsters;
+
+    [Header("Other")]
     public SerializableDictionary<BuildingStats, ResourceValue[]> buildingOutputLookup;
     public SerializableDictionary<string, BuildingType> buildingNameDictionary;
     public SerializableDictionary<BuildingType, GameObject> modelDictionary;
@@ -100,6 +99,7 @@ public class GameManager : MonoBehaviour
     {
         buildingType = buildingNameDictionary.Get(type);
     }
+
 
 
 

@@ -1,5 +1,6 @@
 using UnityEngine;
 using Unity.Mathematics;
+using BuildingTools;
 
 public class GridInitMono : MonoBehaviour
 {
@@ -16,7 +17,6 @@ public class GridInitMono : MonoBehaviour
           TileProperties tileProperties =  entity.GetComponent<TileProperties>();
 
             tileProperties.buildingType = BuildingTools.BuildingType.None;
-            tileProperties.monsterType = BuildingTools.MonsterType.NoUnit;
 
             tileProperties.model = Instantiate(GameManager.instance.modelDictionary.Get(BuildingTools.BuildingType.None), tileProperties.modelTransform);
             GameManager.instance.tileProperties[i] = tileProperties;

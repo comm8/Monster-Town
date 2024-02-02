@@ -121,5 +121,13 @@ namespace BuildingTools
         public MonsterType monsterType;
         public BuildingType buildingType;
     }
+
+    [Serializable]
+    public class MonsterStats
+    {
+        public MonsterType type;
+        public string name;
+        public int2 tile;
+    }
 }
 

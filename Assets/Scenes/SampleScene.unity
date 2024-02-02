@@ -6664,6 +6664,7 @@ MonoBehaviour:
   buildingType: 10
   pointerOverUI: 0
   tileProperties: []
+  monsters: []
   buildingOutputLookup:
     _pairs:
     - _key:
