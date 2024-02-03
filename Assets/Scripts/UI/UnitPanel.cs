@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using BuildingTools;
 public class UnitPanel : MonoBehaviour
 {
-    public TMP_Text monsterName, production, employementStatus;
+    public TMP_Text monsterName, production, employementStatus, species;
     public Image monsterIcon;
 
 
@@ -14,6 +14,7 @@ public class UnitPanel : MonoBehaviour
     {
         monsterName.text = stats.name;
         monsterIcon.sprite = stats.icon;
+        species.text = stats.type.ToString();
     }
 
 }

@@ -4,6 +4,7 @@ using Unity.Mathematics;
 using UnityEngine.EventSystems;
 using SerializableDictionary.Scripts;
 using System.Collections.Generic;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -42,7 +43,13 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         monsters = new();
-        GameManager.instance.monsters.Add  (new MonsterStats{name = GetComponent<GridInitMono>().Names[UnityEngine.Random.Range(0,99)],});
+
+    var gridInit = GetComponent<GridInitMono>();
+
+    for(int i = 0; i < 50; i++)
+    {
+        monsters.Add(new MonsterStats{name =  gridInit.Names[UnityEngine.Random.Range(0,99)], type = (MonsterType)UnityEngine.Random.Range(0,9)});
+    }
         //settup input system
         inputActions = new Inputactions3D();
         inputActions.Player.Enable();
