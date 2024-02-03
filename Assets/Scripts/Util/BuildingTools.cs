@@ -128,6 +128,7 @@ namespace BuildingTools
         public MonsterType type;
         public string name;
         public int2 tile;
-    }
+
+        public Sprite icon; }
 }
 

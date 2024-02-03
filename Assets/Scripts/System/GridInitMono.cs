@@ -6,6 +6,9 @@ public class GridInitMono : MonoBehaviour
 {
     [SerializeField] Transform tileParent;  
 
+    public string[] Names;
+
+
     void Start()
     {
 
@@ -22,6 +25,14 @@ public class GridInitMono : MonoBehaviour
             GameManager.instance.tileProperties[i] = tileProperties;
             entity.GetComponentInChildren<TileAnimator>().CacheDeltaPos();
         }
+        
+        
+         GameManager.instance.monsters = new();
+    for(int i = 0; i > 50; i++)
+    {
+        GameManager.instance.monsters.Add  (new MonsterStats{name = Names[UnityEngine.Random.Range(0,99)],});
+    }
         this.enabled = false;
+
     }
 }

@@ -3,6 +3,7 @@ using BuildingTools;
 using Unity.Mathematics;
 using UnityEngine.EventSystems;
 using SerializableDictionary.Scripts;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Memory")]
     public TileProperties[] tileProperties;
-    public MonsterStats[] monsters;
+    public List<MonsterStats> monsters;
 
     [Header("Other")]
     public SerializableDictionary<BuildingStats, ResourceValue[]> buildingOutputLookup;
@@ -40,7 +41,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-
+        monsters = new();
+        GameManager.instance.monsters.Add  (new MonsterStats{name = GetComponent<GridInitMono>().Names[UnityEngine.Random.Range(0,99)],});
         //settup input system
         inputActions = new Inputactions3D();
         inputActions.Player.Enable();
