@@ -15,13 +15,14 @@ public class GameManager : MonoBehaviour
     Inputactions3D inputActions;
     public int gridSize = 20;
     public GameObject tilePrefab;
+    public GameObject UnitSelectionPrefab;
 
     [Header("Selection")]
     [SerializeField] Transform Selection;
     [SerializeField] int2 SelectionGridPos;
     [SerializeField] BuildingType buildingType;
     public bool pointerOverUI = false;
-    int2[] buildingDragHistory; 
+    int2[] buildingDragHistory;
 
 
     [Header("Memory")]
@@ -33,33 +34,32 @@ public class GameManager : MonoBehaviour
     public SerializableDictionary<string, BuildingType> buildingNameDictionary;
     public SerializableDictionary<BuildingType, GameObject> modelDictionary;
 
+    public SerializableDictionary<MonsterType, Sprite> imageDictionary;
+
     [SerializeField] SerializableDictionary<RoadTable, Vector2> roadShapeDictionary;
 
     [SerializeField] Transform border;
+
+    [SerializeField] GameObject UI;
 
     bool Interacting;
     //
     private void Awake()
     {
         instance = this;
-        monsters = new();
 
-    var gridInit = GetComponent<GridInitMono>();
+        DevSetUpMonsters();
 
-    for(int i = 0; i < 50; i++)
-    {
-        monsters.Add(new MonsterStats{name =  gridInit.Names[UnityEngine.Random.Range(0,99)], type = (MonsterType)UnityEngine.Random.Range(0,9)});
-    }
         //settup input system
         inputActions = new Inputactions3D();
         inputActions.Player.Enable();
 
         //set world border  graphic
         border.localScale = Vector3.one * gridSize * 10;
-        border.position = new Vector3 (gridSize/2, 0, gridSize / 2) *10 - new Vector3(5,0,5);
+        border.position = new Vector3(gridSize / 2, 0, gridSize / 2) * 10 - new Vector3(5, 0, 5);
 
         //Init Tile array
-        tileProperties = new TileProperties[gridSize*gridSize];
+        tileProperties = new TileProperties[gridSize * gridSize];
     }
 
     void OnDestroy()
@@ -70,47 +70,31 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        checkLeftClick();
-
-        pointerOverUI = EventSystem.current.IsPointerOverGameObject();
-        if(!pointerOverUI)
-        {
-        GetCurrentTile();
-        SelectTile();
-        }
+        CheckInputDesired();
 
         DayNightCycle.instance.UpdateDayNightCycle();
-
     }
 
-    void SelectTile()
-    {
-       if(Interacting) 
-        {
-            var curTile = BuildingUtils.CoordsToSlotID(SelectionGridPos, gridSize);
-            if(curTile < tileProperties.Length && curTile >= 0) 
-            {
-                var tile = tileProperties[curTile];
-                if (tile.buildingType != BuildingType.None && buildingType != BuildingType.None)
-                {
-                    interactWithTile(tile); 
-                }
-                else
-                {
-                    placeTile(tileProperties[curTile], buildingType);
-                }
-            }
-        }
-    }
 
-    void GetCurrentTile()
+    void UpdateCurrentTile()
     {
         Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit);
         SelectionGridPos = BuildingUtils.PositionToTile(hit.point);
-        Selection.position = new Vector3(SelectionGridPos.x, 0, SelectionGridPos.y) * 10;
+        Vector3 newPos = new Vector3(SelectionGridPos.x, 0, SelectionGridPos.y) * 10;
+
+        if (newPos != Selection.position)
+        {
+            Selection.position = newPos;
+            OnChangeTile();
+        }
+
     }
 
 
+    bool CheckIfPlacementDesired()
+    {
+        return !(GetCurrentTile().buildingType != BuildingType.None && buildingType != BuildingType.None);
+    }
 
     public void SetType(string type)
     {
@@ -132,36 +116,82 @@ public class GameManager : MonoBehaviour
 
     public void interactWithTile(TileProperties tile)
     {
-        tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
+        CreateUnitSelectionPanel();
     }
 
-    void onStartPlace()
+    void OnStartInteract()
     {
-
-    }
-
-    void onEndPlace()
-    {
-
-    }
-
-    void OnEnterTile()
-    {
-
-    }
-
-    void OnExitTile()
-    {
-
-    }
-
-    void checkLeftClick()
-    {
-        if(Interacting)
+                if(!CheckIfPlacementDesired())
         {
-            if(inputActions.Player.Fire.ReadValue<float>() < 0.5f)
-            { 
-                onEndPlace();
+            interactWithTile(GetCurrentTile());
+        }
+    }
+
+    void OnEndInteract()
+    {
+
+    }
+
+    TileProperties GetCurrentTile()
+    {
+        var curTile = BuildingUtils.CoordsToSlotID(SelectionGridPos, gridSize);
+
+        if (!(curTile < tileProperties.Length && curTile >= 0)) { return null; }
+        return tileProperties[curTile];
+    }
+
+
+    /// <summary>
+    /// Not called on first frame.
+    /// </summary>
+    void OnInteract()
+    {
+        var tile = GetCurrentTile();
+        tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
+        if(CheckIfPlacementDesired())
+        {
+            placeTile(tile, buildingType);
+        }
+    }
+    void OnChangeTile()
+    {
+
+    }
+
+
+    void CreateUnitSelectionPanel()
+    {
+        Instantiate(UnitSelectionPrefab, UI.transform);
+    }
+
+
+    void DevSetUpMonsters()
+    {
+        var gridInit = GetComponent<GridInitMono>();
+        monsters = new();
+        for (int i = 0; i < 50; i++)
+        {
+            MonsterType myType = (MonsterType)UnityEngine.Random.Range(0, 9);
+            monsters.Add(new MonsterStats { name = gridInit.Names[UnityEngine.Random.Range(0, 99)], type = myType, icon = imageDictionary.Get(myType) });
+        }
+
+    }
+
+    void CheckInputDesired()
+    {
+        pointerOverUI = EventSystem.current.IsPointerOverGameObject();
+
+        if (pointerOverUI) { return; }
+
+        UpdateCurrentTile();
+
+        if (Interacting)
+        {
+            OnInteract();
+
+            if (inputActions.Player.Fire.ReadValue<float>() < 0.5f)
+            {
+                OnEndInteract();
                 Interacting = false;
             }
         }
@@ -169,7 +199,7 @@ public class GameManager : MonoBehaviour
         {
             if (inputActions.Player.Fire.ReadValue<float>() > 0.5f)
             {
-                onStartPlace();
+                OnStartInteract();
                 Interacting = true;
             }
         }
