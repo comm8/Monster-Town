@@ -78,15 +78,18 @@ public class GameManager : MonoBehaviour
 
     void UpdateCurrentTile()
     {
-        Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit);
-        SelectionGridPos = BuildingUtils.PositionToTile(hit.point);
-        Vector3 newPos = new Vector3(SelectionGridPos.x, 0, SelectionGridPos.y) * 10;
-
-        if (newPos != Selection.position)
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
         {
-            Selection.position = newPos;
-            OnChangeTile();
+            SelectionGridPos = BuildingUtils.PositionToTile(hit.point);
+            Vector3 newPos = new Vector3(SelectionGridPos.x, 0, SelectionGridPos.y) * 10;
+
+            if (newPos != Selection.position)
+            {
+                Selection.position = newPos;
+                OnChangeTile();
+            }
         }
+
 
     }
 
@@ -121,7 +124,7 @@ public class GameManager : MonoBehaviour
 
     void OnStartInteract()
     {
-                if(!CheckIfPlacementDesired())
+        if (!CheckIfPlacementDesired())
         {
             interactWithTile(GetCurrentTile());
         }
@@ -148,7 +151,7 @@ public class GameManager : MonoBehaviour
     {
         var tile = GetCurrentTile();
         tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
-        if(CheckIfPlacementDesired())
+        if (CheckIfPlacementDesired())
         {
             placeTile(tile, buildingType);
         }
