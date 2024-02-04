@@ -183,19 +183,20 @@ public class GameManager : MonoBehaviour
     void CheckInputDesired()
     {
         pointerOverUI = EventSystem.current.IsPointerOverGameObject();
-
         if (pointerOverUI) { return; }
 
         UpdateCurrentTile();
 
         if (Interacting)
         {
-            OnInteract();
-
             if (inputActions.Player.Fire.ReadValue<float>() < 0.5f)
             {
                 OnEndInteract();
                 Interacting = false;
+            }
+            else
+            {
+                OnInteract();
             }
         }
         else
