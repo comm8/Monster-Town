@@ -110,7 +110,18 @@ public class GameManager : MonoBehaviour
 
     public void SetType(string type)
     {
-        if(buildingNameDictionary.Get(type) == BuildingType.None){ EnableBulldozer(); return; }
+        if (buildingNameDictionary.Get(type) == BuildingType.None)
+        {
+            if (deleteMode)
+            {
+                DisableBulldozer(); return;
+            }
+            else
+            {
+                EnableBulldozer(); return;
+            }
+
+        }
         DisableBulldozer();
 
         plyBuildingDesired = buildingNameDictionary.Get(type);
@@ -225,7 +236,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-[ExecuteAlways]
+    [ExecuteAlways]
     void DisableBulldozer()
     {
         rendererFeature.SetActive(false);
@@ -233,7 +244,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-[ExecuteAlways]
+    [ExecuteAlways]
     void EnableBulldozer()
     {
         rendererFeature.SetActive(true);
