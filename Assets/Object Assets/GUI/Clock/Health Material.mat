@@ -52,7 +52,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Health_overlay:
-        m_Texture: {fileID: 2800000, guid: 5b073573f315de24ba386f530729a18d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 11154d936b05e66498f68fa178c5cfbb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -114,7 +114,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Health: 15.51
+    - _Health: -108.9
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005

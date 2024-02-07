@@ -4,7 +4,7 @@ using Unity.Mathematics;
 using UnityEngine.EventSystems;
 using SerializableDictionary.Scripts;
 using System.Collections.Generic;
-using System;
+using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,9 +20,9 @@ public class GameManager : MonoBehaviour
     [Header("Selection")]
     [SerializeField] Transform Selection;
     [SerializeField] int2 SelectionGridPos;
-    [SerializeField] BuildingType buildingType;
+    [SerializeField] BuildingType plyBuildingDesired;
     public bool pointerOverUI = false;
-    int2[] buildingDragHistory;
+    List<int2> buildingDragHistory;
 
 
     [Header("Memory")]
@@ -43,6 +43,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject UI;
 
     bool Interacting;
+
+    bool deleteMode;
+    bool deleteModeKeyDown;
+
+    [SerializeField] Material bulldozerPostProcessing;
+
+    [SerializeField] ScriptableRendererFeature rendererFeature;
+
+    public Texture2D heightMap;
+
     //
     private void Awake()
     {
@@ -70,6 +80,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        CheckDeleteModeDesired();
         CheckInputDesired();
 
         DayNightCycle.instance.UpdateDayNightCycle();
@@ -96,19 +107,46 @@ public class GameManager : MonoBehaviour
 
     bool CheckIfPlacementDesired()
     {
-        return !(GetCurrentTile().buildingType != BuildingType.None && buildingType != BuildingType.None);
+        return !(GetCurrentTile().buildingType != BuildingType.None && !deleteMode);
     }
 
     public void SetType(string type)
     {
-        buildingType = buildingNameDictionary.Get(type);
+        if (buildingNameDictionary.Get(type) == BuildingType.None)
+        {
+            if (deleteMode)
+            {
+                DisableBulldozer(); return;
+            }
+            else
+            {
+                EnableBulldozer(); return;
+            }
+
+        }
+        DisableBulldozer();
+
+        plyBuildingDesired = buildingNameDictionary.Get(type);
     }
 
+    public void PlaceRoad(int2 tilepos)
+    {
+        if (buildingDragHistory[buildingDragHistory.Count - 1].Equals(tilepos))
+        {
+            buildingDragHistory.Remove(buildingDragHistory.Count - 1);
+            return;
+        }
 
+        //set end point a
+        //set end point b
+
+    }
 
 
     public void placeTile(TileProperties tile, BuildingType desired)
     {
+        if (deleteMode) { desired = BuildingType.None; }
+
         Destroy(tile.model);
         GameObject desiredModel = modelDictionary.Get(desired);
 
@@ -153,7 +191,7 @@ public class GameManager : MonoBehaviour
         tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
         if (CheckIfPlacementDesired())
         {
-            placeTile(tile, buildingType);
+            placeTile(tile, plyBuildingDesired);
         }
     }
     void OnChangeTile()
@@ -179,6 +217,42 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+    void CheckDeleteModeDesired()
+    {
+        if (deleteModeKeyDown)
+        {
+            if (inputActions.Player.Delete.ReadValue<float>() < 0.5f)
+            {
+                deleteModeKeyDown = false;
+                DisableBulldozer();
+            }
+        }
+        else
+        {
+            if (inputActions.Player.Delete.ReadValue<float>() > 0.5f)
+            {
+                deleteModeKeyDown = true;
+                EnableBulldozer();
+            }
+        }
+    }
+
+    [ExecuteAlways]
+    void DisableBulldozer()
+    {
+        rendererFeature.SetActive(false);
+        deleteMode = false;
+    }
+
+
+    [ExecuteAlways]
+    void EnableBulldozer()
+    {
+        rendererFeature.SetActive(true);
+        deleteMode = true;
+    }
+
 
     void CheckInputDesired()
     {

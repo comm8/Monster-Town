@@ -4,7 +4,7 @@ using BuildingTools;
 
 public class GridInitMono : MonoBehaviour
 {
-    [SerializeField] Transform tileParent;  
+    [SerializeField] Transform tileParent;
 
     public string[] Names;
 
@@ -12,21 +12,25 @@ public class GridInitMono : MonoBehaviour
     void Start()
     {
 
-        for (int i = 0; i < math.pow(GameManager.instance.gridSize, 2); i++)
+        for (int x = 0; x < GameManager.instance.gridSize; x++)
         {
-            int k = i % GameManager.instance.gridSize;
-            GameObject entity = Instantiate(GameManager.instance.tilePrefab, tileParent);
-            entity.transform.position = new float3(k, 0, i / GameManager.instance.gridSize) * 10;
-          TileProperties tileProperties =  entity.GetComponent<TileProperties>();
+            for (int y = 0; y < GameManager.instance.gridSize; y++)
+            {
+                GameObject entity = Instantiate(GameManager.instance.tilePrefab, tileParent);
+                entity.transform.position = new float3(y, GameManager.instance.heightMap.GetPixel(y, x).r * 10, x) * 10;
+                TileProperties tileProperties = entity.GetComponent<TileProperties>();
 
-            tileProperties.buildingType = BuildingTools.BuildingType.None;
+                tileProperties.buildingType = BuildingTools.BuildingType.None;
 
-            tileProperties.model = Instantiate(GameManager.instance.modelDictionary.Get(BuildingTools.BuildingType.None), tileProperties.modelTransform);
-            GameManager.instance.tileProperties[i] = tileProperties;
-            entity.GetComponentInChildren<TileAnimator>().CacheDeltaPos();
+                tileProperties.model = Instantiate(GameManager.instance.modelDictionary.Get(BuildingTools.BuildingType.None), tileProperties.modelTransform);
+                GameManager.instance.tileProperties[x * GameManager.instance.gridSize + y] = tileProperties;
+                entity.GetComponentInChildren<TileAnimator>().CacheDeltaPos();
+            }
+
+
         }
-        
-        
+
+
 
         this.enabled = false;
 

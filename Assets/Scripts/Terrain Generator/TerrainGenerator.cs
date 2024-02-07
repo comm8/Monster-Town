@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 [RequireComponent(typeof(MeshFilter))]
 public class TerrainGenerator : MonoBehaviour
@@ -12,20 +9,22 @@ public class TerrainGenerator : MonoBehaviour
     Vector3[] verticies;
     int[] triangles;
     Vector2[] UVs;
-    [SerializeField] Texture2D heightmap;
+    public Texture2D localHeightMap;
 
     int gridsize;
     // Start is called before the first frame update
     void Start()
     {
         gridsize = GameManager.instance.gridSize * 10;
-        heightmap = new Texture2D(gridsize, gridsize, TextureFormat.R8, false);
+        localHeightMap = new Texture2D(gridsize, gridsize, TextureFormat.R8, false);
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
 
         GenerateMesh();
 
+        GameManager.instance.heightMap = localHeightMap;
 
+        this.enabled = false;
     }
 
 
@@ -37,7 +36,7 @@ public class TerrainGenerator : MonoBehaviour
         {
             for (int x = 0; x <= gridsize; x++)
             {
-                verticies[i] = new Vector3(x,  0 , z);
+                verticies[i] = new Vector3(x,  generateTerrainnoise(x,z) , z);
                 i++;
             }
         }
@@ -75,7 +74,7 @@ public class TerrainGenerator : MonoBehaviour
 
 
         UpdateMesh();
-        heightmap.Apply();
+        localHeightMap.Apply();
         //GetComponent<Renderer>().material.SetTexture("_BaseMap", heightmap);
     }
 
@@ -105,23 +104,14 @@ public class TerrainGenerator : MonoBehaviour
     
     float generateTerrainnoise(int x, int z)
     {
-        Vector2 UV = new Vector2(x ,z);
-        Vector2 UVCenter = new Vector2(x%1 + 0.5f, z%1 + 0.5f);
+        Vector2 UV = new Vector2(x - (x%10),z -  (z%10));
 
-
-        float distToCenterSquare = getRepeatingGradient(UV.x) * getRepeatingGradient(UV.y);
-        distToCenterSquare = math.pow(distToCenterSquare, 0.6f);
-
-        Vector2 AdjustedUV = math.lerp(UVCenter, UVCenter, distToCenterSquare);
-
-        AdjustedUV = AdjustedUV / GameManager.instance.gridSize;
-
-       float y = Mathf.PerlinNoise(AdjustedUV.x * 0.1f, AdjustedUV.y * 0.1f);
+       float y = Mathf.PerlinNoise(UV.x * 0.011f, UV.y * 0.011f);
         if (y < 0.35) { y -= 0.1f; }
 
-        heightmap.SetPixel(x, z, new Color(y,0,0));
+        localHeightMap.SetPixel(x, z, new Color(y,0,0));
 
-        return y *30;
+        return y *100;
     }
 
     float getRepeatingGradient(float x)
