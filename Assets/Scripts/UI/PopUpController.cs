@@ -15,8 +15,12 @@ public class PopUpController : MonoBehaviour
     {
         width = rectTransform.rect.width;
         height = rectTransform.rect.height;
-        
+    }
 
+
+    public void DestroySelf()
+    {
+        Destroy(this.gameObject);
     }
 
     // Update is called once per frame
