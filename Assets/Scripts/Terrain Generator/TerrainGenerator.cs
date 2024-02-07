@@ -110,6 +110,7 @@ public class TerrainGenerator : MonoBehaviour
 
 
         float distToCenterSquare = getRepeatingGradient(UV.x) * getRepeatingGradient(UV.y);
+        
         distToCenterSquare = math.pow(distToCenterSquare, 0.6f);
 
         Vector2 AdjustedUV = math.lerp(UVCenter, UVCenter, distToCenterSquare);

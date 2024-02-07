@@ -80,6 +80,15 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Delete"",
+                    ""type"": ""Button"",
+                    ""id"": ""7c65b78d-caa1-46d4-aca0-1a6f908b74fb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -445,6 +454,28 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
                     ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b89e9151-de80-47b0-8be8-880fb393b5e8"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Delete"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e6db763d-600a-4ccb-96a3-a99a1236df60"",
+                    ""path"": ""<Keyboard>/delete"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Delete"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -1036,6 +1067,7 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
         m_Player_Scroll = m_Player.FindAction("Scroll", throwIfNotFound: true);
         m_Player_RotationMode = m_Player.FindAction("RotationMode", throwIfNotFound: true);
         m_Player_Rotate = m_Player.FindAction("Rotate", throwIfNotFound: true);
+        m_Player_Delete = m_Player.FindAction("Delete", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1115,6 +1147,7 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Scroll;
     private readonly InputAction m_Player_RotationMode;
     private readonly InputAction m_Player_Rotate;
+    private readonly InputAction m_Player_Delete;
     public struct PlayerActions
     {
         private @Inputactions3D m_Wrapper;
@@ -1125,6 +1158,7 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
         public InputAction @Scroll => m_Wrapper.m_Player_Scroll;
         public InputAction @RotationMode => m_Wrapper.m_Player_RotationMode;
         public InputAction @Rotate => m_Wrapper.m_Player_Rotate;
+        public InputAction @Delete => m_Wrapper.m_Player_Delete;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1152,6 +1186,9 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
             @Rotate.started += instance.OnRotate;
             @Rotate.performed += instance.OnRotate;
             @Rotate.canceled += instance.OnRotate;
+            @Delete.started += instance.OnDelete;
+            @Delete.performed += instance.OnDelete;
+            @Delete.canceled += instance.OnDelete;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1174,6 +1211,9 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
             @Rotate.started -= instance.OnRotate;
             @Rotate.performed -= instance.OnRotate;
             @Rotate.canceled -= instance.OnRotate;
+            @Delete.started -= instance.OnDelete;
+            @Delete.performed -= instance.OnDelete;
+            @Delete.canceled -= instance.OnDelete;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1362,6 +1402,7 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
         void OnScroll(InputAction.CallbackContext context);
         void OnRotationMode(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
+        void OnDelete(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
