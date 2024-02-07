@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] ScriptableRendererFeature rendererFeature;
 
+    public Texture2D heightMap;
+
     //
     private void Awake()
     {
