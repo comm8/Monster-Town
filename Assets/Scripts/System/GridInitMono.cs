@@ -17,7 +17,7 @@ public class GridInitMono : MonoBehaviour
             for (int y = 0; y < GameManager.instance.gridSize; y++)
             {
                 GameObject entity = Instantiate(GameManager.instance.tilePrefab, tileParent);
-                entity.transform.position = new float3(y, GameManager.instance.heightMap.GetPixel(y, x).r * 10, x) * 10;
+                entity.transform.position = new float3(y, 0, x) * 10;
                 TileProperties tileProperties = entity.GetComponent<TileProperties>();
 
                 tileProperties.buildingType = BuildingTools.BuildingType.None;
@@ -29,8 +29,6 @@ public class GridInitMono : MonoBehaviour
 
 
         }
-
-
 
         this.enabled = false;
 

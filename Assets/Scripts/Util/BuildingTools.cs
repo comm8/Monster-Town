@@ -60,59 +60,60 @@ namespace BuildingTools
 
 
     [BurstCompile]
-        [Serializable]
-        public class ResourceValue
-        {
-            public int Amount;
-            public ResourceType Type;
-        }
+    [Serializable]
+    public class ResourceValue
+    {
+        public int Amount;
+        public ResourceType Type;
+    }
 
-        public enum ResourceType : byte
-        {
-            Lumber,
-            Charcoal,
-            Stone,
-            Metal,
-            Rations,
-            Refined_Alloy,
-            Cursed_Alloy
-        }
+    public enum ResourceType : byte
+    {
+        Lumber,
+        Charcoal,
+        Stone,
+        Metal,
+        Rations,
+        Refined_Alloy,
+        Cursed_Alloy
+    }
 
-        public enum MonsterType : byte
-        {
-            Kobold = 0,
-            Orc,
-            Mimic,
-            Clown,
-            Wyvern,
-            Gargoyle,
-            Gorgon,
-            Mindflayer,
-            Plantoid,
-            Skeleton,
-            NoUnit
-        }
+    public enum MonsterType : byte
+    {
+        Kobold = 0,
+        Orc,
+        Mimic,
+        Clown,
+        Wyvern,
+        Gargoyle,
+        Gorgon,
+        Mindflayer,
+        Plantoid,
+        Skeleton,
+        NoUnit
+    }
 
 
-        public enum BuildingType : byte
-        {
-            Farm = 0,
-            Lumber_Yard,
-            Mine,
-            Inn,
-            Forge,
-            NecroMansion,
-            Fishing_Dock,
-            Light_House,
-            Apothecary,
-            Armory,
-            None
-        }
+    public enum BuildingType : byte
+    {
+        Farm,
+        Lumber_Yard,
+        Mine,
+        Inn,
+        Forge,
+        NecroMansion,
+        Fishing_Dock,
+        Light_House,
+        Apothecary,
+        Armory,
+        None,
+        Road
+    }
 
     [Serializable]
     public class RoadTable
     {
-        public bool left, right, bottom, top, center;
+        public bool left, right, up, down;
     }
 
     [Serializable]
@@ -129,6 +130,7 @@ namespace BuildingTools
         public string name;
         public int2 tile;
 
-        public Sprite icon; }
+        public Sprite icon;
+    }
 }
 

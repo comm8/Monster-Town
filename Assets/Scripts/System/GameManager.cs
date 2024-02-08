@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
 
     public Texture2D heightMap;
 
+
     //
     private void Awake()
     {
@@ -65,7 +66,7 @@ public class GameManager : MonoBehaviour
         inputActions.Player.Enable();
 
         //set world border  graphic
-        border.localScale = Vector3.one * gridSize * 10;
+        border.localScale = 10 * gridSize * Vector3.one;
         border.position = new Vector3(gridSize / 2, 0, gridSize / 2) * 10 - new Vector3(5, 0, 5);
 
         //Init Tile array
@@ -129,21 +130,50 @@ public class GameManager : MonoBehaviour
         plyBuildingDesired = buildingNameDictionary.Get(type);
     }
 
-    public void PlaceRoad(int2 tilepos)
+    public void PlaceRoad(int2 tilepos, RoadProperties roadProperties)
     {
-        if (buildingDragHistory[buildingDragHistory.Count - 1].Equals(tilepos))
+        RoadTable roadTable = roadProperties.table;
+
+        if (buildingDragHistory[^1].Equals(tilepos))
         {
             buildingDragHistory.Remove(buildingDragHistory.Count - 1);
             return;
         }
 
-        //set end point a
-        //set end point b
+        if (tilepos.x > buildingDragHistory[^1].x)
+        {
+            //right from last
+        }
+        else if (tilepos.x < buildingDragHistory[^1].x)
+        {
+            //left from last 
+        }
+        else if (tilepos.y > buildingDragHistory[^1].y)
+        {
+            //up from last 
+        }
+        else
+        {
+            //down from last
+        }
+
+        Resources.Load<Texture2D>("road_"+ roadTable.up + roadTable.down + roadTable.left + roadTable.right);
+        //roadtexture = GetRoadShape(roadProperties.table);
+        //assume exit but DONT set in stone (add singles to table lookup)
+
+
+        /*if(isvalid(lastroadtile))
+        {
+            roadtexture = GetRoadShape(roadproperties.table but set inverse of current tile)
+        }
+        */
+
 
     }
 
 
-    public void placeTile(TileProperties tile, BuildingType desired)
+
+    public void PlaceTile(TileProperties tile, BuildingType desired)
     {
         if (deleteMode) { desired = BuildingType.None; }
 
@@ -155,7 +185,7 @@ public class GameManager : MonoBehaviour
         tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
     }
 
-    public void interactWithTile(TileProperties tile)
+    public void InteractWithTile(TileProperties tile)
     {
         CreateUnitSelectionPanel();
     }
@@ -164,7 +194,7 @@ public class GameManager : MonoBehaviour
     {
         if (!CheckIfPlacementDesired())
         {
-            interactWithTile(GetCurrentTile());
+            InteractWithTile(GetCurrentTile());
         }
     }
 
@@ -191,7 +221,7 @@ public class GameManager : MonoBehaviour
         tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
         if (CheckIfPlacementDesired())
         {
-            placeTile(tile, plyBuildingDesired);
+            PlaceTile(tile, plyBuildingDesired);
         }
     }
     void OnChangeTile()
