@@ -142,23 +142,27 @@ public class GameManager : MonoBehaviour
 
         if (tilepos.x > buildingDragHistory[^1].x)
         {
+            roadTable.left = true;
             //right from last
         }
         else if (tilepos.x < buildingDragHistory[^1].x)
         {
+            roadTable.right = true;
             //left from last 
         }
         else if (tilepos.y > buildingDragHistory[^1].y)
         {
+            roadTable.down = true;
             //up from last 
         }
         else
         {
+            roadTable.up = true;
             //down from last
         }
 
-        Resources.Load<Texture2D>("road_"+ roadTable.up + roadTable.down + roadTable.left + roadTable.right);
-        //roadtexture = GetRoadShape(roadProperties.table);
+        //roadProperties.GetComponent<Renderer>.material = new Material()  Resources.Load<Texture2D>("road_"+ roadTable.up + roadTable.down + roadTable.left + roadTable.right);
+
         //assume exit but DONT set in stone (add singles to table lookup)
 
 
