@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using SerializableDictionary.Scripts;
 using System.Collections.Generic;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Diagnostics;
 
 public class GameManager : MonoBehaviour
 {
@@ -130,27 +131,32 @@ public class GameManager : MonoBehaviour
         plyBuildingDesired = buildingNameDictionary.Get(type);
     }
 
-    public void PlaceRoad(int2 tilepos, RoadProperties roadProperties)
+    public void PlaceRoad(TileProperties tile)
     {
-        RoadTable roadTable = roadProperties.table;
+        if (!tile.TryGetComponent(out RoadProperties road))
+        {
+            road = tile.gameObject.AddComponent<RoadProperties>();
+        }
+        RoadTable roadTable = road.table;
 
-        if (buildingDragHistory[^1].Equals(tilepos))
+
+        if (buildingDragHistory[^1].Equals(SelectionGridPos))
         {
             buildingDragHistory.Remove(buildingDragHistory.Count - 1);
             return;
         }
 
-        if (tilepos.x > buildingDragHistory[^1].x)
+        if (SelectionGridPos.x > buildingDragHistory[^1].x)
         {
             roadTable.left = true;
             //right from last
         }
-        else if (tilepos.x < buildingDragHistory[^1].x)
+        else if (SelectionGridPos.x < buildingDragHistory[^1].x)
         {
             roadTable.right = true;
             //left from last 
         }
-        else if (tilepos.y > buildingDragHistory[^1].y)
+        else if (SelectionGridPos.y > buildingDragHistory[^1].y)
         {
             roadTable.down = true;
             //up from last 
@@ -161,16 +167,13 @@ public class GameManager : MonoBehaviour
             //down from last
         }
 
-        //roadProperties.GetComponent<Renderer>.material = new Material()  Resources.Load<Texture2D>("road_"+ roadTable.up + roadTable.down + roadTable.left + roadTable.right);
+        road.GetComponent<Renderer>().material = Resources.Load<Material>("road_" + roadTable.up + roadTable.down + roadTable.left + roadTable.right);
 
-        //assume exit but DONT set in stone (add singles to table lookup)
-
-
-        /*if(isvalid(lastroadtile))
+        if (buildingDragHistory[^1].Equals(null))
         {
-            roadtexture = GetRoadShape(roadproperties.table but set inverse of current tile)
+            return;
         }
-        */
+
 
 
     }
@@ -186,6 +189,10 @@ public class GameManager : MonoBehaviour
 
         tile.model = Instantiate(desiredModel, tile.modelTransform);
         tile.buildingType = desired;
+        if (desired == BuildingType.Road)
+        {
+            PlaceRoad(tile);
+        }
         tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
     }
 
