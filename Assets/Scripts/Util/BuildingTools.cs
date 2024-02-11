@@ -26,8 +26,10 @@ namespace BuildingTools
             return new((int)((InputPos.x + 5) / 10), (int)((InputPos.z + 5) / 10));
         }
 
-
-
+        public static String toNumeralString(bool input)
+        {
+            return input ? "1" : "0";
+        }
 
 
     }

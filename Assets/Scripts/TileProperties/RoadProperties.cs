@@ -3,5 +3,5 @@ using UnityEngine;
 
 public class RoadProperties : MonoBehaviour
 {
-public RoadTable table;
+public RoadTable table = new();
 }

@@ -72,6 +72,8 @@ public class GameManager : MonoBehaviour
 
         //Init Tile array
         tileProperties = new TileProperties[gridSize * gridSize];
+
+        buildingDragHistory = new();
     }
 
     void OnDestroy()
@@ -137,45 +139,62 @@ public class GameManager : MonoBehaviour
         {
             road = tile.gameObject.AddComponent<RoadProperties>();
         }
-        RoadTable roadTable = road.table;
+        var roadTable = road.table;
 
+        RoadTable inverseRoadTable = new();
 
-        if (buildingDragHistory[^1].Equals(SelectionGridPos))
+        if (buildingDragHistory.Count > 0)
         {
-            buildingDragHistory.Remove(buildingDragHistory.Count - 1);
-            return;
+            if (buildingDragHistory[^1].Equals(SelectionGridPos))
+            {
+                buildingDragHistory.Remove(buildingDragHistory.Count - 1);
+                return;
+            }
         }
 
-        if (SelectionGridPos.x > buildingDragHistory[^1].x)
-        {
-            roadTable.left = true;
-            //right from last
-        }
-        else if (SelectionGridPos.x < buildingDragHistory[^1].x)
-        {
-            roadTable.right = true;
-            //left from last 
-        }
-        else if (SelectionGridPos.y > buildingDragHistory[^1].y)
-        {
-            roadTable.down = true;
-            //up from last 
-        }
-        else
-        {
-            roadTable.up = true;
-            //down from last
-        }
-
-        road.GetComponent<Renderer>().material = Resources.Load<Material>("road_" + roadTable.up + roadTable.down + roadTable.left + roadTable.right);
-
-        if (buildingDragHistory[^1].Equals(null))
-        {
-            return;
-        }
+        buildingDragHistory.Add(SelectionGridPos);
 
 
+        if (buildingDragHistory.Count > 1)
+        {
+            int2 previousRoad = buildingDragHistory[^2];
 
+            if (SelectionGridPos.x > previousRoad.x)
+            {
+                roadTable.right = true;
+                inverseRoadTable.left = true;
+            }
+            else if (SelectionGridPos.x < previousRoad.x)
+            {
+                roadTable.left = true;
+                inverseRoadTable.right = true;
+            }
+            else if (SelectionGridPos.y > previousRoad.y)
+            {
+                roadTable.up = true;
+                inverseRoadTable.down = true;
+            }
+            else
+            {
+                roadTable.down = true;
+                inverseRoadTable.up = true;
+            }
+
+            road.GetComponentInChildren<Renderer>().material = Resources.Load<Material>("road/road_" + BuildingUtils.toNumeralString(roadTable.up) + BuildingUtils.toNumeralString(roadTable.down) + BuildingUtils.toNumeralString(roadTable.left) + BuildingUtils.toNumeralString(roadTable.right));
+
+
+
+            //adjust last road
+            road = tileProperties[BuildingUtils.CoordsToSlotID(buildingDragHistory[^2], gridSize)].GetComponent<RoadProperties>();
+            roadTable = road.table;
+
+            if (roadTable.up || inverseRoadTable.up) { roadTable.up = true; }
+            if (roadTable.down || inverseRoadTable.down) { roadTable.down = true; }
+            if (roadTable.left || inverseRoadTable.left) { roadTable.left = true; }
+            if (roadTable.right || inverseRoadTable.right) { roadTable.right = true; }
+            
+            road.GetComponentInChildren<Renderer>().material = Resources.Load<Material>("road/road_" + BuildingUtils.toNumeralString(roadTable.up) + BuildingUtils.toNumeralString(roadTable.down) + BuildingUtils.toNumeralString(roadTable.left) + BuildingUtils.toNumeralString(roadTable.right));
+        }
     }
 
 
@@ -211,7 +230,7 @@ public class GameManager : MonoBehaviour
 
     void OnEndInteract()
     {
-
+        buildingDragHistory = new();
     }
 
     TileProperties GetCurrentTile()
