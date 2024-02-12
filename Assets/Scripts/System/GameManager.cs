@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 using SerializableDictionary.Scripts;
 using System.Collections.Generic;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.Diagnostics;
 
 public class GameManager : MonoBehaviour
 {
@@ -55,10 +54,22 @@ public class GameManager : MonoBehaviour
     public Texture2D heightMap;
 
 
+    public InteractionMode deleteInteraction, standardInteraction, roadInteraction;
+
+    public InteractionMode interaction;
+
+
+
     //
     private void Awake()
     {
         instance = this;
+
+        deleteInteraction = gameObject.AddComponent<DeleteInteraction>();
+        standardInteraction = gameObject.AddComponent<StandardBuildInteraction>();
+        roadInteraction = gameObject.AddComponent<RoadInteraction>();
+
+        interaction = standardInteraction;
 
         DevSetUpMonsters();
 
