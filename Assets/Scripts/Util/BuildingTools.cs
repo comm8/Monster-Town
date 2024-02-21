@@ -2,7 +2,6 @@ using Unity.Mathematics;
 using Unity.Burst;
 using System;
 using UnityEngine;
-using Unity.Collections;
 
 namespace BuildingTools
 {
@@ -131,7 +130,6 @@ namespace BuildingTools
         public MonsterType type;
         public string name;
         public int2 tile;
-
         public Sprite icon;
     }
 }

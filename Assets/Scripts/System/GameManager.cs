@@ -230,7 +230,7 @@ public class GameManager : MonoBehaviour
             UpdateRoad(tile);
             return;
         }
-        CreateUnitSelectionPanel();
+        CreateUnitSelectionPanel(tile);
     }
 
     void OnStartInteract()
@@ -278,9 +278,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void CreateUnitSelectionPanel()
+    void CreateUnitSelectionPanel(TileProperties tile)
     {
-        Instantiate(UnitSelectionPrefab, UI.transform);
+
+       var Menu =  Instantiate(UnitSelectionPrefab, UI.transform).GetComponent<UnitSelectionMenu>();
+        if(tile.monsterID == 0)
+        {
+            Menu.CurrentlyEmployedMonster = null;
+        }
+        else
+        {
+            Menu.CurrentlyEmployedMonster = monsters[tile.monsterID - 1];
+        }
+
     }
 
 

@@ -1,31 +1,58 @@
 using UnityEngine;
+using BuildingTools;
+using TMPro;
+using UnityEngine.UI;
 public class UnitSelectionMenu : MonoBehaviour
 {
 
     [SerializeField] GameObject UnitPanel, UnitList;
-    
-    
+
+    public MonsterStats CurrentlyEmployedMonster;
+
+    [SerializeField] TMP_Text monsterName, production;
+    [SerializeField] Image monsterIcon;
+
+
     void Awake()
     {
-
-        foreach (var monster in GameManager.instance.monsters)
+        if(CurrentlyEmployedMonster == null)
         {
-           var Panel = Instantiate(UnitPanel, UnitList.transform);
-           Panel.GetComponent<UnitPanel>().setup(monster);
+            SetupBuildingPanelEmpty();
         }
+        else
+        {
+        SetupBuildingPanel();
+        }
+
+        SetupMonsterList(); 
+
+
        Destroy(UnitPanel);
 
-        //fetch Unit list from gamemanager
-        //create menu elements
-
     }
 
-    void Update()
+    void SetupBuildingPanel()
     {
-        //on click off or minimize delete
-        //on select unit set unit to building
-        //if building occupied then set other unit building to free
+        monsterName.text = CurrentlyEmployedMonster.name + " (" + CurrentlyEmployedMonster.type.ToString() + ")";
+        production.text = "0";
     }
+
+    void SetupBuildingPanelEmpty()
+    {
+        monsterName.text = "No monster employed";
+        production.text = "";
+    }
+
+    void SetupMonsterList()
+    {
+        foreach (var monster in GameManager.instance.monsters)
+        {
+            var Panel = Instantiate(UnitPanel, UnitList.transform);
+            Panel.GetComponent<UnitPanel>().setup(monster);
+        }
+
+    }
+
 
     public void CloseMenu()
     {

@@ -93,6 +93,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitPanel: {fileID: 6337101445822454818}
   UnitList: {fileID: 6269868950953985221}
+  CurrentlyEmployedMonster:
+    type: 0
+    name: ERROR
+    tile:
+      x: 0
+      y: 0
+    icon: {fileID: 0}
+  monsterName: {fileID: 3353563949142390863}
+  production: {fileID: 163028855412634983}
+  monsterIcon: {fileID: 7610694485002772905}
 --- !u!1 &1522771552260369642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1878,7 +1888,7 @@ GameObject:
   - component: {fileID: 1792133759343035449}
   - component: {fileID: 8322378886442485470}
   m_Layer: 5
-  m_Name: Employment
+  m_Name: Currently Employed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
