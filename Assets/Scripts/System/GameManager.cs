@@ -19,11 +19,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Selection")]
     [SerializeField] Transform Selection;
-    [SerializeField] int2 SelectionGridPos;
+    public int2 SelectionGridPos;
     [SerializeField] BuildingType plyBuildingDesired;
     public bool pointerOverUI = false;
-    List<int2> CurrentRoadStroke;
-
 
     [Header("Memory")]
     public TileProperties[] tileProperties;
@@ -73,7 +71,6 @@ public class GameManager : MonoBehaviour
         //Init Tile array
         tileProperties = new TileProperties[gridSize * gridSize];
 
-        CurrentRoadStroke = new();
     }
 
     void OnDestroy()
@@ -119,7 +116,7 @@ public class GameManager : MonoBehaviour
         }
         DisableBulldozer();
 
-        if(buildingNameDictionary.Get(type) == BuildingType.Road)
+        if (buildingNameDictionary.Get(type) == BuildingType.Road)
         {
             interaction = roadInteraction;
         }
@@ -131,69 +128,8 @@ public class GameManager : MonoBehaviour
         plyBuildingDesired = buildingNameDictionary.Get(type);
     }
 
-    public void UpdateRoad(TileProperties tile)
-    {
-        if (!tile.gameObject.TryGetComponent(out RoadProperties road))
-        {
-            road = tile.gameObject.AddComponent<RoadProperties>();
-        }
-        var roadTable = road.table;
-
-        RoadTable inverseRoadTable = new();
-
-        if (CurrentRoadStroke.Count > 0)
-        {
-            if (CurrentRoadStroke[^1].Equals(SelectionGridPos))
-            {
-                CurrentRoadStroke.Remove(CurrentRoadStroke.Count - 1);
-                return;
-            }
-        }
-
-        CurrentRoadStroke.Add(SelectionGridPos);
 
 
-        if (CurrentRoadStroke.Count > 1)
-        {
-            int2 previousRoad = CurrentRoadStroke[^2];
-
-            if (SelectionGridPos.x > previousRoad.x)
-            {
-                roadTable.right = true;
-                inverseRoadTable.left = true;
-            }
-            else if (SelectionGridPos.x < previousRoad.x)
-            {
-                roadTable.left = true;
-                inverseRoadTable.right = true;
-            }
-            else if (SelectionGridPos.y > previousRoad.y)
-            {
-                roadTable.up = true;
-                inverseRoadTable.down = true;
-            }
-            else
-            {
-                roadTable.down = true;
-                inverseRoadTable.up = true;
-            }
-
-            road.GetComponentInChildren<Renderer>().material = Resources.Load<Material>("road/road_" + BuildingUtils.toNumeralString(roadTable.up) + BuildingUtils.toNumeralString(roadTable.down) + BuildingUtils.toNumeralString(roadTable.left) + BuildingUtils.toNumeralString(roadTable.right));
-
-
-
-            //adjust last road
-            road = tileProperties[BuildingUtils.CoordsToSlotID(CurrentRoadStroke[^2], gridSize)].GetComponent<RoadProperties>();
-            roadTable = road.table;
-
-            if (roadTable.up || inverseRoadTable.up) { roadTable.up = true; }
-            if (roadTable.down || inverseRoadTable.down) { roadTable.down = true; }
-            if (roadTable.left || inverseRoadTable.left) { roadTable.left = true; }
-            if (roadTable.right || inverseRoadTable.right) { roadTable.right = true; }
-
-            road.GetComponentInChildren<Renderer>().material = Resources.Load<Material>("road/road_" + BuildingUtils.toNumeralString(roadTable.up) + BuildingUtils.toNumeralString(roadTable.down) + BuildingUtils.toNumeralString(roadTable.left) + BuildingUtils.toNumeralString(roadTable.right));
-        }
-    }
 
     void OnPressStart()
     {
@@ -272,7 +208,7 @@ public class GameManager : MonoBehaviour
     {
         rendererFeature.SetActive(false);
         deleteMode = false;
-        if(plyBuildingDesired != BuildingType.Road)
+        if (plyBuildingDesired != BuildingType.Road)
         {
             interaction = standardInteraction;
         }

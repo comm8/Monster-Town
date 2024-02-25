@@ -16,7 +16,7 @@ public class TileAnimator : MonoBehaviour
 
     public void playUpdateAnimation()
     {
-        if (!dynamicsTransform.enabled) {dynamicsTransform.enabled = true; enabled = true; StartCoroutine(CheckAllowSleep(3)); }
+        if (!dynamicsTransform.enabled) {dynamicsTransform.enabled = true; enabled = true; StartCoroutine(CheckAllowSleep(2.5f)); }
 
         transform.localScale = blendScale;
         
@@ -24,13 +24,13 @@ public class TileAnimator : MonoBehaviour
 
     public void CacheDeltaPos()
     {
-        StartCoroutine(CheckAllowSleep(2));
+        StartCoroutine(CheckAllowSleep(1));
     }
 
     IEnumerator CheckAllowSleep(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        if (timeAtClick + seconds + 0.1  < Time.time)
+        if (timeAtClick + seconds + 0.1  > Time.time)
         {
             StartCoroutine(CheckAllowSleep(seconds));
         }
