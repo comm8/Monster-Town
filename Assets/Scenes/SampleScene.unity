@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028504, g: 0.22571585, b: 0.30692396, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028499, g: 0.22571585, b: 0.30692396, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 155993493}
   - component: {fileID: 155993492}
   - component: {fileID: 155993491}
+  - component: {fileID: 155993494}
   m_Layer: 0
   m_Name: Border
   m_TagString: Untagged
@@ -339,6 +340,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &155993494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155993489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 029634a12a2c1e74b83e836094f5116d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &168683707
 GameObject:
   m_ObjectHideFlags: 0
@@ -6455,11 +6468,14 @@ MonoBehaviour:
       _value: {fileID: 21300000, guid: d12981ca9644c4a4496ac5189dd2089a, type: 3}
   roadShapeDictionary:
     _pairs: []
-  border: {fileID: 155993493}
   UI: {fileID: 1256285532}
   bulldozerPostProcessing: {fileID: 2100000, guid: be4de12278aefa74bbac7f182022e752, type: 2}
   rendererFeature: {fileID: -2186744672490536369, guid: ded71b0f450b707448f58662b5b44392, type: 2}
   heightMap: {fileID: 0}
+  deleteInteraction: {fileID: 0}
+  standardInteraction: {fileID: 0}
+  roadInteraction: {fileID: 0}
+  interaction: {fileID: 0}
 --- !u!114 &1694131988
 MonoBehaviour:
   m_ObjectHideFlags: 0

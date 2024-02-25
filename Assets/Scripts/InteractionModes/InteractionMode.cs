@@ -15,11 +15,13 @@ public abstract void OnPressEnd(TileProperties tile, BuildingType selected);
     public void PlaceTile(TileProperties tile, BuildingType desired)
     {
         Destroy(tile.model);
-        GameObject desiredModel = gameManager.modelDictionary.Get(desired);
-
-        tile.model = Instantiate(desiredModel, tile.modelTransform);
+        tile.model = Instantiate(gameManager.modelDictionary.Get(desired), tile.modelTransform);
         tile.buildingType = desired;
         tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
+        if(tile.TryGetComponent<RoadProperties>( out RoadProperties road))
+        {
+            Destroy(road);
+        }
     }
 
 }

@@ -38,8 +38,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] SerializableDictionary<RoadTable, Vector2> roadShapeDictionary;
 
-    [SerializeField] Transform border;
-
     [SerializeField] GameObject UI;
 
     bool Interacting;
@@ -65,21 +63,12 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
 
-        deleteInteraction = gameObject.AddComponent<DeleteInteraction>();
-        standardInteraction = gameObject.AddComponent<StandardBuildInteraction>();
-        roadInteraction = gameObject.AddComponent<RoadInteraction>();
-
-        interaction = standardInteraction;
-
-        DevSetUpMonsters();
+        SetupInteractionModes();
+        DevSpawnMonsters();
 
         //settup input system
         inputActions = new Inputactions3D();
         inputActions.Player.Enable();
-
-        //set world border  graphic
-        border.localScale = 10 * gridSize * Vector3.one;
-        border.position = new Vector3(gridSize / 2, 0, gridSize / 2) * 10 - new Vector3(5, 0, 5);
 
         //Init Tile array
         tileProperties = new TileProperties[gridSize * gridSize];
@@ -97,12 +86,10 @@ public class GameManager : MonoBehaviour
     {
         CheckDeleteModeDesired();
         CheckInputDesired();
-
-        DayNightCycle.instance.UpdateDayNightCycle();
     }
 
 
-    void UpdateSelectedTile()
+    void UpdatePlayerTileSelection()
     {
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
         {
@@ -114,12 +101,6 @@ public class GameManager : MonoBehaviour
                 Selection.position = newPos;
             }
         }
-    }
-
-
-    bool CheckIfPlacementAllowed()
-    {
-        return !(GetCurrentTile().buildingType != BuildingType.None && !deleteMode);
     }
 
     public void SetType(string type)
@@ -205,46 +186,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
-
-    public void PlaceTile(TileProperties tile, BuildingType desired)
+    void OnPressStart()
     {
-        if (deleteMode) { desired = BuildingType.None; }
-
-        Destroy(tile.model);
-        GameObject desiredModel = modelDictionary.Get(desired);
-
-        tile.model = Instantiate(desiredModel, tile.modelTransform);
-        tile.buildingType = desired;
-        if (desired == BuildingType.Road)
-        {
-            UpdateRoad(tile);
-        }
-        tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
+        var tile = GetCurrentTile();
+        interaction.OnPressStart(tile, plyBuildingDesired);
     }
-
-    public void InteractWithTile(TileProperties tile)
+    void OnPressEnd()
     {
-        if (tile.buildingType == BuildingType.Road)
-        {
-            UpdateRoad(tile);
-            return;
-        }
-        CreateUnitSelectionPanel(tile);
+        var tile = GetCurrentTile();
+        interaction.OnPressEnd(tile, plyBuildingDesired);
     }
-
-    void OnStartInteract()
+    void OnPress()
     {
-        if (!CheckIfPlacementAllowed())
-        {
-
-            InteractWithTile(GetCurrentTile());
-        }
-    }
-
-    void OnEndInteract()
-    {
-        CurrentRoadStroke = new();
+        var tile = GetCurrentTile();
+        interaction.OnPress(tile, plyBuildingDesired);
     }
 
     TileProperties GetCurrentTile()
@@ -255,34 +210,11 @@ public class GameManager : MonoBehaviour
         return tileProperties[curTile];
     }
 
-
-    /// <summary>
-    /// Not called on first frame.
-    /// </summary>
-    void OnInteract()
-    {
-        var tile = GetCurrentTile();
-        tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
-
-        if (tile.buildingType == BuildingType.Road && plyBuildingDesired == BuildingType.Road)
-        {
-            UpdateRoad(tile);
-            return;
-        }
-
-
-        if (CheckIfPlacementAllowed())
-        {
-
-            PlaceTile(tile, plyBuildingDesired);
-        }
-    }
-
-    void CreateUnitSelectionPanel(TileProperties tile)
+    public void CreateUnitSelectionPanel(TileProperties tile)
     {
 
-       var Menu =  Instantiate(UnitSelectionPrefab, UI.transform).GetComponent<UnitSelectionMenu>();
-        if(tile.monsterID == 0)
+        var Menu = Instantiate(UnitSelectionPrefab, UI.transform).GetComponent<UnitSelectionMenu>();
+        if (tile.monsterID == 0)
         {
             Menu.CurrentlyEmployedMonster = null;
         }
@@ -294,7 +226,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    void DevSetUpMonsters()
+    void DevSpawnMonsters()
     {
         var gridInit = GetComponent<GridInitMono>();
         monsters = new();
@@ -347,28 +279,44 @@ public class GameManager : MonoBehaviour
         pointerOverUI = EventSystem.current.IsPointerOverGameObject();
         if (pointerOverUI) { return; }
 
-        UpdateSelectedTile();
+        UpdatePlayerTileSelection();
 
         if (Interacting)
         {
             if (inputActions.Player.Fire.ReadValue<float>() < 0.5f)
             {
-                OnEndInteract();
+                OnPressEnd();
                 Interacting = false;
             }
             else
             {
-                OnInteract();
+                OnPress();
             }
         }
         else
         {
             if (inputActions.Player.Fire.ReadValue<float>() > 0.5f)
             {
-                OnStartInteract();
+                OnPressStart();
                 Interacting = true;
             }
         }
     }
+
+
+
+    void SetupInteractionModes()
+    {
+        deleteInteraction = gameObject.AddComponent<DeleteInteraction>();
+        standardInteraction = gameObject.AddComponent<StandardBuildInteraction>();
+        roadInteraction = gameObject.AddComponent<RoadInteraction>();
+
+        deleteInteraction.gameManager = this;
+        standardInteraction.gameManager = this;
+        roadInteraction.gameManager = this;
+
+        interaction = standardInteraction;
+    }
+
 }
 
