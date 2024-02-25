@@ -14,12 +14,17 @@ public class RoadInteraction : InteractionMode
         if (tile.buildingType == BuildingType.None)
         {
             PlaceTile(tile, BuildingType.Road);
+            gameManager.UpdateRoad(tile);
         }
-        gameManager.UpdateRoad(tile);
+        else
+        {
+            tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
+        }
+
     }
     public override void OnPressStart(TileProperties tile, BuildingType selected)
     {
-        if (tile.buildingType != BuildingType.None)
+        if (tile.buildingType != BuildingType.None && tile.buildingType != BuildingType.Road)
         {
             gameManager.CreateUnitSelectionPanel(tile);
         }

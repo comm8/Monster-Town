@@ -119,6 +119,15 @@ public class GameManager : MonoBehaviour
         }
         DisableBulldozer();
 
+        if(buildingNameDictionary.Get(type) == BuildingType.Road)
+        {
+            interaction = roadInteraction;
+        }
+        else
+        {
+            interaction = standardInteraction;
+        }
+
         plyBuildingDesired = buildingNameDictionary.Get(type);
     }
 
@@ -263,6 +272,14 @@ public class GameManager : MonoBehaviour
     {
         rendererFeature.SetActive(false);
         deleteMode = false;
+        if(plyBuildingDesired != BuildingType.Road)
+        {
+            interaction = standardInteraction;
+        }
+        else
+        {
+            interaction = roadInteraction;
+        }
     }
 
 
@@ -271,6 +288,7 @@ public class GameManager : MonoBehaviour
     {
         rendererFeature.SetActive(true);
         deleteMode = true;
+        interaction = deleteInteraction;
     }
 
 
