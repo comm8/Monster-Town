@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material 1
+  m_Name: Selection Empty Tile
   m_Shader: {fileID: -6465566751694194690, guid: 2141a671c2466314b92ddc5895115b43, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -16,7 +16,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2955
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -101,12 +101,12 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _Multiplier: 0.05
+    - _Multiplier: 0.22
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _Pow: 0.64
+    - _Pow: 0.16
     - _QueueControl: 0
-    - _QueueOffset: -45
+    - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
@@ -121,8 +121,8 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color_Bottom: {r: 0.0027621358, g: 0.0027621358, b: 0.0027621358, a: 1}
-    - _Color_Top: {r: 0.1872549, g: 0, b: 0, a: 1}
+    - _Color_Bottom: {r: 1.0004472, g: 1.8443027, b: 1.8272487, a: 1}
+    - _Color_Top: {r: 0.7637849, g: 1.7411011, b: 1.4841605, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Top_Offset: {r: 3.4263458, g: 5, b: 3.3512115, a: 0}

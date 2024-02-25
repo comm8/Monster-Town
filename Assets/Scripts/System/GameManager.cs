@@ -55,8 +55,7 @@ public class GameManager : MonoBehaviour
     public InteractionMode interaction;
 
 
-
-    //
+ 
     private void Awake()
     {
         instance = this;
