@@ -6060,7 +6060,19 @@ MonoBehaviour:
       y: 0
     icon: {fileID: 0}
   buildings:
-    buildings: []
+    buildings:
+    - {fileID: 11400000, guid: 9577a466bdb1f43488d6567a7cf127c2, type: 2}
+    - {fileID: 11400000, guid: 5c1a9169d62b8e44f8be6513d05e095c, type: 2}
+    - {fileID: 11400000, guid: a10ab3f465961ba4eae39b403ad49961, type: 2}
+    - {fileID: 11400000, guid: 4096240908e7e8a47bc3322a1bcc5ff5, type: 2}
+    - {fileID: 11400000, guid: 4ae1cfb943792ce45b15b1c8750378f5, type: 2}
+    - {fileID: 11400000, guid: c619516a18b718742a0a69529ed050d5, type: 2}
+    - {fileID: 11400000, guid: 5ed3501eb91ebfa479c27a98fc1b9107, type: 2}
+    - {fileID: 11400000, guid: 357b11bbc4b180b4eaf80d58c6ea2354, type: 2}
+    - {fileID: 11400000, guid: b7e3f0ea450944846b6d97228ef037ce, type: 2}
+    - {fileID: 11400000, guid: 25135d151dc27ef40a641e45684db7a2, type: 2}
+    - {fileID: 11400000, guid: 660f91faccbc22c45b50895b70d19304, type: 2}
+    - {fileID: 11400000, guid: bd3a069fa7a47a344878b80ffa8ab14d, type: 2}
   imageDictionary:
     _pairs:
     - _key: 0

@@ -38,6 +38,7 @@ public class TileAnimator : MonoBehaviour
         {
         dynamicsTransform.enabled = false;
          enabled = false;
+         transform.localScale = Vector3.one;
         }    
 
     }

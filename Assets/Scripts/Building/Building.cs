@@ -6,7 +6,6 @@ using BuildingTools;
 [CreateAssetMenu(fileName = "Building", menuName = "MonsterGame/Building", order = 1)]
 public class Building : ScriptableObject
 {
-    public string buildingName;
     public ResourceValue[] cost;
     public GameObject Model;
 
