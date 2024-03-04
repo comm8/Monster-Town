@@ -2,6 +2,7 @@ using Unity.Mathematics;
 using Unity.Burst;
 using System;
 using UnityEngine;
+using SerializableDictionary.Scripts;
 
 namespace BuildingTools
 {
@@ -68,6 +69,16 @@ namespace BuildingTools
         public ResourceType Type;
     }
 
+
+    [Serializable]
+    public class MonsterProduction
+    {
+        public MonsterType monsterType;
+        public ResourceValue amount;
+    }
+
+
+
     public enum ResourceType : byte
     {
         Lumber,
@@ -77,6 +88,12 @@ namespace BuildingTools
         Rations,
         Refined_Alloy,
         Cursed_Alloy
+    }
+
+    [Serializable]
+    public class Inventory
+    {
+        public int lumber, charcoal, stone, metal, rations, refined_Alloy, cursedAlloy;
     }
 
     public enum MonsterType : byte
@@ -95,9 +112,10 @@ namespace BuildingTools
     }
 
 
+    [Serializable]
     public enum BuildingType : byte
     {
-        Farm,
+        Farm = 0,
         Lumber_Yard,
         Mine,
         Inn,
@@ -110,6 +128,29 @@ namespace BuildingTools
         None,
         Road
     }
+
+
+    [Serializable]
+    public class BuildingList
+    {
+        public BuildingType GetBuildingType(int iD)
+        {
+            return (BuildingType)iD;
+        }
+
+        public Building GetBuilding(int iD)
+        {
+            return buildings[iD];
+        }
+
+        public Building GetBuilding(BuildingType type)
+        {
+            return buildings[(int)type];
+        }
+
+        public Building[] buildings;
+    }
+
 
     [Serializable]
     public class RoadTable

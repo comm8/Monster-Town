@@ -15,7 +15,7 @@ public abstract void OnPressEnd(TileProperties tile, BuildingType selected);
     public void PlaceTile(TileProperties tile, BuildingType desired)
     {
         Destroy(tile.model);
-        tile.model = Instantiate(gameManager.modelDictionary.Get(desired), tile.modelTransform);
+        tile.model = Instantiate(gameManager.buildings.GetBuilding(desired).Model, tile.modelTransform);
         tile.buildingType = desired;
         if(desired != BuildingType.None)
         {

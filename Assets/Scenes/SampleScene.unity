@@ -209,11 +209,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1694131987}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: SetType
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 11
           m_FloatArgument: 0
           m_StringArgument: Road
           m_BoolArgument: 0
@@ -1480,11 +1480,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1694131987}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: SetType
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: Mine
           m_BoolArgument: 0
@@ -2926,7 +2926,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1694131987}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: SetType
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3118,11 +3118,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1694131987}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: SetType
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: Inn
           m_BoolArgument: 0
@@ -3995,11 +3995,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1694131987}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: SetType
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: None
           m_BoolArgument: 0
@@ -6059,460 +6059,8 @@ MonoBehaviour:
       x: 0
       y: 0
     icon: {fileID: 0}
-  buildingOutputLookup:
-    _pairs:
-    - _key:
-        monsterType: 0
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 1
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 2
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 3
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 4
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 5
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 6
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 7
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 8
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 9
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 0
-        buildingType: 1
-      _value: []
-    - _key:
-        monsterType: 1
-        buildingType: 1
-      _value: []
-    - _key:
-        monsterType: 2
-        buildingType: 1
-      _value: []
-    - _key:
-        monsterType: 3
-        buildingType: 1
-      _value: []
-    - _key:
-        monsterType: 4
-        buildingType: 1
-      _value: []
-    - _key:
-        monsterType: 5
-        buildingType: 1
-      _value: []
-    - _key:
-        monsterType: 6
-        buildingType: 1
-      _value: []
-    - _key:
-        monsterType: 7
-        buildingType: 1
-      _value: []
-    - _key:
-        monsterType: 8
-        buildingType: 1
-      _value: []
-    - _key:
-        monsterType: 9
-        buildingType: 1
-      _value: []
-    - _key:
-        monsterType: 0
-        buildingType: 2
-      _value: []
-    - _key:
-        monsterType: 1
-        buildingType: 2
-      _value: []
-    - _key:
-        monsterType: 2
-        buildingType: 2
-      _value: []
-    - _key:
-        monsterType: 3
-        buildingType: 2
-      _value: []
-    - _key:
-        monsterType: 4
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 5
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 6
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 7
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 8
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 9
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 0
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 1
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 2
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 3
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 4
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 5
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 6
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 7
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 8
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 9
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 0
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 1
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 2
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 3
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 4
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 5
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 6
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 7
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 8
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 9
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 0
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 1
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 2
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 3
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 4
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 5
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 6
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 7
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 8
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 9
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 0
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 1
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 2
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 3
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 4
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 5
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 6
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 7
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 8
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 9
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 0
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 1
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 2
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 3
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 4
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 5
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 6
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 7
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 8
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 9
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 0
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 1
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 2
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 3
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 4
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 5
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 6
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 7
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 8
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 9
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 0
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 1
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 2
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 3
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 4
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 5
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 6
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 7
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 8
-        buildingType: 0
-      _value: []
-    - _key:
-        monsterType: 9
-        buildingType: 0
-      _value: []
-  buildingNameDictionary:
-    _pairs:
-    - _key: None
-      _value: 10
-    - _key: Farm
-      _value: 0
-    - _key: Inn
-      _value: 3
-    - _key: Lumber yard
-      _value: 1
-    - _key: Fishing dock
-      _value: 6
-    - _key: Apothecary
-      _value: 8
-    - _key: Forge
-      _value: 4
-    - _key: Lighthouse
-      _value: 7
-    - _key: Necromansion
-      _value: 5
-    - _key: Mine
-      _value: 2
-    - _key: Armory
-      _value: 9
-    - _key: Road
-      _value: 11
-  modelDictionary:
-    _pairs:
-    - _key: 0
-      _value: {fileID: 4463137463556503104, guid: cab6da6cf7bda194a9785582167d910c, type: 3}
-    - _key: 1
-      _value: {fileID: 6391764774371186972, guid: 7f947af620e51784d853f8ab61628cb3, type: 3}
-    - _key: 2
-      _value: {fileID: 6391764774371186972, guid: 4aedb47219fe37f4daa38e9f9adc65da, type: 3}
-    - _key: 3
-      _value: {fileID: 6391764774371186972, guid: 8dfac28a338473d4dbf1a278efe28ff3, type: 3}
-    - _key: 4
-      _value: {fileID: 6391764774371186972, guid: 07af27bf6566f194f8e2643216e4d61f, type: 3}
-    - _key: 5
-      _value: {fileID: 6391764774371186972, guid: e17df6ec88b3c704fb84626a2964cb87, type: 3}
-    - _key: 6
-      _value: {fileID: 0}
-    - _key: 7
-      _value: {fileID: 0}
-    - _key: 8
-      _value: {fileID: 6391764774371186972, guid: 26c00ca5d4802d241ad576d527aef8a0, type: 3}
-    - _key: 9
-      _value: {fileID: 0}
-    - _key: 10
-      _value: {fileID: 6430576442529985957, guid: ddf27286751280048b045950a593598b, type: 3}
-    - _key: 11
-      _value: {fileID: 6664616065050738278, guid: 9191c853c4f0dfa47ac6a9bc93d6902b, type: 3}
+  buildings:
+    buildings: []
   imageDictionary:
     _pairs:
     - _key: 0
@@ -6545,6 +6093,14 @@ MonoBehaviour:
   standardInteraction: {fileID: 0}
   roadInteraction: {fileID: 0}
   interaction: {fileID: 0}
+  inventory:
+    lumber: 0
+    charcoal: 0
+    stone: 0
+    metal: 0
+    rations: 0
+    refined_Alloy: 0
+    cursedAlloy: 0
 --- !u!114 &1694131988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7631,11 +7187,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1694131987}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: SetType
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: Lumber yard
           m_BoolArgument: 0
@@ -7719,7 +7275,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 100, y: 2.5, z: 100}
-  m_LocalScale: {x: 15.000001, y: 15.000001, z: 0}
+  m_LocalScale: {x: 12, y: 12, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -8647,11 +8203,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1694131987}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: SetType
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: Necromansion
           m_BoolArgument: 0
