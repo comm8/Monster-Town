@@ -27,4 +27,29 @@ public abstract void OnPressEnd(TileProperties tile, BuildingType selected);
         }
     }
 
-}
+  /*   public bool CheckCost( BuildingType desired)
+    {
+        ResourceValue[]
+        ResourceValue[] cost = gameManager.buildings.GetBuilding((int)desired).cost;
+
+        foreach ( ResourceValue debt in cost)
+        {
+           foreach (ResourceValue resource in gameManager.inventory)
+           {
+            if(resource.Type == debt.Type)
+            {
+                if (resource.Amount >= debt.Amount)
+                {
+                    resource.Amount -= debt.Amount;
+                }
+                else
+                {
+                    //CANT AFFORD
+                    return false;
+                }
+            }
+           }
+        }
+    }*/
+
+} 

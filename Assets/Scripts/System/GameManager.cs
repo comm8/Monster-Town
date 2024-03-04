@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     public InteractionMode interaction;
 
 
-    public Inventory inventory; 
+    public ResourceValue[] inventory; 
 
 
  

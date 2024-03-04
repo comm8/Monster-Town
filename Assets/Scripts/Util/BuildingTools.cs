@@ -3,6 +3,7 @@ using Unity.Burst;
 using System;
 using UnityEngine;
 using SerializableDictionary.Scripts;
+using UnityEditor.iOS;
 
 namespace BuildingTools
 {
@@ -77,6 +78,30 @@ namespace BuildingTools
         public ResourceValue amount;
     }
 
+    public static class inventory
+    {
+        public static void AddToInventory(ResourceValue[] inventory, ResourceValue[] toAdd)
+        {
+            foreach (ResourceValue item in toAdd)
+            {
+                bool foundMatch = false;
+                foreach ( ResourceValue invItem in inventory)
+                {
+                    if( item.Type == invItem.Type)
+                    {
+                        invItem.Amount += item.Amount;
+                        foundMatch = true;
+                        break;
+                    }
+                }
+                if (!foundMatch)
+                {
+                    inventory[inventory.Length] = item;
+                }
+            }
+        }
+
+    }
 
 
     public enum ResourceType : byte
@@ -88,12 +113,6 @@ namespace BuildingTools
         Rations,
         Refined_Alloy,
         Cursed_Alloy
-    }
-
-    [Serializable]
-    public class Inventory
-    {
-        public int lumber, charcoal, stone, metal, rations, refined_Alloy, cursedAlloy;
     }
 
     public enum MonsterType : byte
