@@ -28,9 +28,8 @@ public class GameManager : MonoBehaviour
     public List<MonsterStats> monsters;
 
     [Header("Other")]
-    public SerializableDictionary<BuildingStats, ResourceValue[]> buildingOutputLookup;
-    public SerializableDictionary<string, BuildingType> buildingNameDictionary;
-    public SerializableDictionary<BuildingType, GameObject> modelDictionary;
+
+    public BuildingList buildings;
 
     public SerializableDictionary<MonsterType, Sprite> imageDictionary;
 
@@ -50,9 +49,14 @@ public class GameManager : MonoBehaviour
     public Texture2D heightMap;
 
 
+    [Header("Interactions")]
+
     public InteractionMode deleteInteraction, standardInteraction, roadInteraction;
 
     public InteractionMode interaction;
+
+
+    public ResourceValue[] inventory; 
 
 
  
@@ -99,9 +103,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SetType(string type)
+    public void SetType(int iD)
     {
-        if (buildingNameDictionary.Get(type) == BuildingType.None)
+        if (buildings.GetBuildingType(iD) == BuildingType.None)
         {
             if (deleteMode)
             {
@@ -115,16 +119,16 @@ public class GameManager : MonoBehaviour
         }
         DisableBulldozer();
 
-        if (buildingNameDictionary.Get(type) == BuildingType.Road)
+        if (buildings.GetBuildingType(iD) == BuildingType.Road)
         {
-            interaction = roadInteraction;
+            interaction = roadInteraction;  
         }
         else
         {
             interaction = standardInteraction;
         }
 
-        plyBuildingDesired = buildingNameDictionary.Get(type);
+        plyBuildingDesired = buildings.GetBuildingType(iD);
     }
 
 

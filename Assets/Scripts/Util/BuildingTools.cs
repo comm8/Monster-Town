@@ -2,6 +2,8 @@ using Unity.Mathematics;
 using Unity.Burst;
 using System;
 using UnityEngine;
+using SerializableDictionary.Scripts;
+using UnityEditor.iOS;
 
 namespace BuildingTools
 {
@@ -68,6 +70,40 @@ namespace BuildingTools
         public ResourceType Type;
     }
 
+
+    [Serializable]
+    public class MonsterProduction
+    {
+        public MonsterType monsterType;
+        public ResourceValue amount;
+    }
+
+    public static class inventory
+    {
+        public static void AddToInventory(ResourceValue[] inventory, ResourceValue[] toAdd)
+        {
+            foreach (ResourceValue item in toAdd)
+            {
+                bool foundMatch = false;
+                foreach ( ResourceValue invItem in inventory)
+                {
+                    if( item.Type == invItem.Type)
+                    {
+                        invItem.Amount += item.Amount;
+                        foundMatch = true;
+                        break;
+                    }
+                }
+                if (!foundMatch)
+                {
+                    inventory[inventory.Length] = item;
+                }
+            }
+        }
+
+    }
+
+
     public enum ResourceType : byte
     {
         Lumber,
@@ -95,9 +131,10 @@ namespace BuildingTools
     }
 
 
+    [Serializable]
     public enum BuildingType : byte
     {
-        Farm,
+        Farm = 0,
         Lumber_Yard,
         Mine,
         Inn,
@@ -110,6 +147,29 @@ namespace BuildingTools
         None,
         Road
     }
+
+
+    [Serializable]
+    public class BuildingList
+    {
+        public BuildingType GetBuildingType(int iD)
+        {
+            return (BuildingType)iD;
+        }
+
+        public Building GetBuilding(int iD)
+        {
+            return buildings[iD];
+        }
+
+        public Building GetBuilding(BuildingType type)
+        {
+            return buildings[(int)type];
+        }
+
+        public Building[] buildings;
+    }
+
 
     [Serializable]
     public class RoadTable

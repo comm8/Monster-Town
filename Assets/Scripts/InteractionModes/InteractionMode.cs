@@ -15,7 +15,7 @@ public abstract void OnPressEnd(TileProperties tile, BuildingType selected);
     public void PlaceTile(TileProperties tile, BuildingType desired)
     {
         Destroy(tile.model);
-        tile.model = Instantiate(gameManager.modelDictionary.Get(desired), tile.modelTransform);
+        tile.model = Instantiate(gameManager.buildings.GetBuilding(desired).Model, tile.modelTransform);
         tile.buildingType = desired;
         if(desired != BuildingType.None)
         {
@@ -27,4 +27,29 @@ public abstract void OnPressEnd(TileProperties tile, BuildingType selected);
         }
     }
 
-}
+  /*   public bool CheckCost( BuildingType desired)
+    {
+        ResourceValue[]
+        ResourceValue[] cost = gameManager.buildings.GetBuilding((int)desired).cost;
+
+        foreach ( ResourceValue debt in cost)
+        {
+           foreach (ResourceValue resource in gameManager.inventory)
+           {
+            if(resource.Type == debt.Type)
+            {
+                if (resource.Amount >= debt.Amount)
+                {
+                    resource.Amount -= debt.Amount;
+                }
+                else
+                {
+                    //CANT AFFORD
+                    return false;
+                }
+            }
+           }
+        }
+    }*/
+
+} 

@@ -22,7 +22,7 @@ public class GridInitMono : MonoBehaviour
 
                 tileProperties.buildingType = BuildingTools.BuildingType.None;
 
-                tileProperties.model = Instantiate(GameManager.instance.modelDictionary.Get(BuildingTools.BuildingType.None), tileProperties.modelTransform);
+                tileProperties.model = Instantiate(GameManager.instance.buildings.GetBuilding(BuildingType.None).Model, tileProperties.modelTransform);
                 GameManager.instance.tileProperties[x * GameManager.instance.gridSize + y] = tileProperties;
                 entity.GetComponentInChildren<TileAnimator>().CacheDeltaPos();
             }
