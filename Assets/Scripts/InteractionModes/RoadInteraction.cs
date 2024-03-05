@@ -12,7 +12,7 @@ public class RoadInteraction : InteractionMode
     }
     public override void OnPress(TileProperties tile, BuildingType selected)
     {
-        if (tile.buildingType == BuildingType.None)
+        if (tile.buildingType == BuildingType.None && TryChargeCost(selected))
         {
             PlaceTile(tile, BuildingType.Road);
             UpdateRoad(tile);

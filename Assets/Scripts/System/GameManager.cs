@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
 
         //Init Tile array
         tileProperties = new TileProperties[gridSize * gridSize];
-
+        //inventory = new ResourceValue[7];
     }
 
     void OnDestroy()

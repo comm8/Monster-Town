@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using BuildingTools;
 using UnityEngine;
 
@@ -5,11 +7,11 @@ using UnityEngine;
 public abstract class InteractionMode : MonoBehaviour
 {
 
-public GameManager gameManager;
+    public GameManager gameManager;
 
-public abstract void OnPressStart(TileProperties tile, BuildingType selected);
-public abstract void OnPress(TileProperties tile, BuildingType selected);
-public abstract void OnPressEnd(TileProperties tile, BuildingType selected);
+    public abstract void OnPressStart(TileProperties tile, BuildingType selected);
+    public abstract void OnPress(TileProperties tile, BuildingType selected);
+    public abstract void OnPressEnd(TileProperties tile, BuildingType selected);
 
 
     public void PlaceTile(TileProperties tile, BuildingType desired)
@@ -17,39 +19,50 @@ public abstract void OnPressEnd(TileProperties tile, BuildingType selected);
         Destroy(tile.model);
         tile.model = Instantiate(gameManager.buildings.GetBuilding(desired).Model, tile.modelTransform);
         tile.buildingType = desired;
-        if(desired != BuildingType.None)
+        if (desired != BuildingType.None)
         {
-                    tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
+            tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
         }
-        if(tile.TryGetComponent<RoadProperties>( out RoadProperties road))
+        if (tile.TryGetComponent<RoadProperties>(out RoadProperties road))
         {
             Destroy(road);
         }
     }
 
-  /*   public bool CheckCost( BuildingType desired)
+    public bool TryChargeCost(BuildingType desired)
     {
-        ResourceValue[]
+        List<int> cache = new();
         ResourceValue[] cost = gameManager.buildings.GetBuilding((int)desired).cost;
 
-        foreach ( ResourceValue debt in cost)
+        foreach (ResourceValue debt in cost)
         {
-           foreach (ResourceValue resource in gameManager.inventory)
-           {
-            if(resource.Type == debt.Type)
+            for (int i = 0; i < gameManager.inventory.Length; i++)
             {
-                if (resource.Amount >= debt.Amount)
+                var resource = gameManager.inventory[i];
+
+                if (resource.Type == debt.Type)
                 {
-                    resource.Amount -= debt.Amount;
-                }
-                else
-                {
-                    //CANT AFFORD
-                    return false;
+                    if (resource.Amount >= debt.Amount)
+                    {
+                        cache.Add(i);
+                    }
+                    else
+                    {
+                        //CANT AFFORD
+                        return false;
+                    }
                 }
             }
-           }
         }
-    }*/
 
-} 
+        //We can afford it!! 
+
+        for( int i = 0; i < cache.Count; i++)
+        {
+            gameManager.inventory[cache[i]].Amount -= cost[i].Amount;
+        }
+
+        return true;
+    }
+
+}

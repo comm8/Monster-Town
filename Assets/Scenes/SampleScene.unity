@@ -6106,13 +6106,20 @@ MonoBehaviour:
   roadInteraction: {fileID: 0}
   interaction: {fileID: 0}
   inventory:
-    lumber: 0
-    charcoal: 0
-    stone: 0
-    metal: 0
-    rations: 0
-    refined_Alloy: 0
-    cursedAlloy: 0
+  - Amount: 999
+    Type: 0
+  - Amount: 999
+    Type: 1
+  - Amount: 999
+    Type: 2
+  - Amount: 999
+    Type: 3
+  - Amount: 999
+    Type: 4
+  - Amount: 999
+    Type: 5
+  - Amount: 999
+    Type: 6
 --- !u!114 &1694131988
 MonoBehaviour:
   m_ObjectHideFlags: 0

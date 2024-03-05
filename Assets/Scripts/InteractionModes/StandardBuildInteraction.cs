@@ -7,7 +7,7 @@ public class StandardBuildInteraction : InteractionMode
     }
     public override void OnPress(TileProperties tile, BuildingType selected)
     {
-        if (tile.buildingType == BuildingType.None)
+        if (tile.buildingType == BuildingType.None && TryChargeCost(selected))
         {
             PlaceTile(tile, selected);
         }
