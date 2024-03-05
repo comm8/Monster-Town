@@ -6049,7 +6049,7 @@ MonoBehaviour:
   SelectionGridPos:
     x: 0
     y: 0
-  plyBuildingDesired: 11
+  plyBuildingDesired: 0
   pointerOverUI: 0
   tileProperties: []
   monsters:
