@@ -19,7 +19,7 @@ public class StandardBuildInteraction : InteractionMode
     }
     public override void OnPressStart(TileProperties tile, BuildingType selected)
     {
-        if( tile.buildingType != BuildingType.None)
+        if( tile.buildingType != BuildingType.None && tile.buildingType != BuildingType.Road)
         {
             gameManager.CreateUnitSelectionPanel(tile);
         }

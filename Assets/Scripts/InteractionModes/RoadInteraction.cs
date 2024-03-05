@@ -35,6 +35,11 @@ public class RoadInteraction : InteractionMode
         }
     }
 
+    public void checkAdjacent( )
+    {
+        
+    }
+
 
     public void UpdateRoad(TileProperties tile)
     {
