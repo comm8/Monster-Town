@@ -4,16 +4,22 @@ using Unity.Mathematics;
 using System.Collections.Generic;
 public class RoadInteraction : InteractionMode
 {
-   [SerializeField] List<int2> CurrentRoadStroke = new();
+    [SerializeField] List<int2> CurrentRoadStroke = new();
 
     public override void OnPressEnd(TileProperties tile, BuildingType selected)
     {
-        CurrentRoadStroke = new();
+        CurrentRoadStroke.Clear();
     }
     public override void OnPress(TileProperties tile, BuildingType selected)
     {
         if (tile.buildingType == BuildingType.None && TryChargeCost(selected))
         {
+            if (!checkAdjacent())
+            {
+                CurrentRoadStroke.Clear();
+                tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
+                return;
+            }
             PlaceTile(tile, BuildingType.Road);
             UpdateRoad(tile);
         }
@@ -35,9 +41,24 @@ public class RoadInteraction : InteractionMode
         }
     }
 
-    public void checkAdjacent( )
+    public bool checkAdjacent()
     {
-        
+        if (CurrentRoadStroke.Count == 0) { return true; }
+
+        var point1 = CurrentRoadStroke[CurrentRoadStroke.Count -1];
+        var point2 =  gameManager.SelectionGridPos;
+
+        int dx = Mathf.Abs(point1.x - point2.x);
+        int dy = Mathf.Abs(point1.y - point2.y);
+
+        if ((dx == 1 && dy == 0) || (dx == 0 && dy == 1))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 

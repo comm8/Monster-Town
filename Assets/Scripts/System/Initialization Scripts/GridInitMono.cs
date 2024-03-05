@@ -11,25 +11,25 @@ public class GridInitMono : MonoBehaviour
 
     void Start()
     {
+        var gameManager = GameManager.instance;
 
-        for (int x = 0; x < GameManager.instance.gridSize; x++)
+        for (int x = 0; x < gameManager.gridSize; x++)
         {
-            for (int y = 0; y < GameManager.instance.gridSize; y++)
+            for (int y = 0; y < gameManager.gridSize; y++)
             {
-                GameObject entity = Instantiate(GameManager.instance.tilePrefab, tileParent);
+                GameObject entity = Instantiate(gameManager.tilePrefab, tileParent);
                 entity.transform.position = new float3(y, 0, x) * 10;
                 TileProperties tileProperties = entity.GetComponent<TileProperties>();
 
-                tileProperties.buildingType = BuildingTools.BuildingType.None;
+                tileProperties.buildingType = BuildingType.None;
 
-                tileProperties.model = Instantiate(GameManager.instance.buildings.GetBuilding(BuildingType.None).Model, tileProperties.modelTransform);
-                GameManager.instance.tileProperties[x * GameManager.instance.gridSize + y] = tileProperties;
+                tileProperties.model = Instantiate(gameManager.buildings.GetBuilding(BuildingType.None).Model, tileProperties.modelTransform);
+                gameManager.tileProperties[x * gameManager.gridSize + y] = tileProperties;
                 entity.GetComponentInChildren<TileAnimator>().CacheDeltaPos();
             }
 
 
         }
-
         this.enabled = false;
 
     }
