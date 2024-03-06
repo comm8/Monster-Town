@@ -1,3 +1,4 @@
+using BuildingTools;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -61,14 +62,14 @@ public class CameraController : MonoBehaviour
 
     private void CheckAllowRotation()
     {
-        allowRotation = (inputActions.Player.RotationMode.ReadValue<float>() > .02f || usingController);
+        allowRotation = inputActions.Player.RotationMode.ReadValue<float>() > .02f || usingController;
     }
 
     private float ClampDeltaScroll()
     {
         float deltaZoom = 0;
 
-        if(!GameManager.instance.pointerOverUI)
+        if (!GameManager.instance.pointerOverUI)
         {
             deltaZoom = inputActions.Player.Scroll.ReadValue<float>();
         }
@@ -102,7 +103,7 @@ public class CameraController : MonoBehaviour
         }
 
 
-                RaycastHit hit;
+        RaycastHit hit;
         Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit);
 
         cameraTech.transform.RotateAround(hit.point, Vector3.up, rotationVelocity);
@@ -120,7 +121,9 @@ public class CameraController : MonoBehaviour
 
         Vector2 DesiredMovement = inputActions.Player.Move.ReadValue<Vector2>() * Time.deltaTime * movementMultiplier * (zoomPercentage + 0.7f) * accelerationCurve.Evaluate(accelerationTimer / accelerationTime);
 
-        transform.position += rotFreeTransform.TransformDirection( Swizzle._x0y(DesiredMovement));
+        transform.position += rotFreeTransform.TransformDirection(Swizzle._x0y(DesiredMovement));
+
+
         transform.position = Swizzle.SetY(transform.position, math.lerp(MinAltitude, MaxAltitude, ZoomAltitudeCurve.Evaluate(zoomPercentage + deltaZoom)));
 
         transform.Rotate(Swizzle._x00(math.lerp(MinRotation, MaxRotation, zoomRotationCurve.Evaluate(zoomPercentage + deltaZoom)) - transform.eulerAngles.x));

@@ -54,18 +54,6 @@ public class RoadInteraction : InteractionMode
         return false;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     public void UpdateRoadInStroke(TileProperties tile)
     {
         if (!tile.gameObject.TryGetComponent(out RoadProperties road))
