@@ -65,4 +65,9 @@ public abstract class InteractionMode : MonoBehaviour
         return true;
     }
 
+        public void UpdatetileRoadMaterial(RoadProperties road, RoadTable table)
+    {
+        road.GetComponentInChildren<Renderer>().material = Resources.Load<Material>("road/road_" + table.ToString());
+    }
+
 }

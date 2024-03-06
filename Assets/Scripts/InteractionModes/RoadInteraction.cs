@@ -14,20 +14,20 @@ public class RoadInteraction : InteractionMode
     {
         if (tile.buildingType == BuildingType.None && TryChargeCost(selected))
         {
-            if (!checkAdjacent())
+            if (!( CurrentRoadStroke.Count == 0 ||checkAdjacent(CurrentRoadStroke[CurrentRoadStroke.Count - 1], gameManager.SelectionGridPos)))
             {
                 CurrentRoadStroke.Clear();
                 tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
                 return;
             }
             PlaceTile(tile, BuildingType.Road);
-            UpdateRoad(tile);
+            UpdateRoadInStroke(tile);
         }
         else
         {
             if (tile.buildingType == BuildingType.Road)
             {
-                UpdateRoad(tile);
+                UpdateRoadInStroke(tile);
             }
             tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
         }
@@ -41,13 +41,9 @@ public class RoadInteraction : InteractionMode
         }
     }
 
-    public bool checkAdjacent()
+    public bool checkAdjacent(int2 point1, int2 point2)
     {
         if (CurrentRoadStroke.Count == 0) { return true; }
-
-        var point1 = CurrentRoadStroke[CurrentRoadStroke.Count -1];
-        var point2 =  gameManager.SelectionGridPos;
-
         int dx = Mathf.Abs(point1.x - point2.x);
         int dy = Mathf.Abs(point1.y - point2.y);
 
@@ -55,14 +51,22 @@ public class RoadInteraction : InteractionMode
         {
             return true;
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
 
 
-    public void UpdateRoad(TileProperties tile)
+
+
+
+
+
+
+
+
+
+
+
+    public void UpdateRoadInStroke(TileProperties tile)
     {
         if (!tile.gameObject.TryGetComponent(out RoadProperties road))
         {
@@ -110,8 +114,7 @@ public class RoadInteraction : InteractionMode
                 inverseRoadTable.up = true;
             }
 
-            road.GetComponentInChildren<Renderer>().material = Resources.Load<Material>("road/road_" + BuildingUtils.toNumeralString(roadTable.up) + BuildingUtils.toNumeralString(roadTable.down) + BuildingUtils.toNumeralString(roadTable.left) + BuildingUtils.toNumeralString(roadTable.right));
-
+            UpdatetileRoadMaterial(road, roadTable);
 
 
             //adjust last road
@@ -123,7 +126,7 @@ public class RoadInteraction : InteractionMode
             if (roadTable.left || inverseRoadTable.left) { roadTable.left = true; }
             if (roadTable.right || inverseRoadTable.right) { roadTable.right = true; }
 
-            road.GetComponentInChildren<Renderer>().material = Resources.Load<Material>("road/road_" + BuildingUtils.toNumeralString(roadTable.up) + BuildingUtils.toNumeralString(roadTable.down) + BuildingUtils.toNumeralString(roadTable.left) + BuildingUtils.toNumeralString(roadTable.right));
+            UpdatetileRoadMaterial(road, roadTable);
         }
     }
 

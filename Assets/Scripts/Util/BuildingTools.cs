@@ -2,9 +2,6 @@ using Unity.Mathematics;
 using Unity.Burst;
 using System;
 using UnityEngine;
-using SerializableDictionary.Scripts;
-using UnityEditor.iOS;
-
 namespace BuildingTools
 {
 
@@ -27,10 +24,28 @@ namespace BuildingTools
             return new((int)((InputPos.x + 5) / 10), (int)((InputPos.z + 5) / 10));
         }
 
-        public static String toNumeralString(bool input)
+        public static string toNumeralString(bool input)
         {
             return input ? "1" : "0";
         }
+
+
+        public static int2[] GetAdjacentTiles(int2 centerTile)
+    {
+        int2[] offsets = {
+            new int2(1, 0),    // Right
+            new int2(-1, 0),   // Left
+            new int2(0, 1),    // Up
+            new int2(0, -1)    // Down
+        };
+
+        for (int i = 0; i < 4; i++)
+        {
+            offsets[i] = offsets[i] + centerTile;
+        }
+
+        return offsets;
+    }
 
 
     }
@@ -62,7 +77,7 @@ namespace BuildingTools
 
 
 
-    [BurstCompile]
+
     [Serializable]
     public class ResourceValue
     {
@@ -174,6 +189,11 @@ namespace BuildingTools
     [Serializable]
     public class RoadTable
     {
+        public override string ToString()
+        {
+            return BuildingUtils.toNumeralString(up) + BuildingUtils.toNumeralString(down) + BuildingUtils.toNumeralString(left) + BuildingUtils.toNumeralString(right);
+        }
+
         public bool left, right, up, down;
     }
 
