@@ -31,9 +31,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2327079917365258042}
   - {fileID: 9029540960773382751}
   - {fileID: 7488914664573580562}
+  - {fileID: 2327079917365258042}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -383,7 +383,6 @@ GameObject:
   - component: {fileID: 4610373529446120255}
   - component: {fileID: 2547224605234140590}
   - component: {fileID: 4301466608497349469}
-  - component: {fileID: 8357762046351042424}
   m_Layer: 5
   m_Name: Close menu
   m_TagString: Untagged
@@ -405,11 +404,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7716722849971269380}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 92.01, y: 69.65816}
-  m_SizeDelta: {x: 12.0981, y: 8.8083}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 16, y: 16}
+  m_Pivot: {x: 1, y: 1}
 --- !u!222 &4610373529446120255
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -438,7 +437,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a439e673024623d4a9ae4a7efffbfce0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8801e15665197c54faade9cfc7847623, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -467,7 +466,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 0.8962264, g: 0.78969383, b: 0.78969383, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
@@ -504,21 +503,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8357762046351042424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1845073085350109637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 1, y: -1}
-  m_UseGraphicAlpha: 1
 --- !u!1 &2621772015442360102
 GameObject:
   m_ObjectHideFlags: 0
