@@ -77,7 +77,7 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""46d5e4ce-d779-47f1-abd5-e8ac36bfa824"",
                     ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
+                    ""processors"": ""Scale(factor=14)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
