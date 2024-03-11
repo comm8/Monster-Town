@@ -8,13 +8,20 @@ public class UnitPanel : MonoBehaviour
 {
     public TMP_Text monsterName, production, employementStatus, species;
     public Image monsterIcon;
+    public int MonsterID;
 
 
-    public void Setup(MonsterStats stats)
+    public void Setup(MonsterStats stats, int id)
     {
         monsterName.text = stats.name;
         monsterIcon.sprite = stats.icon;
         species.text = stats.type.ToString();
+        MonsterID = id;
+    }
+
+    public void SetMonster()
+    {
+      FindFirstObjectByType<UnitSelectionMenu>().EmployMonster(MonsterID);
     }
 
 }

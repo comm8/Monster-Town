@@ -7,6 +7,7 @@ public class UnitSelectionMenu : MonoBehaviour
 {
 
     [SerializeField] GameObject UnitPanel, UnitList;
+    public TileProperties currentTile;
 
     public MonsterStats CurrentlyEmployedMonster;
 
@@ -16,21 +17,21 @@ public class UnitSelectionMenu : MonoBehaviour
 
     void Awake()
     {
-        if(CurrentlyEmployedMonster == null)
+        if (CurrentlyEmployedMonster == null)
         {
             SetupBuildingPanelEmpty();
         }
         else
         {
-        SetupBuildingPanel();
+            SetupBuildingPanel();
         }
 
-        SetupMonsterList(); 
+        SetupMonsterList();
 
 
-       Destroy(UnitPanel);
+        Destroy(UnitPanel);
 
-    StartCoroutine(SetScrollToTop());
+        StartCoroutine(SetScrollToTop());
 
     }
 
@@ -38,6 +39,26 @@ public class UnitSelectionMenu : MonoBehaviour
     {
         monsterName.text = CurrentlyEmployedMonster.name + " (" + CurrentlyEmployedMonster.type.ToString() + ")";
         production.text = "0";
+    }
+
+    public void EmployMonster(int id)
+    {
+       if(CurrentlyEmployedMonster != null )
+       {
+        CurrentlyEmployedMonster.tile = null;
+       } 
+
+        CurrentlyEmployedMonster = GameManager.instance.monsters[id];
+        CurrentlyEmployedMonster.tile = (currentTile);
+
+        if (CurrentlyEmployedMonster == null)
+        {
+            SetupBuildingPanelEmpty();
+        }
+        else
+        {
+            SetupBuildingPanel();
+        }
     }
 
     void SetupBuildingPanelEmpty()
@@ -48,10 +69,10 @@ public class UnitSelectionMenu : MonoBehaviour
 
     void SetupMonsterList()
     {
-        foreach (var monster in GameManager.instance.monsters)
+        for(int i = 0; i < GameManager.instance.monsters.Count; i++)
         {
             var Panel = Instantiate(UnitPanel, UnitList.transform);
-            Panel.GetComponent<UnitPanel>().Setup(monster);
+            Panel.GetComponent<UnitPanel>().Setup(GameManager.instance.monsters[i], i);
         }
 
     }
@@ -64,8 +85,8 @@ public class UnitSelectionMenu : MonoBehaviour
 
 
     IEnumerator SetScrollToTop()
-{
-    yield return new WaitForEndOfFrame();
-    GetComponentInChildren<ScrollRect>().verticalNormalizedPosition = 1.0f;
-}
+    {
+        yield return new WaitForEndOfFrame();
+        GetComponentInChildren<ScrollRect>().verticalNormalizedPosition = 1.0f;
+    }
 }
