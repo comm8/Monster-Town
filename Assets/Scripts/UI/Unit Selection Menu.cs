@@ -49,7 +49,7 @@ public class UnitSelectionMenu : MonoBehaviour
        } 
 
         CurrentlyEmployedMonster = GameManager.instance.monsters[id];
-        CurrentlyEmployedMonster.tile = (currentTile);
+        CurrentlyEmployedMonster.tile = currentTile;
 
         if (CurrentlyEmployedMonster == null)
         {

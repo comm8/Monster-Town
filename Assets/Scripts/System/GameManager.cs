@@ -179,6 +179,7 @@ public class GameManager : MonoBehaviour
             Menu.CurrentlyEmployedMonster = monsters[tile.monsterID - 1];
         }
 
+    Menu.currentTile = tile;
     }
 
 
