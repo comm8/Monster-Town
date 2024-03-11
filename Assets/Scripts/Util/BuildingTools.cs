@@ -90,10 +90,10 @@ namespace BuildingTools
     public class MonsterProduction
     {
         public MonsterType monsterType;
-        public ResourceValue amount;
+        public ResourceValue[] amount;
     }
 
-    public static class inventory
+    public static class Inventory
     {
         public static void AddToInventory(ResourceValue[] inventory, ResourceValue[] toAdd)
         {
@@ -209,7 +209,7 @@ namespace BuildingTools
     {
         public MonsterType type;
         public string name;
-        public int2 tile;
+        public TileProperties tile; 
         public Sprite icon;
     }
 }

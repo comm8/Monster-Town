@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using SerializableDictionary.Scripts;
 using System.Collections.Generic;
 using UnityEngine.Rendering.Universal;
-
+using TMPro;
 public class GameManager : MonoBehaviour
 {
     [HideInInspector] public static GameManager instance;
@@ -59,6 +59,9 @@ public class GameManager : MonoBehaviour
     public ResourceValue[] inventory; 
 
 
+[SerializeField] TMP_Text[] resourceAmountsText;
+
+
  
     private void Awake()
     {
@@ -73,7 +76,7 @@ public class GameManager : MonoBehaviour
 
         //Init Tile array
         tileProperties = new TileProperties[gridSize * gridSize];
-        //inventory = new ResourceValue[7];
+        InvokeRepeating(nameof(UpdateTiles), 0.3f, 1f);
     }
 
     void OnDestroy()
@@ -86,6 +89,11 @@ public class GameManager : MonoBehaviour
     {
         CheckDeleteModeDesired();
         CheckInputDesired();
+        for(int i = 0; i < resourceAmountsText.Length; i++)
+        {
+            resourceAmountsText[i].text = inventory[i].Type.ToString() + " " + inventory[i].Amount;
+        }
+
     }
 
 
@@ -185,6 +193,19 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+
+    void UpdateTiles()
+    {
+        foreach (var monster in monsters)
+        {
+            if(monster.tile == null) {continue;}
+            Inventory.AddToInventory(inventory, buildings.GetBuilding((int)monster.tile.buildingType).production[(int)monster.type].amount);
+        }
+    }
+
+
+
 
     void CheckDeleteModeDesired()
     {

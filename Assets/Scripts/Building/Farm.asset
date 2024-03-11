@@ -16,4 +16,8 @@ MonoBehaviour:
   - Amount: 1
     Type: 0
   Model: {fileID: 4463137463556503104, guid: cab6da6cf7bda194a9785582167d910c, type: 3}
-  production: []
+  production:
+  - monsterType: 0
+    amount:
+    - Amount: 4
+      Type: 4

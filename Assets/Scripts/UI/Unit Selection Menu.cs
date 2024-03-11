@@ -2,6 +2,7 @@ using UnityEngine;
 using BuildingTools;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections;
 public class UnitSelectionMenu : MonoBehaviour
 {
 
@@ -29,6 +30,8 @@ public class UnitSelectionMenu : MonoBehaviour
 
        Destroy(UnitPanel);
 
+    StartCoroutine(SetScrollToTop());
+
     }
 
     void SetupBuildingPanel()
@@ -48,7 +51,7 @@ public class UnitSelectionMenu : MonoBehaviour
         foreach (var monster in GameManager.instance.monsters)
         {
             var Panel = Instantiate(UnitPanel, UnitList.transform);
-            Panel.GetComponent<UnitPanel>().setup(monster);
+            Panel.GetComponent<UnitPanel>().Setup(monster);
         }
 
     }
@@ -58,4 +61,11 @@ public class UnitSelectionMenu : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
+
+
+    IEnumerator SetScrollToTop()
+{
+    yield return new WaitForEndOfFrame();
+    GetComponentInChildren<ScrollRect>().verticalNormalizedPosition = 1.0f;
+}
 }

@@ -10,7 +10,7 @@ public class UnitPanel : MonoBehaviour
     public Image monsterIcon;
 
 
-    public void setup(MonsterStats stats)
+    public void Setup(MonsterStats stats)
     {
         monsterName.text = stats.name;
         monsterIcon.sprite = stats.icon;
