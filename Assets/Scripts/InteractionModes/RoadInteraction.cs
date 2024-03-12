@@ -17,7 +17,7 @@ public class RoadInteraction : InteractionMode
             if (!( CurrentRoadStroke.Count == 0 ||checkAdjacent(CurrentRoadStroke[CurrentRoadStroke.Count - 1], gameManager.SelectionGridPos)))
             {
                 CurrentRoadStroke.Clear();
-                tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
+                //tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
                 return;
             }
             PlaceTile(tile, BuildingType.Road);
@@ -29,7 +29,7 @@ public class RoadInteraction : InteractionMode
             {
                 UpdateRoadInStroke(tile);
             }
-            tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
+            //tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
         }
 
     }
