@@ -9,6 +9,7 @@
     "com.unity.render-pipelines.universal": "14.0.8",
     "com.unity.textmeshpro": "3.0.7",
     "com.unity.ugui": "1.0.0",
+    "com.unity.visualeffectgraph": "14.0.8",
     "wtf.cmd.tools": "https://github.com/cmdwtf/UnityTools.git",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
