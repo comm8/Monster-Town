@@ -21,7 +21,7 @@ public abstract class InteractionMode : MonoBehaviour
         tile.buildingType = desired;
         if (desired != BuildingType.None)
         {
-            tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
+            //tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
         }
         if (tile.TryGetComponent<RoadProperties>(out RoadProperties road))
         {
