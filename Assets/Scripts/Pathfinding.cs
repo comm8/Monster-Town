@@ -4,11 +4,12 @@ using Unity.Mathematics;
 using UnityEngine;
 using BuildingTools;
 
+
 public class Pathfinding : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    private Pathfinding instance;
+     public  Pathfinding instance;
     public BlockerGrid blockerGrid;
 
     void Start()
@@ -20,6 +21,19 @@ public class Pathfinding : MonoBehaviour
     {
         
     }
+
+
+   bool Pathfind(int2 start, int2 end, out int2[] path)
+   {
+    path = new int2[4];
+    return false;
+   }
+
+
+    
+
+
+
 }
 
 public class BlockerGrid
