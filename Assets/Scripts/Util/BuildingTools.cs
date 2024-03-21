@@ -119,6 +119,19 @@ namespace BuildingTools
     }
 
 
+
+    public enum DamageType : byte
+    {
+        blunt,
+        magic,
+        fire,
+        poison,
+        freezing
+    }
+
+    
+
+
     public enum ResourceType : byte
     {
         Lumber,

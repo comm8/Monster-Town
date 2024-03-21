@@ -11,4 +11,6 @@ public class Building : ScriptableObject
 
     public MonsterProduction[] production;
 
+    public Health health;
+
 }

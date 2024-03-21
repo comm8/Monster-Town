@@ -10,6 +10,6 @@ public class Pathfindingtest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var pathfinder = new Pathfinder();
+        //var pathfinder = new Pathfinder();
     }
 }
