@@ -111,11 +111,12 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _Employed: 0
+    - _Employed: 1
     - _EnvironmentReflections: 0
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _HealthRatio: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005

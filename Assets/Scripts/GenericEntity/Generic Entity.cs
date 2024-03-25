@@ -5,7 +5,7 @@ using UnityEngine;
 public class GenericEntity : MonoBehaviour
 {
     public bool team;
-   [SerializeField] private byte hp;
+    [SerializeField] byte hp;
     public Health health;
-  [SerializeField]  private Attack attack;
+    public Attack attack;
 }
