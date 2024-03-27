@@ -4,26 +4,42 @@ using UnityEngine;
 
 public class Human : GenericEntity
 {
-    public HumanState state = HumanState.Pathfinding;
+    public BehaviorState state = BehaviorState.Pathfinding;
+    public bool stunned;
+    public byte stunCooldown;
 
-
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-       //start: find pathfinding location 
-       // if reached target, attack
-       // if attacked, stunned
-       // if done stunned, repathfind. lower health = more caution
-       // if around more powerfull units and high caution, group position
+        SetUp();
 
-       //We need some type of cluster system
-       //Group functionality
+        state = BehaviorState.Idle;
+        attack = new AOEAttack();
+        attack.SetUp();
+        DoAttack();
+
+        //start: find pathfinding location 
+        // if reached target, attack
+        // if attacked, stunned
+        // if done stunned, repathfind. lower health = more caution
+        // if around more powerfull units and high caution, group position
+
+        //We need some type of cluster system
+        //Group functionality
     }
 
     // Update is called once per frame
-    void Update()
+
+
+    override public void TakeDamage()
     {
-        
+        //take damage, if health < 1, kill.
+        //Else, stun
+    }
+
+    void DoAttack()
+    {
+        state = BehaviorState.Attacking;
+        attack.Run(transform.position, 20, 20, 3f);
     }
 
     void PathFind()
@@ -33,12 +49,21 @@ public class Human : GenericEntity
 
     }
 
+    IEnumerator stun()
+    {
+        stunned = true;
+        yield return new WaitForSeconds(stunCooldown);
+        stunned = false;
+    }
+
 
 }
 
-public enum HumanState : byte
+public enum BehaviorState : byte
 {
-Pathfinding,
-Stunned,
-Attacking
+    Idle,
+    Pathfinding,
+    Stunned,
+    Attacking,
+    Grouped
 }

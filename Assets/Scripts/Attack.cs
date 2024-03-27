@@ -13,8 +13,17 @@ public abstract class Attack
     public abstract void Run(Vector3 position, byte damage, byte spread, float cooldown);
 }
 
-[Serializable]
+
 public class RangedAttack : Attack
+{
+    public override void SetUp() { }
+    override public void Run(Vector3 position, byte damage, byte spread, float cooldown)
+    {
+
+    }
+}
+
+public class DirectAttack : Attack
 {
     public override void SetUp() { }
     override public void Run(Vector3 position, byte damage, byte spread, float cooldown)

@@ -8,4 +8,16 @@ public class GenericEntity : MonoBehaviour
     [SerializeField] byte hp;
     public Health health;
     public Attack attack;
+
+
+    public void SetUp()
+    {
+        hp = health.maxHP;
+    }
+
+
+    virtual public void TakeDamage()
+    {
+
+    }
 }
