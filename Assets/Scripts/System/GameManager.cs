@@ -62,6 +62,12 @@ public class GameManager : MonoBehaviour
 [SerializeField] TMP_Text[] resourceAmountsText;
 
 
+
+public Material selectInteract,selectBlock,selectPlace;
+
+public Renderer selectionRenderer; 
+
+
  
     private void Awake()
     {

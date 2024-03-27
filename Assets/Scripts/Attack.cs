@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 
+
+[Serializable]
 public abstract class Attack
 {
 
@@ -11,6 +13,7 @@ public abstract class Attack
     public abstract void Run(Vector3 position, byte damage, byte spread, float cooldown);
 }
 
+[Serializable]
 public class RangedAttack : Attack
 {
     public override void SetUp() { }
