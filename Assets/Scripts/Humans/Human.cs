@@ -39,7 +39,7 @@ public class Human : GenericEntity
     void DoAttack()
     {
         state = BehaviorState.Attacking;
-        attack.Run(transform.position, 20, 20, 3f);
+        //attack.Run(transform.position, 20, 20, 3f);
     }
 
     void PathFind()
