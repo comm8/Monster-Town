@@ -30,12 +30,6 @@ public class Human : GenericEntity
     // Update is called once per frame
 
 
-    override public void TakeDamage()
-    {
-        //take damage, if health < 1, kill.
-        //Else, stun
-    }
-
     void DoAttack()
     {
         state = BehaviorState.Attacking;

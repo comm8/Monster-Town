@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 [Serializable]
@@ -10,11 +11,14 @@ public class Attack : ScriptableObject
 {
     public float coolDown;
 
+    public LayerMask mask;
 
     public virtual void SetUp()
     {
 
     }
+
+    public virtual void TryAttack(Vector3 AttackerPosition, Vector3 TargetPosition, GenericEntity target) { }
     public virtual void Run(Vector3 AttackerPosition, Vector3 TargetPosition, GenericEntity target)
     {
 
@@ -32,11 +36,15 @@ public class RangedAttack : Attack
     [SerializeField] float projectilespeed;
 
 
-    public override void SetUp() { }
-    override public void Run(Vector3 AttackerPosition, Vector3 TargetPosition, GenericEntity target)
+    override public void SetUp() { }
+
+    override public void TryAttack(Vector3 AttackerPosition, Vector3 TargetPosition, GenericEntity target)
     {
 
     }
+    override public void Run(Vector3 AttackerPosition, Vector3 TargetPosition, GenericEntity target) { }
+
+
 }
 
 [CreateAssetMenu(fileName = "DirectAttack", menuName = "MonsterGame/Attacks/DirectAttack", order = 1)]
@@ -47,7 +55,19 @@ public class DirectAttack : Attack
     [SerializeField] byte range;
 
     [SerializeField] byte damage;
-    public override void SetUp() { }
+    override public void SetUp() { }
+    override public void TryAttack(Vector3 AttackerPosition, Vector3 TargetPosition, GenericEntity target)
+    {
+        if(!Physics.Raycast(AttackerPosition, TargetPosition - AttackerPosition, out RaycastHit hit, range, mask)) {return;}
+        
+        //WE DID IT!
+        //Time to deal damage
+
+        //target.health.
+
+
+
+    }
     override public void Run(Vector3 AttackerPosition, Vector3 TargetPosition, GenericEntity target)
     {
 
@@ -65,9 +85,14 @@ public class AOEAttack : Attack
 
     [SerializeField] private GameObject AOERangeVisual;
 
-    public override void SetUp()
+    override public void SetUp()
     {
         //AOERangeVisual = GameObject.Instantiate()
+    }
+
+    override public void TryAttack(Vector3 AttackerPosition, Vector3 TargetPosition, GenericEntity target)
+    {
+
     }
     override public void Run(Vector3 AttackerPosition, Vector3 TargetPosition, GenericEntity target)
     {

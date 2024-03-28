@@ -8,4 +8,10 @@ public class Health : ScriptableObject
     public byte maxHP;
     public DamageType[] weakness;
     public DamageType[] immunity;
+
+    public void TakeDamage(DamageType type, byte amount)
+    {
+        
+    }
+
 }
