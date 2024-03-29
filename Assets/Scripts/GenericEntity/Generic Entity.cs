@@ -44,6 +44,7 @@ public class GenericEntity : MonoBehaviour
 
             void OnDrawGizmos()
     {
+        if(attack == null ) {return;}
         attack.DrawGizmos(transform.position);
     }
 }

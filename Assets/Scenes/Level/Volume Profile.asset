@@ -25,18 +25,18 @@ MonoBehaviour:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.031645596
-          inSlope: 1.8169246
-          outSlope: 1.8169246
+          value: 0
+          inSlope: 2.5205877
+          outSlope: 2.5205877
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.9968034
-          value: 0.99661016
-          inSlope: -0
-          outSlope: -0
+          time: 1
+          value: 1
+          inSlope: 0.089377545
+          outSlope: 0.089377545
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -213,7 +213,7 @@ MonoBehaviour:
     m_Value: 8
   scatter:
     m_OverrideState: 1
-    m_Value: 0.1
+    m_Value: 0.7
   clamp:
     m_OverrideState: 0
     m_Value: 65472
@@ -251,10 +251,10 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: -0.04
   contrast:
-    m_OverrideState: 1
-    m_Value: 2.2
+    m_OverrideState: 0
+    m_Value: -1.27
   colorFilter:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -263,7 +263,7 @@ MonoBehaviour:
     m_Value: 0
   saturation:
     m_OverrideState: 1
-    m_Value: 15.75
+    m_Value: 12.25
 --- !u!114 &-6034177138450659825
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -290,7 +290,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 0
   detectPaperWhite:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
   paperWhite:
     m_OverrideState: 1
@@ -318,8 +318,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   components:
   - {fileID: -6034177138450659825}
-  - {fileID: -6989846936387183670}
   - {fileID: -7552143341453958643}
+  - {fileID: -6989846936387183670}
   - {fileID: -7126316007833468363}
 --- !u!114 &50713829050190033
 MonoBehaviour:
