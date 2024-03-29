@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8438652760019473225}
   m_Layer: 0
-  m_Name: Necromansion
+  m_Name: Graveyard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 60734aebba2eaff478d59d903796b92c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4d3f2e739aabbe942b0477366f2d9d65, type: 2}
     - target: {fileID: 919132149155446097, guid: 60734aebba2eaff478d59d903796b92c, type: 3}
       propertyPath: m_Name
       value: model
