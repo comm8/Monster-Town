@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BuildingTools;
 using System.Linq;
+using UnityEditor;
 
 public class GenericEntity : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class GenericEntity : MonoBehaviour
     }
 
 
-    public void TakeDamage(DamageType type, byte amount)
+    public void Damage(DamageType type, byte amount)
     {
         if (health.immunity.Contains(type))
         {
@@ -40,4 +41,9 @@ public class GenericEntity : MonoBehaviour
         {
 
         }
+
+            void OnDrawGizmos()
+    {
+        attack.DrawGizmos(transform.position);
+    }
 }

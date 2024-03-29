@@ -13,9 +13,8 @@ public class Human : GenericEntity
         SetUp();
 
         state = BehaviorState.Idle;
-        attack = new AOEAttack();
         attack.SetUp();
-        DoAttack();
+        TryAttack();
 
         //start: find pathfinding location 
         // if reached target, attack
@@ -30,10 +29,10 @@ public class Human : GenericEntity
     // Update is called once per frame
 
 
-    void DoAttack()
+    void TryAttack()
     {
         state = BehaviorState.Attacking;
-        //attack.Run(transform.position, 20, 20, 3f);
+       // attack.TryAttack();
     }
 
     void PathFind()
