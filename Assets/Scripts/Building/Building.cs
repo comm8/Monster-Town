@@ -6,6 +6,8 @@ using BuildingTools;
 [CreateAssetMenu(fileName = "Building", menuName = "MonsterGame/Building", order = 1)]
 public class Building : ScriptableObject
 {
+    public bool randomRotation;
+
     public ResourceValue[] cost;
     public GameObject Model;
 

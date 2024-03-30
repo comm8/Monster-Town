@@ -2396,6 +2396,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca50f70b0f9dc744b7e4a0b64a241bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effect: {fileID: 0}
+  sphere: {fileID: 0}
 --- !u!1 &669113329
 GameObject:
   m_ObjectHideFlags: 0
@@ -8806,6 +8808,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3243aa64f8f116346a3fd7c570bec7ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: 0
+  hp: 0
+  health: {fileID: 0}
+  attack: {fileID: 0}
+  state: 1
+  stunned: 0
+  stunCooldown: 0
 --- !u!1 &2000462229
 GameObject:
   m_ObjectHideFlags: 0

@@ -56,19 +56,21 @@ public class GameManager : MonoBehaviour
     public InteractionMode interaction;
 
 
-    public ResourceValue[] inventory; 
+    public ResourceValue[] inventory;
 
 
-[SerializeField] TMP_Text[] resourceAmountsText;
+    [SerializeField] TMP_Text[] resourceAmountsText;
 
 
 
-public Material selectInteract,selectBlock,selectPlace;
+    public Material selectInteract, selectBlock, selectPlace;
 
-public Renderer selectionRenderer; 
+    public Renderer selectionRenderer;
+
+    public Unity.Mathematics.Random random = new Unity.Mathematics.Random(2056);
 
 
- 
+
     private void Awake()
     {
         instance = this;
@@ -95,7 +97,7 @@ public Renderer selectionRenderer;
     {
         CheckDeleteModeDesired();
         CheckInputDesired();
-        for(int i = 0; i < resourceAmountsText.Length; i++)
+        for (int i = 0; i < resourceAmountsText.Length; i++)
         {
             resourceAmountsText[i].text = inventory[i].Type.ToString() + " " + inventory[i].Amount;
         }
@@ -135,7 +137,7 @@ public Renderer selectionRenderer;
 
         if (buildings.GetBuildingType(iD) == BuildingType.Road)
         {
-            interaction = roadInteraction;  
+            interaction = roadInteraction;
         }
         else
         {
@@ -185,7 +187,7 @@ public Renderer selectionRenderer;
             Menu.CurrentlyEmployedMonster = monsters[tile.monsterID - 1];
         }
 
-    Menu.currentTile = tile;
+        Menu.currentTile = tile;
     }
 
 
@@ -206,7 +208,7 @@ public Renderer selectionRenderer;
     {
         foreach (var monster in monsters)
         {
-            if(monster.tile == null) {continue;}
+            if (monster.tile == null) { continue; }
             Inventory.AddToInventory(inventory, buildings.GetBuilding((int)monster.tile.buildingType).production[(int)monster.type].amount);
         }
     }

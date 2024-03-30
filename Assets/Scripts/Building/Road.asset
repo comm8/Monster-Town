@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d313adc54bae374db34b3004447defc, type: 3}
   m_Name: Road
   m_EditorClassIdentifier: 
+  randomRotation: 0
   cost:
   - Amount: 2
     Type: 2
   Model: {fileID: 6664616065050738278, guid: 9191c853c4f0dfa47ac6a9bc93d6902b, type: 3}
   production: []
+  health: {fileID: 0}

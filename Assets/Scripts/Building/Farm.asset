@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d313adc54bae374db34b3004447defc, type: 3}
   m_Name: Farm
   m_EditorClassIdentifier: 
+  randomRotation: 1
   cost:
   - Amount: 1
     Type: 0
@@ -21,3 +22,4 @@ MonoBehaviour:
     amount:
     - Amount: 4
       Type: 4
+  health: {fileID: 0}
