@@ -130,7 +130,17 @@ namespace BuildingTools
     }
 
 
-    
+    public enum BehaviorState : byte
+    {
+        Idle,
+        Pathfinding,
+        Stunned,
+        Attacking,
+        Grouped
+    }
+
+
+
 
 
     public enum ResourceType : byte

@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class Tower : GenericEntity
 {
-    void Start()
+
+    void Awake()
     {
-        
+        SetUp();
     }
 
     void Update()
     {
-        
+       var target = attack.TryGetTarget(transform.position);
+        if(target != null)
+        {
+            attack.TryAttack(transform.position, target.GetComponent<Transform>().position, target);
+        }
     }
 }

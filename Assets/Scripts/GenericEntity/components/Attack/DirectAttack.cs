@@ -11,7 +11,8 @@ public class DirectAttack : Attack
     override public void SetUp() { }
     override public void TryAttack(Vector3 AttackerPosition, Vector3 TargetPosition, GenericEntity target)
     {
-        if(!Physics.Raycast(AttackerPosition, TargetPosition - AttackerPosition, out RaycastHit hit, range, mask)) {return;}
+
+        //if(!Physics.Raycast(AttackerPosition, TargetPosition - AttackerPosition, out RaycastHit hit, range, mask)) {return;}
         Run(AttackerPosition, TargetPosition, target);
 
 
@@ -27,5 +28,25 @@ public class DirectAttack : Attack
                 // Draw a yellow sphere at the transform's position
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(position, range);
+    }
+
+    public override GenericEntity TryGetTarget(Vector3 position)
+    {
+       RaycastHit[] hits =  Physics.SphereCastAll(position, range, Vector3.zero, 0, mask, QueryTriggerInteraction.Collide);
+        if(hits.Length > 0)
+        {
+        RaycastHit best = hits[0];
+        foreach (RaycastHit hit in hits)
+        {
+            if (Vector3.SqrMagnitude(hit.point - position) > Vector3.SqrMagnitude(best.point - position))
+            {
+                best = hit;
+            }
+        }
+
+        return best.collider.GetComponent<GenericEntity>();
+        }
+        else { return null; }
+
     }
 }
