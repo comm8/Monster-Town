@@ -17,12 +17,18 @@ public class Attack : ScriptableObject
 
     }
 
+
+
+
     public virtual void DrawGizmos(Vector3 position)
     {
 
     }
 
-    public virtual void TryAttack(Vector3 AttackerPosition, Vector3 TargetPosition, GenericEntity target) { }
+    public virtual GenericEntity TryGetTarget(Vector3 position) { return null; }
+    public virtual void TryAttack(Vector3 AttackerPosition, Vector3 TargetPosition, GenericEntity target) 
+    {
+    }
     public virtual void Run(Vector3 AttackerPosition, Vector3 TargetPosition, GenericEntity target)
     {
 

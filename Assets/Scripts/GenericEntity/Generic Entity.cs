@@ -33,18 +33,20 @@ public class GenericEntity : MonoBehaviour
 
         hp -= amount;
 
-        if(hp < 1) {Kill();}
-        }
+        if (hp < 1) { Kill(); }
+    }
 
 
-        public void Kill()
-        {
-
-        }
-
-            void OnDrawGizmos()
+    public void Kill()
     {
-        if(attack == null ) {return;}
+
+    }
+
+
+
+    void OnDrawGizmos()
+    {
+        if (attack == null) { return; }
         attack.DrawGizmos(transform.position);
     }
 }

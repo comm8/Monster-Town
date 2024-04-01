@@ -46,9 +46,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcabe6bd0ceb2cd489ff935e2f1cd305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: 0
+  hp: 0
+  health: {fileID: 0}
+  attack: {fileID: 0}
   buildingType: 0
   model: {fileID: 0}
   modelTransform: {fileID: 3504397213644895234}
+  monsterID: 0
 --- !u!1 &2483713048023208615
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,8 +147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 442489764736400241}
   position:
-    enabled: 1
-    mode: 4
+    enabled: 0
+    mode: 0
     space: 1
     deltaTimeSource: 1
     mutator:

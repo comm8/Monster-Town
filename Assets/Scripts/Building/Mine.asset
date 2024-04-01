@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d313adc54bae374db34b3004447defc, type: 3}
   m_Name: Mine
   m_EditorClassIdentifier: 
+  randomRotation: 1
   cost:
   - Amount: 5
     Type: 2
@@ -19,3 +20,4 @@ MonoBehaviour:
     Type: 0
   Model: {fileID: 6391764774371186972, guid: 4aedb47219fe37f4daa38e9f9adc65da, type: 3}
   production: []
+  health: {fileID: 0}

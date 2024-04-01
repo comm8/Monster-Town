@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using BuildingTools;
+using Unity.Mathematics;
 using UnityEngine;
 
 
@@ -17,12 +19,21 @@ public abstract class InteractionMode : MonoBehaviour
     public void PlaceTile(TileProperties tile, BuildingType desired)
     {
         Destroy(tile.model);
+
         tile.model = Instantiate(gameManager.buildings.GetBuilding(desired).Model, tile.modelTransform);
-        tile.buildingType = desired;
-        if (desired != BuildingType.None)
+
+
+        
+        if (gameManager.buildings.GetBuilding(desired).randomRotation)
         {
-            //tile.GetComponentInChildren<TileAnimator>().playUpdateAnimation();
+            tile.model.transform.Rotate(0, 90 * gameManager.random.NextInt(0, 3), 0);
         }
+        else
+        {
+            tile.model.transform.rotation = quaternion.identity;
+        }
+
+        tile.buildingType = desired;
         if (tile.TryGetComponent<RoadProperties>(out RoadProperties road))
         {
             Destroy(road);
@@ -57,7 +68,7 @@ public abstract class InteractionMode : MonoBehaviour
 
         //We can afford it!! 
 
-        for( int i = 0; i < cache.Count; i++)
+        for (int i = 0; i < cache.Count; i++)
         {
             gameManager.inventory[cache[i]].Amount -= cost[i].Amount;
         }
@@ -65,7 +76,7 @@ public abstract class InteractionMode : MonoBehaviour
         return true;
     }
 
-        public void UpdatetileRoadMaterial(RoadProperties road, RoadTable table)
+    public void UpdatetileRoadMaterial(RoadProperties road, RoadTable table)
     {
         road.GetComponentInChildren<Renderer>().material = Resources.Load<Material>("road/road_" + table.ToString());
     }

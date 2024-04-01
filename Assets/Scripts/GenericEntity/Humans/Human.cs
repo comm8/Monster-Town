@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BuildingTools;
 
 public class Human : GenericEntity
 {
@@ -14,6 +15,7 @@ public class Human : GenericEntity
 
         state = BehaviorState.Idle;
         attack.SetUp();
+
         TryAttack();
 
         //start: find pathfinding location 
@@ -31,13 +33,19 @@ public class Human : GenericEntity
 
     void TryAttack()
     {
+        var target = attack.TryGetTarget(transform.position);
+        if (target != null)
+        {
+            attack.TryAttack(transform.position, target.GetComponent<Transform>().position, target);
+        }
+
         state = BehaviorState.Attacking;
-       // attack.TryAttack();
+        // attack.TryAttack();
     }
 
     void PathFind()
     {
-        
+
 
 
     }
@@ -50,13 +58,4 @@ public class Human : GenericEntity
     }
 
 
-}
-
-public enum BehaviorState : byte
-{
-    Idle,
-    Pathfinding,
-    Stunned,
-    Attacking,
-    Grouped
 }
