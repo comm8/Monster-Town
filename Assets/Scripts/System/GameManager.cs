@@ -67,7 +67,9 @@ public class GameManager : MonoBehaviour
 
     public Renderer selectionRenderer;
 
-    public Unity.Mathematics.Random random = new Unity.Mathematics.Random(2056);
+   [HideInInspector] public Unity.Mathematics.Random random = new Unity.Mathematics.Random(2056);
+
+    public int maxEnemies;
 
 
 
