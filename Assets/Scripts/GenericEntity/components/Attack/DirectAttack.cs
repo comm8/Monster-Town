@@ -32,7 +32,7 @@ public class DirectAttack : Attack
 
     public override GenericEntity TryGetTarget(Vector3 position)
     {
-       RaycastHit[] hits =  Physics.SphereCastAll(position, range, Vector3.zero, 0, mask, QueryTriggerInteraction.Collide);
+       RaycastHit[] hits =  Physics.SphereCastAll(position, range, Vector3.forward * 0.001f , 0, mask, QueryTriggerInteraction.Collide);
         if(hits.Length > 0)
         {
         RaycastHit best = hits[0];

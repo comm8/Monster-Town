@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 850f5eed22444d245937ecb9203b610a, type: 3}
   m_Name: Direct
   m_EditorClassIdentifier: 
+  type: 0
   coolDown: 0
   mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   range: 10
   damage: 20
