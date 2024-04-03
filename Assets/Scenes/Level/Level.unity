@@ -6804,6 +6804,7 @@ GameObject:
   - component: {fileID: 1694131987}
   - component: {fileID: 1694131988}
   - component: {fileID: 1694131989}
+  - component: {fileID: 1694131990}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -7120,6 +7121,25 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   speedMultiplier: 0
   TextMesh: {fileID: 1563734354}
+--- !u!114 &1694131990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694131983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae63ec2bc2970e04fa410cc77a80f703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weights:
+  - chance: 35
+    name: 35%
+  - chance: 80
+    name: 80%
+  - chance: 20
+    name: 20%
 --- !u!1 &1718445102
 GameObject:
   m_ObjectHideFlags: 0
