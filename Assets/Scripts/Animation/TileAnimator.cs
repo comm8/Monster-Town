@@ -8,6 +8,8 @@ public class TileAnimator : MonoBehaviour
     [SerializeField] Vector3 blendScale;
     [SerializeField] DynamicsTransform dynamicsTransform;
 
+        Material material;
+
     float timeAtClick;
     private void FixedUpdate()
     {
@@ -44,6 +46,25 @@ public class TileAnimator : MonoBehaviour
             dynamicsTransform.enabled = false;
             enabled = false;
             transform.localScale = Vector3.one;
+        }
+
+    }
+
+        public void UpdateMaterial()
+    {
+        material = GetComponentInChildren<MeshRenderer>().material;
+        ChangeEmploymentStatus(false);
+    }
+
+    void ChangeEmploymentStatus(bool status)
+    {
+        if (status)
+        {
+            material.SetInt("_Employed", 1);
+        }
+        else
+        {
+            material.SetInt("_Employed", 1);
         }
 
     }
