@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.fairplex.agx": {
-      "version": "https://github.com/FairplexVR/AgX-Tonemapping-Unity.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "a0115255c558aea4e9f01d2d33c6a7b94b9224e0"
-    },
     "com.jimmycushnie.noisynodes": {
       "version": "https://github.com/JimmyCushnie/Noisy-Nodes.git",
       "depth": 0,
