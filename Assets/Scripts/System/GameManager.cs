@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
 
     public Renderer selectionRenderer;
 
-   [HideInInspector] public Unity.Mathematics.Random random = new Unity.Mathematics.Random(2056);
+    [HideInInspector] public Unity.Mathematics.Random random = new Unity.Mathematics.Random(2056);
 
     public int maxEnemies;
 
@@ -99,10 +99,13 @@ public class GameManager : MonoBehaviour
     {
         CheckDeleteModeDesired();
         CheckInputDesired();
-        for (int i = 0; i < resourceAmountsText.Length; i++)
-        {
-            resourceAmountsText[i].text = inventory[i].Type.ToString() + " " + inventory[i].Amount;
-        }
+        resourceAmountsText[0].text = "<sprite name=\"resources_basic_0\">" + inventory[0].Amount;
+        resourceAmountsText[1].text =  "<sprite name=\"resources_basic_4\">" + inventory[1].Amount;
+        resourceAmountsText[2].text = "<sprite name=\"resources_basic_13\">" + inventory[2].Amount;
+        resourceAmountsText[3].text = "<sprite name=\"resources_basic_18\">" + inventory[3].Amount;
+        resourceAmountsText[4].text = "<sprite name=\"resources_basic_70\">" + inventory[4].Amount;
+        resourceAmountsText[5].text = "<sprite name=\"resources_basic_14\">" + inventory[5].Amount;
+        resourceAmountsText[6].text = "<sprite name=\"resources_basic_54\">" + inventory[6].Amount;
 
     }
 
