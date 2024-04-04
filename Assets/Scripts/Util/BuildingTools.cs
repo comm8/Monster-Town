@@ -151,18 +151,15 @@ namespace BuildingTools
         Metal,
         Rations,
         Refined_Alloy,
-        Cursed_Alloy
+        Cursed_Alloy,
+        Influence
     }
 
     public enum MonsterType : byte
     {
         Kobold = 0,
         Orc,
-        Mimic,
-        Clown,
         Wyvern,
-        Gargoyle,
-        Gorgon,
         Mindflayer,
         Plantoid,
         Skeleton,

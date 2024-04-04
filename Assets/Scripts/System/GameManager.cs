@@ -202,7 +202,7 @@ public class GameManager : MonoBehaviour
         monsters = new();
         for (int i = 0; i < 50; i++)
         {
-            MonsterType myType = (MonsterType)UnityEngine.Random.Range(0, 9);
+            MonsterType myType = (MonsterType)UnityEngine.Random.Range(0, 5);
             monsters.Add(new MonsterStats { name = gridInit.Names[UnityEngine.Random.Range(0, 99)], type = myType, icon = imageDictionary.Get(myType) });
         }
 
