@@ -7133,13 +7133,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae63ec2bc2970e04fa410cc77a80f703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weights:
-  - chance: 35
-    name: 35%
-  - chance: 80
-    name: 80%
-  - chance: 20
-    name: 20%
+  wave: 12
+  spawnEntities:
+  - cost: 1
+    weight: 60
+    name: Pitchfork Peasant
+  - cost: 2
+    weight: 10
+    name: Torch Peasant
+  - cost: 2
+    weight: 10
+    name: Mercenary
+  - cost: 3
+    weight: 7
+    name: Veteran
+  - cost: 4
+    weight: 10
+    name: Archer
+  - cost: 5
+    weight: 7
+    name: Cleric
+  - cost: 5
+    weight: 5
+    name: Knight
+  - cost: 6
+    weight: 5
+    name: Wizard
+  - cost: 7
+    weight: 5
+    name: Hero
+  - cost: 8
+    weight: 5
+    name: Monster hunter
 --- !u!1 &1718445102
 GameObject:
   m_ObjectHideFlags: 0
