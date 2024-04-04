@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
 
     int GetWaveSpawnTokens(int currentWave)
     {
-        return (int)(math.pow(math.E, currentWave * 0.5f) + (currentWave*10 ) + 9);
+        return (int)(math.pow(math.E, currentWave * 0.5f) + (currentWave*5 ) + 9);
     }
 
     void SpawnWave()
