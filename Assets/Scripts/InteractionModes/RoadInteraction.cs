@@ -12,7 +12,7 @@ public class RoadInteraction : InteractionMode
     }
     public override void OnPress(TileProperties tile, BuildingType selected)
     {
-        if (tile.buildingType == BuildingType.None && TryChargeCost(selected))
+        if (tile.buildingType == BuildingType.None &&  Inventory.TryChargeCost(selected))
         {
             if (!( CurrentRoadStroke.Count == 0 ||checkAdjacent(CurrentRoadStroke[CurrentRoadStroke.Count - 1], gameManager.SelectionGridPos)))
             {
