@@ -23,19 +23,6 @@ MonoBehaviour:
     - Amount: 2
       Type: 4
     cost: []
-  - monsterType: 3
-    production: []
-    cost: []
-  - monsterType: 5
-    production:
-    - Amount: 1
-      Type: 4
-    cost: []
-  - monsterType: 4
-    production:
-    - Amount: 2
-      Type: 7
-    cost: []
   - monsterType: 1
     production:
     - Amount: 1
@@ -45,5 +32,18 @@ MonoBehaviour:
     production:
     - Amount: 1
       Type: 1
+    cost: []
+  - monsterType: 3
+    production: []
+    cost: []
+  - monsterType: 4
+    production:
+    - Amount: 2
+      Type: 7
+    cost: []
+  - monsterType: 5
+    production:
+    - Amount: 1
+      Type: 4
     cost: []
   health: {fileID: 0}
