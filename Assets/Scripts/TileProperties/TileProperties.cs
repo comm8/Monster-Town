@@ -8,6 +8,9 @@ public class TileProperties : GenericEntity
     public Transform modelTransform;
     public ushort monsterID = 0;
 
+    //AnimatorStuff
+    
+
 }
 
 

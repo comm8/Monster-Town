@@ -2,6 +2,8 @@ using Unity.Mathematics;
 using Unity.Burst;
 using System;
 using UnityEngine;
+using System.Collections.Generic;
+
 namespace BuildingTools
 {
 
@@ -90,7 +92,8 @@ namespace BuildingTools
     public class MonsterProduction
     {
         public MonsterType monsterType;
-        public ResourceValue[] amount;
+        public ResourceValue[] production;
+        public ResourceValue[] cost;
     }
 
     public static class Inventory
@@ -116,7 +119,48 @@ namespace BuildingTools
             }
         }
 
+        public static bool TryChargeCost(BuildingType desired)
+        {
+            return TryChargeCost(GameManager.instance.inventory, GameManager.instance.buildings.GetBuilding((int)desired).cost);
+        }
+
+        public static bool TryChargeCost(ResourceValue[] inventory, ResourceValue[] cost)
+        {
+            List<int> cache = new();
+
+            foreach (ResourceValue debt in cost)
+            {
+                for (int i = 0; i < inventory.Length; i++)
+                {
+                    var resource = inventory[i];
+
+                    if (resource.Type == debt.Type)
+                    {
+                        if (resource.Amount >= debt.Amount)
+                        {
+                            cache.Add(i);
+                        }
+                        else
+                        {
+                            //CANT AFFORD
+                            return false;
+                        }
+                    }
+                }
+            }
+            //We can afford it!! 
+
+            for (int i = 0; i < cache.Count; i++)
+            {
+              inventory[cache[i]].Amount -= cost[i].Amount;
+            }
+
+            return true;
+        }
+
     }
+
+
 
 
 
