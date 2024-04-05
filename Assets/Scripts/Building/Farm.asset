@@ -19,7 +19,31 @@ MonoBehaviour:
   Model: {fileID: 4463137463556503104, guid: cab6da6cf7bda194a9785582167d910c, type: 3}
   production:
   - monsterType: 0
-    amount:
-    - Amount: 4
+    production:
+    - Amount: 2
       Type: 4
+    cost: []
+  - monsterType: 3
+    production: []
+    cost: []
+  - monsterType: 5
+    production:
+    - Amount: 1
+      Type: 4
+    cost: []
+  - monsterType: 4
+    production:
+    - Amount: 2
+      Type: 7
+    cost: []
+  - monsterType: 1
+    production:
+    - Amount: 1
+      Type: 4
+    cost: []
+  - monsterType: 2
+    production:
+    - Amount: 1
+      Type: 1
+    cost: []
   health: {fileID: 0}

@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
         CheckDeleteModeDesired();
         CheckInputDesired();
         resourceAmountsText[0].text = "<sprite name=\"resources_basic_0\">" + inventory[0].Amount;
-        resourceAmountsText[1].text =  "<sprite name=\"resources_basic_4\">" + inventory[1].Amount;
+        resourceAmountsText[1].text = "<sprite name=\"resources_basic_4\">" + inventory[1].Amount;
         resourceAmountsText[2].text = "<sprite name=\"resources_basic_13\">" + inventory[2].Amount;
         resourceAmountsText[3].text = "<sprite name=\"resources_basic_18\">" + inventory[3].Amount;
         resourceAmountsText[4].text = "<sprite name=\"resources_basic_70\">" + inventory[4].Amount;
@@ -211,10 +211,16 @@ public class GameManager : MonoBehaviour
 
     void UpdateTiles()
     {
+        
         foreach (var monster in monsters)
         {
             if (monster.tile == null) { continue; }
-            Inventory.AddToInventory(inventory, buildings.GetBuilding((int)monster.tile.buildingType).production[(int)monster.type].amount);
+
+            if (Inventory.TryChargeCost(inventory, buildings.GetBuilding((int)monster.tile.buildingType).production[(int)monster.type].cost))
+            {
+                Inventory.AddToInventory(inventory, buildings.GetBuilding((int)monster.tile.buildingType).production[(int)monster.type].production);
+            }
+
         }
     }
 

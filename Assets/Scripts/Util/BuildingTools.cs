@@ -92,7 +92,8 @@ namespace BuildingTools
     public class MonsterProduction
     {
         public MonsterType monsterType;
-        public ResourceValue[] amount;
+        public ResourceValue[] production;
+        public ResourceValue[] cost;
     }
 
     public static class Inventory
