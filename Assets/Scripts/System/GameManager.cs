@@ -97,6 +97,7 @@ public class GameManager : MonoBehaviour
         }
         
         weightedRandom = new(ints);
+        TryGenerateMonster();
     }
 
     void OnDestroy()

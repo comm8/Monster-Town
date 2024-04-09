@@ -20,26 +20,9 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnWave()
     {
-
-
-
-    }
-
-
-    void Awake()
-    {
-
         int tokens = GetWaveSpawnTokens(wave);
         Debug.Log(tokens + " tokens on wave " + wave);
-
-        int[] ints = new int[spawnEntities.Length];
-        for (int i = 0; i < spawnEntities.Length; i++)
-        {
-            ints[i] = spawnEntities[i].weight;
-        }
-
-        weightedRandom = new(ints);
-
+        
         while (tokens > 0)
         {
             var unit = spawnEntities[weightedRandom.GetRandom()];
@@ -52,6 +35,18 @@ public class EnemySpawner : MonoBehaviour
         }
 
         Debug.Log(spawnEntities[weightedRandom.GetRandom()].name);
+    }
+
+
+    void Awake()
+    {
+        int[] ints = new int[spawnEntities.Length];
+        for (int i = 0; i < spawnEntities.Length; i++)
+        {
+            ints[i] = spawnEntities[i].weight;
+        }
+
+        weightedRandom = new(ints);
     }
 }
 
