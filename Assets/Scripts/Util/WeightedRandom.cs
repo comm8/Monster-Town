@@ -1,23 +1,32 @@
 using UnityEngine;
 using System;
-
+using System.Linq;
+using System.Collections.Generic;
+using cmdwtf.UnityTools;
 namespace BuildingTools
 {
     public struct WeightedRandom
     {
-        int[] weights;
         int[] runningTotals;
+
+        Dictionary<int, int> pairs;
 
         public WeightedRandom(int[] weightList)
         {
-            weights = weightList;
-            Array.Sort(weights, (x, y) => y.CompareTo(x));
-            runningTotals = new int[weights.Length];
 
-            int sum = 0;
-            for (int i = 0; i < weights.Length; i++)
+            pairs = new();
+            for (int i = 0; i < weightList.Length; i++)
             {
-                sum += weights[i];
+                pairs.Add(i,weightList[i]);
+            }
+
+            pairs.OrderByDescending(pair => pair.Value).ToList();
+
+            runningTotals = new int[pairs.Count];
+            int sum = 0;
+            for (int i = 0; i < pairs.Count; i++)
+            {
+                sum += pairs[i];
                 runningTotals[i] = sum;
             }
         }
@@ -25,17 +34,17 @@ namespace BuildingTools
         public int GetRandom()
         {
             int targetDistance = UnityEngine.Random.Range(0, runningTotals[^1]);
-            var guess = 0;
+            int guessIndex = 0;
             while (true)
             {
-                if (runningTotals[guess] > targetDistance)
+                if (runningTotals[guessIndex] > targetDistance)
                 {
-                    return guess;
+                    return pairs.ElementAt(guessIndex).Key;
                 }
 
-                var weight = weights[guess];
-                var hopDistance = targetDistance - runningTotals[guess];
-                var hop_indices = guess += 1 + (hopDistance / weight);
+                var weight = pairs.ElementAt(guessIndex).Value;
+                var hopDistance = targetDistance - runningTotals[guessIndex];
+                var hop_indices = guessIndex += 1 + (hopDistance / weight);
             }
         }
 

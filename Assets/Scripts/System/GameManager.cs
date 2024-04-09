@@ -72,14 +72,16 @@ public class GameManager : MonoBehaviour
     public int maxEnemies;
 
 
+    [SerializeField] SpawnItem[] monsterSpawnChance;
+
+    WeightedRandom weightedRandom;
 
     private void Awake()
     {
         instance = this;
 
         SetupInteractionModes();
-        DevSpawnMonsters();
-
+        
         //settup input system
         inputActions = new Inputactions3D();
         inputActions.Player.Enable();
@@ -87,6 +89,14 @@ public class GameManager : MonoBehaviour
         //Init Tile array
         tileProperties = new TileProperties[gridSize * gridSize];
         InvokeRepeating(nameof(UpdateTiles), 0.3f, 1f);
+
+        int[] ints = new int[monsterSpawnChance.Length];
+        for (int i = 0; i < monsterSpawnChance.Length; i++)
+        {
+            ints[i] = monsterSpawnChance[i].weight;
+        }
+        
+        weightedRandom = new(ints);
     }
 
     void OnDestroy()
@@ -106,7 +116,7 @@ public class GameManager : MonoBehaviour
         resourceAmountsText[4].text = "<sprite name=\"resources_basic_70\">" + inventory[4].Amount;
         resourceAmountsText[5].text = "<sprite name=\"resources_basic_14\">" + inventory[5].Amount;
         resourceAmountsText[6].text = "<sprite name=\"resources_basic_54\">" + inventory[6].Amount;
-
+        resourceAmountsText[7].text = "<sprite name=\"resources_basic_54\">" + inventory[7].Amount;
     }
 
 
@@ -196,24 +206,13 @@ public class GameManager : MonoBehaviour
     }
 
 
-    void DevSpawnMonsters()
-    {
-        var gridInit = GetComponent<GridInitMono>();
-        monsters = new();
-        for (int i = 0; i < 50; i++)
-        {
-            MonsterType myType = (MonsterType)UnityEngine.Random.Range(0, 5);
-            monsters.Add(new MonsterStats { name = gridInit.Names[UnityEngine.Random.Range(0, 99)], type = myType, icon = imageDictionary.Get(myType) });
-        }
-
-    }
-
-
     void UpdateTiles()
     {
-        
+
         foreach (var monster in monsters)
         {
+            //inventory[7].Amount = 0;
+
             if (monster.tile == null) { continue; }
 
             if (Inventory.TryChargeCost(inventory, buildings.GetBuilding((int)monster.tile.buildingType).production[(int)monster.type].cost))
@@ -222,8 +221,31 @@ public class GameManager : MonoBehaviour
             }
 
         }
+
+        if (rollImmigration()) { TryGenerateMonster(); }
+
+
     }
 
+    bool rollImmigration()
+    {
+        int chance = inventory[7].Amount;
+        float randomamm = UnityEngine.Random.Range(1, 100);
+        if (randomamm <= chance)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    void TryGenerateMonster()
+    {
+        var gridInit = GetComponent<GridInitMono>();
+
+        var myType = monsterSpawnChance[weightedRandom.GetRandom()];
+        Debug.Log(myType.name);
+        monsters.Add(new MonsterStats { name = gridInit.Names[UnityEngine.Random.Range(0, 99)], type = (MonsterType)myType.cost, icon = imageDictionary.Get((MonsterType)myType.cost) });
+    }
 
 
 
