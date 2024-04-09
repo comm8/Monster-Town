@@ -7665,9 +7665,6 @@ MonoBehaviour:
     state: 555751816
   maxEnemies: 0
   monsterSpawnChance:
-  - cost: 0
-    weight: 10
-    name: Kobold
   - cost: 1
     weight: 25
     name: Orc
@@ -7677,6 +7674,9 @@ MonoBehaviour:
   - cost: 3
     weight: 10
     name: Mindflayer
+  - cost: 0
+    weight: 35
+    name: Kobold
   - cost: 4
     weight: 10
     name: Plant Creature

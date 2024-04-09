@@ -9,7 +9,7 @@ namespace BuildingTools
     {
         int[] runningTotals;
 
-        Dictionary<int, int> pairs;
+        List<KeyValuePair<int, int>> pairs;
 
         public WeightedRandom(int[] weightList)
         {
@@ -17,22 +17,23 @@ namespace BuildingTools
             pairs = new();
             for (int i = 0; i < weightList.Length; i++)
             {
-                pairs.Add(i, weightList[i]);
+                pairs.Add(new (i, weightList[i]));
             }
-            pairs.OrderByDescending(pair => pair.Value).ToList();
+            pairs = pairs.OrderByDescending(pair => pair.Value).ToList();
+
 
             runningTotals = new int[pairs.Count];
             int sum = 0;
             for (int i = 0; i < pairs.Count; i++)
             {
-                sum += pairs[i];
+                sum += pairs[i].Value;
                 runningTotals[i] = sum;
             }
         }
 
         public int GetRandom()
         {
-            int targetDistance = UnityEngine.Random.Range(0, runningTotals[^1])+1;
+            int targetDistance = UnityEngine.Random.Range(0, runningTotals[^1]) + 1;
             Debug.Log("Target dist = " + targetDistance + " out of " + runningTotals[^1]);
             int guessIndex = 0;
 
@@ -40,9 +41,13 @@ namespace BuildingTools
             {
                 if (runningTotals[guessIndex] > targetDistance)
                 {
-                    return pairs.ElementAt(guessIndex).Key;
+                    return pairs[guessIndex].Key;
                 }
-                guessIndex += 1 + ((targetDistance - runningTotals[guessIndex]) / pairs.ElementAt(guessIndex).Value);
+                guessIndex += 1 + ((targetDistance - runningTotals[guessIndex]) / pairs[guessIndex].Value);
+                if (runningTotals.Length <= guessIndex)
+                {
+                    Debug.Log("FUCK");
+                }
             }
         }
 
