@@ -17,7 +17,7 @@ namespace BuildingTools
             pairs = new();
             for (int i = 0; i < weightList.Length; i++)
             {
-                pairs.Add(new (i, weightList[i]));
+                pairs.Add(new(i, weightList[i]));
             }
             pairs = pairs.OrderByDescending(pair => pair.Value).ToList();
 
@@ -33,8 +33,7 @@ namespace BuildingTools
 
         public int GetRandom()
         {
-            int targetDistance = UnityEngine.Random.Range(0, runningTotals[^1]) + 1;
-            Debug.Log("Target dist = " + targetDistance + " out of " + runningTotals[^1]);
+            int targetDistance = UnityEngine.Random.Range(0, runningTotals[^1]);
             int guessIndex = 0;
 
             while (true)
@@ -44,10 +43,6 @@ namespace BuildingTools
                     return pairs[guessIndex].Key;
                 }
                 guessIndex += 1 + ((targetDistance - runningTotals[guessIndex]) / pairs[guessIndex].Value);
-                if (runningTotals.Length <= guessIndex)
-                {
-                    Debug.Log("FUCK");
-                }
             }
         }
 

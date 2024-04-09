@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         SetupInteractionModes();
-        
+
         //settup input system
         inputActions = new Inputactions3D();
         inputActions.Player.Enable();
@@ -95,9 +95,8 @@ public class GameManager : MonoBehaviour
         {
             ints[i] = monsterSpawnChance[i].weight;
         }
-        
+
         weightedRandom = new(ints);
-        TryGenerateMonster();
     }
 
     void OnDestroy()
@@ -231,7 +230,7 @@ public class GameManager : MonoBehaviour
     bool rollImmigration()
     {
         int chance = inventory[7].Amount;
-        float randomamm = UnityEngine.Random.Range(1, 100);
+        float randomamm = UnityEngine.Random.Range(1, 400);
         if (randomamm <= chance)
         {
             return true;
@@ -244,8 +243,8 @@ public class GameManager : MonoBehaviour
         var gridInit = GetComponent<GridInitMono>();
 
         var myType = monsterSpawnChance[weightedRandom.GetRandom()];
-        Debug.Log(myType.name);
         monsters.Add(new MonsterStats { name = gridInit.Names[UnityEngine.Random.Range(0, 99)], type = (MonsterType)myType.cost, icon = imageDictionary.Get((MonsterType)myType.cost) });
+        Debug.Log(myType.name);
     }
 
 
