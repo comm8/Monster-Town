@@ -22,7 +22,7 @@ public class UnitSelectionMenu : MonoBehaviour
 
     void UpdateBuildingPanel()
     {
-        if (currentTile.monsterID == 0) { UpdateBuildingPanelEmpty(); return; }
+        if (currentTile.monsterID == 0) { UpdateBuildingPanelEmpty(); currentTile.UpdateMonsterEmployment(); return; }
         monsterName.text = CurrentlyEmployedMonster.name + " (" + CurrentlyEmployedMonster.type.ToString() + ")";
         production.text = GameManager.instance.buildings.GetBuilding((int)currentTile.buildingType).production[(int)CurrentlyEmployedMonster.type].ToString();
     }
@@ -37,6 +37,7 @@ public class UnitSelectionMenu : MonoBehaviour
         CurrentlyEmployedMonster = GameManager.instance.monsters[id];
         CurrentlyEmployedMonster.tile = currentTile;
         currentTile.monsterID = (ushort)id;
+        currentTile.UpdateMonsterEmployment();
 
         UpdateBuildingPanel();
     }

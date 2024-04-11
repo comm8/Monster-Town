@@ -8,13 +8,16 @@ public class DeleteInteraction : InteractionMode
     }
     public override void OnPress(TileProperties tile, BuildingType selected)
     {
-        if(tile.buildingType != BuildingType.None)
+        if (tile.buildingType != BuildingType.None)
         {
-            if(tile.buildingType ==  BuildingType.Road)
+            if (tile.buildingType == BuildingType.Road)
             {
                 RemoveRoad();
             }
             PlaceTile(tile, BuildingType.None);
+            gameManager.monsters[tile.monsterID].tile = null;
+            tile.monsterID = 0;
+            
         }
     }
     public override void OnPressStart(TileProperties tile, BuildingType selected)
@@ -22,7 +25,7 @@ public class DeleteInteraction : InteractionMode
         //do nothing
     }
 
-        public void RemoveRoad()
+    public void RemoveRoad()
     {
         var adjacentTiles = BuildingUtils.GetAdjacentTiles(gameManager.SelectionGridPos);
 
@@ -46,7 +49,7 @@ public class DeleteInteraction : InteractionMode
                 {
                     road.table.up = false;
                 }
-                else if(i == 3)
+                else if (i == 3)
                 {
                     road.table.down = false;
                 }

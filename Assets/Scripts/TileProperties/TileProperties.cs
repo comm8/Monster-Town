@@ -7,8 +7,7 @@ public class TileProperties : GenericEntity
     public GameObject model;
     public Transform modelTransform;
     public ushort monsterID = 0;
-
-    public Renderer tileMaterial;
+   public Renderer tileMaterial;
     public void UpdateMonsterEmployment()
     {
         if (monsterID == 0)
@@ -17,13 +16,13 @@ public class TileProperties : GenericEntity
         }
         else
         {
-            tileMaterial.material.SetFloat("_Employed", 0);
+            tileMaterial.material.SetFloat("_Employed", 1);
         }
     }
 
     public void UpdateModel()
     {
-
+        tileMaterial = GetComponentInChildren<MeshRenderer>();
     }
 
 

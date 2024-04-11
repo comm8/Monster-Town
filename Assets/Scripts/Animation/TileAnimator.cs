@@ -50,23 +50,5 @@ public class TileAnimator : MonoBehaviour
 
     }
 
-        public void UpdateMaterial()
-    {
-        material = GetComponentInChildren<MeshRenderer>().material;
-        ChangeEmploymentStatus(false);
-    }
-
-    void ChangeEmploymentStatus(bool status)
-    {
-        if (status)
-        {
-            material.SetInt("_Employed", 1);
-        }
-        else
-        {
-            material.SetInt("_Employed", 1);
-        }
-
-    }
 
 }

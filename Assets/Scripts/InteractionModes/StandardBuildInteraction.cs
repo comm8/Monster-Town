@@ -10,6 +10,8 @@ public class StandardBuildInteraction : InteractionMode
         if (tile.buildingType == BuildingType.None && Inventory.TryChargeCost(selected))
         {
             PlaceTile(tile, selected);
+            tile.UpdateModel();
+            tile.UpdateMonsterEmployment();
         }
         else
         {
