@@ -8700,6 +8700,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6507359079331429501, guid: 95890f4e3349cb84f985fe6d695a0e4b, type: 3}
+      propertyPath: UnitPanel
+      value: 
+      objectReference: {fileID: 6641352041459097594, guid: e6d85bc73014c7a4dbac80af04731174, type: 3}
     - target: {fileID: 7716722849971269380, guid: 95890f4e3349cb84f985fe6d695a0e4b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

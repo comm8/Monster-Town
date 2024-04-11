@@ -207,7 +207,7 @@ public class GameManager : MonoBehaviour
 
         }
 
-        if (rollImmigration()) { TryGenerateMonster(); }
+        if (rollImmigration()) { GenerateMonster(); }
 
 
     }
@@ -223,13 +223,14 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    void TryGenerateMonster()
+    void GenerateMonster()
     {
         var gridInit = GetComponent<GridInitMono>();
 
         var myType = monsterSpawnChance[spawnWeightedRandomMonster.GetRandom()];
         monsters.Add(new MonsterStats { name = gridInit.Names[UnityEngine.Random.Range(0, 99)], type = (MonsterType)myType.cost, icon = imageDictionary.Get((MonsterType)myType.cost) });
         Debug.Log(myType.name);
+        unitSelectionPanel.AddMonster(monsters.Count -1 );
     }
 
 

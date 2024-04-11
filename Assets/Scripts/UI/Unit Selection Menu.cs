@@ -6,15 +6,12 @@ using System.Collections;
 using System.Collections.Generic;
 public class UnitSelectionMenu : MonoBehaviour
 {
-
     [SerializeField] GameObject UnitPanel, UnitList;
     public TileProperties currentTile;
     public MonsterStats CurrentlyEmployedMonster;
-
     [SerializeField] TMP_Text monsterName, production;
     [SerializeField] Image monsterIcon;
     [SerializeField] List<UnitPanel> panels;
-
     void UpdateBuildingPanel()
     {
         if (currentTile.monsterID == 0) { UpdateBuildingPanelEmpty(); return; }
