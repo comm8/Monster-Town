@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4882576715652449098}
+  - component: {fileID: 7654086757219484436}
   m_Layer: 0
   m_Name: Farm
   m_TagString: Untagged
@@ -32,6 +33,19 @@ Transform:
   - {fileID: 3262052438876714435}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7654086757219484436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4463137463556503104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d278d62e1578b4c4fa986cf039d075ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4379612266706590021}
 --- !u!1001 &3084853687026979368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -96,5 +110,10 @@ PrefabInstance:
 --- !u!4 &3262052438876714435 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dbcb2f27021c1c34f9eab9fe0d9ddaba, type: 3}
+  m_PrefabInstance: {fileID: 3084853687026979368}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4379612266706590021 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7635826562936255635, guid: dbcb2f27021c1c34f9eab9fe0d9ddaba, type: 3}
   m_PrefabInstance: {fileID: 3084853687026979368}
   m_PrefabAsset: {fileID: 0}

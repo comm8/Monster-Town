@@ -8,8 +8,25 @@ public class TileProperties : GenericEntity
     public Transform modelTransform;
     public ushort monsterID = 0;
 
-    //AnimatorStuff
-    
+    public Renderer tileMaterial;
+    public void UpdateMonsterEmployment()
+    {
+        if (monsterID == 0)
+        {
+            tileMaterial.material.SetFloat("_Employed", 0);
+        }
+        else
+        {
+            tileMaterial.material.SetFloat("_Employed", 0);
+        }
+    }
+
+    public void UpdateModel()
+    {
+
+    }
+
+
 
 }
 

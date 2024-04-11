@@ -11,7 +11,10 @@ public class Building : ScriptableObject
     public ResourceValue[] cost;
     public GameObject Model;
 
-    public MonsterProduction[] production;
+    public MonsterProduction[] production = new MonsterProduction[]{
+    new(){ monsterType = MonsterType.Kobold}, new(){ monsterType = MonsterType.Orc},
+     new(){ monsterType = MonsterType.Wyvern}, new(){ monsterType = MonsterType.Mindflayer},
+      new(){ monsterType = MonsterType.Plantoid}, new(){ monsterType = MonsterType.Skeleton}};
 
     public Health health;
 

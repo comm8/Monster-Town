@@ -21,8 +21,6 @@ public abstract class InteractionMode : MonoBehaviour
         Destroy(tile.model);
 
         tile.model = Instantiate(gameManager.buildings.GetBuilding(desired).Model, tile.modelTransform);
-
-
         
         if (gameManager.buildings.GetBuilding(desired).randomRotation)
         {
