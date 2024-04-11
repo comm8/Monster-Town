@@ -3,84 +3,60 @@ using BuildingTools;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 public class UnitSelectionMenu : MonoBehaviour
 {
 
     [SerializeField] GameObject UnitPanel, UnitList;
     public TileProperties currentTile;
-
     public MonsterStats CurrentlyEmployedMonster;
 
     [SerializeField] TMP_Text monsterName, production;
     [SerializeField] Image monsterIcon;
+    [SerializeField] List<UnitPanel> panels;
 
-
-    void Awake()
+    void UpdateBuildingPanel()
     {
-        if (CurrentlyEmployedMonster == null)
-        {
-            SetupBuildingPanelEmpty();
-        }
-        else
-        {
-            SetupBuildingPanel();
-        }
-
-        SetupMonsterList();
-
-
-        Destroy(UnitPanel);
-
-        StartCoroutine(SetScrollToTop());
-
-    }
-
-    void SetupBuildingPanel()
-    {
+        if (currentTile.monsterID == 0) { UpdateBuildingPanelEmpty(); return; }
         monsterName.text = CurrentlyEmployedMonster.name + " (" + CurrentlyEmployedMonster.type.ToString() + ")";
         production.text = "0";
     }
 
     public void EmployMonster(int id)
     {
-       if(CurrentlyEmployedMonster != null )
-       {
         CurrentlyEmployedMonster.tile = null;
-       } 
-
         CurrentlyEmployedMonster = GameManager.instance.monsters[id];
         CurrentlyEmployedMonster.tile = currentTile;
 
-        if (CurrentlyEmployedMonster == null)
-        {
-            SetupBuildingPanelEmpty();
-        }
-        else
-        {
-            SetupBuildingPanel();
-        }
+        UpdateBuildingPanel();
     }
 
-    void SetupBuildingPanelEmpty()
+    void UpdateBuildingPanelEmpty()
     {
         monsterName.text = "No monster employed";
         production.text = "";
     }
 
-    void SetupMonsterList()
+    public void AddMonster(int id)
     {
-        for(int i = 0; i < GameManager.instance.monsters.Count; i++)
-        {
-            var Panel = Instantiate(UnitPanel, UnitList.transform);
-            Panel.GetComponent<UnitPanel>().Setup(GameManager.instance.monsters[i], i);
-        }
-
+        var Panel = Instantiate(UnitPanel, UnitList.transform);
+        Panel.GetComponent<UnitPanel>().Setup(GameManager.instance.monsters[id], id);
     }
 
-
+    public void RemoveMonster(int id)
+    {
+        //-1 because unit 0 is no unit
+        Destroy(panels[id - 1].gameObject);
+    }
     public void CloseMenu()
     {
-        Destroy(this.gameObject);
+        gameObject.SetActive(false);
+    }
+
+    public void OpenMenu()
+    {
+        gameObject.SetActive(true);
+        StartCoroutine(SetScrollToTop());
     }
 
 

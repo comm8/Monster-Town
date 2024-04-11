@@ -26,7 +26,7 @@ public abstract class InteractionMode : MonoBehaviour
         
         if (gameManager.buildings.GetBuilding(desired).randomRotation)
         {
-            tile.model.transform.Rotate(0, 90 * gameManager.random.NextInt(0, 3), 0);
+            tile.model.transform.Rotate(0, 90 * UnityEngine.Random.Range(0,4) , 0);
         }
         else
         {

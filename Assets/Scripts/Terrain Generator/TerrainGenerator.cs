@@ -22,7 +22,7 @@ public class TerrainGenerator : MonoBehaviour
 
         GenerateMesh();
 
-        GameManager.instance.heightMap = localHeightMap;
+        //GameManager.instance.heightMap = localHeightMap;
 
 
         this.enabled = false;

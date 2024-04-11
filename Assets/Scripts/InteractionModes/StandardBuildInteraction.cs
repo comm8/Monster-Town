@@ -21,7 +21,7 @@ public class StandardBuildInteraction : InteractionMode
     {
         if( tile.buildingType != BuildingType.None && tile.buildingType != BuildingType.Road)
         {
-            gameManager.CreateUnitSelectionPanel(tile);
+            gameManager.RefreshUnitSelectionPanel(tile);
         }
     }
 }

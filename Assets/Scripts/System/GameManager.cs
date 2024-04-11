@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform Selection;
     public int2 SelectionGridPos;
     [SerializeField] BuildingType plyBuildingDesired;
-    public bool pointerOverUI = false;
+    [HideInInspector] public bool pointerOverUI = false;
 
     [Header("Memory")]
     public TileProperties[] tileProperties;
@@ -38,43 +38,29 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject UI;
 
     bool Interacting;
-
     bool deleteMode;
     bool deleteModeKeyDown;
-
     [SerializeField] Material bulldozerPostProcessing;
-
     [SerializeField] ScriptableRendererFeature rendererFeature;
 
-    public Texture2D heightMap;
+    //public Texture2D heightMap;
 
 
     [Header("Interactions")]
 
     public InteractionMode deleteInteraction, standardInteraction, roadInteraction;
 
-    public InteractionMode interaction;
-
+    [HideInInspector] public InteractionMode interaction;
 
     public ResourceValue[] inventory;
-
-
     [SerializeField] TMP_Text[] resourceAmountsText;
-
-
-
-    public Material selectInteract, selectBlock, selectPlace;
-
-    public Renderer selectionRenderer;
-
-    [HideInInspector] public Unity.Mathematics.Random random = new Unity.Mathematics.Random(2056);
-
     public int maxEnemies;
 
 
     [SerializeField] SpawnItem[] monsterSpawnChance;
+    WeightedRandom spawnWeightedRandomMonster;
 
-    WeightedRandom weightedRandom;
+    [SerializeField] UnitSelectionMenu unitSelectionPanel;
 
     private void Awake()
     {
@@ -96,7 +82,7 @@ public class GameManager : MonoBehaviour
             ints[i] = monsterSpawnChance[i].weight;
         }
 
-        weightedRandom = new(ints);
+        spawnWeightedRandomMonster = new(ints);
     }
 
     void OnDestroy()
@@ -189,20 +175,19 @@ public class GameManager : MonoBehaviour
         return tileProperties[curTile];
     }
 
-    public void CreateUnitSelectionPanel(TileProperties tile)
+    public void RefreshUnitSelectionPanel(TileProperties tile)
     {
-
-        var Menu = Instantiate(UnitSelectionPrefab, UI.transform).GetComponent<UnitSelectionMenu>();
-        if (tile.monsterID == 0)
+        unitSelectionPanel.currentTile = tile;
+        if (unitSelectionPanel.currentTile.monsterID == 0)
         {
-            Menu.CurrentlyEmployedMonster = null;
+            unitSelectionPanel.CurrentlyEmployedMonster = null;
         }
         else
         {
-            Menu.CurrentlyEmployedMonster = monsters[tile.monsterID - 1];
+            unitSelectionPanel.CurrentlyEmployedMonster = monsters[unitSelectionPanel.currentTile.monsterID];
         }
 
-        Menu.currentTile = tile;
+        unitSelectionPanel.OpenMenu();
     }
 
 
@@ -242,7 +227,7 @@ public class GameManager : MonoBehaviour
     {
         var gridInit = GetComponent<GridInitMono>();
 
-        var myType = monsterSpawnChance[weightedRandom.GetRandom()];
+        var myType = monsterSpawnChance[spawnWeightedRandomMonster.GetRandom()];
         monsters.Add(new MonsterStats { name = gridInit.Names[UnityEngine.Random.Range(0, 99)], type = (MonsterType)myType.cost, icon = imageDictionary.Get((MonsterType)myType.cost) });
         Debug.Log(myType.name);
     }
