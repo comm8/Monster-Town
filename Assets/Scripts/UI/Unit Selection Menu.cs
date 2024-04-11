@@ -6,24 +6,37 @@ using System.Collections;
 using System.Collections.Generic;
 public class UnitSelectionMenu : MonoBehaviour
 {
+    [HideInInspector] public static UnitSelectionMenu instance;
     [SerializeField] GameObject UnitPanel, UnitList;
     public TileProperties currentTile;
     public MonsterStats CurrentlyEmployedMonster;
     [SerializeField] TMP_Text monsterName, production;
     [SerializeField] Image monsterIcon;
     [SerializeField] List<UnitPanel> panels;
+
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void UpdateBuildingPanel()
     {
         if (currentTile.monsterID == 0) { UpdateBuildingPanelEmpty(); return; }
         monsterName.text = CurrentlyEmployedMonster.name + " (" + CurrentlyEmployedMonster.type.ToString() + ")";
-        production.text = "0";
+        production.text = GameManager.instance.buildings.GetBuilding((int)currentTile.buildingType).production[(int)CurrentlyEmployedMonster.type].ToString();
     }
 
     public void EmployMonster(int id)
     {
-        CurrentlyEmployedMonster.tile = null;
+
+        if (!ReferenceEquals(CurrentlyEmployedMonster, null))
+        {
+            CurrentlyEmployedMonster.tile = null;
+        }
         CurrentlyEmployedMonster = GameManager.instance.monsters[id];
         CurrentlyEmployedMonster.tile = currentTile;
+        currentTile.monsterID = (ushort)id;
 
         UpdateBuildingPanel();
     }
@@ -50,9 +63,10 @@ public class UnitSelectionMenu : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void OpenMenu()
+    public void OpenMenu(TileProperties tile)
     {
         gameObject.SetActive(true);
+        UpdateBuildingPanel();
         StartCoroutine(SetScrollToTop());
     }
 

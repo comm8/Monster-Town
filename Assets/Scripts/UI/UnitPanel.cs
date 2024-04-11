@@ -6,22 +6,22 @@ using UnityEngine.UI;
 using BuildingTools;
 public class UnitPanel : MonoBehaviour
 {
-    public TMP_Text monsterName, production, employementStatus, species;
-    public Image monsterIcon;
-    public int MonsterID;
+  public TMP_Text monsterName, production, employementStatus, species;
+  public Image monsterIcon;
+  public int MonsterID;
 
 
-    public void Setup(MonsterStats stats, int id)
-    {
-        monsterName.text = stats.name;
-        monsterIcon.sprite = stats.icon;
-        species.text = stats.type.ToString();
-        MonsterID = id;
-    }
+  public void Setup(MonsterStats stats, int id)
+  {
+    monsterName.text = stats.name;
+    monsterIcon.sprite = stats.icon;
+    species.text = stats.type.ToString();
+    MonsterID = id;
+  }
 
-    public void SetMonster()
-    {
-      FindFirstObjectByType<UnitSelectionMenu>().EmployMonster(MonsterID);
-    }
+  public void SetMonster()
+  {
+    UnitSelectionMenu.instance.EmployMonster(MonsterID);
+  }
 
 }

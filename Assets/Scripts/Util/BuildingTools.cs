@@ -94,6 +94,17 @@ namespace BuildingTools
         public MonsterType monsterType;
         public ResourceValue[] production;
         public ResourceValue[] cost;
+
+        public override string ToString()
+        {
+            string myString = "";
+
+            foreach( ResourceValue resource in production)
+            {  
+                myString += resource.Amount + " " + resource.Type+", ";
+            }
+            return myString;
+        }
     }
 
     public static class Inventory

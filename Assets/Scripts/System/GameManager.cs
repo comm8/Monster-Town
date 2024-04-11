@@ -177,6 +177,7 @@ public class GameManager : MonoBehaviour
 
     public void RefreshUnitSelectionPanel(TileProperties tile)
     {
+
         unitSelectionPanel.currentTile = tile;
         if (unitSelectionPanel.currentTile.monsterID == 0)
         {
@@ -187,7 +188,7 @@ public class GameManager : MonoBehaviour
             unitSelectionPanel.CurrentlyEmployedMonster = monsters[unitSelectionPanel.currentTile.monsterID];
         }
 
-        unitSelectionPanel.OpenMenu();
+        unitSelectionPanel.OpenMenu(tile);
     }
 
 
@@ -230,7 +231,7 @@ public class GameManager : MonoBehaviour
         var myType = monsterSpawnChance[spawnWeightedRandomMonster.GetRandom()];
         monsters.Add(new MonsterStats { name = gridInit.Names[UnityEngine.Random.Range(0, 99)], type = (MonsterType)myType.cost, icon = imageDictionary.Get((MonsterType)myType.cost) });
         Debug.Log(myType.name);
-        unitSelectionPanel.AddMonster(monsters.Count -1 );
+        unitSelectionPanel.AddMonster(monsters.Count - 1);
     }
 
 
