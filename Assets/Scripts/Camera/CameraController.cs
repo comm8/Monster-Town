@@ -50,7 +50,7 @@ public class CameraController : MonoBehaviour
 
     private void UpdateTimer()
     {
-        if (inputActions.Player.Move.ReadValue<Vector2>().magnitude > Mathf.Epsilon)
+        if (inputActions.Player.Move.ReadValue<Vector2>().sqrMagnitude > Mathf.Epsilon)
         {
             accelerationTimer += Time.deltaTime;
         }
