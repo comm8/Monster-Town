@@ -95,14 +95,12 @@ public class GameManager : MonoBehaviour
     {
         CheckDeleteModeDesired();
         CheckInputDesired();
-        resourceAmountsText[0].text = "<sprite name=\"resources_basic_0\">" + inventory[0].Amount;
-        resourceAmountsText[1].text = "<sprite name=\"resources_basic_4\">" + inventory[1].Amount;
-        resourceAmountsText[2].text = "<sprite name=\"resources_basic_13\">" + inventory[2].Amount;
-        resourceAmountsText[3].text = "<sprite name=\"resources_basic_18\">" + inventory[3].Amount;
-        resourceAmountsText[4].text = "<sprite name=\"resources_basic_70\">" + inventory[4].Amount;
-        resourceAmountsText[5].text = "<sprite name=\"resources_basic_14\">" + inventory[5].Amount;
-        resourceAmountsText[6].text = "<sprite name=\"resources_basic_54\">" + inventory[6].Amount;
-        resourceAmountsText[7].text = "<sprite name=\"resources_basic_54\">" + inventory[7].Amount;
+        resourceAmountsText[0].text = "<sprite name=\"wood\">" + inventory[0].Amount;
+        resourceAmountsText[1].text = "<sprite name=\"charcoal\">" + inventory[1].Amount;
+        resourceAmountsText[2].text = "<sprite name=\"stone\">" + inventory[2].Amount;
+        resourceAmountsText[3].text = "<sprite name=\"metal\">" + inventory[3].Amount;
+        resourceAmountsText[4].text = "<sprite name=\"rations\">" + inventory[4].Amount;
+        resourceAmountsText[5].text = "<sprite name=\"influence\">" + inventory[7].Amount;
     }
 
 
