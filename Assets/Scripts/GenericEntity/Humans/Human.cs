@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BuildingTools;
 using SerializableDictionary;
+using UnityEngine.AI;
 
 
 public class Human : GenericEntity
@@ -10,11 +11,11 @@ public class Human : GenericEntity
     public BehaviorState state = BehaviorState.Pathfinding;
     public bool stunned;
     public byte stunCooldown;
+    public NavMeshAgent agent;
 
     void Awake()
     {
         SetUp();
-
         state = BehaviorState.Idle;
         attack.SetUp();
 
