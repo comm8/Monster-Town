@@ -19,6 +19,8 @@ public class Human : GenericEntity
         state = BehaviorState.Idle;
         attack.SetUp();
 
+
+
         TryAttack();
 
         //start: find pathfinding location 
@@ -48,7 +50,7 @@ public class Human : GenericEntity
 
     void PathFind()
     {
-
+        //agent.SetDestination
 
 
     }

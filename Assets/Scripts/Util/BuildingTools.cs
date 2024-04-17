@@ -230,13 +230,14 @@ namespace BuildingTools
         Mine,
         Inn,
         Forge,
-        NecroMansion,
+        Graveyard,
         Fishing_Dock,
         Light_House,
         Apothecary,
         Armory,
         None,
-        Road
+        Road,
+        Tower
     }
 
 
