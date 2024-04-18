@@ -12,6 +12,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d313adc54bae374db34b3004447defc, type: 3}
   m_Name: Lumber_Yard
   m_EditorClassIdentifier: 
-  cost: []
+  randomRotation: 0
+  cost:
+  - Amount: 15
+    Type: 0
+  - Amount: 5
+    Type: 3
   Model: {fileID: 6391764774371186972, guid: 7f947af620e51784d853f8ab61628cb3, type: 3}
-  production: []
+  production:
+  - monsterType: 0
+    production:
+    - Amount: 3
+      Type: 0
+    cost:
+    - Amount: 1
+      Type: 4
+  - monsterType: 1
+    production:
+    - Amount: 4
+      Type: 0
+    cost:
+    - Amount: 2
+      Type: 4
+  - monsterType: 2
+    production:
+    - Amount: 2
+      Type: 1
+    cost:
+    - Amount: 1
+      Type: 4
+  - monsterType: 3
+    production: []
+    cost: []
+  - monsterType: 4
+    production: []
+    cost: []
+  - monsterType: 5
+    production:
+    - Amount: 2
+      Type: 0
+    cost: []
+  health: {fileID: 0}

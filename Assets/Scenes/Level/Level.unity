@@ -1160,6 +1160,7 @@ GameObject:
   - component: {fileID: 343557937}
   - component: {fileID: 343557939}
   - component: {fileID: 343557940}
+  - component: {fileID: 343557941}
   m_Layer: 5
   m_Name: Mine
   m_TagString: Untagged
@@ -1296,6 +1297,23 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 4.45, y: -6.17}
   m_UseGraphicAlpha: 1
+--- !u!114 &343557941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343557935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295e0291a2ca0fa4aadc951d47bcf72d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Mine
+  content: 'Produces <sprite name="metal"> and <sprite name="stone">
+
+    Costs 10 
+    <sprite name="wood">, 5 <sprite name="metal">'
 --- !u!1 &354462925
 GameObject:
   m_ObjectHideFlags: 0
@@ -3458,8 +3476,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 295e0291a2ca0fa4aadc951d47bcf72d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  header: Farm Tile
-  content: Usually produces Rations.
+  header: Farm
+  content: 'Produces Rations.
+
+    Costs 20  <sprite name="wood">'
 --- !u!1 &812453568
 GameObject:
   m_ObjectHideFlags: 0
@@ -7460,7 +7480,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: -38.99
+  m_Spacing: -37
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
