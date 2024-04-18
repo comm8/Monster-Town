@@ -7480,7 +7480,11 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
+<<<<<<< HEAD
   m_Spacing: -37
+=======
+  m_Spacing: -36.5
+>>>>>>> 6bb7ab3fb41f4067cb1e6aebfacf6ddf37e55220
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0

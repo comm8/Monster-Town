@@ -167,8 +167,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,8 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4edcc7985090da049b3e23434746d677
-      internalID: -1289680032
+      spriteID: c33672095a61b664e90cd3205253d35e
+      internalID: 1409487530
       vertices: []
       indices: 
       edges: []
@@ -186,10 +186,10 @@ TextureImporter:
       name: stone
       rect:
         serializedVersion: 2
-        x: 16
+        x: 18
         y: 0
-        width: 16
-        height: 16
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,8 +197,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5b50f0af4516754b83661807f316e49
-      internalID: 41249771
+      spriteID: 9d6da00b7826a7e4b8f6732b10282dfc
+      internalID: -71544100
       vertices: []
       indices: 
       edges: []
@@ -207,10 +207,10 @@ TextureImporter:
       name: charcoal
       rect:
         serializedVersion: 2
-        x: 32
+        x: 36
         y: 0
-        width: 16
-        height: 16
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,8 +218,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 738895c869a677d4d889c335974cccf2
-      internalID: 947327453
+      spriteID: 13c55e16f3bda8941ad44b40cedc6396
+      internalID: 655544915
       vertices: []
       indices: 
       edges: []
@@ -228,10 +228,10 @@ TextureImporter:
       name: rations
       rect:
         serializedVersion: 2
-        x: 48
+        x: 54
         y: 0
-        width: 16
-        height: 16
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,8 +239,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc3208c0b8c9ad94dba713d55d25e7d5
-      internalID: -1246860028
+      spriteID: 9bc965e222c80fa4ea9a7e6e984745c9
+      internalID: -937757256
       vertices: []
       indices: 
       edges: []
@@ -249,10 +249,10 @@ TextureImporter:
       name: metal
       rect:
         serializedVersion: 2
-        x: 64
+        x: 72
         y: 0
-        width: 16
-        height: 16
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,8 +260,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a5ccb1996ebdf941b36adae5eef1def
-      internalID: 1500375943
+      spriteID: 02c1680ea50251a48a4310c5751c4c55
+      internalID: 1183805701
       vertices: []
       indices: 
       edges: []
@@ -270,10 +270,10 @@ TextureImporter:
       name: influence
       rect:
         serializedVersion: 2
-        x: 80
+        x: 90
         y: 0
-        width: 16
-        height: 16
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,8 +281,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9ac793e9cb6c7445b88f34025cfa4f0
-      internalID: 482756460
+      spriteID: 5e85b2bdfcb6d2e42b689ed976dff688
+      internalID: 1011270707
       vertices: []
       indices: 
       edges: []
@@ -298,12 +298,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      charcoal: 947327453
-      influence: 482756460
-      metal: 1500375943
-      rations: -1246860028
-      stone: 41249771
-      wood: -1289680032
+      charcoal: 655544915
+      influence: 1011270707
+      metal: 1183805701
+      rations: -937757256
+      stone: -71544100
+      wood: 1409487530
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
