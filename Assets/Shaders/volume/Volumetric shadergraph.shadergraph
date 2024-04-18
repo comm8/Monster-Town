@@ -92,6 +92,24 @@
     "m_StickyNoteDatas": [
         {
             "m_Id": "484f6dc1265a450e997b1cd10bcaf986"
+        },
+        {
+            "m_Id": "969ccb91729b4e168a97edc3b353ecf5"
+        },
+        {
+            "m_Id": "c7f0fea7e9c04860a275520b473a6903"
+        },
+        {
+            "m_Id": "accff1c4e1274dcf8bbbdcb0c0d6ffdc"
+        },
+        {
+            "m_Id": "10724d7e86b74b76bfcf7d218a48ceb4"
+        },
+        {
+            "m_Id": "30b1d07f4ea443c89e6524fb94301833"
+        },
+        {
+            "m_Id": "bea5140dfb8b41c3a9316599fd4ba42c"
         }
     ],
     "m_Edges": [
@@ -635,6 +653,26 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
+    "m_ObjectId": "10724d7e86b74b76bfcf7d218a48ceb4",
+    "m_Title": "New Note",
+    "m_Content": "Refractive Index:\r\n\r\nTemperature affects the refractive index of water, which is a measure of how much light is bent or refracted as it passes through the water.\r\nIn general, as temperature increases, the refractive index of water decreases slightly. This means that warmer water tends to have a slightly lower refractive index than colder water.\r\nHowever, the effect of temperature on the refractive index of water is relatively small and may not be perceptible in many practical applications.\r\nTurbidity:\r\n\r\nTemperature can influence the turbidity of water, which is a measure of its cloudiness or haziness caused by suspended particles.\r\nChanges in temperature can affect the stability and aggregation of suspended particles and colloidal matter in water.\r\nIn some cases, variations in temperature can lead to changes in the solubility of dissolved substances and the formation of precipitates, which can contribute to changes in turbidity.\r\nAdditionally, temperature can influence the density and viscosity of water, which can affect the settling velocity and behavior of suspended particles, thereby influencing turbidity.\r\nLight Absorption and Scattering:\r\n\r\nTemperature can also influence the absorption and scattering of light by water molecules and suspended particles.\r\nChanges in temperature can alter the molecular structure and density of water, which can affect its optical properties and the interactions of light with water molecules.\r\nAdditionally, temperature-dependent processes such as convection and thermal gradients can influence the distribution and movement of suspended particles, potentially affecting light scattering and absorption in the water column.",
+    "m_TextSize": 0,
+    "m_Theme": 0,
+    "m_Position": {
+        "serializedVersion": "2",
+        "x": 1521.0,
+        "y": -849.0,
+        "width": 327.0,
+        "height": 614.0
+    },
+    "m_Group": {
+        "m_Id": ""
+    }
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "11f15ec847494da88c0fb498a3b12c8d",
     "m_Id": 0,
@@ -846,6 +884,26 @@
     "m_PreviewMode": 0,
     "m_CustomColors": {
         "m_SerializableColors": []
+    }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
+    "m_ObjectId": "30b1d07f4ea443c89e6524fb94301833",
+    "m_Title": "New Note",
+    "m_Content": "Refractive Index:\r\n\r\nSalinity can affect the refractive index of water. As the salinity of water increases, its refractive index generally increases as well.\r\nThe refractive index of seawater, which has higher salinity than freshwater, is slightly higher than that of pure water. This difference becomes more pronounced at higher salinity levels.\r\nTurbidity:\r\n\r\nSalinity can influence the turbidity of water, particularly in marine environments where suspended particles and colloidal matter can affect water clarity.\r\nIn coastal areas or estuaries with varying salinity levels, changes in salinity can affect the stability and aggregation of suspended particles, leading to changes in turbidity.\r\nLight Absorption and Scattering:\r\n\r\nSalinity can affect the absorption and scattering of light by water molecules and suspended particles.\r\nChanges in salinity can alter the chemical composition and structure of water, affecting its optical properties and the interactions of light with water molecules.\r\nAdditionally, variations in salinity can influence the density and viscosity of water, which can affect the movement and behavior of suspended particles, thereby influencing light scattering and absorption.\r\nColor:\r\n\r\nSalinity can also influence the color of water, particularly in marine environments where dissolved organic matter, algae, and other substances can affect water color.\r\nChanges in salinity can lead to variations in the types and concentrations of substances that contribute to water color, resulting in observable changes in the color of the water.",
+    "m_TextSize": 0,
+    "m_Theme": 0,
+    "m_Position": {
+        "serializedVersion": "2",
+        "x": 1860.0,
+        "y": -851.0,
+        "width": 353.0,
+        "height": 786.0
+    },
+    "m_Group": {
+        "m_Id": ""
     }
 }
 
@@ -1511,6 +1569,26 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
+    "m_ObjectId": "969ccb91729b4e168a97edc3b353ecf5",
+    "m_Title": "ChatGPT script",
+    "m_Content": "// Constants\r\n#define M_PI 3.14159265359\r\n#define MIE_COEFFICIENT 0.1 // Adjust as needed\r\n#define RAYLEIGH_COEFFICIENT 0.01 // Adjust as needed\r\n\r\n// Function to calculate Rayleigh scattering\r\nfloat3 CalculateRayleigh(float3 direction, float wavelength)\r\n{\r\n    float4 rayleighCoeff = float4(5.8e-6, 13.5e-6, 33.1e-6, 1.0e-5); // Rayleigh scattering coefficients for RGB\r\n    float4 betaRay = rayleighCoeff / (wavelength * wavelength * wavelength * wavelength); // Adjusting coefficients for wavelength\r\n\r\n    return exp(-betaRay * 1000.0 * 0.025) * float3(0.3, 0.6, 1.0); // Density of water and color of scattered light\r\n}\r\n\r\n// Function to calculate Mie scattering\r\nfloat3 CalculateMie(float3 direction, float density)\r\n{\r\n    float turbidity = 2.0; // Adjust as needed\r\n    float4 mieCoeff = float4(0.0025, 0.0050, 0.0010, 0.0); // Mie scattering coefficients for RGB\r\n    float4 betaMie = mieCoeff * (1.0 / (wavelength * wavelength)); // Adjusting coefficients for wavelength\r\n\r\n    float miePhase = (1.0 - turbidity) * (1.0 - turbidity) / (2.0 + turbidity * turbidity);\r\n    miePhase *= (1.0 + cos(M_PI * direction.z)) * (1.0 + cos(M_PI * direction.z));\r\n    miePhase /= (2.0 + turbidity * turbidity);\r\n\r\n    return exp(-betaMie * density * 1000.0) * miePhase;\r\n}\r\n\r\n// Main function for volumetric scattering calculation\r\nfloat4 VolumetricScattering(float3 direction, float wavelength, float density, float3 waterColor)\r\n{\r\n    float3 rayleigh = CalculateRayleigh(direction, wavelength);\r\n    float3 mie = CalculateMie(direction, density);\r\n\r\n    return float4(rayleigh + mie, 1.0) * float4(waterColor, 1.0);\r\n}\r\n",
+    "m_TextSize": 0,
+    "m_Theme": 0,
+    "m_Position": {
+        "serializedVersion": "2",
+        "x": 896.0,
+        "y": -856.0,
+        "width": 200.0,
+        "height": 1161.0
+    },
+    "m_Group": {
+        "m_Id": ""
+    }
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "a0b14bf8a04641be899a0c37b66154fb",
     "m_Id": 0,
@@ -1646,6 +1724,26 @@
     },
     "m_Labels": [],
     "m_ScreenSpaceType": 0
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
+    "m_ObjectId": "accff1c4e1274dcf8bbbdcb0c0d6ffdc",
+    "m_Title": "New Note",
+    "m_Content": "Refractive Index:\r\n\r\nThe pH of water can affect its refractive index, although the effect may be relatively small compared to other factors such as temperature or salinity.\r\nIn general, variations in pH within the typical range for natural waters (pH 6 to 8 for freshwater) are unlikely to cause significant changes in the refractive index of water.\r\nHowever, extreme pH conditions (e.g., highly acidic or alkaline water) can potentially alter the refractive index due to changes in the ionization of water molecules and interactions with dissolved substances.\r\nTurbidity:\r\n\r\nThe pH of water can indirectly influence its turbidity by affecting the solubility and stability of suspended particles and colloidal matter.\r\nIn some cases, changes in pH can lead to the aggregation or dispersion of particles, affecting the overall turbidity of the water.\r\nAdditionally, variations in pH can influence the charge and surface properties of particles, which can in turn affect their interactions with light and their scattering behavior.",
+    "m_TextSize": 0,
+    "m_Theme": 0,
+    "m_Position": {
+        "serializedVersion": "2",
+        "x": 1314.0,
+        "y": -849.0,
+        "width": 200.0,
+        "height": 531.3477783203125
+    },
+    "m_Group": {
+        "m_Id": ""
+    }
 }
 
 {
@@ -1848,6 +1946,26 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
+    "m_ObjectId": "bea5140dfb8b41c3a9316599fd4ba42c",
+    "m_Title": "New Note",
+    "m_Content": "// Function to calculate the refractive index of water\r\nfloat CalculateRefractiveIndex(float temperature, float salinity)\r\n{\r\n    // Adjust refractive index based on temperature and salinity (empirical formula)\r\n    float refractiveIndex = 1.3330 + 0.000086 * temperature - 0.0000016 * temperature * temperature + 0.017 * salinity;\r\n    return refractiveIndex;\r\n}",
+    "m_TextSize": 0,
+    "m_Theme": 0,
+    "m_Position": {
+        "serializedVersion": "2",
+        "x": 2241.0,
+        "y": -850.0,
+        "width": 200.0,
+        "height": 717.0
+    },
+    "m_Group": {
+        "m_Id": ""
+    }
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.BlockNode",
     "m_ObjectId": "c258a23869314b5fa675502ab0ad8712",
     "m_Group": {
@@ -1878,6 +1996,26 @@
         "m_SerializableColors": []
     },
     "m_SerializedDescriptor": "VertexDescription.Normal"
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.StickyNoteData",
+    "m_ObjectId": "c7f0fea7e9c04860a275520b473a6903",
+    "m_Title": "New Note",
+    "m_Content": "\rPurpose: Control the density of suspended particles in the medium, affecting Mie scattering. (mg/L).\n\n\r\nTurbidity Slider (optional):\r\n\r\nPurpose: Control the turbidity or clarity of the medium, influencing Mie scattering.\r\nTurbidity is typically measured in Nephelometric Turbidity Units (NTU) or Formazin Turbidity Units (FTU). High turbidity levels in dirty water can result in NTU or FTU values ranging from a few to several hundred or even thousands, depending on the concentration and size distribution of the suspended particles.\r\n\r\nRefractive Index Slider (optional):\r\n\r\nPurpose: Adjust the refractive index of the medium, affecting both Rayleigh and Mie scattering.\r\nMinimum: Minimum refractive index for the medium (e.g., 1.33 for water).\r\nThe refractive index of dirty water can vary depending on the types of particles present and their concentrations. In general, it may range from around 1.33 to slightly higher values.",
+    "m_TextSize": 0,
+    "m_Theme": 0,
+    "m_Position": {
+        "serializedVersion": "2",
+        "x": 1100.0,
+        "y": -855.0,
+        "width": 200.0,
+        "height": 670.0
+    },
+    "m_Group": {
+        "m_Id": ""
+    }
 }
 
 {

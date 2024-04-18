@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d313adc54bae374db34b3004447defc, type: 3}
+  m_Name: Tower
+  m_EditorClassIdentifier: 
+  randomRotation: 0
+  cost: []
+  Model: {fileID: 6391764774371186972, guid: 1cbeccc0199d8fb40b9e4c8909d802bf, type: 3}
+  production:
+  - monsterType: 0
+    production: []
+    cost: []
+  - monsterType: 1
+    production: []
+    cost: []
+  - monsterType: 2
+    production: []
+    cost: []
+  - monsterType: 3
+    production: []
+    cost: []
+  - monsterType: 4
+    production: []
+    cost: []
+  - monsterType: 5
+    production: []
+    cost: []
+  health: {fileID: 0}
