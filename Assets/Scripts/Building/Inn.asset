@@ -13,7 +13,49 @@ MonoBehaviour:
   m_Name: Inn
   m_EditorClassIdentifier: 
   randomRotation: 0
-  cost: []
+  cost:
+  - Amount: 10
+    Type: 0
+  - Amount: 20
+    Type: 2
+  - Amount: 5
+    Type: 1
   Model: {fileID: 6391764774371186972, guid: 8dfac28a338473d4dbf1a278efe28ff3, type: 3}
-  production: []
+  production:
+  - monsterType: 0
+    production:
+    - Amount: 2
+      Type: 7
+    cost:
+    - Amount: 1
+      Type: 4
+  - monsterType: 1
+    production: []
+    cost: []
+  - monsterType: 3
+    production:
+    - Amount: 3
+      Type: 7
+    cost:
+    - Amount: 1
+      Type: 4
+  - monsterType: 2
+    production:
+    - Amount: 2
+      Type: 7
+    cost:
+    - Amount: 2
+      Type: 4
+  - monsterType: 4
+    production:
+    - Amount: 1
+      Type: 7
+    cost:
+    - Amount: 2
+      Type: 4
+  - monsterType: 5
+    production:
+    - Amount: 1
+      Type: 7
+    cost: []
   health: {fileID: 0}
