@@ -328,6 +328,7 @@ GameObject:
   - component: {fileID: 83473250}
   - component: {fileID: 83473249}
   - component: {fileID: 83473248}
+  - component: {fileID: 83473251}
   m_Layer: 5
   m_Name: Road
   m_TagString: Untagged
@@ -449,6 +450,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83473246}
   m_CullTransparentMesh: 1
+--- !u!114 &83473251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83473246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295e0291a2ca0fa4aadc951d47bcf72d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Road
+  content: Costs 2  <sprite name="stone">
 --- !u!1 &85798771
 GameObject:
   m_ObjectHideFlags: 0
@@ -3677,6 +3692,7 @@ GameObject:
   - component: {fileID: 888006243}
   - component: {fileID: 888006242}
   - component: {fileID: 888006245}
+  - component: {fileID: 888006246}
   m_Layer: 5
   m_Name: Inn
   m_TagString: Untagged
@@ -3813,6 +3829,23 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 4.45, y: -6.19}
   m_UseGraphicAlpha: 1
+--- !u!114 &888006246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888006240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295e0291a2ca0fa4aadc951d47bcf72d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Inn
+  content: 'Produces Influence
+
+    Costs 10  <sprite name="wood">, 20 <sprite name="stone">, 
+    5  <sprite name="charcoal">'
 --- !u!1001 &888434146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9428,6 +9461,7 @@ GameObject:
   - component: {fileID: 1923255786}
   - component: {fileID: 1923255785}
   - component: {fileID: 1923255787}
+  - component: {fileID: 1923255788}
   m_Layer: 5
   m_Name: Lumber Yard
   m_TagString: Untagged
@@ -9549,6 +9583,22 @@ MonoBehaviour:
           m_StringArgument: Lumber yard
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1923255788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923255783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295e0291a2ca0fa4aadc951d47bcf72d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Farm
+  content: 'Produces Rations.
+
+    Costs 15 <sprite name="wood">, 5 <sprite name="metal">'
 --- !u!1 &1947750949
 GameObject:
   m_ObjectHideFlags: 0
