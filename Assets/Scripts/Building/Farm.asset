@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomRotation: 1
   cost:
-  - Amount: 1
+  - Amount: 20
     Type: 0
   Model: {fileID: 4463137463556503104, guid: cab6da6cf7bda194a9785582167d910c, type: 3}
   production:
