@@ -1,0 +1,8 @@
+Its possible to interupt a sequential road if you move skip over a tile due to lack of frames (replicatable with diagonals)
+Changing a unit's employment location doesn't update former buildings material
+Changing a unit's employment location doesn't update Unit selector description
+Camera sometimes slowly drifts in a direction (may be floating point innacuracy??)
+Adding a unit shifts down unit selection menu
+The center tower is deletable
+DynamicTransforms is locking down required features
+The camera doesnt remain focused on center tile when moving up/down
