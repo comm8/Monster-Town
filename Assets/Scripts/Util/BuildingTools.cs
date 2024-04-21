@@ -98,10 +98,20 @@ namespace BuildingTools
         public override string ToString()
         {
             string myString = "";
+            int iterator = 0;
 
             foreach( ResourceValue resource in production)
             {  
-                myString += resource.Amount + " " + resource.Type+", ";
+                if(iterator != 0)
+                {
+                 myString += ",";   
+                }
+                iterator++;
+                myString += resource.Amount + " " + resource.Type;
+            }
+            if(myString.Equals(""))
+            {
+                return "nothing";
             }
             return myString;
         }

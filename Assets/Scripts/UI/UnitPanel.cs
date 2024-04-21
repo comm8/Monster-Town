@@ -17,11 +17,23 @@ public class UnitPanel : MonoBehaviour
     monsterIcon.sprite = stats.icon;
     species.text = stats.type.ToString();
     MonsterID = id;
+
+
+    if(GameManager.instance.monsters[id].tile != null)
+    {
+          employementStatus.text = "Employed at " + GameManager.instance.monsters[id].tile.buildingType.ToString();
+    }
+    else
+    {
+          employementStatus.text = "Not Currently Employed";
+    }
+
   }
 
   public void SetMonster()
   {
     UnitSelectionMenu.instance.EmployMonster(MonsterID);
+    Setup(GameManager.instance.monsters[MonsterID], MonsterID);
   }
 
 }
