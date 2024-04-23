@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: Graveyard
   m_EditorClassIdentifier: 
   randomRotation: 1
-  cost: []
+  cost:
+  - Amount: 10
+    Type: 2
+  - Amount: 5
+    Type: 0
+  - Amount: 5
+    Type: 3
   Model: {fileID: 6391764774371186972, guid: e17df6ec88b3c704fb84626a2964cb87, type: 3}
   production:
   - monsterType: 0

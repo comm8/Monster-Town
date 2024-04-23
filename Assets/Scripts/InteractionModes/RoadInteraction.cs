@@ -80,7 +80,13 @@ public class RoadInteraction : InteractionMode
         if (CurrentRoadStroke.Count > 1)
         {
             int2 previousRoad = CurrentRoadStroke[^2];
-
+            
+            if ( new Vector2(gameManager.SelectionGridPos.x - previousRoad.x, gameManager.SelectionGridPos.y - previousRoad.y).magnitude > 1)
+            {
+                //Debug.Log(new Vector2(previousRoad.x, previousRoad.y).magnitude);
+                return;
+            }
+            
             if (gameManager.SelectionGridPos.x > previousRoad.x)
             {
                 roadTable.right = true;

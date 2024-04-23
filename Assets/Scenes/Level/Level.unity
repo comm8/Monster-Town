@@ -328,6 +328,7 @@ GameObject:
   - component: {fileID: 83473250}
   - component: {fileID: 83473249}
   - component: {fileID: 83473248}
+  - component: {fileID: 83473251}
   m_Layer: 5
   m_Name: Road
   m_TagString: Untagged
@@ -449,6 +450,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83473246}
   m_CullTransparentMesh: 1
+--- !u!114 &83473251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83473246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295e0291a2ca0fa4aadc951d47bcf72d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Road
+  content: Costs 10 <sprite name="stone">
 --- !u!1 &85798771
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,7 +994,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 85.7, y: -6.149996}
+  m_AnchoredPosition: {x: 85.7, y: -6.149994}
   m_SizeDelta: {x: -193.02, y: -12.300009}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &298128436
@@ -1073,8 +1088,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32, y: -32}
-  m_SizeDelta: {x: 77.5824, y: 110}
+  m_AnchoredPosition: {x: 43.586918, y: -26.0919}
+  m_SizeDelta: {x: 64.5078, y: 117.436}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &299302121
 MonoBehaviour:
@@ -1208,7 +1223,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2089847317, guid: 1a32a0902041a6b4bb19d7430f0ea3ed, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cfb500d5517142e49beae5f5e9de3fca, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1312,7 +1327,7 @@ MonoBehaviour:
   header: Mine
   content: 'Produces <sprite name="metal"> and <sprite name="stone">
 
-    Costs 10 
+    Costs 10
     <sprite name="wood">, 5 <sprite name="metal">'
 --- !u!1 &354462925
 GameObject:
@@ -1736,6 +1751,11 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!4 &375829576 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
+  m_PrefabInstance: {fileID: 1820776631}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &475590018
 GameObject:
   m_ObjectHideFlags: 0
@@ -1770,7 +1790,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 4.3}
+  m_AnchoredPosition: {x: 0, y: 4.300003}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &475590020
@@ -2819,7 +2839,7 @@ GameObject:
   - component: {fileID: 679506867}
   - component: {fileID: 679506866}
   m_Layer: 5
-  m_Name: Resource Text_8
+  m_Name: FPS Counter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3477,9 +3497,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   header: Farm
-  content: 'Produces Rations.
+  content: 'Produces <sprite name="rations">
 
-    Costs 20  <sprite name="wood">'
+    Costs 20 <sprite name="wood">'
 --- !u!1 &812453568
 GameObject:
   m_ObjectHideFlags: 0
@@ -3677,6 +3697,7 @@ GameObject:
   - component: {fileID: 888006243}
   - component: {fileID: 888006242}
   - component: {fileID: 888006245}
+  - component: {fileID: 888006246}
   m_Layer: 5
   m_Name: Inn
   m_TagString: Untagged
@@ -3813,6 +3834,23 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 4.45, y: -6.19}
   m_UseGraphicAlpha: 1
+--- !u!114 &888006246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888006240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295e0291a2ca0fa4aadc951d47bcf72d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Inn
+  content: 'Produces Influence
+
+    Costs 10 <sprite name="wood">, 20 <sprite name="stone">,
+    5 <sprite name="charcoal">'
 --- !u!1001 &888434146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4788,6 +4826,7 @@ GameObject:
   - component: {fileID: 1009096234}
   - component: {fileID: 1009096233}
   - component: {fileID: 1009096235}
+  - component: {fileID: 1009096236}
   m_Layer: 5
   m_Name: Delete tool
   m_TagString: Untagged
@@ -4909,6 +4948,20 @@ MonoBehaviour:
           m_StringArgument: None
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1009096236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009096231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295e0291a2ca0fa4aadc951d47bcf72d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Bulldozer
+  content: Delete Tile. (Doesn't refund)
 --- !u!1 &1015383021
 GameObject:
   m_ObjectHideFlags: 0
@@ -5066,7 +5119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 3
+  m_ScaleFactor: 4.7
   m_ReferenceResolution: {x: 512, y: 288}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0.5
@@ -5092,7 +5145,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -7459,7 +7512,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 70, y: -20}
+  m_AnchoredPosition: {x: 78.05, y: -18.900002}
   m_SizeDelta: {x: 111.0554, y: 54.6126}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1684920981
@@ -7475,12 +7528,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 119
+    m_Left: 120
     m_Right: 0
-    m_Top: 0
+    m_Top: -2
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: -36.5
+  m_Spacing: -35.29
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -7730,7 +7783,7 @@ MonoBehaviour:
     Type: 0
   - Amount: 38
     Type: 1
-  - Amount: 100
+  - Amount: 1000
     Type: 2
   - Amount: 50
     Type: 3
@@ -7740,7 +7793,7 @@ MonoBehaviour:
     Type: 5
   - Amount: 0
     Type: 6
-  - Amount: 1000
+  - Amount: 0
     Type: 7
   resourceAmountsText:
   - {fileID: 182214329}
@@ -8035,7 +8088,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 4.3}
+  m_AnchoredPosition: {x: 0, y: 4.300003}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1718445104
@@ -8768,6 +8821,83 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95890f4e3349cb84f985fe6d695a0e4b, type: 3}
+--- !u!1001 &1820776631
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2031518428}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.017117428
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 461394c5dc44eef43b51adf77e6c1e74, type: 2}
+    - target: {fileID: 919132149155446097, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
+      propertyPath: m_Name
+      value: model
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
 --- !u!1 &1846335439
 GameObject:
   m_ObjectHideFlags: 0
@@ -8972,7 +9102,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -84.5157}
+  m_AnchoredPosition: {x: 0, y: -84.51569}
   m_SizeDelta: {x: 171.2063, y: 174.2283}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1868470836
@@ -9455,6 +9585,7 @@ GameObject:
   - component: {fileID: 1923255786}
   - component: {fileID: 1923255785}
   - component: {fileID: 1923255787}
+  - component: {fileID: 1923255788}
   m_Layer: 5
   m_Name: Lumber Yard
   m_TagString: Untagged
@@ -9502,7 +9633,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -943898248, guid: 9ba156a0f46f4874bbd4687829947923, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cfb500d5517142e49beae5f5e9de3fca, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9576,6 +9707,22 @@ MonoBehaviour:
           m_StringArgument: Lumber yard
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1923255788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923255783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295e0291a2ca0fa4aadc951d47bcf72d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Farm
+  content: 'Produces Rations.
+
+    Costs 15 <sprite name="wood">, 5 <sprite name="metal">'
 --- !u!1 &1947750949
 GameObject:
   m_ObjectHideFlags: 0
@@ -9824,6 +9971,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 15707899}
+  - {fileID: 375829576}
   m_Father: {fileID: 340033506}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2031518429
@@ -10450,6 +10598,7 @@ GameObject:
   - component: {fileID: 2103958884}
   - component: {fileID: 2103958883}
   - component: {fileID: 2103958885}
+  - component: {fileID: 2103958886}
   m_Layer: 5
   m_Name: Graveyard
   m_TagString: Untagged
@@ -10571,6 +10720,23 @@ MonoBehaviour:
           m_StringArgument: Necromansion
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2103958886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103958881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295e0291a2ca0fa4aadc951d47bcf72d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: Graveyard
+  content: 'Produces Influence
+
+    Costs 10 <sprite name="stone">, 5 <sprite name="metal">,
+    5 <sprite name="wood">'
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

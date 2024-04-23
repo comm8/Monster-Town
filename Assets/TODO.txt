@@ -1,0 +1,7 @@
+Add proper pathfinding
+Add Clear Cost in  building placement mode
+Add proper hologram to telegraph selected building
+impliment potential production text
+make unemployed units show at the top of unit selection menu
+Add leantweening to selection menu
+make road wider
