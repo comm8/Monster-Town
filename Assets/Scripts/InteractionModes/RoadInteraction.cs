@@ -124,9 +124,16 @@ public class RoadInteraction : InteractionMode
         }
     }
 
+    public override void OnTileEnter(TileProperties tile, BuildingType selected)
+    {
+    }
 
+    public override void OnModeEnter(TileProperties tile, BuildingType selected)
+    {
+    }
 
-
-
+    public override void OnModeExit(TileProperties tile, BuildingType selected)
+    {
+    }
 
 }
