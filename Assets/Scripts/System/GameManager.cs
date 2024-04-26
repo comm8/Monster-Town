@@ -66,6 +66,9 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
 
+        Time.timeScale = 1;
+        LeanTween.reset();
+
         deleteInteraction.gameManager = this;
         standardInteraction.gameManager = this;
         roadInteraction.gameManager = this;

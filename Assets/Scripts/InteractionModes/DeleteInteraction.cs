@@ -74,25 +74,16 @@ public class DeleteInteraction : InteractionMode
 
     public override void OnModeEnter(TileProperties tile, BuildingType selected)
     {
-        rendererFeature.SetActive(true);
         LeanTween.value(gameObject, updateBulldozerBorderSize, 0, 0.04f, 0.4f).setEase(LeanTweenType.easeOutBounce);
     }
 
     public override void OnModeExit(TileProperties tile, BuildingType selected)
     {
-        LeanTween.value(gameObject, updateBulldozerBorderSize, 0.04f, 0, 0.4f).setEase(LeanTweenType.easeOutBounce).setOnComplete(disableRenderFeature);
+        LeanTween.value(gameObject, updateBulldozerBorderSize, 0.04f, 0, 0.4f).setEase(LeanTweenType.easeOutBounce);
     }
-
-
 
     void updateBulldozerBorderSize(float val)
     {
         bulldozerPostProcessing.SetFloat("_Border_Thickness", val);
     }
-
-    void disableRenderFeature()
-    {
-        rendererFeature.SetActive(false);
-    }
-
 }

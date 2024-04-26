@@ -402,7 +402,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1694131987}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetType
+        m_MethodName: SetDesiredBuilding
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1287,7 +1287,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1694131987}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetType
+        m_MethodName: SetDesiredBuilding
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3474,7 +3474,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1694131987}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetType
+        m_MethodName: SetDesiredBuilding
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3817,7 +3817,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1694131987}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetType
+        m_MethodName: SetDesiredBuilding
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4984,7 +4984,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1694131987}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetType
+        m_MethodName: SetDesiredBuilding
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9849,7 +9849,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1694131987}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetType
+        m_MethodName: SetDesiredBuilding
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10862,7 +10862,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1694131987}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetType
+        m_MethodName: SetDesiredBuilding
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
