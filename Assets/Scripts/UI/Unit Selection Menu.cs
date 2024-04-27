@@ -65,16 +65,26 @@ public class UnitSelectionMenu : MonoBehaviour
     }
     public void CloseMenu()
     {
-        gameObject.SetActive(false);
+        LeanTween.scaleY(gameObject, 0.0f, 0.2f).setEase(LeanTweenType.easeOutBounce).setOnComplete(MyComplete);
     }
 
+    void MyComplete()
+    {
+        gameObject.SetActive(false);
+    }
     public void OpenMenu(TileProperties tile)
     {
+
         if (!gameObject.activeInHierarchy)
         {
             gameObject.SetActive(true);
-            gameObject.GetComponent<RectTransform>().localPosition = new Vector2(0, 0);
+            transform.localPosition = new Vector2(0, 0);
         }
+
+
+        transform.localScale = new Vector3(1, 0);
+        LeanTween.scaleY(gameObject, 1.0f, 0.2f).setEase(LeanTweenType.easeOutElastic);
+
         UpdateBuildingPanel();
         StartCoroutine(SetScrollToTop());
     }

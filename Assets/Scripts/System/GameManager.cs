@@ -323,5 +323,22 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+
+
+
+void OnTowerHit()
+{
+
+}
+
+
+
+
+
+
+
+
+
 }
 
