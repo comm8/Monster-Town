@@ -20,7 +20,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Selection")]
     [SerializeField] Transform Selection;
-    public MeshRenderer SelectionRenderer;
+    public MeshRenderer selectionRenderer;
+    public Light selectionLight;
 
     public int2 SelectionGridPos;
     [SerializeField] BuildingType plyBuildingDesired;
@@ -72,7 +73,7 @@ public class GameManager : MonoBehaviour
         deleteInteraction.gameManager = this;
         standardInteraction.gameManager = this;
         roadInteraction.gameManager = this;
-       interaction = standardInteraction;
+        interaction = standardInteraction;
         interaction.OnModeEnter(GetCurrentTile(), plyBuildingDesired);
 
         //settup input system
@@ -268,11 +269,11 @@ public class GameManager : MonoBehaviour
         deleteMode = false;
         if (plyBuildingDesired != BuildingType.Road)
         {
-           SetInteractionMode(standardInteraction);
+            SetInteractionMode(standardInteraction);
         }
         else
         {
-           SetInteractionMode(roadInteraction);
+            SetInteractionMode(roadInteraction);
         }
     }
 
@@ -327,15 +328,19 @@ public class GameManager : MonoBehaviour
 
 
 
-void OnTowerHit()
-{
+    void OnTowerHit()
+    {
 
-}
-
-
+    }
 
 
 
+
+   public void SetSelectionScheme(SelectionScheme scheme)
+    {
+        selectionLight.color = scheme.lightColor;
+        selectionRenderer.material = scheme.selectionMaterial;
+    }
 
 
 

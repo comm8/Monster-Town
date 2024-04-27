@@ -7,6 +7,8 @@ public class DeleteInteraction : InteractionMode
     [SerializeField] Material bulldozerPostProcessing;
     [SerializeField] ScriptableRendererFeature rendererFeature;
 
+    [SerializeField] SelectionScheme scheme;
+
     public override void OnPressEnd(TileProperties tile, BuildingType selected)
     {
         //do nothing
@@ -75,6 +77,7 @@ public class DeleteInteraction : InteractionMode
     public override void OnModeEnter(TileProperties tile, BuildingType selected)
     {
         LeanTween.value(gameObject, updateBulldozerBorderSize, 0, 0.04f, 0.4f).setEase(LeanTweenType.easeOutBounce);
+        gameManager.SetSelectionScheme(scheme);
     }
 
     public override void OnModeExit(TileProperties tile, BuildingType selected)
