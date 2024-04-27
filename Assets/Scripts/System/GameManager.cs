@@ -336,12 +336,32 @@ public class GameManager : MonoBehaviour
 
 
 
-   public void SetSelectionScheme(SelectionScheme scheme)
+    public void SetSelectionScheme(SelectionScheme scheme)
     {
         selectionLight.color = scheme.lightColor;
         selectionRenderer.material = scheme.selectionMaterial;
     }
 
+    public void DevGive999()
+    {
+        foreach ( var item in inventory)
+        {
+            item.Amount += 999;
+        }
+    }
+
+    public void DevGive10Monsters()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            GenerateMonster();
+        }
+    }
+
+    public void DevSetNight()
+    {
+
+    }
 
 
 

@@ -13,11 +13,11 @@ public class BuildingFlavourPanel : MonoBehaviour
         toggle = !toggle;
         if (!toggle)
         {
-            LeanTween.moveLocalY(pullTab, -50f, 0.7f).setEase(LeanTweenType.easeOutBounce).setOnComplete(PullInPanel);
+            LeanTween.moveLocalY(pullTab, -50f, 0.5f).setEase(LeanTweenType.easeOutBounce).setOnComplete(PullInPanel);
         }
         else
         {
-            LeanTween.moveLocalY(pullTab, -67f, 0.7f).setEase(LeanTweenType.easeOutBounce).setOnComplete(PullOutPanel);
+            LeanTween.moveLocalY(pullTab, -67f, 0.5f).setEase(LeanTweenType.easeOutBounce).setOnComplete(PullOutPanel);
         }
     }
 
