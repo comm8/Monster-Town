@@ -206,7 +206,7 @@ public class GameManager : MonoBehaviour
 
         foreach (var monster in monsters)
         {
-            inventory[7].Amount = 0;
+            inventory[5].Amount = 0;
 
             if (monster.tile == null) { continue; }
 
@@ -223,7 +223,7 @@ public class GameManager : MonoBehaviour
     bool rollImmigration()
     {
         float randomamm = UnityEngine.Random.Range(1, 400);
-        if (randomamm <=  inventory[7].Amount)
+        if (randomamm <=  inventory[5].Amount)
         {
             return true;
         }

@@ -8818,10 +8818,6 @@ MonoBehaviour:
     Type: 3
   - Amount: 100
     Type: 4
-  - Amount: 0
-    Type: 5
-  - Amount: 0
-    Type: 6
   - Amount: 20
     Type: 7
   resourceAmountsText:
