@@ -41,7 +41,10 @@ public class DeleteInteraction : InteractionMode
         for (int i = 0; i < 4; i++)
         {
             var tile = adjacentTiles[i];
-
+            if(tile.y < 0 || tile.y > gameManager.gridSize || tile.x < 0 || tile.x > gameManager.gridSize)
+            {
+                continue;
+            }
             if (gameManager.tileProperties[BuildingUtils.CoordsToSlotID(tile, gameManager.gridSize)].TryGetComponent(out RoadProperties road))
             {
                 if (i == 0)
