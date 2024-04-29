@@ -56,8 +56,6 @@ public class GameManager : MonoBehaviour
     public ResourceValue[] inventory;
     [SerializeField] TMP_Text[] resourceAmountsText;
     public int maxEnemies;
-
-
     [SerializeField] SpawnItem[] monsterSpawnChance;
     WeightedRandom spawnWeightedRandomMonster;
 
@@ -105,8 +103,6 @@ public class GameManager : MonoBehaviour
         CheckInputDesired();
         UpdateResourceText(); //Make not update every frame
     }
-
-
     void UpdateSelectedTile()
     {
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
@@ -200,13 +196,12 @@ public class GameManager : MonoBehaviour
         unitSelectionPanel.OpenMenu(tile);
     }
 
-
     void UpdateTiles()
     {
-
+            inventory[5].Amount = 0;
         foreach (var monster in monsters)
         {
-            inventory[5].Amount = 0;
+
 
             if (monster.tile == null) { continue; }
 
