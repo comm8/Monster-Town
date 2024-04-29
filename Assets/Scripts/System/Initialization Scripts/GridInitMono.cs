@@ -33,6 +33,7 @@ public class GridInitMono : MonoBehaviour
 
        var towerProperties = gameManager.tileProperties[BuildingUtils.CoordsToSlotID(new int2(10,10), gameManager.gridSize)];
         towerProperties.buildingType = BuildingType.Tower;
+        towerProperties.locked = true;
         Destroy(towerProperties.model);
         towerProperties.model = Instantiate(gameManager.buildings.buildings[12].Model, towerProperties.modelTransform);
 

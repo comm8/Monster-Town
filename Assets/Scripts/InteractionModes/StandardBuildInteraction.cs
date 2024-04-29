@@ -26,7 +26,7 @@ public class StandardBuildInteraction : InteractionMode
     }
     public override void OnPressStart(TileProperties tile, BuildingType selected)
     {
-        if (tile.buildingType != BuildingType.None && tile.buildingType != BuildingType.Road)
+        if (tile.buildingType != BuildingType.None && tile.buildingType != BuildingType.Road && !tile.locked)
         {
             gameManager.RefreshUnitSelectionPanel(tile);
         }
