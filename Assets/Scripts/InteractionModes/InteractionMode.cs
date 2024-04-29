@@ -8,12 +8,13 @@ using UnityEngine;
 
 public abstract class InteractionMode : MonoBehaviour
 {
-
-    public GameManager gameManager;
-
+    [HideInInspector] public GameManager gameManager;
     public abstract void OnPressStart(TileProperties tile, BuildingType selected);
     public abstract void OnPress(TileProperties tile, BuildingType selected);
     public abstract void OnPressEnd(TileProperties tile, BuildingType selected);
+    public abstract void OnTileEnter(TileProperties tile, BuildingType selected);
+    public abstract void OnModeEnter(TileProperties tile, BuildingType selected);
+    public abstract void OnModeExit(TileProperties tile, BuildingType selected);
 
 
     public void PlaceTile(TileProperties tile, BuildingType desired)
@@ -21,10 +22,10 @@ public abstract class InteractionMode : MonoBehaviour
         Destroy(tile.model);
 
         tile.model = Instantiate(gameManager.buildings.GetBuilding(desired).Model, tile.modelTransform);
-        
+
         if (gameManager.buildings.GetBuilding(desired).randomRotation)
         {
-            tile.model.transform.Rotate(0, 90 * UnityEngine.Random.Range(0,4) , 0);
+            tile.model.transform.Rotate(0, 90 * UnityEngine.Random.Range(0, 4), 0);
         }
         else
         {

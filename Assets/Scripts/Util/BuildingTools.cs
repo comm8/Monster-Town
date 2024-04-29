@@ -33,21 +33,21 @@ namespace BuildingTools
 
 
         public static int2[] GetAdjacentTiles(int2 centerTile)
-    {
-        int2[] offsets = {
+        {
+            int2[] offsets = {
             new int2(1, 0),    // Right
             new int2(-1, 0),   // Left
             new int2(0, 1),    // Up
             new int2(0, -1)    // Down
         };
 
-        for (int i = 0; i < 4; i++)
-        {
-            offsets[i] = offsets[i] + centerTile;
-        }
+            for (int i = 0; i < 4; i++)
+            {
+                offsets[i] = offsets[i] + centerTile;
+            }
 
-        return offsets;
-    }
+            return offsets;
+        }
 
 
     }
@@ -100,16 +100,16 @@ namespace BuildingTools
             string myString = "";
             int iterator = 0;
 
-            foreach( ResourceValue resource in production)
-            {  
-                if(iterator != 0)
+            foreach (ResourceValue resource in production)
+            {
+                if (iterator != 0)
                 {
-                 myString += ",";   
+                    myString += ",";
                 }
                 iterator++;
                 myString += resource.Amount + " " + resource.Type;
             }
-            if(myString.Equals(""))
+            if (myString.Equals(""))
             {
                 return "nothing";
             }
@@ -124,9 +124,9 @@ namespace BuildingTools
             foreach (ResourceValue item in toAdd)
             {
                 bool foundMatch = false;
-                foreach ( ResourceValue invItem in inventory)
+                foreach (ResourceValue invItem in inventory)
                 {
-                    if( item.Type == invItem.Type)
+                    if (item.Type == invItem.Type)
                     {
                         invItem.Amount += item.Amount;
                         foundMatch = true;
@@ -173,7 +173,7 @@ namespace BuildingTools
 
             for (int i = 0; i < cache.Count; i++)
             {
-              inventory[cache[i]].Amount -= cost[i].Amount;
+                inventory[cache[i]].Amount -= cost[i].Amount;
             }
 
             return true;
@@ -296,7 +296,7 @@ namespace BuildingTools
     {
         public MonsterType type;
         public string name;
-        public TileProperties tile; 
+        public TileProperties tile;
         public Sprite icon;
     }
 }

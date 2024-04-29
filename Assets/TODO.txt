@@ -1,5 +1,12 @@
 Add proper pathfinding
-Add Clear Cost in  building placement mode
+Add Clear Cost in  building placement mode:
+-Highlight effected resources in red; append (-num)
+-Show build panel of building on left hand side
+-use leentween to slide in
+
+-use leentween to slide in bulldozer
+
+
 Add proper hologram to telegraph selected building
 impliment potential production text
 make unemployed units show at the top of unit selection menu

@@ -1,7 +1,14 @@
 using UnityEngine;
 using BuildingTools;
+using UnityEngine.Rendering.Universal;
 public class DeleteInteraction : InteractionMode
 {
+
+    [SerializeField] Material bulldozerPostProcessing;
+    [SerializeField] ScriptableRendererFeature rendererFeature;
+
+    [SerializeField] SelectionScheme scheme;
+
     public override void OnPressEnd(TileProperties tile, BuildingType selected)
     {
         //do nothing
@@ -17,7 +24,7 @@ public class DeleteInteraction : InteractionMode
             PlaceTile(tile, BuildingType.None);
             gameManager.monsters[tile.monsterID].tile = null;
             tile.monsterID = 0;
-            
+
         }
     }
     public override void OnPressStart(TileProperties tile, BuildingType selected)
@@ -34,7 +41,10 @@ public class DeleteInteraction : InteractionMode
         for (int i = 0; i < 4; i++)
         {
             var tile = adjacentTiles[i];
-
+            if(tile.y < 0 || tile.y > gameManager.gridSize || tile.x < 0 || tile.x > gameManager.gridSize)
+            {
+                continue;
+            }
             if (gameManager.tileProperties[BuildingUtils.CoordsToSlotID(tile, gameManager.gridSize)].TryGetComponent(out RoadProperties road))
             {
                 if (i == 0)
@@ -61,5 +71,25 @@ public class DeleteInteraction : InteractionMode
 
             }
         }
+    }
+
+    public override void OnTileEnter(TileProperties tile, BuildingType selected)
+    {
+    }
+
+    public override void OnModeEnter(TileProperties tile, BuildingType selected)
+    {
+        LeanTween.value(gameObject, updateBulldozerBorderSize, 0, 0.04f, 0.4f).setEase(LeanTweenType.easeOutBounce);
+        gameManager.SetSelectionScheme(scheme);
+    }
+
+    public override void OnModeExit(TileProperties tile, BuildingType selected)
+    {
+        LeanTween.value(gameObject, updateBulldozerBorderSize, 0.04f, 0, 0.4f).setEase(LeanTweenType.easeOutBounce);
+    }
+
+    void updateBulldozerBorderSize(float val)
+    {
+        bulldozerPostProcessing.SetFloat("_Border_Thickness", val);
     }
 }

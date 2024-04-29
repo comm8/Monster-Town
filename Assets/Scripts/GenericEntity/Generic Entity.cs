@@ -8,7 +8,7 @@ using UnityEditor;
 public class GenericEntity : MonoBehaviour
 {
     public bool team;
-    [SerializeField] byte hp;
+    [SerializeField] protected byte hp;
     public Health health;
     public Attack attack;
 
@@ -19,7 +19,7 @@ public class GenericEntity : MonoBehaviour
     }
 
 
-    public void Damage(DamageType type, byte amount)
+    public virtual void Damage(DamageType type, byte amount)
     {
         if (health.immunity.Contains(type))
         {

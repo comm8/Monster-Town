@@ -6,6 +6,7 @@ using SerializableDictionary.Scripts;
 using System.Collections.Generic;
 using UnityEngine.Rendering.Universal;
 using TMPro;
+
 public class GameManager : MonoBehaviour
 {
     [HideInInspector] public static GameManager instance;
@@ -19,6 +20,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Selection")]
     [SerializeField] Transform Selection;
+    public MeshRenderer selectionRenderer;
+    public Light selectionLight;
+
     public int2 SelectionGridPos;
     [SerializeField] BuildingType plyBuildingDesired;
     [HideInInspector] public bool pointerOverUI = false;
@@ -40,9 +44,6 @@ public class GameManager : MonoBehaviour
     bool Interacting;
     bool deleteMode;
     bool deleteModeKeyDown;
-    [SerializeField] Material bulldozerPostProcessing;
-    [SerializeField] ScriptableRendererFeature rendererFeature;
-
     //public Texture2D heightMap;
 
 
@@ -55,8 +56,6 @@ public class GameManager : MonoBehaviour
     public ResourceValue[] inventory;
     [SerializeField] TMP_Text[] resourceAmountsText;
     public int maxEnemies;
-
-
     [SerializeField] SpawnItem[] monsterSpawnChance;
     WeightedRandom spawnWeightedRandomMonster;
 
@@ -66,7 +65,14 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
 
-        SetupInteractionModes();
+        Time.timeScale = 1;
+        LeanTween.reset();
+
+        deleteInteraction.gameManager = this;
+        standardInteraction.gameManager = this;
+        roadInteraction.gameManager = this;
+        interaction = standardInteraction;
+        interaction.OnModeEnter(GetCurrentTile(), plyBuildingDesired);
 
         //settup input system
         inputActions = new Inputactions3D();
@@ -95,16 +101,9 @@ public class GameManager : MonoBehaviour
     {
         CheckDeleteModeDesired();
         CheckInputDesired();
-        resourceAmountsText[0].text = "<sprite name=\"wood\">" + inventory[0].Amount;
-        resourceAmountsText[1].text = "<sprite name=\"charcoal\">" + inventory[1].Amount;
-        resourceAmountsText[2].text = "<sprite name=\"stone\">" + inventory[2].Amount;
-        resourceAmountsText[3].text = "<sprite name=\"metal\">" + inventory[3].Amount;
-        resourceAmountsText[4].text = "<sprite name=\"rations\">" + inventory[4].Amount;
-        resourceAmountsText[5].text = "<sprite name=\"influence\">" + inventory[5].Amount;
+        UpdateResourceText(); //Make not update every frame
     }
-
-
-    void UpdatePlayerTileSelection()
+    void UpdateSelectedTile()
     {
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
         {
@@ -114,33 +113,44 @@ public class GameManager : MonoBehaviour
             if (newPos != Selection.position)
             {
                 Selection.position = newPos;
+                interaction.OnTileEnter(GetCurrentTile(), plyBuildingDesired);
             }
         }
     }
 
-    public void SetType(int iD)
+    void UpdateResourceText()
+    {
+        resourceAmountsText[0].text = "<sprite name=\"wood\">" + inventory[0].Amount;
+        resourceAmountsText[1].text = "<sprite name=\"charcoal\">" + inventory[1].Amount;
+        resourceAmountsText[2].text = "<sprite name=\"stone\">" + inventory[2].Amount;
+        resourceAmountsText[3].text = "<sprite name=\"metal\">" + inventory[3].Amount;
+        resourceAmountsText[4].text = "<sprite name=\"rations\">" + inventory[4].Amount;
+        resourceAmountsText[5].text = "<sprite name=\"influence\">" + inventory[5].Amount;
+    }
+
+    public void SetDesiredBuilding(int iD)
     {
         if (buildings.GetBuildingType(iD) == BuildingType.None)
         {
             if (deleteMode)
             {
-                DisableBulldozer(); return;
+                DisableDeleteMode(); return;
             }
             else
             {
-                EnableBulldozer(); return;
+                EnableDeleteMode(); return;
             }
 
         }
-        DisableBulldozer();
+        DisableDeleteMode();
 
         if (buildings.GetBuildingType(iD) == BuildingType.Road)
         {
-            interaction = roadInteraction;
+            SetInteractionMode(roadInteraction);
         }
         else
         {
-            interaction = standardInteraction;
+            SetInteractionMode(standardInteraction);
         }
 
         plyBuildingDesired = buildings.GetBuildingType(iD);
@@ -151,18 +161,15 @@ public class GameManager : MonoBehaviour
 
     void OnPressStart()
     {
-        var tile = GetCurrentTile();
-        interaction.OnPressStart(tile, plyBuildingDesired);
+        interaction.OnPressStart(GetCurrentTile(), plyBuildingDesired);
     }
     void OnPressEnd()
     {
-        var tile = GetCurrentTile();
-        interaction.OnPressEnd(tile, plyBuildingDesired);
+        interaction.OnPressEnd(GetCurrentTile(), plyBuildingDesired);
     }
     void OnPress()
     {
-        var tile = GetCurrentTile();
-        interaction.OnPress(tile, plyBuildingDesired);
+        interaction.OnPress(GetCurrentTile(), plyBuildingDesired);
     }
 
     TileProperties GetCurrentTile()
@@ -189,13 +196,12 @@ public class GameManager : MonoBehaviour
         unitSelectionPanel.OpenMenu(tile);
     }
 
-
     void UpdateTiles()
     {
-
+            inventory[5].Amount = 0;
         foreach (var monster in monsters)
         {
-            //inventory[7].Amount = 0;
+
 
             if (monster.tile == null) { continue; }
 
@@ -207,15 +213,12 @@ public class GameManager : MonoBehaviour
         }
 
         if (rollImmigration()) { GenerateMonster(); }
-
-
     }
 
     bool rollImmigration()
     {
-        int chance = inventory[7].Amount;
         float randomamm = UnityEngine.Random.Range(1, 400);
-        if (randomamm <= chance)
+        if (randomamm <=  inventory[5].Amount)
         {
             return true;
         }
@@ -241,7 +244,7 @@ public class GameManager : MonoBehaviour
             if (inputActions.Player.Delete.ReadValue<float>() < 0.5f)
             {
                 deleteModeKeyDown = false;
-                DisableBulldozer();
+                DisableDeleteMode();
             }
         }
         else
@@ -249,42 +252,50 @@ public class GameManager : MonoBehaviour
             if (inputActions.Player.Delete.ReadValue<float>() > 0.5f)
             {
                 deleteModeKeyDown = true;
-                EnableBulldozer();
+                EnableDeleteMode();
             }
         }
     }
 
     [ExecuteAlways]
-    void DisableBulldozer()
+    void DisableDeleteMode()
     {
-        rendererFeature.SetActive(false);
         deleteMode = false;
         if (plyBuildingDesired != BuildingType.Road)
         {
-            interaction = standardInteraction;
+            SetInteractionMode(standardInteraction);
         }
         else
         {
-            interaction = roadInteraction;
+            SetInteractionMode(roadInteraction);
         }
     }
 
 
     [ExecuteAlways]
-    void EnableBulldozer()
+    void EnableDeleteMode()
     {
-        rendererFeature.SetActive(true);
         deleteMode = true;
-        interaction = deleteInteraction;
+        SetInteractionMode(deleteInteraction);
     }
 
+
+
+
+
+    void SetInteractionMode(InteractionMode mode)
+    {
+        interaction.OnModeExit(GetCurrentTile(), plyBuildingDesired);
+        interaction = mode;
+        interaction.OnModeEnter(GetCurrentTile(), plyBuildingDesired);
+    }
 
     void CheckInputDesired()
     {
         pointerOverUI = EventSystem.current.IsPointerOverGameObject();
         if (pointerOverUI) { return; }
 
-        UpdatePlayerTileSelection();
+        UpdateSelectedTile();
 
         if (Interacting)
         {
@@ -310,18 +321,43 @@ public class GameManager : MonoBehaviour
 
 
 
-    void SetupInteractionModes()
+
+    void OnTowerHit()
     {
-        deleteInteraction = gameObject.AddComponent<DeleteInteraction>();
-        standardInteraction = gameObject.AddComponent<StandardBuildInteraction>();
-        roadInteraction = gameObject.AddComponent<RoadInteraction>();
 
-        deleteInteraction.gameManager = this;
-        standardInteraction.gameManager = this;
-        roadInteraction.gameManager = this;
-
-        interaction = standardInteraction;
     }
+
+
+
+
+    public void SetSelectionScheme(SelectionScheme scheme)
+    {
+        selectionLight.color = scheme.lightColor;
+        selectionRenderer.material = scheme.selectionMaterial;
+    }
+
+    public void DevGive999()
+    {
+        foreach ( var item in inventory)
+        {
+            item.Amount += 999;
+        }
+    }
+
+    public void DevGive10Monsters()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            GenerateMonster();
+        }
+    }
+
+    public void DevSetNight()
+    {
+
+    }
+
+
 
 }
 
