@@ -19,8 +19,8 @@ MonoBehaviour:
   m_RendererDataList:
   - {fileID: 11400000, guid: ded71b0f450b707448f58662b5b44392, type: 2}
   m_DefaultRendererIndex: 0
-  m_RequireDepthTexture: 1
-  m_RequireOpaqueTexture: 1
+  m_RequireDepthTexture: 0
+  m_RequireOpaqueTexture: 0
   m_OpaqueDownsampling: 0
   m_SupportsTerrainHoles: 0
   m_SupportsHDR: 1
@@ -58,8 +58,8 @@ MonoBehaviour:
   m_ConservativeEnclosingSphere: 1
   m_NumIterationsEnclosingSphere: 64
   m_SoftShadowQuality: 2
-  m_AdditionalLightsCookieResolution: 2048
-  m_AdditionalLightsCookieFormat: 3
+  m_AdditionalLightsCookieResolution: 1024
+  m_AdditionalLightsCookieFormat: 2
   m_UseSRPBatcher: 1
   m_SupportsDynamicBatching: 0
   m_MixedLightingSupported: 1
