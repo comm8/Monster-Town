@@ -156,9 +156,6 @@ public class GameManager : MonoBehaviour
         plyBuildingDesired = buildings.GetBuildingType(iD);
     }
 
-
-
-
     void OnPressStart()
     {
         interaction.OnPressStart(GetCurrentTile(), plyBuildingDesired);
@@ -225,12 +222,35 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
+    public void UpdateMonsterEmploymentStatus(MonsterStats monster, int2 tileLoc)
+    {
+        int tileID = BuildingUtils.CoordsToSlotID(tileLoc, 20);
+       var oldUnitID = tileProperties[tileID].monsterID;
+
+        if(oldUnitID != 0)
+        {
+            monsters[oldUnitID].tile = null;
+        //update previous tile owner's panel if required
+        }
+
+        tileProperties[tileID].monsterID = monster.monsterID;
+        monster.tile = tileProperties[tileID];
+        //Update monster panel
+
+    }
+
+    public void UpdateMonsterEmploymentStatus(MonsterStats monster)
+    {
+
+    }
+
     void GenerateMonster()
     {
         var gridInit = GetComponent<GridInitMono>();
 
         var myType = monsterSpawnChance[spawnWeightedRandomMonster.GetRandom()];
-        monsters.Add(new MonsterStats { name = gridInit.Names[UnityEngine.Random.Range(0, 99)], type = (MonsterType)myType.cost, icon = imageDictionary.Get((MonsterType)myType.cost) });
+
+        monsters.Add(new MonsterStats { name = gridInit.Names[UnityEngine.Random.Range(0, 99)], type = (MonsterType)myType.cost, icon = imageDictionary.Get((MonsterType)myType.cost), monsterID = (ushort)(monsters.Count) });
         Debug.Log(myType.name);
         unitSelectionPanel.AddMonster(monsters.Count - 1);
     }
