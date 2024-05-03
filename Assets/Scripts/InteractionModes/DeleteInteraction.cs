@@ -15,7 +15,7 @@ public class DeleteInteraction : InteractionMode
     }
     public override void OnPress(TileProperties tile, BuildingType selected)
     {
-        if (tile.buildingType != BuildingType.None)
+        if (tile.buildingType != BuildingType.None && !tile.locked)
         {
             if (tile.buildingType == BuildingType.Road)
             {
