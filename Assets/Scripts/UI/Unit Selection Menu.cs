@@ -25,7 +25,7 @@ public class UnitSelectionMenu : MonoBehaviour
         if (currentTile.monsterID == 0) { UpdateBuildingPanelEmpty(); currentTile.UpdateMonsterEmployment(); return; }
         monsterName.text = CurrentlyEmployedMonster.name + " (" + CurrentlyEmployedMonster.type.ToString() + ")";
         monsterIcon.sprite = CurrentlyEmployedMonster.icon;
-        production.text = GameManager.instance.buildings.GetBuilding((int)currentTile.buildingType).production[(int)CurrentlyEmployedMonster.type].ToString();
+        production.text = "Producing " + GameManager.instance.buildings.GetBuilding((int)currentTile.buildingType).production[(int)CurrentlyEmployedMonster.type].ToString();
 
     }
     void UpdateBuildingPanelEmpty()
