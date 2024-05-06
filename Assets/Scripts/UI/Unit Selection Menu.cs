@@ -12,7 +12,7 @@ public class UnitSelectionMenu : MonoBehaviour
     public MonsterStats CurrentlyEmployedMonster;
     [SerializeField] TMP_Text monsterName, production;
     [SerializeField] Image monsterIcon;
-    [SerializeField] List<UnitPanel> panels;
+   public List<UnitPanel> panels;
 
 
     private void Awake()
@@ -20,7 +20,7 @@ public class UnitSelectionMenu : MonoBehaviour
         instance = this;
     }
 
-    void UpdateBuildingPanel()
+    public void UpdateBuildingPanel()
     {
         if (currentTile.monsterID == 0) { UpdateBuildingPanelEmpty(); currentTile.UpdateMonsterEmployment(); return; }
         monsterName.text = CurrentlyEmployedMonster.name + " (" + CurrentlyEmployedMonster.type.ToString() + ")";
@@ -28,22 +28,6 @@ public class UnitSelectionMenu : MonoBehaviour
         production.text = GameManager.instance.buildings.GetBuilding((int)currentTile.buildingType).production[(int)CurrentlyEmployedMonster.type].ToString();
 
     }
-
-    public void EmployMonster(int id)
-    {
-
-        if (!ReferenceEquals(CurrentlyEmployedMonster, null))
-        {
-            CurrentlyEmployedMonster.tile = null;
-        }
-        CurrentlyEmployedMonster = GameManager.instance.monsters[id];
-        CurrentlyEmployedMonster.tile = currentTile;
-        currentTile.monsterID = (ushort)id;
-        currentTile.UpdateMonsterEmployment();
-
-        UpdateBuildingPanel();
-    }
-
     void UpdateBuildingPanelEmpty()
     {
         //monsterIcon.sprite = 
@@ -51,11 +35,17 @@ public class UnitSelectionMenu : MonoBehaviour
         production.text = "";
     }
 
+    public void EmployMonster(int id)
+    {
+        GameManager.instance.SetMonsterEmploymentStatus(GameManager.instance.monsters[id], currentTile.ID);
+    }
+
+
     public void AddMonster(int id)
     {
         var Panel = Instantiate(UnitPanel, UnitList.transform);
-        Panel.GetComponent<UnitPanel>().Setup(GameManager.instance.monsters[id], id);
-        //ADD PANELS TO LIST DINGUS
+        Panel.GetComponent<UnitPanel>().Setup(GameManager.instance.monsters[id]);
+        panels.Add(Panel.GetComponent<UnitPanel>());
     }
 
     public void RemoveMonster(int id)
