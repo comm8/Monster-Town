@@ -232,7 +232,7 @@ public class GameManager : MonoBehaviour
         }
 
         tileProperties[tileID].monsterID = monster.ID;
-        if(monster.tile != null)
+        if (monster.tile != null)
         {
             var oldTile = monster.tile;
             oldTile.monsterID = 0;
@@ -245,7 +245,7 @@ public class GameManager : MonoBehaviour
             unitSelectionPanel.UpdateBuildingPanel();
         }
         tileProperties[tileID].UpdateMonsterEmployment();
-        
+
         unitSelectionPanel.panels[monster.ID - 1].Setup(monster);
     }
 

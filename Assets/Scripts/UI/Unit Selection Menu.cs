@@ -12,20 +12,26 @@ public class UnitSelectionMenu : MonoBehaviour
     public MonsterStats CurrentlyEmployedMonster;
     [SerializeField] TMP_Text monsterName, production;
     [SerializeField] Image monsterIcon;
-   public List<UnitPanel> panels;
+    public List<UnitPanel> panels;
 
 
     private void Awake()
     {
         instance = this;
+        panels = new List<UnitPanel>();
     }
 
     public void UpdateBuildingPanel()
     {
+        foreach (UnitPanel panel in panels)
+        {
+            panel.UpdateProduction(currentTile.buildingType);
+        }
         if (currentTile.monsterID == 0) { UpdateBuildingPanelEmpty(); currentTile.UpdateMonsterEmployment(); return; }
         monsterName.text = CurrentlyEmployedMonster.name + " (" + CurrentlyEmployedMonster.type.ToString() + ")";
         monsterIcon.sprite = CurrentlyEmployedMonster.icon;
         production.text = "Producing " + GameManager.instance.buildings.GetBuilding((int)currentTile.buildingType).production[(int)CurrentlyEmployedMonster.type].ToString();
+
 
     }
     void UpdateBuildingPanelEmpty()
@@ -46,6 +52,8 @@ public class UnitSelectionMenu : MonoBehaviour
         var Panel = Instantiate(UnitPanel, UnitList.transform);
         Panel.GetComponent<UnitPanel>().Setup(GameManager.instance.monsters[id]);
         panels.Add(Panel.GetComponent<UnitPanel>());
+        panels[^1].UpdateProduction(currentTile.buildingType);
+
     }
 
     public void RemoveMonster(int id)
