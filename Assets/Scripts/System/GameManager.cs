@@ -225,7 +225,6 @@ public class GameManager : MonoBehaviour
     public void SetMonsterEmploymentStatus(MonsterStats monster, int tileID)
     {
         var oldUnitID = tileProperties[tileID].monsterID;
-
         if (oldUnitID != 0)
         {
             monsters[oldUnitID].tile = null;
@@ -233,12 +232,20 @@ public class GameManager : MonoBehaviour
         }
 
         tileProperties[tileID].monsterID = monster.ID;
+        if(monster.tile != null)
+        {
+            var oldTile = monster.tile;
+            oldTile.monsterID = 0;
+            oldTile.UpdateMonsterEmployment();
+        }
         monster.tile = tileProperties[tileID];
         if (unitSelectionPanel.currentTile.ID == tileID)
         {
             unitSelectionPanel.CurrentlyEmployedMonster = monster;
             unitSelectionPanel.UpdateBuildingPanel();
         }
+        tileProperties[tileID].UpdateMonsterEmployment();
+        
         unitSelectionPanel.panels[monster.ID - 1].Setup(monster);
     }
 
