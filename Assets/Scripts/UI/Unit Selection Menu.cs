@@ -53,6 +53,7 @@ public class UnitSelectionMenu : MonoBehaviour
         Panel.GetComponent<UnitPanel>().Setup(GameManager.instance.monsters[id]);
         panels.Add(Panel.GetComponent<UnitPanel>());
         panels[^1].UpdateProduction(currentTile.buildingType);
+        LayoutRebuilder.MarkLayoutForRebuild(transform as RectTransform);
 
     }
 

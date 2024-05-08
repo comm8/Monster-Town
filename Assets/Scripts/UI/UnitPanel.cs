@@ -39,6 +39,6 @@ public class UnitPanel : MonoBehaviour
 
     public void UpdateProduction(BuildingType type)
     {
-        production.text = "" + "Potential prod:  " + GameManager.instance.buildings.GetBuilding((int)type).production[(int)monsterType].ToString();
+        production.text = "Potential prod: " + GameManager.instance.buildings.GetBuilding((int)type).production[(int)monsterType].ToString();
     }
 }

@@ -104,7 +104,7 @@ namespace BuildingTools
             {
                 if (iterator != 0)
                 {
-                    myString += ",";
+                    myString += ", ";
                 }
                 iterator++;
                 myString += resource.Amount + " " + resource.Type;
