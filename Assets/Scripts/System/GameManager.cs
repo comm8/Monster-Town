@@ -61,6 +61,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] UnitSelectionMenu unitSelectionPanel;
 
+    [SerializeField] Transform PopupBar;
+
+    [SerializeField] GameObject PopupBubble;
     private void Awake()
     {
         instance = this;
@@ -384,7 +387,7 @@ public class GameManager : MonoBehaviour
 
     public void DevSetNight()
     {
-
+        Instantiate(PopupBubble, PopupBar, false);
     }
 
 

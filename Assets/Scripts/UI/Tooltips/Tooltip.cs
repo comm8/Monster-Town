@@ -26,16 +26,28 @@ public class Tooltip : MonoBehaviour
             var position = Mouse.current.position.ReadValue();
             transform.position = position;
 
+        UpdatePivot();
+        //
 
+        //float pivotX = position.x / Screen.width;
+        //float pivotY = position.y / Screen.height;
 
-            //float pivotX = position.x / Screen.width;
-            //float pivotY = position.y / Screen.height;
+        // rectTransform.pivot = new Vector2(pivotX, pivotY);
 
-           // rectTransform.pivot = new Vector2(pivotX, pivotY);
-        
     }
 
+    void UpdatePivot()
+    {
+        var rectTransform = transform as RectTransform;
+        //check if left leaning pivot fits within screen. if not, then make right pivot.
+        if(rectTransform.rect.width + rectTransform.position.y + 0.05f > Screen.width)
+        {
+            rectTransform.pivot = new Vector2(0.05f, 0);
+        }
 
+
+        //check if up leaning pivot fits within screen, if not, them make down pivot
+    }
     public void CheckWrapLimit()
     {
         int headerLength = headerField.text.Length;
