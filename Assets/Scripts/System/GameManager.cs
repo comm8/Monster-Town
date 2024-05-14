@@ -195,7 +195,7 @@ public class GameManager : MonoBehaviour
 
     void UpdateTiles()
     {
-            inventory[5].Amount = 0;
+        inventory[5].Amount = 0;
         foreach (var monster in monsters)
         {
 
@@ -215,28 +215,38 @@ public class GameManager : MonoBehaviour
     bool rollImmigration()
     {
         float randomamm = UnityEngine.Random.Range(1, 400);
-        if (randomamm <=  inventory[5].Amount)
+        if (randomamm <= inventory[5].Amount)
         {
             return true;
         }
         return false;
     }
 
-    public void UpdateMonsterEmploymentStatus(MonsterStats monster, int2 tileLoc)
+    public void SetMonsterEmploymentStatus(MonsterStats monster, int tileID)
     {
-        int tileID = BuildingUtils.CoordsToSlotID(tileLoc, 20);
-       var oldUnitID = tileProperties[tileID].monsterID;
-
-        if(oldUnitID != 0)
+        var oldUnitID = tileProperties[tileID].monsterID;
+        if (oldUnitID != 0)
         {
             monsters[oldUnitID].tile = null;
-        //update previous tile owner's panel if required
+            unitSelectionPanel.panels[oldUnitID - 1].Setup(monsters[oldUnitID]);
         }
 
-        tileProperties[tileID].monsterID = monster.monsterID;
+        tileProperties[tileID].monsterID = monster.ID;
+        if (monster.tile != null)
+        {
+            var oldTile = monster.tile;
+            oldTile.monsterID = 0;
+            oldTile.UpdateMonsterEmployment();
+        }
         monster.tile = tileProperties[tileID];
-        //Update monster panel
+        if (unitSelectionPanel.currentTile.ID == tileID)
+        {
+            unitSelectionPanel.CurrentlyEmployedMonster = monster;
+            unitSelectionPanel.UpdateBuildingPanel();
+        }
+        tileProperties[tileID].UpdateMonsterEmployment();
 
+        unitSelectionPanel.panels[monster.ID - 1].Setup(monster);
     }
 
     public void UpdateMonsterEmploymentStatus(MonsterStats monster)
@@ -250,7 +260,7 @@ public class GameManager : MonoBehaviour
 
         var myType = monsterSpawnChance[spawnWeightedRandomMonster.GetRandom()];
 
-        monsters.Add(new MonsterStats { name = gridInit.Names[UnityEngine.Random.Range(0, 99)], type = (MonsterType)myType.cost, icon = imageDictionary.Get((MonsterType)myType.cost), monsterID = (ushort)(monsters.Count) });
+        monsters.Add(new MonsterStats { name = gridInit.Names[UnityEngine.Random.Range(0, 99)], type = (MonsterType)myType.cost, icon = imageDictionary.Get((MonsterType)myType.cost), ID = (ushort)(monsters.Count) });
         Debug.Log(myType.name);
         unitSelectionPanel.AddMonster(monsters.Count - 1);
     }
@@ -358,7 +368,7 @@ public class GameManager : MonoBehaviour
 
     public void DevGive999()
     {
-        foreach ( var item in inventory)
+        foreach (var item in inventory)
         {
             item.Amount += 999;
         }

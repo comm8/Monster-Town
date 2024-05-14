@@ -104,7 +104,7 @@ namespace BuildingTools
             {
                 if (iterator != 0)
                 {
-                    myString += ",";
+                    myString += ", ";
                 }
                 iterator++;
                 myString += resource.Amount + " " + resource.Type;
@@ -298,7 +298,7 @@ namespace BuildingTools
         public string name;
         public TileProperties tile;
         public Sprite icon;
-        public ushort monsterID;
+        public ushort ID;
     }
 }
 

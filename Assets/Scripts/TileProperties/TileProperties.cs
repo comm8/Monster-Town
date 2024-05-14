@@ -8,7 +8,7 @@ public class TileProperties : GenericEntity
     public GameObject model;
     public Transform modelTransform;
     public ushort monsterID = 0;
-    public Renderer tileMaterial;
+    private Renderer tileMaterial;
     public bool locked;
     public ushort ID;
     public void UpdateMonsterEmployment()

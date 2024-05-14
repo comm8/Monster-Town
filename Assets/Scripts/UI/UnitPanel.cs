@@ -6,34 +6,39 @@ using UnityEngine.UI;
 using BuildingTools;
 public class UnitPanel : MonoBehaviour
 {
-  public TMP_Text monsterName, production, employementStatus, species;
-  public Image monsterIcon;
-  public int MonsterID;
+    public TMP_Text monsterName, production, employementStatus, species;
+    public Image monsterIcon;
+    public int MonsterID;
+    public MonsterType monsterType;
 
-
-  public void Setup(MonsterStats stats, int id)
-  {
-    monsterName.text = stats.name;
-    monsterIcon.sprite = stats.icon;
-    species.text = stats.type.ToString();
-    MonsterID = id;
-
-
-    if(GameManager.instance.monsters[id].tile != null)
+    public void Setup(MonsterStats stats)
     {
-          employementStatus.text = "Employed at " + GameManager.instance.monsters[id].tile.buildingType.ToString();
+        monsterName.text = stats.name;
+        monsterIcon.sprite = stats.icon;
+        species.text = stats.type.ToString();
+        MonsterID = stats.ID;
+        monsterType = stats.type;
+
+
+        if (GameManager.instance.monsters[MonsterID].tile != null)
+        {
+            employementStatus.text = "Employed at " + GameManager.instance.monsters[MonsterID].tile.buildingType.ToString();
+        }
+        else
+        {
+            employementStatus.text = "Not Currently Employed";
+        }
+
     }
-    else
+
+    public void ButtonClickSetMonster()
     {
-          employementStatus.text = "Not Currently Employed";
+        UnitSelectionMenu.instance.EmployMonster(MonsterID);
+        Setup(GameManager.instance.monsters[MonsterID]);
     }
 
-  }
-
-  public void SetMonster()
-  {
-    UnitSelectionMenu.instance.EmployMonster(MonsterID);
-    Setup(GameManager.instance.monsters[MonsterID], MonsterID);
-  }
-
+    public void UpdateProduction(BuildingType type)
+    {
+        production.text = "Potential prod: " + GameManager.instance.buildings.GetBuilding((int)type).production[(int)monsterType].ToString();
+    }
 }
