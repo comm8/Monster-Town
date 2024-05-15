@@ -119,7 +119,7 @@ public class CameraController : MonoBehaviour
         rotFreeTransform.position = transform.position;
         rotFreeTransform.Rotate(Vector3.up * (transform.eulerAngles.y - rotFreeTransform.eulerAngles.y));
 
-        Vector2 DesiredMovement = inputActions.Player.Move.ReadValue<Vector2>() + mouseCorner(GetMouseUV()) * Time.deltaTime * movementMultiplier * (zoomPercentage + 0.7f) * accelerationCurve.Evaluate(accelerationTimer / accelerationTime);
+        Vector2 DesiredMovement = inputActions.Player.Move.ReadValue<Vector2>()  * Time.deltaTime * movementMultiplier * (zoomPercentage + 0.7f) * accelerationCurve.Evaluate(accelerationTimer / accelerationTime);
 
         transform.position += rotFreeTransform.TransformDirection(Swizzle._x0y(DesiredMovement));
 
@@ -156,7 +156,9 @@ public class CameraController : MonoBehaviour
         float2 absoluteUV =  math.abs(centralizedUV);
        float borderSensitivityMap = math.pow(math.max(absoluteUV.x,absoluteUV.y) * 2,20);
 
-       return math.clamp(4 * borderSensitivityMap * centralizedUV, new float2(-2,-2),new float2(2,2));
+
+       
+       return math.clamp( borderSensitivityMap * math.normalize(centralizedUV), new float2(-1.2f,-1.2f),new float2(1.2f, 2));
     }
 
 
