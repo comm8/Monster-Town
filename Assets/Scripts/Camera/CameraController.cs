@@ -90,7 +90,7 @@ public class CameraController : MonoBehaviour
     private void RotateCamera()
     {
 
-        rotationVelocity = inputActions.Player.Rotate.ReadValue<float>() * Time.deltaTime;
+        rotationVelocity = inputActions.Player.Rotate.ReadValue<float>() + inputActions.Player.ScrollHorizontal.ReadValue<float>() * Time.deltaTime;
 
         if (allowRotation)
         {

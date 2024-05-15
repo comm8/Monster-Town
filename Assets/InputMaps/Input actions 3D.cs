@@ -55,6 +55,15 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""ScrollHorizontal"",
+                    ""type"": ""Value"",
+                    ""id"": ""1820c06c-bf83-491a-bf42-122d6bdb203b"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""Scroll"",
                     ""type"": ""Value"",
                     ""id"": ""e3f2f0b2-7b0b-4ea6-8443-1ccc3f3b2b18"",
@@ -476,6 +485,50 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
                     ""action"": ""Delete"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""ScrollHorizontalAxis"",
+                    ""id"": ""42f197cb-b633-4900-8e4e-18ff89a659a5"",
+                    ""path"": ""1DAxis(minValue=-3,maxValue=3)"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=2)"",
+                    ""groups"": """",
+                    ""action"": ""ScrollHorizontal"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""8f718514-da23-4df8-a400-b27dc602e38f"",
+                    ""path"": ""<Mouse>/scroll/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ScrollHorizontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""dcf3561a-a7a0-4909-9fdd-59ee111d0bb9"",
+                    ""path"": ""<VirtualMouse>/scroll/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ScrollHorizontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""1e5c6e40-d5e2-4e17-a48d-3542ee034c8b"",
+                    ""path"": ""<Mouse>/scroll/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ScrollHorizontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -1064,6 +1117,7 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
+        m_Player_ScrollHorizontal = m_Player.FindAction("ScrollHorizontal", throwIfNotFound: true);
         m_Player_Scroll = m_Player.FindAction("Scroll", throwIfNotFound: true);
         m_Player_RotationMode = m_Player.FindAction("RotationMode", throwIfNotFound: true);
         m_Player_Rotate = m_Player.FindAction("Rotate", throwIfNotFound: true);
@@ -1144,6 +1198,7 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Fire;
+    private readonly InputAction m_Player_ScrollHorizontal;
     private readonly InputAction m_Player_Scroll;
     private readonly InputAction m_Player_RotationMode;
     private readonly InputAction m_Player_Rotate;
@@ -1155,6 +1210,7 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
+        public InputAction @ScrollHorizontal => m_Wrapper.m_Player_ScrollHorizontal;
         public InputAction @Scroll => m_Wrapper.m_Player_Scroll;
         public InputAction @RotationMode => m_Wrapper.m_Player_RotationMode;
         public InputAction @Rotate => m_Wrapper.m_Player_Rotate;
@@ -1177,6 +1233,9 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
             @Fire.started += instance.OnFire;
             @Fire.performed += instance.OnFire;
             @Fire.canceled += instance.OnFire;
+            @ScrollHorizontal.started += instance.OnScrollHorizontal;
+            @ScrollHorizontal.performed += instance.OnScrollHorizontal;
+            @ScrollHorizontal.canceled += instance.OnScrollHorizontal;
             @Scroll.started += instance.OnScroll;
             @Scroll.performed += instance.OnScroll;
             @Scroll.canceled += instance.OnScroll;
@@ -1202,6 +1261,9 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
             @Fire.started -= instance.OnFire;
             @Fire.performed -= instance.OnFire;
             @Fire.canceled -= instance.OnFire;
+            @ScrollHorizontal.started -= instance.OnScrollHorizontal;
+            @ScrollHorizontal.performed -= instance.OnScrollHorizontal;
+            @ScrollHorizontal.canceled -= instance.OnScrollHorizontal;
             @Scroll.started -= instance.OnScroll;
             @Scroll.performed -= instance.OnScroll;
             @Scroll.canceled -= instance.OnScroll;
@@ -1399,6 +1461,7 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+        void OnScrollHorizontal(InputAction.CallbackContext context);
         void OnScroll(InputAction.CallbackContext context);
         void OnRotationMode(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
