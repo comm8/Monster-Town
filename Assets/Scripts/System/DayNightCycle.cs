@@ -26,8 +26,8 @@ public class DayNightCycle : MonoBehaviour
     {
         float deltaTime = Time.deltaTime;
 
-        sunTransform.Rotate(Vector3.right * (speedMultiplier * deltaTime * 360));
-        moonTransform.Rotate(Vector3.right * (speedMultiplier * deltaTime * 360));
+        sunTransform.Rotate(VectorExtensions.X(speedMultiplier * deltaTime * 360));
+        moonTransform.Rotate(VectorExtensions.X(speedMultiplier * deltaTime * 360));
 
         //RenderSettings.ambientIntensity = math.sin(Time.time * speedMultiplier);
 
