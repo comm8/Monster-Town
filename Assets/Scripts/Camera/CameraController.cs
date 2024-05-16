@@ -121,12 +121,12 @@ public class CameraController : MonoBehaviour
 
         Vector2 DesiredMovement = inputActions.Player.Move.ReadValue<Vector2>()  * Time.deltaTime * movementMultiplier * (zoomPercentage + 0.7f) * accelerationCurve.Evaluate(accelerationTimer / accelerationTime);
 
-        transform.position += rotFreeTransform.TransformDirection(Swizzle._x0y(DesiredMovement));
+        transform.position += rotFreeTransform.TransformDirection(DesiredMovement.Swizzle3("x0y"));
 
 
-        transform.position = Swizzle.SetY(transform.position, math.lerp(MinAltitude, MaxAltitude, ZoomAltitudeCurve.Evaluate(zoomPercentage + deltaZoom)));
+        transform.position = transform.position.With( y: math.lerp(MinAltitude, MaxAltitude, ZoomAltitudeCurve.Evaluate(zoomPercentage + deltaZoom)));
 
-        transform.Rotate(Swizzle._x00(math.lerp(MinRotation, MaxRotation, zoomRotationCurve.Evaluate(zoomPercentage + deltaZoom)) - transform.eulerAngles.x));
+        transform.Rotate(Vector3.right * (math.lerp(MinRotation, MaxRotation, zoomRotationCurve.Evaluate(zoomPercentage + deltaZoom)) - transform.eulerAngles.x));
         RotateCamera();
 
         zoomPercentage += deltaZoom;
@@ -148,6 +148,7 @@ public class CameraController : MonoBehaviour
         );
 
         return uv;
+        //
     }
 
     Vector2 mouseCorner(Vector2 mouseUV)
