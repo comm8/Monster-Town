@@ -19,9 +19,11 @@ public class GameManager : MonoBehaviour
     public GameObject UnitSelectionPrefab;
 
     [Header("Selection")]
-    [SerializeField] Transform Selection;
+    public Transform Selection;
+    public Transform selectionTweened;
     public MeshRenderer selectionRenderer;
     public Light selectionLight;
+    public GameObject selectionHologram;
 
     public int2 SelectionGridPos;
     [SerializeField] BuildingType plyBuildingDesired;
