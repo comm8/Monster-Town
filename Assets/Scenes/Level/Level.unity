@@ -149,12 +149,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15707898}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.24, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 14.4, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 60}
+  m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2031518428}
+  m_Father: {fileID: 869214169}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &15707900
 MonoBehaviour:
@@ -1596,7 +1596,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2031518428}
+  - {fileID: 869214169}
   - {fileID: 1065296651}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2807,7 +2807,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Set Time to night
+  m_text: Add Popup
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e9177c043d48754ebcce4d294868c64, type: 2}
   m_sharedMaterial: {fileID: 6154319437400250807, guid: 6e9177c043d48754ebcce4d294868c64, type: 2}
@@ -2834,7 +2834,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6.25
+  m_fontSize: 10.35
   m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4309,6 +4309,77 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &825741695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 825741696}
+  - component: {fileID: 825741698}
+  - component: {fileID: 825741697}
+  m_Layer: 5
+  m_Name: Popup Bar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &825741696
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825741695}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1256285538}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -92.702896, y: 111.85927}
+  m_SizeDelta: {x: 197, y: 43.4666}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &825741697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825741695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 6
+    m_Right: 4
+    m_Top: -16
+    m_Bottom: 0
+  m_ChildAlignment: 3
+  m_Spacing: 3.5
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 1
+  m_ChildScaleHeight: 1
+  m_ReverseArrangement: 0
+--- !u!222 &825741698
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825741695}
+  m_CullTransparentMesh: 1
 --- !u!1 &846566678
 GameObject:
   m_ObjectHideFlags: 0
@@ -4477,6 +4548,460 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863858969}
   m_CullTransparentMesh: 1
+--- !u!1 &869214168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 869214169}
+  - component: {fileID: 869214170}
+  m_Layer: 0
+  m_Name: Selection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &869214169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869214168}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 375829576}
+  - {fileID: 15707899}
+  - {fileID: 2031518428}
+  m_Father: {fileID: 340033506}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &869214170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869214168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639fe01bb2ef4335be6d2757fb204ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTransform: {fileID: 1065296651}
+  position:
+    enabled: 1
+    mode: 4
+    space: 1
+    deltaTimeSource: 1
+    mutator:
+      rid: 5087348323297787904
+  rotation:
+    enabled: 0
+    mode: 0
+    space: 1
+    deltaTimeSource: 1
+    mutator:
+      rid: 5087348323297787905
+  scale:
+    enabled: 0
+    mode: 0
+    space: 1
+    deltaTimeSource: 1
+    mutator:
+      rid: 5087348323297787906
+  references:
+    version: 2
+    RefIds:
+    - rid: 5087348323297787904
+      type: {class: DynamicsVector3, ns: cmdwtf.UnityTools.Dynamics, asm: cmdwtf.UnityTools}
+      data:
+        dynamicsX:
+          settings:
+            frequency:
+              range: {x: 5, y: 5}
+              limit: {x: 0, y: 20}
+              _forceFixedValue: 1
+            damping:
+              range: {x: 0.5, y: 0.5}
+              limit: {x: 0, y: 2}
+              _forceFixedValue: 1
+            responsiveness:
+              range: {x: 1, y: 1}
+              limit: {x: -5, y: 5}
+              _forceFixedValue: 1
+            solvingStrategy: 6
+            inputSampleMode: 1
+            unstableHandlingMode: 0
+            unstableAutoReset: 0
+            deltaTimeScale:
+              range: {x: 1, y: 1}
+              limit: {x: 0, y: 5}
+              _forceFixedValue: 1
+        dynamicsY:
+          settings:
+            frequency:
+              range: {x: 5, y: 5}
+              limit: {x: 0, y: 20}
+              _forceFixedValue: 1
+            damping:
+              range: {x: 0.5, y: 0.5}
+              limit: {x: 0, y: 2}
+              _forceFixedValue: 1
+            responsiveness:
+              range: {x: 1, y: 1}
+              limit: {x: -5, y: 5}
+              _forceFixedValue: 1
+            solvingStrategy: 6
+            inputSampleMode: 1
+            unstableHandlingMode: 0
+            unstableAutoReset: 0
+            deltaTimeScale:
+              range: {x: 1, y: 1}
+              limit: {x: 0, y: 5}
+              _forceFixedValue: 1
+        dynamicsZ:
+          settings:
+            frequency:
+              range: {x: 5, y: 5}
+              limit: {x: 0, y: 20}
+              _forceFixedValue: 1
+            damping:
+              range: {x: 0.5, y: 0.5}
+              limit: {x: 0, y: 2}
+              _forceFixedValue: 1
+            responsiveness:
+              range: {x: 1, y: 1}
+              limit: {x: -5, y: 5}
+              _forceFixedValue: 1
+            solvingStrategy: 6
+            inputSampleMode: 1
+            unstableHandlingMode: 0
+            unstableAutoReset: 0
+            deltaTimeScale:
+              range: {x: 1, y: 1}
+              limit: {x: 0, y: 5}
+              _forceFixedValue: 1
+        modifyX: 1
+        modifyY: 0
+        modifyZ: 1
+    - rid: 5087348323297787905
+      type: {class: DynamicsQuaternion, ns: cmdwtf.UnityTools.Dynamics, asm: cmdwtf.UnityTools}
+      data:
+        rotationType: 0
+        dynamicsX:
+          settings:
+            frequency:
+              range: {x: 3, y: 3}
+              limit: {x: 0, y: 20}
+              _forceFixedValue: 1
+            damping:
+              range: {x: 1, y: 1}
+              limit: {x: 0, y: 2}
+              _forceFixedValue: 1
+            responsiveness:
+              range: {x: 0, y: 0}
+              limit: {x: -5, y: 5}
+              _forceFixedValue: 1
+            solvingStrategy: 6
+            inputSampleMode: 1
+            unstableHandlingMode: 0
+            unstableAutoReset: 0
+            deltaTimeScale:
+              range: {x: 1, y: 1}
+              limit: {x: 0, y: 5}
+              _forceFixedValue: 1
+        dynamicsY:
+          settings:
+            frequency:
+              range: {x: 3, y: 3}
+              limit: {x: 0, y: 20}
+              _forceFixedValue: 1
+            damping:
+              range: {x: 1, y: 1}
+              limit: {x: 0, y: 2}
+              _forceFixedValue: 1
+            responsiveness:
+              range: {x: 0, y: 0}
+              limit: {x: -5, y: 5}
+              _forceFixedValue: 1
+            solvingStrategy: 6
+            inputSampleMode: 1
+            unstableHandlingMode: 0
+            unstableAutoReset: 0
+            deltaTimeScale:
+              range: {x: 1, y: 1}
+              limit: {x: 0, y: 5}
+              _forceFixedValue: 1
+        dynamicsZ:
+          settings:
+            frequency:
+              range: {x: 3, y: 3}
+              limit: {x: 0, y: 20}
+              _forceFixedValue: 1
+            damping:
+              range: {x: 1, y: 1}
+              limit: {x: 0, y: 2}
+              _forceFixedValue: 1
+            responsiveness:
+              range: {x: 0, y: 0}
+              limit: {x: -5, y: 5}
+              _forceFixedValue: 1
+            solvingStrategy: 6
+            inputSampleMode: 1
+            unstableHandlingMode: 0
+            unstableAutoReset: 0
+            deltaTimeScale:
+              range: {x: 1, y: 1}
+              limit: {x: 0, y: 5}
+              _forceFixedValue: 1
+        dynamicsW:
+          settings:
+            frequency:
+              range: {x: 3, y: 3}
+              limit: {x: 0, y: 20}
+              _forceFixedValue: 1
+            damping:
+              range: {x: 1, y: 1}
+              limit: {x: 0, y: 2}
+              _forceFixedValue: 1
+            responsiveness:
+              range: {x: 0, y: 0}
+              limit: {x: -5, y: 5}
+              _forceFixedValue: 1
+            solvingStrategy: 6
+            inputSampleMode: 1
+            unstableHandlingMode: 0
+            unstableAutoReset: 0
+            deltaTimeScale:
+              range: {x: 1, y: 1}
+              limit: {x: 0, y: 5}
+              _forceFixedValue: 1
+        dynamicsUpwards:
+          dynamicsX:
+            settings:
+              frequency:
+                range: {x: 3, y: 3}
+                limit: {x: 0, y: 20}
+                _forceFixedValue: 1
+              damping:
+                range: {x: 1, y: 1}
+                limit: {x: 0, y: 2}
+                _forceFixedValue: 1
+              responsiveness:
+                range: {x: 0, y: 0}
+                limit: {x: -5, y: 5}
+                _forceFixedValue: 1
+              solvingStrategy: 6
+              inputSampleMode: 1
+              unstableHandlingMode: 0
+              unstableAutoReset: 0
+              deltaTimeScale:
+                range: {x: 1, y: 1}
+                limit: {x: 0, y: 5}
+                _forceFixedValue: 1
+          dynamicsY:
+            settings:
+              frequency:
+                range: {x: 3, y: 3}
+                limit: {x: 0, y: 20}
+                _forceFixedValue: 1
+              damping:
+                range: {x: 1, y: 1}
+                limit: {x: 0, y: 2}
+                _forceFixedValue: 1
+              responsiveness:
+                range: {x: 0, y: 0}
+                limit: {x: -5, y: 5}
+                _forceFixedValue: 1
+              solvingStrategy: 6
+              inputSampleMode: 1
+              unstableHandlingMode: 0
+              unstableAutoReset: 0
+              deltaTimeScale:
+                range: {x: 1, y: 1}
+                limit: {x: 0, y: 5}
+                _forceFixedValue: 1
+          dynamicsZ:
+            settings:
+              frequency:
+                range: {x: 3, y: 3}
+                limit: {x: 0, y: 20}
+                _forceFixedValue: 1
+              damping:
+                range: {x: 1, y: 1}
+                limit: {x: 0, y: 2}
+                _forceFixedValue: 1
+              responsiveness:
+                range: {x: 0, y: 0}
+                limit: {x: -5, y: 5}
+                _forceFixedValue: 1
+              solvingStrategy: 6
+              inputSampleMode: 1
+              unstableHandlingMode: 0
+              unstableAutoReset: 0
+              deltaTimeScale:
+                range: {x: 1, y: 1}
+                limit: {x: 0, y: 5}
+                _forceFixedValue: 1
+          modifyX: 1
+          modifyY: 1
+          modifyZ: 1
+        dynamicsForward:
+          dynamicsX:
+            settings:
+              frequency:
+                range: {x: 3, y: 3}
+                limit: {x: 0, y: 20}
+                _forceFixedValue: 1
+              damping:
+                range: {x: 1, y: 1}
+                limit: {x: 0, y: 2}
+                _forceFixedValue: 1
+              responsiveness:
+                range: {x: 0, y: 0}
+                limit: {x: -5, y: 5}
+                _forceFixedValue: 1
+              solvingStrategy: 6
+              inputSampleMode: 1
+              unstableHandlingMode: 0
+              unstableAutoReset: 0
+              deltaTimeScale:
+                range: {x: 1, y: 1}
+                limit: {x: 0, y: 5}
+                _forceFixedValue: 1
+          dynamicsY:
+            settings:
+              frequency:
+                range: {x: 3, y: 3}
+                limit: {x: 0, y: 20}
+                _forceFixedValue: 1
+              damping:
+                range: {x: 1, y: 1}
+                limit: {x: 0, y: 2}
+                _forceFixedValue: 1
+              responsiveness:
+                range: {x: 0, y: 0}
+                limit: {x: -5, y: 5}
+                _forceFixedValue: 1
+              solvingStrategy: 6
+              inputSampleMode: 1
+              unstableHandlingMode: 0
+              unstableAutoReset: 0
+              deltaTimeScale:
+                range: {x: 1, y: 1}
+                limit: {x: 0, y: 5}
+                _forceFixedValue: 1
+          dynamicsZ:
+            settings:
+              frequency:
+                range: {x: 3, y: 3}
+                limit: {x: 0, y: 20}
+                _forceFixedValue: 1
+              damping:
+                range: {x: 1, y: 1}
+                limit: {x: 0, y: 2}
+                _forceFixedValue: 1
+              responsiveness:
+                range: {x: 0, y: 0}
+                limit: {x: -5, y: 5}
+                _forceFixedValue: 1
+              solvingStrategy: 6
+              inputSampleMode: 1
+              unstableHandlingMode: 0
+              unstableAutoReset: 0
+              deltaTimeScale:
+                range: {x: 1, y: 1}
+                limit: {x: 0, y: 5}
+                _forceFixedValue: 1
+          modifyX: 1
+          modifyY: 1
+          modifyZ: 1
+        normalizeSign: 1
+    - rid: 5087348323297787906
+      type: {class: DynamicsVector3, ns: cmdwtf.UnityTools.Dynamics, asm: cmdwtf.UnityTools}
+      data:
+        dynamicsX:
+          settings:
+            frequency:
+              range: {x: 3, y: 3}
+              limit: {x: 0, y: 20}
+              _forceFixedValue: 1
+            damping:
+              range: {x: 1, y: 1}
+              limit: {x: 0, y: 2}
+              _forceFixedValue: 1
+            responsiveness:
+              range: {x: 0, y: 0}
+              limit: {x: -5, y: 5}
+              _forceFixedValue: 1
+            solvingStrategy: 6
+            inputSampleMode: 1
+            unstableHandlingMode: 0
+            unstableAutoReset: 0
+            deltaTimeScale:
+              range: {x: 1, y: 1}
+              limit: {x: 0, y: 5}
+              _forceFixedValue: 1
+        dynamicsY:
+          settings:
+            frequency:
+              range: {x: 3, y: 3}
+              limit: {x: 0, y: 20}
+              _forceFixedValue: 1
+            damping:
+              range: {x: 1, y: 1}
+              limit: {x: 0, y: 2}
+              _forceFixedValue: 1
+            responsiveness:
+              range: {x: 0, y: 0}
+              limit: {x: -5, y: 5}
+              _forceFixedValue: 1
+            solvingStrategy: 6
+            inputSampleMode: 1
+            unstableHandlingMode: 0
+            unstableAutoReset: 0
+            deltaTimeScale:
+              range: {x: 1, y: 1}
+              limit: {x: 0, y: 5}
+              _forceFixedValue: 1
+        dynamicsZ:
+          settings:
+            frequency:
+              range: {x: 3, y: 3}
+              limit: {x: 0, y: 20}
+              _forceFixedValue: 1
+            damping:
+              range: {x: 1, y: 1}
+              limit: {x: 0, y: 2}
+              _forceFixedValue: 1
+            responsiveness:
+              range: {x: 0, y: 0}
+              limit: {x: -5, y: 5}
+              _forceFixedValue: 1
+            solvingStrategy: 6
+            inputSampleMode: 1
+            unstableHandlingMode: 0
+            unstableAutoReset: 0
+            deltaTimeScale:
+              range: {x: 1, y: 1}
+              limit: {x: 0, y: 5}
+              _forceFixedValue: 1
+        modifyX: 1
+        modifyY: 1
+        modifyZ: 1
+--- !u!1 &882527125 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
+  m_PrefabInstance: {fileID: 1820776631}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &888006240
 GameObject:
   m_ObjectHideFlags: 0
@@ -6120,6 +6645,7 @@ RectTransform:
   - {fileID: 1278111550}
   - {fileID: 627543098}
   - {fileID: 1317075383}
+  - {fileID: 825741696}
   - {fileID: 679506865}
   - {fileID: 2073015951}
   - {fileID: 1221424552}
@@ -7059,7 +7585,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 355.83597, y: 210.09465}
+  m_AnchoredPosition: {x: 169.6875, y: -100.625}
   m_SizeDelta: {x: 150, y: 42.98}
   m_Pivot: {x: -0.05, y: -0.05}
 --- !u!114 &1544198766
@@ -8819,8 +9345,10 @@ MonoBehaviour:
   tilePrefab: {fileID: 1968520076397765545, guid: 06c9dbe3aa1eb2a47a1b9903a6811e90, type: 3}
   UnitSelectionPrefab: {fileID: 1429289145223317399, guid: 95890f4e3349cb84f985fe6d695a0e4b, type: 3}
   Selection: {fileID: 1065296651}
+  selectionTweened: {fileID: 869214169}
   selectionRenderer: {fileID: 2031518426}
   selectionLight: {fileID: 15707901}
+  selectionHologram: {fileID: 882527125}
   SelectionGridPos:
     x: 0
     y: 0
@@ -8909,6 +9437,8 @@ MonoBehaviour:
     weight: 10
     name: Plant Creature
   unitSelectionPanel: {fileID: 6507359077517780148}
+  PopupBar: {fileID: 825741696}
+  PopupBubble: {fileID: 8846167947902276538, guid: 32929f72e194ccf4f90671a7442b1dff, type: 3}
 --- !u!114 &1694131988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9767,19 +10297,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2031518428}
+    m_TransformParent: {fileID: 869214169}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.017117428
+      value: 1.0270456
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9787,7 +10317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01
+      value: 0.59999996
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3437f603b03b7cb4d8b4f75db36648ad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11020,9 +11550,8 @@ GameObject:
   - component: {fileID: 2031518428}
   - component: {fileID: 2031518427}
   - component: {fileID: 2031518426}
-  - component: {fileID: 2031518429}
   m_Layer: 0
-  m_Name: Selection
+  m_Name: SelectionOutline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11088,427 +11617,11 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 58.42, z: 10}
+  m_LocalScale: {x: 10, y: 60, z: 10}
   m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 15707899}
-  - {fileID: 375829576}
-  m_Father: {fileID: 340033506}
+  m_Children: []
+  m_Father: {fileID: 869214169}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2031518429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2031518424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 639fe01bb2ef4335be6d2757fb204ae1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetTransform: {fileID: 1065296651}
-  position:
-    enabled: 1
-    mode: 4
-    space: 1
-    deltaTimeSource: 1
-    mutator:
-      rid: 5087348323297787904
-  rotation:
-    enabled: 0
-    mode: 0
-    space: 1
-    deltaTimeSource: 1
-    mutator:
-      rid: 5087348323297787905
-  scale:
-    enabled: 0
-    mode: 0
-    space: 1
-    deltaTimeSource: 1
-    mutator:
-      rid: 5087348323297787906
-  references:
-    version: 2
-    RefIds:
-    - rid: 5087348323297787904
-      type: {class: DynamicsVector3, ns: cmdwtf.UnityTools.Dynamics, asm: cmdwtf.UnityTools}
-      data:
-        dynamicsX:
-          settings:
-            frequency:
-              range: {x: 5, y: 5}
-              limit: {x: 0, y: 20}
-              _forceFixedValue: 1
-            damping:
-              range: {x: 0.5, y: 0.5}
-              limit: {x: 0, y: 2}
-              _forceFixedValue: 1
-            responsiveness:
-              range: {x: 1, y: 1}
-              limit: {x: -5, y: 5}
-              _forceFixedValue: 1
-            solvingStrategy: 6
-            inputSampleMode: 1
-            unstableHandlingMode: 0
-            unstableAutoReset: 0
-            deltaTimeScale:
-              range: {x: 1, y: 1}
-              limit: {x: 0, y: 5}
-              _forceFixedValue: 1
-        dynamicsY:
-          settings:
-            frequency:
-              range: {x: 5, y: 5}
-              limit: {x: 0, y: 20}
-              _forceFixedValue: 1
-            damping:
-              range: {x: 0.5, y: 0.5}
-              limit: {x: 0, y: 2}
-              _forceFixedValue: 1
-            responsiveness:
-              range: {x: 1, y: 1}
-              limit: {x: -5, y: 5}
-              _forceFixedValue: 1
-            solvingStrategy: 6
-            inputSampleMode: 1
-            unstableHandlingMode: 0
-            unstableAutoReset: 0
-            deltaTimeScale:
-              range: {x: 1, y: 1}
-              limit: {x: 0, y: 5}
-              _forceFixedValue: 1
-        dynamicsZ:
-          settings:
-            frequency:
-              range: {x: 5, y: 5}
-              limit: {x: 0, y: 20}
-              _forceFixedValue: 1
-            damping:
-              range: {x: 0.5, y: 0.5}
-              limit: {x: 0, y: 2}
-              _forceFixedValue: 1
-            responsiveness:
-              range: {x: 1, y: 1}
-              limit: {x: -5, y: 5}
-              _forceFixedValue: 1
-            solvingStrategy: 6
-            inputSampleMode: 1
-            unstableHandlingMode: 0
-            unstableAutoReset: 0
-            deltaTimeScale:
-              range: {x: 1, y: 1}
-              limit: {x: 0, y: 5}
-              _forceFixedValue: 1
-        modifyX: 1
-        modifyY: 1
-        modifyZ: 1
-    - rid: 5087348323297787905
-      type: {class: DynamicsQuaternion, ns: cmdwtf.UnityTools.Dynamics, asm: cmdwtf.UnityTools}
-      data:
-        rotationType: 0
-        dynamicsX:
-          settings:
-            frequency:
-              range: {x: 3, y: 3}
-              limit: {x: 0, y: 20}
-              _forceFixedValue: 1
-            damping:
-              range: {x: 1, y: 1}
-              limit: {x: 0, y: 2}
-              _forceFixedValue: 1
-            responsiveness:
-              range: {x: 0, y: 0}
-              limit: {x: -5, y: 5}
-              _forceFixedValue: 1
-            solvingStrategy: 6
-            inputSampleMode: 1
-            unstableHandlingMode: 0
-            unstableAutoReset: 0
-            deltaTimeScale:
-              range: {x: 1, y: 1}
-              limit: {x: 0, y: 5}
-              _forceFixedValue: 1
-        dynamicsY:
-          settings:
-            frequency:
-              range: {x: 3, y: 3}
-              limit: {x: 0, y: 20}
-              _forceFixedValue: 1
-            damping:
-              range: {x: 1, y: 1}
-              limit: {x: 0, y: 2}
-              _forceFixedValue: 1
-            responsiveness:
-              range: {x: 0, y: 0}
-              limit: {x: -5, y: 5}
-              _forceFixedValue: 1
-            solvingStrategy: 6
-            inputSampleMode: 1
-            unstableHandlingMode: 0
-            unstableAutoReset: 0
-            deltaTimeScale:
-              range: {x: 1, y: 1}
-              limit: {x: 0, y: 5}
-              _forceFixedValue: 1
-        dynamicsZ:
-          settings:
-            frequency:
-              range: {x: 3, y: 3}
-              limit: {x: 0, y: 20}
-              _forceFixedValue: 1
-            damping:
-              range: {x: 1, y: 1}
-              limit: {x: 0, y: 2}
-              _forceFixedValue: 1
-            responsiveness:
-              range: {x: 0, y: 0}
-              limit: {x: -5, y: 5}
-              _forceFixedValue: 1
-            solvingStrategy: 6
-            inputSampleMode: 1
-            unstableHandlingMode: 0
-            unstableAutoReset: 0
-            deltaTimeScale:
-              range: {x: 1, y: 1}
-              limit: {x: 0, y: 5}
-              _forceFixedValue: 1
-        dynamicsW:
-          settings:
-            frequency:
-              range: {x: 3, y: 3}
-              limit: {x: 0, y: 20}
-              _forceFixedValue: 1
-            damping:
-              range: {x: 1, y: 1}
-              limit: {x: 0, y: 2}
-              _forceFixedValue: 1
-            responsiveness:
-              range: {x: 0, y: 0}
-              limit: {x: -5, y: 5}
-              _forceFixedValue: 1
-            solvingStrategy: 6
-            inputSampleMode: 1
-            unstableHandlingMode: 0
-            unstableAutoReset: 0
-            deltaTimeScale:
-              range: {x: 1, y: 1}
-              limit: {x: 0, y: 5}
-              _forceFixedValue: 1
-        dynamicsUpwards:
-          dynamicsX:
-            settings:
-              frequency:
-                range: {x: 3, y: 3}
-                limit: {x: 0, y: 20}
-                _forceFixedValue: 1
-              damping:
-                range: {x: 1, y: 1}
-                limit: {x: 0, y: 2}
-                _forceFixedValue: 1
-              responsiveness:
-                range: {x: 0, y: 0}
-                limit: {x: -5, y: 5}
-                _forceFixedValue: 1
-              solvingStrategy: 6
-              inputSampleMode: 1
-              unstableHandlingMode: 0
-              unstableAutoReset: 0
-              deltaTimeScale:
-                range: {x: 1, y: 1}
-                limit: {x: 0, y: 5}
-                _forceFixedValue: 1
-          dynamicsY:
-            settings:
-              frequency:
-                range: {x: 3, y: 3}
-                limit: {x: 0, y: 20}
-                _forceFixedValue: 1
-              damping:
-                range: {x: 1, y: 1}
-                limit: {x: 0, y: 2}
-                _forceFixedValue: 1
-              responsiveness:
-                range: {x: 0, y: 0}
-                limit: {x: -5, y: 5}
-                _forceFixedValue: 1
-              solvingStrategy: 6
-              inputSampleMode: 1
-              unstableHandlingMode: 0
-              unstableAutoReset: 0
-              deltaTimeScale:
-                range: {x: 1, y: 1}
-                limit: {x: 0, y: 5}
-                _forceFixedValue: 1
-          dynamicsZ:
-            settings:
-              frequency:
-                range: {x: 3, y: 3}
-                limit: {x: 0, y: 20}
-                _forceFixedValue: 1
-              damping:
-                range: {x: 1, y: 1}
-                limit: {x: 0, y: 2}
-                _forceFixedValue: 1
-              responsiveness:
-                range: {x: 0, y: 0}
-                limit: {x: -5, y: 5}
-                _forceFixedValue: 1
-              solvingStrategy: 6
-              inputSampleMode: 1
-              unstableHandlingMode: 0
-              unstableAutoReset: 0
-              deltaTimeScale:
-                range: {x: 1, y: 1}
-                limit: {x: 0, y: 5}
-                _forceFixedValue: 1
-          modifyX: 1
-          modifyY: 1
-          modifyZ: 1
-        dynamicsForward:
-          dynamicsX:
-            settings:
-              frequency:
-                range: {x: 3, y: 3}
-                limit: {x: 0, y: 20}
-                _forceFixedValue: 1
-              damping:
-                range: {x: 1, y: 1}
-                limit: {x: 0, y: 2}
-                _forceFixedValue: 1
-              responsiveness:
-                range: {x: 0, y: 0}
-                limit: {x: -5, y: 5}
-                _forceFixedValue: 1
-              solvingStrategy: 6
-              inputSampleMode: 1
-              unstableHandlingMode: 0
-              unstableAutoReset: 0
-              deltaTimeScale:
-                range: {x: 1, y: 1}
-                limit: {x: 0, y: 5}
-                _forceFixedValue: 1
-          dynamicsY:
-            settings:
-              frequency:
-                range: {x: 3, y: 3}
-                limit: {x: 0, y: 20}
-                _forceFixedValue: 1
-              damping:
-                range: {x: 1, y: 1}
-                limit: {x: 0, y: 2}
-                _forceFixedValue: 1
-              responsiveness:
-                range: {x: 0, y: 0}
-                limit: {x: -5, y: 5}
-                _forceFixedValue: 1
-              solvingStrategy: 6
-              inputSampleMode: 1
-              unstableHandlingMode: 0
-              unstableAutoReset: 0
-              deltaTimeScale:
-                range: {x: 1, y: 1}
-                limit: {x: 0, y: 5}
-                _forceFixedValue: 1
-          dynamicsZ:
-            settings:
-              frequency:
-                range: {x: 3, y: 3}
-                limit: {x: 0, y: 20}
-                _forceFixedValue: 1
-              damping:
-                range: {x: 1, y: 1}
-                limit: {x: 0, y: 2}
-                _forceFixedValue: 1
-              responsiveness:
-                range: {x: 0, y: 0}
-                limit: {x: -5, y: 5}
-                _forceFixedValue: 1
-              solvingStrategy: 6
-              inputSampleMode: 1
-              unstableHandlingMode: 0
-              unstableAutoReset: 0
-              deltaTimeScale:
-                range: {x: 1, y: 1}
-                limit: {x: 0, y: 5}
-                _forceFixedValue: 1
-          modifyX: 1
-          modifyY: 1
-          modifyZ: 1
-        normalizeSign: 1
-    - rid: 5087348323297787906
-      type: {class: DynamicsVector3, ns: cmdwtf.UnityTools.Dynamics, asm: cmdwtf.UnityTools}
-      data:
-        dynamicsX:
-          settings:
-            frequency:
-              range: {x: 3, y: 3}
-              limit: {x: 0, y: 20}
-              _forceFixedValue: 1
-            damping:
-              range: {x: 1, y: 1}
-              limit: {x: 0, y: 2}
-              _forceFixedValue: 1
-            responsiveness:
-              range: {x: 0, y: 0}
-              limit: {x: -5, y: 5}
-              _forceFixedValue: 1
-            solvingStrategy: 6
-            inputSampleMode: 1
-            unstableHandlingMode: 0
-            unstableAutoReset: 0
-            deltaTimeScale:
-              range: {x: 1, y: 1}
-              limit: {x: 0, y: 5}
-              _forceFixedValue: 1
-        dynamicsY:
-          settings:
-            frequency:
-              range: {x: 3, y: 3}
-              limit: {x: 0, y: 20}
-              _forceFixedValue: 1
-            damping:
-              range: {x: 1, y: 1}
-              limit: {x: 0, y: 2}
-              _forceFixedValue: 1
-            responsiveness:
-              range: {x: 0, y: 0}
-              limit: {x: -5, y: 5}
-              _forceFixedValue: 1
-            solvingStrategy: 6
-            inputSampleMode: 1
-            unstableHandlingMode: 0
-            unstableAutoReset: 0
-            deltaTimeScale:
-              range: {x: 1, y: 1}
-              limit: {x: 0, y: 5}
-              _forceFixedValue: 1
-        dynamicsZ:
-          settings:
-            frequency:
-              range: {x: 3, y: 3}
-              limit: {x: 0, y: 20}
-              _forceFixedValue: 1
-            damping:
-              range: {x: 1, y: 1}
-              limit: {x: 0, y: 2}
-              _forceFixedValue: 1
-            responsiveness:
-              range: {x: 0, y: 0}
-              limit: {x: -5, y: 5}
-              _forceFixedValue: 1
-            solvingStrategy: 6
-            inputSampleMode: 1
-            unstableHandlingMode: 0
-            unstableAutoReset: 0
-            deltaTimeScale:
-              range: {x: 1, y: 1}
-              limit: {x: 0, y: 5}
-              _forceFixedValue: 1
-        modifyX: 1
-        modifyY: 1
-        modifyZ: 1
 --- !u!1 &2037580502
 GameObject:
   m_ObjectHideFlags: 0
@@ -13642,7 +13755,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -6.5000153}
+  m_AnchoredPosition: {x: 0, y: -6.5}
   m_SizeDelta: {x: -12, y: -25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9057878938827557167

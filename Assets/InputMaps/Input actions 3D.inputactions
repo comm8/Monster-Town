@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "ScrollHorizontal",
+                    "type": "Value",
+                    "id": "1820c06c-bf83-491a-bf42-122d6bdb203b",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Scroll",
                     "type": "Value",
                     "id": "e3f2f0b2-7b0b-4ea6-8443-1ccc3f3b2b18",
@@ -454,6 +463,50 @@
                     "action": "Delete",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "ScrollHorizontalAxis",
+                    "id": "42f197cb-b633-4900-8e4e-18ff89a659a5",
+                    "path": "1DAxis(minValue=-3,maxValue=3)",
+                    "interactions": "",
+                    "processors": "Scale(factor=2)",
+                    "groups": "",
+                    "action": "ScrollHorizontal",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "positive",
+                    "id": "8f718514-da23-4df8-a400-b27dc602e38f",
+                    "path": "<Mouse>/scroll/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollHorizontal",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "dcf3561a-a7a0-4909-9fdd-59ee111d0bb9",
+                    "path": "<VirtualMouse>/scroll/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollHorizontal",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "negative",
+                    "id": "1e5c6e40-d5e2-4e17-a48d-3542ee034c8b",
+                    "path": "<Mouse>/scroll/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrollHorizontal",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },

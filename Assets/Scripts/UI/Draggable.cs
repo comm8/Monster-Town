@@ -7,6 +7,6 @@ public class Draggable : MonoBehaviour, IDragHandler
 {
     public void OnDrag(PointerEventData eventData)
     {
-      transform.position += eventData.delta._xy0();
+      transform.position += eventData.delta.Swizzle3("xy0");
     }
 }

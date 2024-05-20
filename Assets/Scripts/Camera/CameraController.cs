@@ -90,7 +90,7 @@ public class CameraController : MonoBehaviour
     private void RotateCamera()
     {
 
-        rotationVelocity = inputActions.Player.Rotate.ReadValue<float>() * Time.deltaTime;
+        rotationVelocity = inputActions.Player.Rotate.ReadValue<float>() + inputActions.Player.ScrollHorizontal.ReadValue<float>() * Time.deltaTime;
 
         if (allowRotation)
         {
@@ -119,17 +119,48 @@ public class CameraController : MonoBehaviour
         rotFreeTransform.position = transform.position;
         rotFreeTransform.Rotate(Vector3.up * (transform.eulerAngles.y - rotFreeTransform.eulerAngles.y));
 
-        Vector2 DesiredMovement = inputActions.Player.Move.ReadValue<Vector2>() * Time.deltaTime * movementMultiplier * (zoomPercentage + 0.7f) * accelerationCurve.Evaluate(accelerationTimer / accelerationTime);
+        Vector2 DesiredMovement = inputActions.Player.Move.ReadValue<Vector2>()  * Time.deltaTime * movementMultiplier * (zoomPercentage + 0.7f) * accelerationCurve.Evaluate(accelerationTimer / accelerationTime);
 
-        transform.position += rotFreeTransform.TransformDirection(Swizzle._x0y(DesiredMovement));
+        transform.position += rotFreeTransform.TransformDirection(DesiredMovement.Swizzle3("x0y"));
 
 
-        transform.position = Swizzle.SetY(transform.position, math.lerp(MinAltitude, MaxAltitude, ZoomAltitudeCurve.Evaluate(zoomPercentage + deltaZoom)));
+        transform.position = transform.position.With( y: math.lerp(MinAltitude, MaxAltitude, ZoomAltitudeCurve.Evaluate(zoomPercentage + deltaZoom)));
 
-        transform.Rotate(Swizzle._x00(math.lerp(MinRotation, MaxRotation, zoomRotationCurve.Evaluate(zoomPercentage + deltaZoom)) - transform.eulerAngles.x));
+        transform.Rotate(Vector3.right * (math.lerp(MinRotation, MaxRotation, zoomRotationCurve.Evaluate(zoomPercentage + deltaZoom)) - transform.eulerAngles.x));
         RotateCamera();
 
         zoomPercentage += deltaZoom;
     }
+
+        Vector2 GetMouseUV()
+    {
+        // Get the mouse position in screen coordinates
+        Vector2 mousePosition = Input.mousePosition;
+
+        // Get the screen dimensions
+        float screenWidth = Screen.width;
+        float screenHeight = Screen.height;
+
+        // Convert mouse position to UV coordinates
+        Vector2 uv = new Vector2(
+            mousePosition.x / screenWidth,
+            mousePosition.y / screenHeight
+        );
+
+        return uv;
+        //
+    }
+
+    Vector2 mouseCorner(Vector2 mouseUV)
+    {
+        float2 centralizedUV = mouseUV - new Vector2(0.5f,0.5f);
+        float2 absoluteUV =  math.abs(centralizedUV);
+       float borderSensitivityMap = math.pow(math.max(absoluteUV.x,absoluteUV.y) * 2,20);
+
+
+       
+       return math.clamp( borderSensitivityMap * math.normalize(centralizedUV), new float2(-1.2f,-1.2f),new float2(1.2f, 2));
+    }
+
 
 }
