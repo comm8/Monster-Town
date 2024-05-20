@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d313adc54bae374db34b3004447defc, type: 3}
   m_Name: Inn
   m_EditorClassIdentifier: 
-  randomRotation: 0
+  randomRotation: 1
   cost:
   - Amount: 10
     Type: 0
