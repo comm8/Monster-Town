@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Interactions")]
 
-    public InteractionMode deleteInteraction, standardInteraction, roadInteraction;
+    public InteractionMode deleteInteraction, standardInteraction, roadInteraction, unselectedInteraction;
 
     [HideInInspector] public InteractionMode interaction;
 
