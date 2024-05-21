@@ -4,11 +4,13 @@ Add Clear Cost in  building placement mode:
 -Show build panel of building on left hand side
 -use leentween to slide in
 
--use leentween to slide in bulldozer
 
-
-Add proper hologram to telegraph selected building
-impliment potential production text
 make unemployed units show at the top of unit selection menu
-Add leantweening to selection menu
 make road wider
+
+add unselected selection mode
+make selection red if cant afford building
+
+add colors for employed monsters
+
+clearly showcase building production and prod reasources from the map view
