@@ -140,12 +140,12 @@ namespace BuildingTools
             }
         }
 
-        public static bool TryChargeCost(BuildingType desired)
+        public static bool TryChargeCost(BuildingType desired, bool chargeOnSuccess)
         {
-            return TryChargeCost(GameManager.instance.inventory, GameManager.instance.buildings.GetBuilding((int)desired).cost);
+            return TryChargeCost(GameManager.instance.inventory, GameManager.instance.buildings.GetBuilding((int)desired).cost, chargeOnSuccess);
         }
 
-        public static bool TryChargeCost(ResourceValue[] inventory, ResourceValue[] cost)
+        public static bool TryChargeCost(ResourceValue[] inventory, ResourceValue[] cost, bool chargeOnSuccess)
         {
             List<int> cache = new();
 
@@ -170,6 +170,11 @@ namespace BuildingTools
                 }
             }
             //We can afford it!! 
+
+            if(!chargeOnSuccess)
+            {
+                return true;
+            }
 
             for (int i = 0; i < cache.Count; i++)
             {

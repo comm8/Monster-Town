@@ -98,6 +98,15 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""6cccf52b-b069-4bb5-aa5d-cc8f05a89728"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -529,6 +538,17 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
                     ""action"": ""ScrollHorizontal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3d9f3e14-37cc-46ae-b219-50b044f130a3"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -1122,6 +1142,7 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
         m_Player_RotationMode = m_Player.FindAction("RotationMode", throwIfNotFound: true);
         m_Player_Rotate = m_Player.FindAction("Rotate", throwIfNotFound: true);
         m_Player_Delete = m_Player.FindAction("Delete", throwIfNotFound: true);
+        m_Player_Escape = m_Player.FindAction("Escape", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1203,6 +1224,7 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_RotationMode;
     private readonly InputAction m_Player_Rotate;
     private readonly InputAction m_Player_Delete;
+    private readonly InputAction m_Player_Escape;
     public struct PlayerActions
     {
         private @Inputactions3D m_Wrapper;
@@ -1215,6 +1237,7 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
         public InputAction @RotationMode => m_Wrapper.m_Player_RotationMode;
         public InputAction @Rotate => m_Wrapper.m_Player_Rotate;
         public InputAction @Delete => m_Wrapper.m_Player_Delete;
+        public InputAction @Escape => m_Wrapper.m_Player_Escape;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1248,6 +1271,9 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
             @Delete.started += instance.OnDelete;
             @Delete.performed += instance.OnDelete;
             @Delete.canceled += instance.OnDelete;
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1276,6 +1302,9 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
             @Delete.started -= instance.OnDelete;
             @Delete.performed -= instance.OnDelete;
             @Delete.canceled -= instance.OnDelete;
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1466,6 +1495,7 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
         void OnRotationMode(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
         void OnDelete(InputAction.CallbackContext context);
+        void OnEscape(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

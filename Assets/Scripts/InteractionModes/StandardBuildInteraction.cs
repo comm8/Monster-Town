@@ -5,6 +5,8 @@ public class StandardBuildInteraction : InteractionMode
     [SerializeField] SelectionScheme PlaceScheme;
     [SerializeField] SelectionScheme InteractScheme;
 
+    [SerializeField] SelectionScheme CantAffordScheme;
+
     BuildingType hologramType = BuildingType.None;
     public override void OnPressEnd(TileProperties tile, BuildingType selected)
     {
@@ -12,12 +14,13 @@ public class StandardBuildInteraction : InteractionMode
     }
     public override void OnPress(TileProperties tile, BuildingType selected)
     {
-        if (tile.buildingType == BuildingType.None && Inventory.TryChargeCost(selected))
+        if (tile.buildingType == BuildingType.None && Inventory.TryChargeCost(selected, true))
         {
             PlaceTile(tile, selected);
             tile.UpdateModel();
             tile.UpdateMonsterEmployment();
-            CheckScheme(tile, selected);
+            //CheckScheme(tile, selected);
+            gameManager.SetInteractionMode(gameManager.unselectedInteraction);
         }
         else
         {
@@ -41,7 +44,7 @@ public class StandardBuildInteraction : InteractionMode
     public override void OnModeEnter(TileProperties tile, BuildingType selected)
     {
         gameManager.selectionHologram.SetActive(true);
-        gameManager.SetSelectionScheme(PlaceScheme);
+        CheckScheme(tile,selected);
     }
 
     public override void OnModeExit(TileProperties tile, BuildingType selected)
@@ -61,7 +64,17 @@ public class StandardBuildInteraction : InteractionMode
                 gameManager.selectionHologram = Instantiate(gameManager.buildings.GetBuilding(desired).Model, gameManager.selectionTweened, false);
             }
             hologramType = desired;
-            gameManager.SetSelectionScheme(PlaceScheme);
+
+
+            if (tile.buildingType == BuildingType.None && Inventory.TryChargeCost(desired, false))
+            {
+                gameManager.SetSelectionScheme(PlaceScheme);
+            }
+            else
+            {
+                gameManager.SetSelectionScheme(CantAffordScheme);
+            }
+
 
         }
         else

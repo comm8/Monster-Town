@@ -6,6 +6,7 @@ using SerializableDictionary.Scripts;
 using System.Collections.Generic;
 using UnityEngine.Rendering.Universal;
 using TMPro;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
     public Light selectionLight;
     public GameObject selectionHologram;
 
-    public int2 SelectionGridPos;
+    public int2 SelectionGridPos = new(0, 0);
     [SerializeField] BuildingType plyBuildingDesired;
     [HideInInspector] public bool pointerOverUI = false;
 
@@ -68,6 +69,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject PopupBubble;
     private void Awake()
     {
+
+
+        //Init Tile array
+        tileProperties = new TileProperties[gridSize * gridSize];
+        InvokeRepeating(nameof(UpdateTiles), 0.3f, 1f);
         instance = this;
 
         Time.timeScale = 1;
@@ -76,16 +82,15 @@ public class GameManager : MonoBehaviour
         deleteInteraction.gameManager = this;
         standardInteraction.gameManager = this;
         roadInteraction.gameManager = this;
-        interaction = standardInteraction;
+        unselectedInteraction.gameManager = this;
+        interaction = unselectedInteraction;
         interaction.OnModeEnter(GetCurrentTile(), plyBuildingDesired);
 
         //settup input system
         inputActions = new Inputactions3D();
         inputActions.Player.Enable();
 
-        //Init Tile array
-        tileProperties = new TileProperties[gridSize * gridSize];
-        InvokeRepeating(nameof(UpdateTiles), 0.3f, 1f);
+
 
         int[] ints = new int[monsterSpawnChance.Length];
         for (int i = 0; i < monsterSpawnChance.Length; i++)
@@ -105,6 +110,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         CheckDeleteModeDesired();
+
+        if (inputActions.Player.Escape.ReadValue<float>() > 0.5f)
+        {
+            SetInteractionMode(unselectedInteraction);
+        }
         CheckInputDesired();
         UpdateResourceText(); //Make not update every frame
     }
@@ -178,7 +188,7 @@ public class GameManager : MonoBehaviour
     {
         var curTile = BuildingUtils.CoordsToSlotID(SelectionGridPos, gridSize);
 
-        if (!(curTile < tileProperties.Length && curTile >= 0)) { return null; }
+        if (!(curTile < tileProperties.Length && curTile >= 0)) { throw new ArgumentException("Given Coords " + SelectionGridPos + " " + curTile + " is out of bounds of the map!"); }
         return tileProperties[curTile];
     }
 
@@ -207,7 +217,7 @@ public class GameManager : MonoBehaviour
 
             if (monster.tile == null) { continue; }
 
-            if (Inventory.TryChargeCost(inventory, buildings.GetBuilding((int)monster.tile.buildingType).production[(int)monster.type].cost))
+            if (Inventory.TryChargeCost(inventory, buildings.GetBuilding((int)monster.tile.buildingType).production[(int)monster.type].cost, true))
             {
                 Inventory.AddToInventory(inventory, buildings.GetBuilding((int)monster.tile.buildingType).production[(int)monster.type].production);
             }
@@ -318,7 +328,7 @@ public class GameManager : MonoBehaviour
 
 
 
-    void SetInteractionMode(InteractionMode mode)
+    public void SetInteractionMode(InteractionMode mode)
     {
         interaction.OnModeExit(GetCurrentTile(), plyBuildingDesired);
         interaction = mode;

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1bb2bbde86d3ed84fb2f73665b50fcb7, type: 3}
-  m_Name: InteractScheme
+  m_Name: PlacementScheme
   m_EditorClassIdentifier: Assembly-CSharp:BuildingTools:SelectionScheme
   lightColor: {r: 0.004751934, g: 0.6415094, b: 0, a: 0}
   selectionMaterial: {fileID: 2100000, guid: d18702d1365e14b49894f9669bcb9433, type: 2}
