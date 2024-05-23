@@ -86,11 +86,11 @@ public class DeleteInteraction : InteractionMode
 
     public override void OnTileEnter(TileProperties tile, BuildingType selected)
     {
-          if (lasttile != null && lasttile.buildingType != BuildingType.Road && lasttile.buildingType != BuildingType.None )
+          if (checkValidTile(lasttile))
         {
             lasttile.SetDeletePreview(false);
         }
-          if (tile != null && tile.buildingType != BuildingType.Road && tile.buildingType != BuildingType.None)
+          if (checkValidTile(tile))
         {
             tile.SetDeletePreview(true);
             lasttile = tile;
@@ -99,7 +99,7 @@ public class DeleteInteraction : InteractionMode
 
     public override void OnModeEnter(TileProperties tile, BuildingType selected)
     {
-        if (tile != null && tile.buildingType != BuildingType.Road && tile.buildingType != BuildingType.None)
+        if (checkValidTile(tile))
         {
             tile.SetDeletePreview(true);
             lasttile = tile;
@@ -111,7 +111,7 @@ public class DeleteInteraction : InteractionMode
 
     public override void OnModeExit(TileProperties tile, BuildingType selected)
     {
-        if (lasttile != null && lasttile.buildingType != BuildingType.Road && lasttile.buildingType != BuildingType.None)
+        if (checkValidTile(lasttile))
         {
             lasttile.SetDeletePreview(false);
         }
@@ -122,4 +122,10 @@ public class DeleteInteraction : InteractionMode
     {
         bulldozerPostProcessing.SetFloat("_Border_Thickness", val);
     }
+
+    bool checkValidTile(TileProperties tile)
+    {
+        return tile != null && tile.buildingType != BuildingType.Road && tile.buildingType != BuildingType.None;
+    }
+
 }
