@@ -9,8 +9,6 @@ namespace BuildingTools
     {
         public Color lightColor;
         public Material selectionMaterial;
-        public Material hologramMaterial;
-
     }
 
 }

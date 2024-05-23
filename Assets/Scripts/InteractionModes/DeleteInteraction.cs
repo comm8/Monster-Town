@@ -7,10 +7,8 @@ public class DeleteInteraction : InteractionMode
     [SerializeField] Material bulldozerPostProcessing;
     [SerializeField] ScriptableRendererFeature rendererFeature;
 
-    [SerializeField] SelectionScheme scheme;
-    [SerializeField] SelectionScheme selectionScheme;
-
-    TileProperties lasttile;
+    [SerializeField] SelectionScheme validDelete;
+    [SerializeField] SelectionScheme invalidDelete;
 
     public override void OnPressEnd(TileProperties tile, BuildingType selected)
     {
@@ -87,42 +85,28 @@ public class DeleteInteraction : InteractionMode
 
     public override void OnTileEnter(TileProperties tile, BuildingType selected)
     {
-          if (checkValidTile(lasttile))
-        {   
-            lasttile.SetDeletePreview(false);
-        }
-          if (checkValidTile(tile))
+        CheckTileSelection(tile);
+    }
+
+    public override void OnTileExit(TileProperties tile, BuildingType selected)
+    {
+        if (checkValidTile(tile))
         {
-            gameManager.SetSelectionScheme(scheme);
-            tile.SetDeletePreview(true);
-            lasttile = tile;
-        }
-          else
-        {
-            gameManager.SetSelectionScheme(selectionScheme);
+            tile.SetDeletePreview(false);
         }
     }
 
     public override void OnModeEnter(TileProperties tile, BuildingType selected)
     {
-        if (checkValidTile(tile))
-        {
-            gameManager.SetSelectionScheme(scheme);
-            tile.SetDeletePreview(true);
-            lasttile = tile;
-        }
-        else
-        {
-            gameManager.SetSelectionScheme(selectionScheme);
-        }
+        CheckTileSelection(tile);
         LeanTween.value(gameObject, updateBulldozerBorderSize, 0, 0.04f, 0.4f).setEase(LeanTweenType.easeOutBounce);
     }
 
     public override void OnModeExit(TileProperties tile, BuildingType selected)
     {
-        if (checkValidTile(lasttile))
+        if (checkValidTile(tile))
         {
-            lasttile.SetDeletePreview(false);
+            tile.SetDeletePreview(false);
         }
         LeanTween.value(gameObject, updateBulldozerBorderSize, 0.04f, 0, 0.4f).setEase(LeanTweenType.easeOutBounce);
     }
@@ -134,7 +118,21 @@ public class DeleteInteraction : InteractionMode
 
     bool checkValidTile(TileProperties tile)
     {
-        return tile != null && tile.buildingType != BuildingType.Road && tile.buildingType != BuildingType.None;
+        return tile.buildingType != BuildingType.Road && tile.buildingType != BuildingType.None;
+    }
+
+    void CheckTileSelection(TileProperties tile)
+    {
+        if (tile == null) { return; }
+        if (checkValidTile(tile))
+        {
+            gameManager.SetSelectionScheme(validDelete);
+            tile.SetDeletePreview(true);
+        }
+        else
+        {
+            gameManager.SetSelectionScheme(invalidDelete);
+        }
     }
 
 }

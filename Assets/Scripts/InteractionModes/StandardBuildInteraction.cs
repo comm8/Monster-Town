@@ -83,4 +83,10 @@ public class StandardBuildInteraction : InteractionMode
             gameManager.SetSelectionScheme(InteractScheme);
         }
     }
+
+    public override void OnTileExit(TileProperties tile, BuildingType selected)
+    {
+        
+    }
+
 }

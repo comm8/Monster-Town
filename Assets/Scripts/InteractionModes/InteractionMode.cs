@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using BuildingTools;
 using Unity.Mathematics;
 using UnityEngine;
@@ -13,6 +10,7 @@ public abstract class InteractionMode : MonoBehaviour
     public abstract void OnPress(TileProperties tile, BuildingType selected);
     public abstract void OnPressEnd(TileProperties tile, BuildingType selected);
     public abstract void OnTileEnter(TileProperties tile, BuildingType selected);
+        public abstract void OnTileExit(TileProperties tile, BuildingType selected);
     public abstract void OnModeEnter(TileProperties tile, BuildingType selected);
     public abstract void OnModeExit(TileProperties tile, BuildingType selected);
 
@@ -33,7 +31,7 @@ public abstract class InteractionMode : MonoBehaviour
         }
 
         tile.buildingType = desired;
-        if (tile.TryGetComponent<RoadProperties>(out RoadProperties road))
+        if (tile.TryGetComponent(out RoadProperties road))
         {
             Destroy(road);
         }

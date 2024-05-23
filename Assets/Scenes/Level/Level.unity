@@ -222,7 +222,7 @@ Light:
       e32: 0
       e33: 1
     m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 2800000, guid: 27a80cfbb391bae4abb062187f4c9bea, type: 3}
+  m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -11035,8 +11035,8 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   bulldozerPostProcessing: {fileID: 2100000, guid: be4de12278aefa74bbac7f182022e752, type: 2}
   rendererFeature: {fileID: -2186744672490536369, guid: ded71b0f450b707448f58662b5b44392, type: 2}
-  scheme: {fileID: 11400000, guid: f11e9a5746abe154fafe287a2af6edc5, type: 2}
-  selectionScheme: {fileID: 11400000, guid: 0b00908e27a67df40b46ba0ef9d7d1f4, type: 2}
+  validDelete: {fileID: 11400000, guid: f11e9a5746abe154fafe287a2af6edc5, type: 2}
+  invalidDelete: {fileID: 11400000, guid: 0b00908e27a67df40b46ba0ef9d7d1f4, type: 2}
 --- !u!1 &1915314734
 GameObject:
   m_ObjectHideFlags: 0

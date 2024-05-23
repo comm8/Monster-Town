@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb2bbde86d3ed84fb2f73665b50fcb7, type: 3}
   m_Name: UnselectedScheme
   m_EditorClassIdentifier: Assembly-CSharp:BuildingTools:SelectionScheme
-  lightColor: {r: 0, g: 0, b: 0, a: 1}
+  lightColor: {r: 0.623616, g: 0.69043195, b: 0.696, a: 1}
   selectionMaterial: {fileID: 2100000, guid: 6a1c3826f4043fa4b9f6987238b03993, type: 2}
-  hologramMaterial: {fileID: 0}

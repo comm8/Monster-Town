@@ -122,11 +122,13 @@ public class GameManager : MonoBehaviour
     {
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
         {
-            SelectionGridPos = BuildingUtils.PositionToTile(hit.point);
-            Vector3 newPos = new Vector3(SelectionGridPos.x, 0, SelectionGridPos.y) * 10;
+           var newSelectionGridPos = BuildingUtils.PositionToTile(hit.point);
+            Vector3 newPos = new Vector3(newSelectionGridPos.x, 0, newSelectionGridPos.y) * 10;
 
             if (newPos != Selection.position)
             {
+                interaction.OnTileExit(GetCurrentTile(),plyBuildingDesired);
+                SelectionGridPos = newSelectionGridPos;
                 Selection.position = newPos;
                 interaction.OnTileEnter(GetCurrentTile(), plyBuildingDesired);
             }
