@@ -19,8 +19,8 @@ public class StandardBuildInteraction : InteractionMode
             PlaceTile(tile, selected);
             tile.UpdateModel();
             tile.UpdateMonsterEmployment();
-            //CheckScheme(tile, selected);
-            gameManager.SetInteractionMode(gameManager.unselectedInteraction);
+            CheckScheme(tile, selected);
+            //gameManager.SetInteractionMode(gameManager.unselectedInteraction);
         }
         else
         {

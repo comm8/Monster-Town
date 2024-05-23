@@ -28,6 +28,10 @@ public class TileProperties : GenericEntity
         tileMaterial = GetComponentInChildren<MeshRenderer>();
     }
 
+    public void resetscale()
+    {
+        model.transform.localScale = Vector3.one;
+    }
 
 
 }
