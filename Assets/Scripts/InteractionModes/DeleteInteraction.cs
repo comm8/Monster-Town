@@ -8,6 +8,7 @@ public class DeleteInteraction : InteractionMode
     [SerializeField] ScriptableRendererFeature rendererFeature;
 
     [SerializeField] SelectionScheme scheme;
+    [SerializeField] SelectionScheme selectionScheme;
 
     TileProperties lasttile;
 
@@ -87,13 +88,18 @@ public class DeleteInteraction : InteractionMode
     public override void OnTileEnter(TileProperties tile, BuildingType selected)
     {
           if (checkValidTile(lasttile))
-        {
+        {   
             lasttile.SetDeletePreview(false);
         }
           if (checkValidTile(tile))
         {
+            gameManager.SetSelectionScheme(scheme);
             tile.SetDeletePreview(true);
             lasttile = tile;
+        }
+          else
+        {
+            gameManager.SetSelectionScheme(selectionScheme);
         }
     }
 
@@ -101,12 +107,15 @@ public class DeleteInteraction : InteractionMode
     {
         if (checkValidTile(tile))
         {
+            gameManager.SetSelectionScheme(scheme);
             tile.SetDeletePreview(true);
             lasttile = tile;
         }
-
+        else
+        {
+            gameManager.SetSelectionScheme(selectionScheme);
+        }
         LeanTween.value(gameObject, updateBulldozerBorderSize, 0, 0.04f, 0.4f).setEase(LeanTweenType.easeOutBounce);
-        gameManager.SetSelectionScheme(scheme);
     }
 
     public override void OnModeExit(TileProperties tile, BuildingType selected)

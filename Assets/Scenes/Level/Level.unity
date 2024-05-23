@@ -11036,6 +11036,7 @@ MonoBehaviour:
   bulldozerPostProcessing: {fileID: 2100000, guid: be4de12278aefa74bbac7f182022e752, type: 2}
   rendererFeature: {fileID: -2186744672490536369, guid: ded71b0f450b707448f58662b5b44392, type: 2}
   scheme: {fileID: 11400000, guid: f11e9a5746abe154fafe287a2af6edc5, type: 2}
+  selectionScheme: {fileID: 11400000, guid: 0b00908e27a67df40b46ba0ef9d7d1f4, type: 2}
 --- !u!1 &1915314734
 GameObject:
   m_ObjectHideFlags: 0
@@ -11627,7 +11628,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aea4eebf6627e3a4591b9b122918b320, type: 2}
+  - {fileID: 2100000, guid: d699c80da6843554682eae778f280598, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
