@@ -79,13 +79,13 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         LeanTween.reset();
 
+
+
         deleteInteraction.gameManager = this;
         standardInteraction.gameManager = this;
         roadInteraction.gameManager = this;
         unselectedInteraction.gameManager = this;
         interaction = unselectedInteraction;
-        interaction.OnModeEnter(GetCurrentTile(), plyBuildingDesired);
-
         //settup input system
         inputActions = new Inputactions3D();
         inputActions.Player.Enable();
@@ -132,7 +132,6 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
     void UpdateResourceText()
     {
         resourceAmountsText[0].text = "<sprite name=\"wood\">" + inventory[0].Amount;
