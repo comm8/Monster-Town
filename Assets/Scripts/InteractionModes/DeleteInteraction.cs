@@ -86,23 +86,35 @@ public class DeleteInteraction : InteractionMode
 
     public override void OnTileEnter(TileProperties tile, BuildingType selected)
     {
-/*         if (lasttile != null)
+          if (lasttile != null && lasttile.buildingType != BuildingType.Road && lasttile.buildingType != BuildingType.None )
         {
             lasttile.SetDeletePreview(false);
         }
-
-        tile.SetDeletePreview(true);
-        lasttile = tile; */
+          if (tile != null && tile.buildingType != BuildingType.Road && tile.buildingType != BuildingType.None)
+        {
+            tile.SetDeletePreview(true);
+            lasttile = tile;
+        }
     }
 
     public override void OnModeEnter(TileProperties tile, BuildingType selected)
     {
+        if (tile != null && tile.buildingType != BuildingType.Road && tile.buildingType != BuildingType.None)
+        {
+            tile.SetDeletePreview(true);
+            lasttile = tile;
+        }
+
         LeanTween.value(gameObject, updateBulldozerBorderSize, 0, 0.04f, 0.4f).setEase(LeanTweenType.easeOutBounce);
         gameManager.SetSelectionScheme(scheme);
     }
 
     public override void OnModeExit(TileProperties tile, BuildingType selected)
     {
+        if (lasttile != null && lasttile.buildingType != BuildingType.Road && lasttile.buildingType != BuildingType.None)
+        {
+            lasttile.SetDeletePreview(false);
+        }
         LeanTween.value(gameObject, updateBulldozerBorderSize, 0.04f, 0, 0.4f).setEase(LeanTweenType.easeOutBounce);
     }
 
