@@ -23,6 +23,20 @@ public class TileProperties : GenericEntity
         }
     }
 
+    public void SetDeletePreview(bool toggle)
+    {
+
+        if (toggle)
+        {
+            tileMaterial.material.SetFloat("_DeletePreview", 0);
+        }
+        else
+        {
+            tileMaterial.material.SetFloat("_DeletePreview", 1);
+        }
+    }
+
+
     public void UpdateModel()
     {
         tileMaterial = GetComponentInChildren<MeshRenderer>();

@@ -9,6 +9,8 @@ public class DeleteInteraction : InteractionMode
 
     [SerializeField] SelectionScheme scheme;
 
+    TileProperties lasttile;
+
     public override void OnPressEnd(TileProperties tile, BuildingType selected)
     {
         //do nothing
@@ -50,7 +52,7 @@ public class DeleteInteraction : InteractionMode
         for (int i = 0; i < 4; i++)
         {
             var tile = adjacentTiles[i];
-            if(tile.y < 0 || tile.y > gameManager.gridSize || tile.x < 0 || tile.x > gameManager.gridSize)
+            if (tile.y < 0 || tile.y > gameManager.gridSize || tile.x < 0 || tile.x > gameManager.gridSize)
             {
                 continue;
             }
@@ -84,6 +86,13 @@ public class DeleteInteraction : InteractionMode
 
     public override void OnTileEnter(TileProperties tile, BuildingType selected)
     {
+/*         if (lasttile != null)
+        {
+            lasttile.SetDeletePreview(false);
+        }
+
+        tile.SetDeletePreview(true);
+        lasttile = tile; */
     }
 
     public override void OnModeEnter(TileProperties tile, BuildingType selected)
