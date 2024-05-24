@@ -23,11 +23,29 @@ public class TileProperties : GenericEntity
         }
     }
 
+    public void SetDeletePreview(bool toggle)
+    {
+        UpdateModel();
+        if (toggle)
+        {
+            tileMaterial.material.SetFloat("_DeletePreview", 1);
+        }
+        else
+        {
+            tileMaterial.material.SetFloat("_DeletePreview", 0);
+        }
+    }
+
+
     public void UpdateModel()
     {
         tileMaterial = GetComponentInChildren<MeshRenderer>();
     }
 
+    public void resetscale()
+    {
+        model.transform.localScale = Vector3.one;
+    }
 
 
 }

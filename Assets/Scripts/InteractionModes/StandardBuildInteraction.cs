@@ -19,8 +19,8 @@ public class StandardBuildInteraction : InteractionMode
             PlaceTile(tile, selected);
             tile.UpdateModel();
             tile.UpdateMonsterEmployment();
-            //CheckScheme(tile, selected);
-            gameManager.SetInteractionMode(gameManager.unselectedInteraction);
+            CheckScheme(tile, selected);
+            //gameManager.SetInteractionMode(gameManager.unselectedInteraction);
         }
         else
         {
@@ -83,4 +83,10 @@ public class StandardBuildInteraction : InteractionMode
             gameManager.SetSelectionScheme(InteractScheme);
         }
     }
+
+    public override void OnTileExit(TileProperties tile, BuildingType selected)
+    {
+        
+    }
+
 }

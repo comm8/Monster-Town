@@ -36,7 +36,7 @@ public class GridInitMono : MonoBehaviour
         towerProperties.locked = true;
         Destroy(towerProperties.model);
         towerProperties.model = Instantiate(gameManager.buildings.buildings[12].Model, towerProperties.modelTransform);
-
+        gameManager.interaction.OnModeEnter(gameManager.tileProperties[1], BuildingType.Farm);
         this.enabled = false;
 
     }

@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1bb2bbde86d3ed84fb2f73665b50fcb7, type: 3}
-  m_Name: DeleteScheme 1
+  m_Name: InvalidDeleteScheme
   m_EditorClassIdentifier: Assembly-CSharp:BuildingTools:SelectionScheme
-  lightColor: {r: 0, g: 0, b: 0, a: 0}
-  selectionMaterial: {fileID: 2100000, guid: 3dc4a23a7c03ca0478b8832c1c14e6c6, type: 2}
-  hologramMaterial: {fileID: 0}
+  lightColor: {r: 0.5283019, g: 0, b: 0, a: 0}
+  selectionMaterial: {fileID: 2100000, guid: d699c80da6843554682eae778f280598, type: 2}

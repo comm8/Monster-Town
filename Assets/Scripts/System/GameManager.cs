@@ -79,13 +79,13 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         LeanTween.reset();
 
+
+
         deleteInteraction.gameManager = this;
         standardInteraction.gameManager = this;
         roadInteraction.gameManager = this;
         unselectedInteraction.gameManager = this;
         interaction = unselectedInteraction;
-        interaction.OnModeEnter(GetCurrentTile(), plyBuildingDesired);
-
         //settup input system
         inputActions = new Inputactions3D();
         inputActions.Player.Enable();
@@ -122,17 +122,18 @@ public class GameManager : MonoBehaviour
     {
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
         {
-            SelectionGridPos = BuildingUtils.PositionToTile(hit.point);
-            Vector3 newPos = new Vector3(SelectionGridPos.x, 0, SelectionGridPos.y) * 10;
+           var newSelectionGridPos = BuildingUtils.PositionToTile(hit.point);
+            Vector3 newPos = new Vector3(newSelectionGridPos.x, 0, newSelectionGridPos.y) * 10;
 
             if (newPos != Selection.position)
             {
+                interaction.OnTileExit(GetCurrentTile(),plyBuildingDesired);
+                SelectionGridPos = newSelectionGridPos;
                 Selection.position = newPos;
                 interaction.OnTileEnter(GetCurrentTile(), plyBuildingDesired);
             }
         }
     }
-
     void UpdateResourceText()
     {
         resourceAmountsText[0].text = "<sprite name=\"wood\">" + inventory[0].Amount;

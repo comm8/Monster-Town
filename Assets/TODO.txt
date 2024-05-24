@@ -8,9 +8,6 @@ Add Clear Cost in  building placement mode:
 make unemployed units show at the top of unit selection menu
 make road wider
 
-add unselected selection mode
-make selection red if cant afford building
-
 add colors for employed monsters
 
 clearly showcase building production and prod reasources from the map view

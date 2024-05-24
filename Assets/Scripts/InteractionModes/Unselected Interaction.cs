@@ -44,6 +44,10 @@ public class UnselectedInteraction : InteractionMode
         CheckScheme(tile, selected);
     }
 
+    public override void OnTileExit(TileProperties tile, BuildingType selected)
+    {
+
+    }
 
     void CheckScheme(TileProperties tile, BuildingType selected)
     {
