@@ -67,9 +67,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform PopupBar;
 
     [SerializeField] GameObject PopupBubble;
+
+    [SerializeField] GameObject ValidAreaTile;
+    ValidAreaMap[] validAreas;
     private void Awake()
     {
 
+        validAreas = new ValidAreaMap[11];
+        for (int column = 0; column < validAreas.Length; column++)
+        {
+            validAreas[column] = Instantiate(ValidAreaTile).GetComponent<ValidAreaMap>();
+            validAreas[column].SetShape(Selection.transform.position, true, true, true, true);
+        }
 
         //Init Tile array
         tileProperties = new TileProperties[gridSize * gridSize];
@@ -122,12 +131,12 @@ public class GameManager : MonoBehaviour
     {
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
         {
-           var newSelectionGridPos = BuildingUtils.PositionToTile(hit.point);
+            var newSelectionGridPos = BuildingUtils.PositionToTile(hit.point);
             Vector3 newPos = new Vector3(newSelectionGridPos.x, 0, newSelectionGridPos.y) * 10;
 
             if (newPos != Selection.position)
             {
-                interaction.OnTileExit(GetCurrentTile(),plyBuildingDesired);
+                interaction.OnTileExit(GetCurrentTile(), plyBuildingDesired);
                 SelectionGridPos = newSelectionGridPos;
                 Selection.position = newPos;
                 interaction.OnTileEnter(GetCurrentTile(), plyBuildingDesired);
@@ -381,6 +390,18 @@ public class GameManager : MonoBehaviour
         selectionLight.color = scheme.lightColor;
         selectionRenderer.material = scheme.selectionMaterial;
     }
+
+    public void SetAreaTheme(SelectionScheme scheme)
+    {
+
+    }
+
+    public void UpdateArea()
+    {
+
+    }
+
+
 
     public void DevGive999()
     {
