@@ -107,6 +107,15 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Grab"",
+                    ""type"": ""Button"",
+                    ""id"": ""164836c5-ff3a-4897-ad5b-4b370231ccf0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -258,7 +267,7 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
                     ""id"": ""8c8e490b-c610-4785-884f-f04217b23ca4"",
                     ""path"": ""<Pointer>/delta"",
                     ""interactions"": """",
-                    ""processors"": ""ScaleVector2(x=0.1,y=0.001)"",
+                    ""processors"": ""ScaleVector2(x=0.1,y=0.1)"",
                     ""groups"": "";Keyboard&Mouse;Touch"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
@@ -430,17 +439,6 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""28636bbb-0d82-48e7-8c27-4b6e5798a980"",
-                    ""path"": ""<Mouse>/middleButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RotationMode"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""Keyboard"",
                     ""id"": ""f55a0ffa-6205-4861-b498-3c678dd0552c"",
                     ""path"": ""1DAxis"",
@@ -547,6 +545,17 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4d79395c-9ee8-45b4-bd58-512bb44a339d"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Grab"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1143,6 +1152,7 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
         m_Player_Rotate = m_Player.FindAction("Rotate", throwIfNotFound: true);
         m_Player_Delete = m_Player.FindAction("Delete", throwIfNotFound: true);
         m_Player_Escape = m_Player.FindAction("Escape", throwIfNotFound: true);
+        m_Player_Grab = m_Player.FindAction("Grab", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1225,6 +1235,7 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Rotate;
     private readonly InputAction m_Player_Delete;
     private readonly InputAction m_Player_Escape;
+    private readonly InputAction m_Player_Grab;
     public struct PlayerActions
     {
         private @Inputactions3D m_Wrapper;
@@ -1238,6 +1249,7 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
         public InputAction @Rotate => m_Wrapper.m_Player_Rotate;
         public InputAction @Delete => m_Wrapper.m_Player_Delete;
         public InputAction @Escape => m_Wrapper.m_Player_Escape;
+        public InputAction @Grab => m_Wrapper.m_Player_Grab;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1274,6 +1286,9 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
             @Escape.started += instance.OnEscape;
             @Escape.performed += instance.OnEscape;
             @Escape.canceled += instance.OnEscape;
+            @Grab.started += instance.OnGrab;
+            @Grab.performed += instance.OnGrab;
+            @Grab.canceled += instance.OnGrab;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1305,6 +1320,9 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
             @Escape.started -= instance.OnEscape;
             @Escape.performed -= instance.OnEscape;
             @Escape.canceled -= instance.OnEscape;
+            @Grab.started -= instance.OnGrab;
+            @Grab.performed -= instance.OnGrab;
+            @Grab.canceled -= instance.OnGrab;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1496,6 +1514,7 @@ public partial class @Inputactions3D: IInputActionCollection2, IDisposable
         void OnRotate(InputAction.CallbackContext context);
         void OnDelete(InputAction.CallbackContext context);
         void OnEscape(InputAction.CallbackContext context);
+        void OnGrab(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

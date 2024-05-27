@@ -76,7 +76,7 @@ public class CameraController : MonoBehaviour
 
         if (allowRotation)
         {
-            deltaZoom += inputActions.Player.Look.ReadValue<Vector2>().y;
+            deltaZoom += inputActions.Player.Look.ReadValue<Vector2>().y * 0.01f;
         }
 
         if (deltaZoom + zoomPercentage > 1 || deltaZoom + zoomPercentage < 0)
@@ -120,6 +120,11 @@ public class CameraController : MonoBehaviour
         rotFreeTransform.Rotate(Vector3.up * (transform.eulerAngles.y - rotFreeTransform.eulerAngles.y));
 
         Vector2 DesiredMovement = inputActions.Player.Move.ReadValue<Vector2>()  * Time.deltaTime * movementMultiplier * (zoomPercentage + 0.7f) * accelerationCurve.Evaluate(accelerationTimer / accelerationTime);
+
+        if(inputActions.Player.Grab.ReadValue<float>() > 0.5f)
+        {
+            DesiredMovement -= inputActions.Player.Look.ReadValue<Vector2>() * (zoomPercentage + 0.7f);
+        }
 
         transform.position += rotFreeTransform.TransformDirection(Swizzle._x0y(DesiredMovement));
 

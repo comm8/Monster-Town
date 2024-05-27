@@ -85,6 +85,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Grab",
+                    "type": "Button",
+                    "id": "164836c5-ff3a-4897-ad5b-4b370231ccf0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -236,7 +245,7 @@
                     "id": "8c8e490b-c610-4785-884f-f04217b23ca4",
                     "path": "<Pointer>/delta",
                     "interactions": "",
-                    "processors": "ScaleVector2(x=0.1,y=0.001)",
+                    "processors": "ScaleVector2(x=0.1,y=0.1)",
                     "groups": ";Keyboard&Mouse;Touch",
                     "action": "Look",
                     "isComposite": false,
@@ -408,17 +417,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "28636bbb-0d82-48e7-8c27-4b6e5798a980",
-                    "path": "<Mouse>/middleButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RotationMode",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "Keyboard",
                     "id": "f55a0ffa-6205-4861-b498-3c678dd0552c",
                     "path": "1DAxis",
@@ -525,6 +523,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Escape",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4d79395c-9ee8-45b4-bd58-512bb44a339d",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
