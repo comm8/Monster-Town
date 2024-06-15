@@ -4,30 +4,35 @@ using UnityEngine;
 
 public class BuildingFlavourPanel : MonoBehaviour
 {
-    bool toggle = true;
-    public GameObject pullTab;
+
+    [SerializeField] bool startExtended;
+    [SerializeField] float pullTabExtendLength = 17f;
+    [SerializeField] float PanelExtendLength = 105f;
+
+
+
+    bool toggled = true;
+    [SerializeField] GameObject pullTab;
+
+    void Start()
+    {
+        if(!startExtended)
+        {
+            toggled=false;
+            pullTab.transform.localPosition += transform.up * pullTabExtendLength;
+            transform.localPosition += transform.up * PanelExtendLength;
+        }
+    }
 
 
     public void Toggle()
     {
-        toggle = !toggle;
-        if (!toggle)
-        {
-            LeanTween.moveLocalY(pullTab, -50f, 0.5f).setEase(LeanTweenType.easeOutBounce).setOnComplete(PullInPanel);
-        }
-        else
-        {
-            LeanTween.moveLocalY(pullTab, -67f, 0.5f).setEase(LeanTweenType.easeOutBounce).setOnComplete(PullOutPanel);
-        }
+        toggled = !toggled;
+        LeanTween.moveLocalY(pullTab, pullTab.transform.localPosition.y + (pullTabExtendLength * (toggled ? -1 : 1)), 0.5f).setEase(LeanTweenType.easeOutBounce).setOnComplete(TogglePanel);
     }
 
-    void PullInPanel()
+    void TogglePanel()
     {
-        LeanTween.moveLocalY(gameObject, 200, 0.5f).setEase(LeanTweenType.easeOutBounce);
+        LeanTween.moveLocalY(gameObject, gameObject.transform.localPosition.y + (PanelExtendLength * (toggled ? -1 : 1)) , 0.5f).setEase(LeanTweenType.easeOutBounce);
     }
-    void PullOutPanel()
-    {
-        LeanTween.moveLocalY(gameObject, 95, 0.5f).setEase(LeanTweenType.easeOutBounce);
-    }
-
 }
