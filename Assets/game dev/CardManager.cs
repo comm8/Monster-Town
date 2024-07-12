@@ -22,9 +22,11 @@ public class CardManager : MonoBehaviour
             plane = Plane; uiElement = UIElement;
         }
     }
-    
+
     public GameObject cardSlotTemplate, UIParent;
     Transform cameraTransform;
+
+    Card currentHeldCard;
     void Awake()
     {
         instance = this;
@@ -37,7 +39,21 @@ public class CardManager : MonoBehaviour
     Vector3 scale = Vector3.one * 75;
 
 
+    public void CreateSlot(Transform parent3DEntity, bool CreateCard)
+    {
+    var CardSlot = Instantiate(cardSlotTemplate, UIParent.transform);
 
+     addUItransform(new UITransformContainer(parent3DEntity, CardSlot.GetComponent<RectTransform>()));
+
+    }
+    public void CreateCard()
+    {
+
+    }
+
+        /// <summary>
+    /// Adds A UI element synced to world space
+    /// </summary>
     public void addUItransform(UITransformContainer container)
     {
         UITransformContainers.Add(container);
@@ -59,12 +75,27 @@ public class CardManager : MonoBehaviour
         uiElement.position = planeScreenPosition;
     }
 
+    public void MouseOnSlot(CardSlot slot)
+    {
+        if (currentHeldCard != null)
+        {
+            slot.PushCardToSlot(currentHeldCard.slot);
+        }
+    }
+
+    internal void MouseOffSlot(CardSlot cardSlot)
+    {
+        if (currentHeldCard != null)
+        {
+            cardSlot.ReturnCardToSelf(currentHeldCard.slot);
+        }
+    }
 
 
-//Cards: 
-//every unit has a card in the card panel, which can be dragged out and released on a card slot
-//when released, the card gets parented to the valid slot, and leantweens to the correct pos and scale.
-//if theres no new valid spot, it returns via leantween to its original pos.
+    //Cards: 
+    //every unit has a card in the card panel, which can be dragged out and released on a card slot
+    //when released, the card gets parented to the valid slot, and leantweens to the correct pos and scale.
+    //if theres no new valid spot, it returns via leantween to its original pos.
 
 
 }

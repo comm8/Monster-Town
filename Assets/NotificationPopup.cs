@@ -23,11 +23,4 @@ public class NotificationPopup : MonoBehaviour
     {
         Destroy(transform.parent.gameObject);
     }
-
-    void Update()
-    {
-        //transform.position += (transform.position - lastPos) * 0.1f;
-        //lastPos = transform.parent.position;
-
-    }
 }

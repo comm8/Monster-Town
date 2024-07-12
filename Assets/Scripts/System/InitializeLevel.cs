@@ -2,8 +2,9 @@ using UnityEngine;
 using Unity.Mathematics;
 using BuildingTools;
 
-public class GridInitMono : MonoBehaviour
+public class InitializeLevel : MonoBehaviour
 {
+    public static InitializeLevel instance;
     [SerializeField] Transform tileParent;
 
     public string[] Names;
@@ -27,7 +28,7 @@ public class GridInitMono : MonoBehaviour
                 tileProperties.model = Instantiate(gameManager.buildings.GetBuilding(BuildingType.None).Model, tileProperties.modelTransform);
                 gameManager.tileProperties[x * gameManager.gridSize + y] = tileProperties;
                 entity.GetComponentInChildren<TileAnimator>().CacheDeltaPos();
-                CardManager.instance.addUItransform(new CardManager.UITransformContainer(entity.transform, Instantiate(CardManager.instance.cardSlotTemplate, CardManager.instance.UIParent.transform).GetComponent<RectTransform>()));
+                CardManager.instance.CreateSlot(entity.transform, false);
                 iterator++;
             }
         }

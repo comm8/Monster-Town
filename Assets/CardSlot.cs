@@ -1,17 +1,43 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class CardSlot : MonoBehaviour
+public class CardSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public Transform myCard;
+    public Card myCard;
     bool hasCard;
 
-    void Update()
+    public void SetCard(Card card)
     {
-        if(myCard)
+        if(myCard != null)
         {
-         myCard.position = transform.position;   
+            myCard = card;
+            card.slot = this;
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Debug.Log("pointer enter");
+        CardManager.instance.MouseOnSlot(this);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        CardManager.instance.MouseOffSlot(this);
+    }
+
+    public void PushCardToSlot(CardSlot slot)
+    {
+        myCard.transform.SetParent(slot.transform);
+        myCard.ReleaseCard();
+    }
+
+    internal void ReturnCardToSelf(CardSlot slot)
+    {
+        myCard.transform.SetParent(transform);
+        myCard.ReleaseCard();
     }
 }

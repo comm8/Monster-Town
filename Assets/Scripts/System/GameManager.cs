@@ -281,7 +281,7 @@ public class GameManager : MonoBehaviour
 
     void GenerateMonster()
     {
-        var gridInit = GetComponent<GridInitMono>();
+        var gridInit = GetComponent<InitializeLevel>();
 
         var myType = monsterSpawnChance[spawnWeightedRandomMonster.GetRandom()];
 
