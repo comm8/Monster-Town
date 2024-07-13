@@ -72,18 +72,10 @@ public class GameManager : MonoBehaviour
     ValidAreaMap[] validAreas;
     private void Awake()
     {
-/* 
-        validAreas = new ValidAreaMap[11];
-        for (int column = 0; column < validAreas.Length; column++)
-        {
-            validAreas[column] = Instantiate(ValidAreaTile).GetComponent<ValidAreaMap>();
-            validAreas[column].SetShape(Selection.transform.position, true, true, true, true);
-        } */
-
-        //Init Tile array
+        instance = this;
         tileProperties = new TileProperties[gridSize * gridSize];
         InvokeRepeating(nameof(UpdateTiles), 0.3f, 1f);
-        instance = this;
+
 
         Time.timeScale = 1;
         LeanTween.reset();

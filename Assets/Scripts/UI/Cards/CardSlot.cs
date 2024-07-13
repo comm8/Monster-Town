@@ -11,7 +11,7 @@ public class CardSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void SetCard(Card card)
     {
-        if(myCard != null)
+        if(myCard == null)
         {
             myCard = card;
             card.slot = this;

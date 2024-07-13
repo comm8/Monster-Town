@@ -26,7 +26,8 @@ public class CardManager : MonoBehaviour
     public GameObject cardSlotTemplate, UIParent;
     Transform cameraTransform;
 
-    Card currentHeldCard;
+    [SerializeField] Card heldCard;
+    [SerializeField] CardSlot selectedSlot;
     void Awake()
     {
         instance = this;
@@ -41,9 +42,9 @@ public class CardManager : MonoBehaviour
 
     public void CreateSlot(Transform parent3DEntity, bool CreateCard)
     {
-    var CardSlot = Instantiate(cardSlotTemplate, UIParent.transform);
+        var CardSlot = Instantiate(cardSlotTemplate, UIParent.transform);
 
-     addUItransform(new UITransformContainer(parent3DEntity, CardSlot.GetComponent<RectTransform>()));
+        addUItransform(new UITransformContainer(parent3DEntity, CardSlot.GetComponent<RectTransform>()));
 
     }
     public void CreateCard()
@@ -51,7 +52,7 @@ public class CardManager : MonoBehaviour
 
     }
 
-        /// <summary>
+    /// <summary>
     /// Adds A UI element synced to world space
     /// </summary>
     public void addUItransform(UITransformContainer container)
@@ -77,20 +78,47 @@ public class CardManager : MonoBehaviour
 
     public void MouseOnSlot(CardSlot slot)
     {
-        if (currentHeldCard != null)
+        if (heldCard != null)
         {
-            slot.PushCardToSlot(currentHeldCard.slot);
+            selectedSlot = slot;
+            //if (slot == currentHeldCard.slot) { return; }
+            slot.PushCardToSlot(heldCard.slot);
         }
     }
 
-    internal void MouseOffSlot(CardSlot cardSlot)
+    internal void MouseOffSlot(CardSlot slot)
     {
-        if (currentHeldCard != null)
+        selectedSlot = null;
+
+        if (heldCard != null)
         {
-            cardSlot.ReturnCardToSelf(currentHeldCard.slot);
+            if (slot == heldCard.slot) { return; }
+            slot.ReturnCardToSelf(heldCard.slot);
         }
     }
 
+
+    public void SetCurrentlyHeldCard(Card card)
+    {
+        heldCard = card;
+    }
+
+    internal void TrySetCardToSlot()
+    {
+        if (selectedSlot != null)
+        {
+            Card tempCard = selectedSlot.myCard;
+
+            selectedSlot.myCard = heldCard;
+            tempCard.slot = heldCard.slot;
+            heldCard.slot = selectedSlot;
+            tempCard.ReleaseCard();
+        }
+
+
+
+
+    }
 
     //Cards: 
     //every unit has a card in the card panel, which can be dragged out and released on a card slot
