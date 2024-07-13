@@ -3,6 +3,7 @@ using UnityEngine;
 using SerializableDictionary;
 using System.Collections.Generic;
 using System;
+using UnityEngine.InputSystem;
 
 public class CardManager : MonoBehaviour
 {
@@ -74,20 +75,26 @@ public class CardManager : MonoBehaviour
         Vector3 planeScreenPosition = Camera.main.WorldToScreenPoint(plane.position);
         uiElement.localScale = scale / Vector3.Project(plane.position - Camera.main.transform.position, Camera.main.transform.forward).magnitude;
         uiElement.position = planeScreenPosition;
+
+        //somehow sort the UI elements based on depth
     }
 
     public void MouseOnSlot(CardSlot slot)
     {
-        if (heldCard != null)
+        if (heldCard != null && heldCard.slot != slot)
         {
+            if(selectedSlot != null)
+            {
+                MouseOffSlot(selectedSlot);
+            }
             selectedSlot = slot;
-            //if (slot == currentHeldCard.slot) { return; }
             slot.PushCardToSlot(heldCard.slot);
         }
     }
 
     internal void MouseOffSlot(CardSlot slot)
     {
+        if(slot != selectedSlot) {return;}
         selectedSlot = null;
 
         if (heldCard != null)

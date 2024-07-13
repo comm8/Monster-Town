@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using BuildingTools;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -11,7 +12,7 @@ public class CardSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void SetCard(Card card)
     {
-        if(myCard == null)
+        if (myCard == null)
         {
             myCard = card;
             card.slot = this;
@@ -31,12 +32,15 @@ public class CardSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void PushCardToSlot(CardSlot slot)
     {
+        if (myCard == null) { return; }
         myCard.transform.SetParent(slot.transform);
         myCard.ReleaseCard();
+
     }
 
     internal void ReturnCardToSelf(CardSlot slot)
     {
+        if (myCard == null) { return; }
         myCard.transform.SetParent(transform);
         myCard.ReleaseCard();
     }

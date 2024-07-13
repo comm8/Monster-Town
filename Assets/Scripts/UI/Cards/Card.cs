@@ -17,7 +17,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     public void OnBeginDrag(PointerEventData eventData)
     {
         dragging = true;
-       // offset = 
+        offset = transform.position - new Vector3(eventData.position.x, eventData.position.y, 0);
         CardManager.instance.SetCurrentlyHeldCard(this);
         image.raycastTarget = false;
         //report to card manager;
@@ -27,7 +27,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position += eventData.delta._xy0();
+        transform.position = new Vector3(eventData.position.x, eventData.position.y, 0) + offset;
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -44,8 +44,15 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     public void ReleaseCard()
     {
         dragging = false;
-        LeanTween.moveLocal(gameObject, Vector3.zero, 0.5f).setEase(LeanTweenType.easeOutExpo);
+        LeanTween.cancel(this.gameObject);
+        image.raycastTarget = false;
+        LeanTween.moveLocal(gameObject, Vector3.zero, 0.5f).setEase(LeanTweenType.easeOutExpo).setOnComplete(UpdateCollision);
         LeanTween.scale(gameObject, Vector3.one, 0.5f).setEase(LeanTweenType.easeOutExpo);
+    }
+
+    void UpdateCollision()
+    {
+        image.raycastTarget = true;
     }
 
     void Start()
