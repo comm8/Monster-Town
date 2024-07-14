@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
 
-    bool dragging;
     public Image image;
     public CardSlot slot;
 
@@ -16,7 +15,6 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        dragging = true;
         offset = transform.position - new Vector3(eventData.position.x, eventData.position.y, 0);
         CardManager.instance.SetCurrentlyHeldCard(this);
         image.raycastTarget = false;
@@ -43,8 +41,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     public void ReleaseCard()
     {
-        dragging = false;
-        LeanTween.cancel(this.gameObject);
+        LeanTween.cancel(gameObject);
         image.raycastTarget = false;
         LeanTween.moveLocal(gameObject, Vector3.zero, 0.5f).setEase(LeanTweenType.easeOutExpo).setOnComplete(UpdateCollision);
         LeanTween.scale(gameObject, Vector3.one, 0.5f).setEase(LeanTweenType.easeOutExpo);

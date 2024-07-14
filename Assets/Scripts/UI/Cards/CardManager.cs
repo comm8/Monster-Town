@@ -82,20 +82,20 @@ public class CardManager : MonoBehaviour
 
     public void MouseOnSlot(CardSlot slot)
     {
-        if (heldCard != null && heldCard.slot != slot)
+        if (heldCard == null || heldCard.slot == slot) { return; }
+
+        if (selectedSlot != null)
         {
-            if (selectedSlot != null)
-            {
-                MouseOffSlot(selectedSlot);
-            }
-            selectedSlot = slot;
-            slot.PushCardToSlot(heldCard.slot);
+            selectedSlot.ReturnCardToSelf();
         }
+
+        selectedSlot = slot;
+        slot.PushCardToSlot(heldCard.slot);
+
     }
 
-    internal void MouseOffSlot(CardSlot slot)
+    public void MouseOffSlot(CardSlot slot)
     {
-
 
         if (slot == selectedSlot) { selectedSlot = null; }
 
@@ -113,7 +113,7 @@ public class CardManager : MonoBehaviour
         heldCard = card;
     }
 
-    internal void TrySetCardToSlot()
+    public void TrySetCardToSlot()
     {
         if (selectedSlot != null)
         {
@@ -122,7 +122,7 @@ public class CardManager : MonoBehaviour
             selectedSlot.myCard = heldCard;
             tempCard.slot = heldCard.slot;
             heldCard.slot = selectedSlot;
-            tempCard.ReleaseCard();
+            tempCard.slot.ReturnCardToSelf();
         }
 
 
