@@ -63,6 +63,7 @@ public class CardManager : MonoBehaviour
 
     void LateUpdate()
     {
+        if (UIParent.activeSelf == false) { return; }
         foreach (var container in UITransformContainers)
         {
             AlignUIElementWithPlane(container.plane, container.uiElement);
@@ -83,7 +84,7 @@ public class CardManager : MonoBehaviour
     {
         if (heldCard != null && heldCard.slot != slot)
         {
-            if(selectedSlot != null)
+            if (selectedSlot != null)
             {
                 MouseOffSlot(selectedSlot);
             }
@@ -94,13 +95,15 @@ public class CardManager : MonoBehaviour
 
     internal void MouseOffSlot(CardSlot slot)
     {
-        if(slot != selectedSlot) {return;}
-        selectedSlot = null;
+
+
+        if (slot == selectedSlot) { selectedSlot = null; }
+
 
         if (heldCard != null)
         {
             if (slot == heldCard.slot) { return; }
-            slot.ReturnCardToSelf(heldCard.slot);
+            slot.ReturnCardToSelf();
         }
     }
 
@@ -125,6 +128,11 @@ public class CardManager : MonoBehaviour
 
 
 
+    }
+
+    public void ToggleDisplayCards()
+    {
+        UIParent.SetActive(!UIParent.activeSelf);
     }
 
     //Cards: 

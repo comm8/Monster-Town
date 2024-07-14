@@ -38,7 +38,7 @@ public class CardSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     }
 
-    internal void ReturnCardToSelf(CardSlot slot)
+    internal void ReturnCardToSelf()
     {
         if (myCard == null) { return; }
         myCard.transform.SetParent(transform);
