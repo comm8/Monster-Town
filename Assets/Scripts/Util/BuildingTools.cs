@@ -20,7 +20,7 @@ namespace BuildingTools
 
         public static int CoordsToSlotID(int3 coords, int3 gridDimensions)
         {
-            return coords.x + (coords.y * gridDimensions.x) + (coords.z * gridDimensions.x * gridDimensions.y);
+            return coords.x + (coords.z * gridDimensions.z) + (coords.y * gridDimensions.x * gridDimensions.z);
         }
 
         public static int3 PositionToTile(float3 InputPos)
