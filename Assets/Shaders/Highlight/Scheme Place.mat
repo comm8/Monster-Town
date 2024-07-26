@@ -101,7 +101,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _Multiplier: 16.47
+    - _Multiplier: 5
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _Pow: 0.07
