@@ -129,7 +129,6 @@ public class GameManager : MonoBehaviour
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
         {
             var newSelectionGridPos = BuildingUtils.PositionToTile(hit.point);
-            Debug.Log(newSelectionGridPos);
             Vector3 newPos = new Vector3(newSelectionGridPos.x, newSelectionGridPos.y, newSelectionGridPos.z) * 10;
 
             if (newPos != Selection.position)

@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using System.Xml.Linq;
-using System;
+using BuildingTools;
 using Unity.Mathematics;
 
 public class LevelBuilder : EditorWindow
@@ -16,6 +13,10 @@ public class LevelBuilder : EditorWindow
 
 
     Vector2 scrollPosition;
+
+
+
+    Vector3 hitpositon = Vector3.zero;
 
 
 
@@ -58,9 +59,6 @@ public class LevelBuilder : EditorWindow
         columns = Mathf.Max(1, Mathf.FloorToInt(position.width / elementWidth));
         int rowCount = Mathf.CeilToInt((float)props.Length / columns);
         for (int row = 0; row < rowCount; row++)
-
-
-
         {
             GUILayout.BeginHorizontal();
 
@@ -93,7 +91,7 @@ public class LevelBuilder : EditorWindow
         GUILayout.BeginHorizontal();
         if (GUILayout.Button("Draw 3D Grid"))
         {
-         
+
         }
         if (GUILayout.Button("Refresh Props"))
         {
@@ -104,8 +102,63 @@ public class LevelBuilder : EditorWindow
         GUILayout.EndHorizontal();
     }
 
+    private bool PerformRaycast(Ray ray)
+    {
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            hitpositon = hit.point;
+            return true;
+        }
+        else
+        {
+            hitpositon = Vector3.left * 50;
+            return false;
+        }
+    }
 
 
+
+    private void OnSceneGUI(SceneView sceneView)
+    {
+        if (Tools.current != Tool.Custom) { return; }
+
+        Event e = Event.current;
+
+        if (e.type == EventType.MouseDown && e.button == 0)
+        {
+            e.Use();
+        }
+
+        if (e.type == EventType.Repaint)
+        {
+            Vector2 mousePosition = e.mousePosition;
+
+            // Correct the mouse position
+            //mousePosition.y = SceneView.currentDrawingSceneView.camera.pixelHeight - mousePosition.y;
+
+            Ray ray = HandleUtility.GUIPointToWorldRay(mousePosition);
+            PerformRaycast(ray);
+        }
+
+        int3 coords = BuildingUtils.PositionToTile(hitpositon);
+        hitpositon = new Vector3(coords.x, coords.y, coords.z) * 10;
+
+        // Visualize the ray in the Scene view
+        Handles.color = Color.red;
+        Handles.DrawWireCube(hitpositon + (Vector3.up * 5), Vector3.one * 10);
+
+    }
+
+
+    private void OnEnable()
+    {
+        SceneView.duringSceneGui += OnSceneGUI;
+    }
+
+    private void OnDisable()
+    {
+        SceneView.duringSceneGui -= OnSceneGUI;
+    }
 
 
 }

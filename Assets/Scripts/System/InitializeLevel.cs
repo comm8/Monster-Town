@@ -41,6 +41,5 @@ public class InitializeLevel : MonoBehaviour
         }
         gameManager.interaction.OnModeEnter(gameManager.tileProperties[1], BuildingType.Farm);
         enabled = false;
-
     }
 }

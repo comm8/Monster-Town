@@ -17,14 +17,17 @@ public class PropTool : EditorTool
         {
             return;
         }
-
-        Handles.RectangleHandleCap( 0,
-                new Vector3(3f, 0f, 0f),
-                Quaternion.LookRotation(Vector3.right),
-                10,
-                EventType.Repaint );
-
+        
+        //do raycast
+        //move cursor to raycast
+        
+        //
+        //on click
+        //if in valid zone then create object at tile position
+        //register tile
 
     }
+
+    
 }
 
