@@ -4,7 +4,6 @@ using Unity.Mathematics;
 using UnityEngine.EventSystems;
 using SerializableDictionary.Scripts;
 using System.Collections.Generic;
-using UnityEngine.Rendering.Universal;
 using TMPro;
 using System;
 
@@ -15,7 +14,7 @@ public class GameManager : MonoBehaviour
     [Header("Tile Utilities")]
     [SerializeField] Transform cameraTransform;
     Inputactions3D inputActions;
-    public int gridSize = 20;
+    public int3 gridDimensions;
     public GameObject tilePrefab;
     public GameObject UnitSelectionPrefab;
 
@@ -26,7 +25,7 @@ public class GameManager : MonoBehaviour
     public Light selectionLight;
     public GameObject selectionHologram;
 
-    public int2 SelectionGridPos = new(0, 0);
+    public int3 SelectionGridPos = new(0, 0, 0);
     [SerializeField] BuildingType plyBuildingDesired;
     [HideInInspector] public bool pointerOverUI = false;
 
@@ -43,6 +42,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] SerializableDictionary<RoadTable, Vector2> roadShapeDictionary;
 
     [SerializeField] GameObject UI;
+
+    bool[] bitmask = new bool[400];
 
     bool Interacting;
     bool deleteMode;
@@ -70,10 +71,14 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject ValidAreaTile;
     ValidAreaMap[] validAreas;
+
+    public List<string> names;
     private void Awake()
     {
         instance = this;
-        tileProperties = new TileProperties[gridSize * gridSize];
+        //update to only store buildings
+        tileProperties = new TileProperties[gridDimensions.x * gridDimensions.y * gridDimensions.z];
+        Debug.Log(tileProperties.Length);
         InvokeRepeating(nameof(UpdateTiles), 0.3f, 1f);
 
 
@@ -124,7 +129,8 @@ public class GameManager : MonoBehaviour
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
         {
             var newSelectionGridPos = BuildingUtils.PositionToTile(hit.point);
-            Vector3 newPos = new Vector3(newSelectionGridPos.x, 0, newSelectionGridPos.y) * 10;
+            Debug.Log(newSelectionGridPos);
+            Vector3 newPos = new Vector3(newSelectionGridPos.x, newSelectionGridPos.y, newSelectionGridPos.z) * 10;
 
             if (newPos != Selection.position)
             {
@@ -188,10 +194,17 @@ public class GameManager : MonoBehaviour
 
     TileProperties GetCurrentTile()
     {
-        var curTile = BuildingUtils.CoordsToSlotID(SelectionGridPos, gridSize);
+        int curTile = BuildingUtils.CoordsToSlotID(SelectionGridPos, gridDimensions);
 
         if (!(curTile < tileProperties.Length && curTile >= 0)) { throw new ArgumentException("Given Coords " + SelectionGridPos + " " + curTile + " is out of bounds of the map!"); }
         return tileProperties[curTile];
+    }
+
+    public void UpdateBitMask(ushort id, bool value)
+    {
+        bitmask[id] = value;
+        //get AI to update 
+        Debug.Log("updated bitmask to" + value + " at " + BuildingUtils.SlotIDToCoords(id, 20));
     }
 
     public void RefreshUnitSelectionPanel(TileProperties tile)
@@ -277,7 +290,7 @@ public class GameManager : MonoBehaviour
 
         var myType = monsterSpawnChance[spawnWeightedRandomMonster.GetRandom()];
 
-        monsters.Add(new MonsterStats { name = gridInit.Names[UnityEngine.Random.Range(0, 99)], type = (MonsterType)myType.cost, icon = imageDictionary.Get((MonsterType)myType.cost), ID = (ushort)(monsters.Count) });
+        monsters.Add(new MonsterStats { name = names[UnityEngine.Random.Range(0, names.Count - 1)], type = (MonsterType)myType.cost, icon = imageDictionary.Get((MonsterType)myType.cost), ID = (ushort)(monsters.Count) });
         Debug.Log(myType.name);
         unitSelectionPanel.AddMonster(monsters.Count - 1);
     }

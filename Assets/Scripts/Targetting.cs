@@ -24,7 +24,7 @@ public Camera targetCamera;
 
     void Start()
     {
-        maxEntityCount = GameManager.instance.gridSize * GameManager.instance.gridSize + GameManager.instance.maxEnemies;
+        maxEntityCount = GameManager.instance.gridDimensions.x * GameManager.instance.gridDimensions.z + GameManager.instance.maxEnemies;
 
         cullGroup = new CullingGroup();
         cullGroup.targetCamera = targetCamera;

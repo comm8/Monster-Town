@@ -1,17 +1,16 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using BuildingTools;
-using SerializableDictionary;
-using UnityEngine.AI;
-
+using Unity.Mathematics;
 
 public class Human : GenericEntity
 {
     public BehaviorState state = BehaviorState.Pathfinding;
     public bool stunned;
     public byte stunCooldown;
-    public NavMeshAgent agent;
+    private int2 coordPos;
+    private int2 targetPos;
+    private byte[] directions;
 
     void Awake()
     {
@@ -50,7 +49,7 @@ public class Human : GenericEntity
 
     void PathFind()
     {
-        //agent.SetDestination
+        
 
 
     }

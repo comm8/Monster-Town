@@ -1,6 +1,5 @@
 using UnityEngine;
 using BuildingTools;
-using Unity.Mathematics;
 
 public class TileProperties : GenericEntity
 {
@@ -46,8 +45,6 @@ public class TileProperties : GenericEntity
     {
         model.transform.localScale = Vector3.one;
     }
-
-
 }
 
 

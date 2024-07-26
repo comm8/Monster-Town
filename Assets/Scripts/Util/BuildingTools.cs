@@ -10,20 +10,22 @@ namespace BuildingTools
     [BurstCompile]
     public static class BuildingUtils
     {
-        public static int2 SlotIDToCoords(int slotID, int tileSize)
+        public static int3 SlotIDToCoords(int ID, int3 gridDimensions)
         {
-            int mod = slotID % tileSize;
-            return new int2(mod, slotID - mod);
+            int x = ID % gridDimensions.x;
+            int y = ID / gridDimensions.x % gridDimensions.y;
+            int z = ID / (gridDimensions.x * gridDimensions.y);
+            return new int3(x,y,z);
         }
 
-        public static int CoordsToSlotID(int2 coords, int tileSize)
+        public static int CoordsToSlotID(int3 coords, int3 gridDimensions)
         {
-            return coords.x + (coords.y * tileSize);
+            return coords.x + (coords.y * gridDimensions.x) + (coords.z * gridDimensions.x * gridDimensions.y);
         }
 
-        public static int2 PositionToTile(float3 InputPos)
+        public static int3 PositionToTile(float3 InputPos)
         {
-            return new((int)((InputPos.x + 5) / 10), (int)((InputPos.z + 5) / 10));
+            return new((int)((InputPos.x + 5) / 10), (int)((InputPos.y + 5) / 10), (int)((InputPos.z + 5) / 10));
         }
 
         public static string toNumeralString(bool input)
@@ -32,13 +34,13 @@ namespace BuildingTools
         }
 
 
-        public static int2[] GetAdjacentTiles(int2 centerTile)
+        public static int3[] GetAdjacentTiles(int3 centerTile)
         {
-            int2[] offsets = {
-            new int2(1, 0),    // Right
-            new int2(-1, 0),   // Left
-            new int2(0, 1),    // Up
-            new int2(0, -1)    // Down
+            int3[] offsets = {
+            new int3(1, 0, 0),    // Right
+            new int3(-1, 0, 0),   // Left
+            new int3(0, 0, 1),    // Up
+            new int3(0, 0, -1)    // Down
         };
 
             for (int i = 0; i < 4; i++)

@@ -4,7 +4,7 @@ using Unity.Mathematics;
 using System.Collections.Generic;
 public class RoadInteraction : InteractionMode
 {
-    [SerializeField] List<int2> CurrentRoadStroke = new();
+    [SerializeField] List<int3> CurrentRoadStroke = new();
     [SerializeField] SelectionScheme scheme;
 
     public override void OnPressEnd(TileProperties tile, BuildingType selected)
@@ -42,13 +42,13 @@ public class RoadInteraction : InteractionMode
         }
     }
 
-    public bool checkAdjacent(int2 point1, int2 point2)
+    public bool checkAdjacent(int3 point1, int3 point2)
     {
         if (CurrentRoadStroke.Count == 0) { return true; }
         int dx = Mathf.Abs(point1.x - point2.x);
-        int dy = Mathf.Abs(point1.y - point2.y);
+        int dz = Mathf.Abs(point1.z - point2.z);
 
-        if ((dx == 1 && dy == 0) || (dx == 0 && dy == 1))
+        if ((dx == 1 && dz == 0) || (dx == 0 && dz == 1))
         {
             return true;
         }
@@ -80,9 +80,9 @@ public class RoadInteraction : InteractionMode
 
         if (CurrentRoadStroke.Count > 1)
         {
-            int2 previousRoad = CurrentRoadStroke[^2];
+            int3 previousRoad = CurrentRoadStroke[^2];
 
-            if (new Vector2(gameManager.SelectionGridPos.x - previousRoad.x, gameManager.SelectionGridPos.y - previousRoad.y).magnitude > 1)
+            if (new Vector2(gameManager.SelectionGridPos.x - previousRoad.x, gameManager.SelectionGridPos.z - previousRoad.z).magnitude > 1)
             {
                 //Debug.Log(new Vector2(previousRoad.x, previousRoad.y).magnitude);
                 return;
@@ -98,7 +98,7 @@ public class RoadInteraction : InteractionMode
                 roadTable.left = true;
                 inverseRoadTable.right = true;
             }
-            else if (gameManager.SelectionGridPos.y > previousRoad.y)
+            else if (gameManager.SelectionGridPos.z > previousRoad.z)
             {
                 roadTable.up = true;
                 inverseRoadTable.down = true;
@@ -113,7 +113,7 @@ public class RoadInteraction : InteractionMode
 
 
             //adjust last road
-            road = gameManager.tileProperties[BuildingUtils.CoordsToSlotID(CurrentRoadStroke[^2], gameManager.gridSize)].GetComponent<RoadProperties>();
+            road = gameManager.tileProperties[BuildingUtils.CoordsToSlotID(CurrentRoadStroke[^2], gameManager.gridDimensions)].GetComponent<RoadProperties>();
             roadTable = road.table;
 
             if (roadTable.up || inverseRoadTable.up) { roadTable.up = true; }

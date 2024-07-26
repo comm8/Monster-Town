@@ -16,11 +16,13 @@ public class CardManager : MonoBehaviour
 
         public RectTransform uiElement;
 
+        public float depth;
+
 
 
         public UITransformContainer(Transform Plane, RectTransform UIElement)
         {
-            plane = Plane; uiElement = UIElement;
+            plane = Plane; uiElement = UIElement; depth = 0;
         }
     }
 
@@ -66,18 +68,26 @@ public class CardManager : MonoBehaviour
         if (UIParent.activeSelf == false) { return; }
         foreach (var container in UITransformContainers)
         {
-            AlignUIElementWithPlane(container.plane, container.uiElement);
+            AlignUIElementWithPlane(container);
+        }
+
+        UITransformContainers.Sort((p1,p2) => p1.depth.CompareTo(p2.depth));
+
+        for (int i = 0; i < UITransformContainers.Count; i++)
+        {
+        UITransformContainers[i].uiElement.SetSiblingIndex(i);
         }
 
     }
 
-    void AlignUIElementWithPlane(Transform plane, RectTransform uiElement)
+    void AlignUIElementWithPlane(UITransformContainer container)
     {
-        Vector3 planeScreenPosition = Camera.main.WorldToScreenPoint(plane.position);
-        uiElement.localScale = scale / Vector3.Project(plane.position - Camera.main.transform.position, Camera.main.transform.forward).magnitude;
-        uiElement.position = planeScreenPosition;
+        Vector3 planeScreenPosition = Camera.main.WorldToScreenPoint(container.plane.position);
+        float depth = Vector3.Project(container.plane.position - Camera.main.transform.position, Camera.main.transform.forward).magnitude;
 
-        //somehow sort the UI elements based on depth
+        container.uiElement.localScale = scale / depth;
+        container.uiElement.position = planeScreenPosition;
+        container.depth = depth;
     }
 
     public void MouseOnSlot(CardSlot slot)
@@ -96,15 +106,12 @@ public class CardManager : MonoBehaviour
 
     public void MouseOffSlot(CardSlot slot)
     {
-
-        if (slot == selectedSlot) { selectedSlot = null; }
-
-
         if (heldCard != null)
         {
             if (slot == heldCard.slot) { return; }
-            slot.ReturnCardToSelf();
         }
+        slot.ReturnCardToSelf();
+        if (slot == selectedSlot) { selectedSlot = null; }
     }
 
 

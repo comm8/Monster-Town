@@ -10,7 +10,7 @@ public abstract class InteractionMode : MonoBehaviour
     public abstract void OnPress(TileProperties tile, BuildingType selected);
     public abstract void OnPressEnd(TileProperties tile, BuildingType selected);
     public abstract void OnTileEnter(TileProperties tile, BuildingType selected);
-        public abstract void OnTileExit(TileProperties tile, BuildingType selected);
+    public abstract void OnTileExit(TileProperties tile, BuildingType selected);
     public abstract void OnModeEnter(TileProperties tile, BuildingType selected);
     public abstract void OnModeExit(TileProperties tile, BuildingType selected);
 
@@ -34,6 +34,14 @@ public abstract class InteractionMode : MonoBehaviour
         if (tile.TryGetComponent(out RoadProperties road))
         {
             Destroy(road);
+        }
+        if (desired == BuildingType.None)
+        {
+            gameManager.UpdateBitMask(tile.ID, false);
+        }
+        else
+        {
+            gameManager.UpdateBitMask(tile.ID, true);
         }
     }
 
