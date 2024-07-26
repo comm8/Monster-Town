@@ -10,13 +10,13 @@ public class LevelBuilder : EditorWindow
     int columns = 4;
     float elementWidth = 100f;
 
-
+    GameObject activeModel;
 
     Vector2 scrollPosition;
 
 
 
-    Vector3 hitpositon = Vector3.zero;
+    Vector3 hitPositon = Vector3.zero;
 
 
 
@@ -68,7 +68,7 @@ public class LevelBuilder : EditorWindow
                 {
                     if (GUILayout.Button(props[row * columns + column].Icon, GUILayout.Width(elementWidth), GUILayout.Height(elementWidth)))
                     {
-
+                        activeModel = props[row * columns + column].Model;
                     }
                 }
                 else
@@ -106,12 +106,12 @@ public class LevelBuilder : EditorWindow
     {
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            hitpositon = hit.point;
+            hitPositon = hit.point;
             return true;
         }
         else
         {
-            hitpositon = Vector3.left * 50;
+            hitPositon = Vector3.left * 50;
             return false;
         }
     }
@@ -126,6 +126,8 @@ public class LevelBuilder : EditorWindow
 
         if (e.type == EventType.MouseDown && e.button == 0)
         {
+           Undo.RegisterCreatedObjectUndo (Instantiate(activeModel, hitPositon, quaternion.identity), "Created " + activeModel.name);
+
             e.Use();
         }
 
@@ -140,12 +142,12 @@ public class LevelBuilder : EditorWindow
             PerformRaycast(ray);
         }
 
-        int3 coords = BuildingUtils.PositionToTile(hitpositon);
-        hitpositon = new Vector3(coords.x, coords.y, coords.z) * 10;
+        int3 coords = BuildingUtils.PositionToTile(hitPositon);
+        hitPositon = new Vector3(coords.x, coords.y, coords.z) * 10;
 
         // Visualize the ray in the Scene view
         Handles.color = Color.red;
-        Handles.DrawWireCube(hitpositon + (Vector3.up * 5), Vector3.one * 10);
+        Handles.DrawWireCube(hitPositon + (Vector3.up * 5), Vector3.one * 10);
 
     }
 
