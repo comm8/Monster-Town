@@ -1,7 +1,7 @@
 using UnityEngine;
 using BuildingTools;
 
-public class TileProperties : GenericEntity
+public class TileProperties : GenericEntity, Tile
 {
     public BuildingType buildingType;
     public GameObject model;
@@ -45,6 +45,17 @@ public class TileProperties : GenericEntity
     {
         model.transform.localScale = Vector3.one;
     }
+
+    public ushort GetID()
+    {
+       return ID;
+    }
+
+    TileType Tile.GetType()
+    {
+       return TileType.Building;
+    }
+
 }
 
 

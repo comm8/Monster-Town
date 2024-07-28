@@ -238,6 +238,14 @@ namespace BuildingTools
         NoUnit
     }
 
+    public enum TileType : byte
+    {
+        None = 0,
+        Building,
+        Prop,
+        Entity,
+    }
+
 
     [Serializable]
     public enum BuildingType : byte
