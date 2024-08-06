@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Memory")]
     public TileProperties[] tileProperties;
+
     public List<MonsterStats> monsters;
 
     [Header("Other")]
@@ -75,6 +76,12 @@ public class GameManager : MonoBehaviour
     public int gridSize => gridDimensions.x * gridDimensions.y * gridDimensions.z;
 
     public List<string> names;
+
+    public Mesh buildingMesh;
+    public Material buildingMaterial;
+
+
+
     private void Awake()
     {
         instance = this;
@@ -133,7 +140,7 @@ public class GameManager : MonoBehaviour
             var newSelectionGridPos = BuildingUtils.PositionToTile(hit.point);
             Vector3 newPos = new Vector3(newSelectionGridPos.x, newSelectionGridPos.y, newSelectionGridPos.z) * 10;
 
-            Debug.Log("true position is "+hit.point+". Calculated position equals "+newPos);
+            Debug.Log("true position is " + hit.point + ". Calculated position equals " + newPos);
 
             if (newPos != Selection.position)
             {
@@ -430,6 +437,18 @@ public class GameManager : MonoBehaviour
         Instantiate(PopupBubble, PopupBar, false);
     }
 
+    void OnDrawGizmos()
+    {
+        if (buildingMesh != null && buildingMaterial != null && tileProperties != null)
+        {
+            buildingMaterial.SetPass(0);
+            foreach (var item in tileProperties)
+            {
+                Graphics.DrawMeshNow(buildingMesh, item.transform.position + (Vector3.up * 0.01f), Quaternion.identity);
+            }
+
+        }
+    }
 
 
 }

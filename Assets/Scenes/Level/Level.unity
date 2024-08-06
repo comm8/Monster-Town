@@ -13484,6 +13484,8 @@ MonoBehaviour:
   ValidAreaTile: {fileID: 9077580193767558250, guid: 310a69192e5809140b395217edbd8a92, type: 3}
   names:
   - wurp
+  buildingMesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  buildingMaterial: {fileID: -876546973899608171, guid: f37079c126dbf8549acf2d907e24b3f9, type: 3}
 --- !u!114 &1694131988
 MonoBehaviour:
   m_ObjectHideFlags: 0
