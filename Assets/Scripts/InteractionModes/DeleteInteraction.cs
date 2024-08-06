@@ -55,7 +55,7 @@ public class DeleteInteraction : InteractionMode
             {
                 continue;
             }
-            if (gameManager.tileProperties[BuildingUtils.CoordsToSlotID(tile, gameManager.gridDimensions)].TryGetComponent(out RoadProperties road))
+            if (gameManager.tiles[BuildingUtils.CoordsToSlotID(tile, gameManager.gridDimensions)].TryGetComponent(out RoadProperties road))
             {
                 if (i == 0)
                 {

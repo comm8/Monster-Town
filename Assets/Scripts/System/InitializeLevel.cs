@@ -26,11 +26,11 @@ public class InitializeLevel : MonoBehaviour
                     tileProperties.buildingType = BuildingType.None;
                     tileProperties.ID = iterator;
                     tileProperties.model = Instantiate(gameManager.buildings.GetBuilding(BuildingType.None).Model, tileProperties.modelTransform);
-                    gameManager.tileProperties[iterator] = tileProperties;
+                    gameManager.tiles[iterator] = tileProperties;
                     entity.GetComponentInChildren<TileAnimator>().CacheDeltaPos();
                     CardManager.instance.CreateSlot(entity.transform, false);
         }
-        gameManager.interaction.OnModeEnter(gameManager.tileProperties[1], BuildingType.Farm);
+        gameManager.interaction.OnModeEnter(gameManager.tiles[1], BuildingType.Farm);
         enabled = false;
     }
 }

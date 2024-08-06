@@ -113,7 +113,7 @@ public class RoadInteraction : InteractionMode
 
 
             //adjust last road
-            road = gameManager.tileProperties[BuildingUtils.CoordsToSlotID(CurrentRoadStroke[^2], gameManager.gridDimensions)].GetComponent<RoadProperties>();
+            road = gameManager.tiles[BuildingUtils.CoordsToSlotID(CurrentRoadStroke[^2], gameManager.gridDimensions)].GetComponent<RoadProperties>();
             roadTable = road.table;
 
             if (roadTable.up || inverseRoadTable.up) { roadTable.up = true; }

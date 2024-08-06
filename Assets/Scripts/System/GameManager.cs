@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool pointerOverUI = false;
 
     [Header("Memory")]
-    public BuildingProperties[] tileProperties;
+    public BuildingProperties[] tiles;
 
     public List<MonsterStats> monsters;
 
@@ -86,8 +86,8 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         //update to only store buildings
-        tileProperties = new BuildingProperties[gridSize];
-        Debug.Log(tileProperties.Length);
+        tiles = new BuildingProperties[gridSize];
+        Debug.Log(tiles.Length);
         InvokeRepeating(nameof(UpdateTiles), 0.3f, 1f);
 
 
@@ -205,7 +205,7 @@ public class GameManager : MonoBehaviour
     BuildingProperties GetCurrentTile()
     {
         int curTile = BuildingUtils.CoordsToSlotID(SelectionGridPos, gridDimensions);
-        return tileProperties[curTile];
+        return tiles[curTile];
     }
 
     public void UpdateBitMask(ushort id, bool value)
@@ -262,27 +262,27 @@ public class GameManager : MonoBehaviour
 
     public void SetMonsterEmploymentStatus(MonsterStats monster, int tileID)
     {
-        var oldUnitID = tileProperties[tileID].monsterID;
+        var oldUnitID = tiles[tileID].monsterID;
         if (oldUnitID != 0)
         {
             monsters[oldUnitID].tile = null;
             unitSelectionPanel.panels[oldUnitID - 1].Setup(monsters[oldUnitID]);
         }
 
-        tileProperties[tileID].monsterID = monster.ID;
+        tiles[tileID].monsterID = monster.ID;
         if (monster.tile != null)
         {
             var oldTile = monster.tile;
             oldTile.monsterID = 0;
             oldTile.UpdateMonsterEmployment();
         }
-        monster.tile = tileProperties[tileID];
+        monster.tile = tiles[tileID];
         if (unitSelectionPanel.currentTile.ID == tileID)
         {
             unitSelectionPanel.CurrentlyEmployedMonster = monster;
             unitSelectionPanel.UpdateBuildingPanel();
         }
-        tileProperties[tileID].UpdateMonsterEmployment();
+        tiles[tileID].UpdateMonsterEmployment();
 
         unitSelectionPanel.panels[monster.ID - 1].Setup(monster);
     }
@@ -439,10 +439,10 @@ public class GameManager : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        if (buildingMesh != null && buildingMaterial != null && tileProperties != null)
+        if (buildingMesh != null && buildingMaterial != null && tiles != null)
         {
             buildingMaterial.SetPass(0);
-            foreach (var item in tileProperties)
+            foreach (var item in tiles)
             {
                 Graphics.DrawMeshNow(buildingMesh, item.transform.position + (Vector3.up * 0.01f), Quaternion.identity);
             }
