@@ -313,7 +313,7 @@ namespace BuildingTools
     {
         public MonsterType type;
         public string name;
-        public TileProperties tile;
+        public BuildingProperties tile;
         public Sprite icon;
         public ushort ID;
     }

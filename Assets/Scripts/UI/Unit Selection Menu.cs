@@ -8,7 +8,7 @@ public class UnitSelectionMenu : MonoBehaviour
 {
     [HideInInspector] public static UnitSelectionMenu instance;
     [SerializeField] GameObject UnitPanel, UnitList;
-    public TileProperties currentTile;
+    public BuildingProperties currentTile;
     public MonsterStats CurrentlyEmployedMonster;
     [SerializeField] TMP_Text monsterName, production;
     [SerializeField] Image monsterIcon;
@@ -75,7 +75,7 @@ public class UnitSelectionMenu : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-    public void OpenMenu(TileProperties tile)
+    public void OpenMenu(BuildingProperties tile)
     {
 
         if (!gameObject.activeInHierarchy)

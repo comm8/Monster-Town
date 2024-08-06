@@ -1,7 +1,7 @@
 using UnityEngine;
 using BuildingTools;
 
-public class TileProperties : GenericEntity, Tile
+public class BuildingProperties : GenericEntity, Tile
 {
     public BuildingType buildingType;
     public GameObject model;

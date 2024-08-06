@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool pointerOverUI = false;
 
     [Header("Memory")]
-    public TileProperties[] tileProperties;
+    public BuildingProperties[] tileProperties;
 
     public List<MonsterStats> monsters;
 
@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         //update to only store buildings
-        tileProperties = new TileProperties[gridSize];
+        tileProperties = new BuildingProperties[gridSize];
         Debug.Log(tileProperties.Length);
         InvokeRepeating(nameof(UpdateTiles), 0.3f, 1f);
 
@@ -202,7 +202,7 @@ public class GameManager : MonoBehaviour
         interaction.OnPress(GetCurrentTile(), plyBuildingDesired);
     }
 
-    TileProperties GetCurrentTile()
+    BuildingProperties GetCurrentTile()
     {
         int curTile = BuildingUtils.CoordsToSlotID(SelectionGridPos, gridDimensions);
         return tileProperties[curTile];
@@ -215,7 +215,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("updated bitmask to" + value + " at " + BuildingUtils.SlotIDToCoords(id, 20));
     }
 
-    public void RefreshUnitSelectionPanel(TileProperties tile)
+    public void RefreshUnitSelectionPanel(BuildingProperties tile)
     {
 
         unitSelectionPanel.currentTile = tile;

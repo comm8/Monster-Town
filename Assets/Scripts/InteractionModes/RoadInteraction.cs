@@ -7,11 +7,11 @@ public class RoadInteraction : InteractionMode
     [SerializeField] List<int3> CurrentRoadStroke = new();
     [SerializeField] SelectionScheme scheme;
 
-    public override void OnPressEnd(TileProperties tile, BuildingType selected)
+    public override void OnPressEnd(BuildingProperties tile, BuildingType selected)
     {
         CurrentRoadStroke.Clear();
     }
-    public override void OnPress(TileProperties tile, BuildingType selected)
+    public override void OnPress(BuildingProperties tile, BuildingType selected)
     {
         if (tile.buildingType == BuildingType.None && Inventory.TryChargeCost(selected, true))
         {
@@ -34,7 +34,7 @@ public class RoadInteraction : InteractionMode
         }
 
     }
-    public override void OnPressStart(TileProperties tile, BuildingType selected)
+    public override void OnPressStart(BuildingProperties tile, BuildingType selected)
     {
         if (tile.buildingType != BuildingType.None && tile.buildingType != BuildingType.Road && !tile.locked)
         {
@@ -55,7 +55,7 @@ public class RoadInteraction : InteractionMode
         return false;
     }
 
-    public void UpdateRoadInStroke(TileProperties tile)
+    public void UpdateRoadInStroke(BuildingProperties tile)
     {
         if (!tile.gameObject.TryGetComponent(out RoadProperties road))
         {
@@ -125,22 +125,22 @@ public class RoadInteraction : InteractionMode
         }
     }
 
-    public override void OnTileEnter(TileProperties tile, BuildingType selected)
+    public override void OnTileEnter(BuildingProperties tile, BuildingType selected)
     {
 
     }
 
-    public override void OnTileExit(TileProperties tile, BuildingType selected)
+    public override void OnTileExit(BuildingProperties tile, BuildingType selected)
     {
 
     }
 
-    public override void OnModeEnter(TileProperties tile, BuildingType selected)
+    public override void OnModeEnter(BuildingProperties tile, BuildingType selected)
     {
         gameManager.SetSelectionScheme(scheme);
     }
 
-    public override void OnModeExit(TileProperties tile, BuildingType selected)
+    public override void OnModeExit(BuildingProperties tile, BuildingType selected)
     {
     }
 

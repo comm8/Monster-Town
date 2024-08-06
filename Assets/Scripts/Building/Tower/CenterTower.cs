@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BuildingTools;
 using System.Linq;
-public class CenterTower : TileProperties
+public class CenterTower : BuildingProperties
 {
     // Start is called before the first frame update
     override public void Damage(DamageType type, byte amount)
