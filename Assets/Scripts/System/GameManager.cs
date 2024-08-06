@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
     public Mesh buildingMesh;
     public Material buildingMaterial;
 
-
+    public BuildingProperties currentTile;
 
     private void Awake()
     {
@@ -140,14 +140,16 @@ public class GameManager : MonoBehaviour
             var newSelectionGridPos = BuildingUtils.PositionToTile(hit.point);
             Vector3 newPos = new Vector3(newSelectionGridPos.x, newSelectionGridPos.y, newSelectionGridPos.z) * 10;
 
+
             Debug.Log("true position is " + hit.point + ". Calculated position equals " + newPos);
 
             if (newPos != Selection.position)
             {
-                interaction.OnTileExit(GetCurrentTile(), plyBuildingDesired);
+                interaction.OnTileExit(currentTile, plyBuildingDesired);
                 SelectionGridPos = newSelectionGridPos;
+                currentTile = tiles[BuildingUtils.CoordsToSlotID(SelectionGridPos, gridDimensions)];
                 Selection.position = newPos;
-                interaction.OnTileEnter(GetCurrentTile(), plyBuildingDesired);
+                interaction.OnTileEnter(currentTile, plyBuildingDesired);
             }
         }
     }
@@ -191,22 +193,18 @@ public class GameManager : MonoBehaviour
 
     void OnPressStart()
     {
-        interaction.OnPressStart(GetCurrentTile(), plyBuildingDesired);
+        interaction.OnPressStart(currentTile, plyBuildingDesired);
     }
     void OnPressEnd()
     {
-        interaction.OnPressEnd(GetCurrentTile(), plyBuildingDesired);
+        interaction.OnPressEnd(currentTile, plyBuildingDesired);
     }
     void OnPress()
     {
-        interaction.OnPress(GetCurrentTile(), plyBuildingDesired);
+        interaction.OnPress(currentTile, plyBuildingDesired);
     }
 
-    BuildingProperties GetCurrentTile()
-    {
-        int curTile = BuildingUtils.CoordsToSlotID(SelectionGridPos, gridDimensions);
-        return tiles[curTile];
-    }
+
 
     public void UpdateBitMask(ushort id, bool value)
     {
@@ -353,9 +351,9 @@ public class GameManager : MonoBehaviour
 
     public void SetInteractionMode(InteractionMode mode)
     {
-        interaction.OnModeExit(GetCurrentTile(), plyBuildingDesired);
+        interaction.OnModeExit(currentTile, plyBuildingDesired);
         interaction = mode;
-        interaction.OnModeEnter(GetCurrentTile(), plyBuildingDesired);
+        interaction.OnModeEnter(currentTile, plyBuildingDesired);
     }
 
     void CheckInputDesired()
@@ -449,7 +447,5 @@ public class GameManager : MonoBehaviour
 
         }
     }
-
-
 }
 
