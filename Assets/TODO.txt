@@ -9,8 +9,8 @@ make road wider
 
 clearly showcase building production and prod reasources from the map view
 
+-Tiles: for tiles check if tile is building, if so then act as building
+-If not building then skip.
 
-Grid overhaul:
--Store grid in a 20 by 20 by 7 space instead of 2D space
--make generic entity an interface instead of inheritance
--make buildings a type of prop. A prop is a gameobject that is on the grid
+
+

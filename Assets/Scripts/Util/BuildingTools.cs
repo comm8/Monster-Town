@@ -12,16 +12,18 @@ namespace BuildingTools
     {
         public static int3 SlotIDToCoords(int ID, int3 gridDimensions)
         {
-            int x = ID % gridDimensions.x;
-            int y = ID / gridDimensions.x % gridDimensions.y;
-            int z = ID / (gridDimensions.x * gridDimensions.y);
-            return new int3(x,y,z);
+            int x = ID % gridDimensions.x; //smallest
+            int y = (ID / gridDimensions.x) % gridDimensions.y; //rows
+            int z = ID / (gridDimensions.x * gridDimensions.y); // rows * columns
+            return new int3(x, y, z);
         }
 
         public static int CoordsToSlotID(int3 coords, int3 gridDimensions)
         {
-            return coords.x + (coords.z * gridDimensions.z) + (coords.y * gridDimensions.x * gridDimensions.z);
+            coords = new int3(math.clamp(coords.x, 0, gridDimensions.x-1), math.clamp(coords.y, 0, gridDimensions.y-1), math.clamp(coords.z, 0, gridDimensions.z-1));
+            return coords.x + (coords.y * gridDimensions.x) + (coords.z * gridDimensions.x * gridDimensions.y);
         }
+
 
         public static int3 PositionToTile(float3 InputPos)
         {
@@ -173,7 +175,7 @@ namespace BuildingTools
             }
             //We can afford it!! 
 
-            if(!chargeOnSuccess)
+            if (!chargeOnSuccess)
             {
                 return true;
             }

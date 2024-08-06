@@ -72,12 +72,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject ValidAreaTile;
     ValidAreaMap[] validAreas;
 
+    public int gridSize => gridDimensions.x * gridDimensions.y * gridDimensions.z;
+
     public List<string> names;
     private void Awake()
     {
         instance = this;
         //update to only store buildings
-        tileProperties = new TileProperties[gridDimensions.x * gridDimensions.y * gridDimensions.z];
+        tileProperties = new TileProperties[gridSize];
         Debug.Log(tileProperties.Length);
         InvokeRepeating(nameof(UpdateTiles), 0.3f, 1f);
 
@@ -130,6 +132,8 @@ public class GameManager : MonoBehaviour
         {
             var newSelectionGridPos = BuildingUtils.PositionToTile(hit.point);
             Vector3 newPos = new Vector3(newSelectionGridPos.x, newSelectionGridPos.y, newSelectionGridPos.z) * 10;
+
+            Debug.Log("true position is "+hit.point+". Calculated position equals "+newPos);
 
             if (newPos != Selection.position)
             {
@@ -194,8 +198,6 @@ public class GameManager : MonoBehaviour
     TileProperties GetCurrentTile()
     {
         int curTile = BuildingUtils.CoordsToSlotID(SelectionGridPos, gridDimensions);
-
-        if (!(curTile < tileProperties.Length && curTile >= 0)) { throw new ArgumentException("Given Coords " + SelectionGridPos + " " + curTile + " is out of bounds of the map!"); }
         return tileProperties[curTile];
     }
 
