@@ -21,7 +21,7 @@ public class InitializeLevel : MonoBehaviour
                     GameObject entity = Instantiate(gameManager.tilePrefab, tileParent);
                     int3 coords = BuildingUtils.SlotIDToCoords(iterator, gameManager.gridDimensions);
                     entity.transform.position = new Vector3(coords.x,coords.y,coords.z) * 10;
-                    BuildingProperties tileProperties = entity.GetComponent<BuildingProperties>();
+                    BuildingData tileProperties = entity.GetComponent<BuildingData>();
 
                     tileProperties.buildingType = BuildingType.None;
                     tileProperties.ID = iterator;

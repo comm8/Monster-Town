@@ -8,11 +8,11 @@ public class StandardBuildInteraction : InteractionMode
     [SerializeField] SelectionScheme CantAffordScheme;
 
     BuildingType hologramType = BuildingType.None;
-    public override void OnPressEnd(BuildingProperties tile, BuildingType selected)
+    public override void OnPressEnd(BuildingData tile, BuildingType selected)
     {
         //Do nothing
     }
-    public override void OnPress(BuildingProperties tile, BuildingType selected)
+    public override void OnPress(BuildingData tile, BuildingType selected)
     {
         if (tile.buildingType == BuildingType.None && Inventory.TryChargeCost(selected, true))
         {
@@ -28,7 +28,7 @@ public class StandardBuildInteraction : InteractionMode
         }
 
     }
-    public override void OnPressStart(BuildingProperties tile, BuildingType selected)
+    public override void OnPressStart(BuildingData tile, BuildingType selected)
     {
         if (tile.buildingType != BuildingType.None && tile.buildingType != BuildingType.Road && !tile.locked)
         {
@@ -36,24 +36,24 @@ public class StandardBuildInteraction : InteractionMode
         }
     }
 
-    public override void OnTileEnter(BuildingProperties tile, BuildingType selected)
+    public override void OnTileEnter(BuildingData tile, BuildingType selected)
     {
         CheckScheme(tile, selected);
     }
 
-    public override void OnModeEnter(BuildingProperties tile, BuildingType selected)
+    public override void OnModeEnter(BuildingData tile, BuildingType selected)
     {
         gameManager.selectionHologram.SetActive(true);
         CheckScheme(tile,selected);
     }
 
-    public override void OnModeExit(BuildingProperties tile, BuildingType selected)
+    public override void OnModeExit(BuildingData tile, BuildingType selected)
     {
         gameManager.selectionHologram.SetActive(false);
     }
 
 
-    void CheckScheme(BuildingProperties tile, BuildingType desired)
+    void CheckScheme(BuildingData tile, BuildingType desired)
     {
         if (tile.buildingType == BuildingType.None)
         {
@@ -84,7 +84,7 @@ public class StandardBuildInteraction : InteractionMode
         }
     }
 
-    public override void OnTileExit(BuildingProperties tile, BuildingType selected)
+    public override void OnTileExit(BuildingData tile, BuildingType selected)
     {
         
     }

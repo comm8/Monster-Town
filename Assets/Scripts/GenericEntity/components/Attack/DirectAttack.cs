@@ -9,7 +9,7 @@ public class DirectAttack : Attack
 
     [SerializeField] byte damage;
     override public void SetUp() { }
-    override public void TryAttack(Vector3 AttackerPosition, Vector3 TargetPosition, GenericEntity target)
+    override public void TryAttack(Vector3 AttackerPosition, Vector3 TargetPosition, EntityData target)
     {
 
         //if(!Physics.Raycast(AttackerPosition, TargetPosition - AttackerPosition, out RaycastHit hit, range, mask)) {return;}
@@ -18,7 +18,7 @@ public class DirectAttack : Attack
 
 
     }
-    override public void Run(Vector3 AttackerPosition, Vector3 TargetPosition, GenericEntity target)
+    override public void Run(Vector3 AttackerPosition, Vector3 TargetPosition, EntityData target)
     {
         target.Damage(type, damage);
     }
@@ -30,7 +30,7 @@ public class DirectAttack : Attack
         Gizmos.DrawWireSphere(position, range);
     }
 
-    public override GenericEntity TryGetTarget(Vector3 position)
+    public override EntityData TryGetTarget(Vector3 position)
     {
        RaycastHit[] hits =  Physics.SphereCastAll(position, range, Vector3.forward * 0.001f , 0, mask, QueryTriggerInteraction.Collide);
         if(hits.Length > 0)
@@ -44,7 +44,7 @@ public class DirectAttack : Attack
             }
         }
 
-        return best.collider.GetComponent<GenericEntity>();
+        return best.collider.GetComponent<EntityData>();
         }
         else { return null; }
 

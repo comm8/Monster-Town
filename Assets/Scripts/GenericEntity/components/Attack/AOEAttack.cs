@@ -16,11 +16,11 @@ public class AOEAttack : Attack
         //AOERangeVisual = GameObject.Instantiate()
     }
 
-    override public void TryAttack(Vector3 AttackerPosition, Vector3 TargetPosition, GenericEntity target)
+    override public void TryAttack(Vector3 AttackerPosition, Vector3 TargetPosition, EntityData target)
     {
 
     }
-    override public void Run(Vector3 AttackerPosition, Vector3 TargetPosition, GenericEntity target)
+    override public void Run(Vector3 AttackerPosition, Vector3 TargetPosition, EntityData target)
     {
 
     }

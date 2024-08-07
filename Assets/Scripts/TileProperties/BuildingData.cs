@@ -1,7 +1,7 @@
 using UnityEngine;
 using BuildingTools;
 
-public class BuildingProperties : GenericEntity, Tile
+public class BuildingData : MonoBehaviour
 {
     public BuildingType buildingType;
     public GameObject model;
@@ -46,16 +46,12 @@ public class BuildingProperties : GenericEntity, Tile
         model.transform.localScale = Vector3.one;
     }
 
-    public ushort GetID()
-    {
-       return ID;
-    }
 
-    TileType Tile.GetType()
-    {
-       return TileType.Building;
-    }
 
 }
 
+public interface HasBuilding
+{
+   BuildingData GetBuilding();
 
+}

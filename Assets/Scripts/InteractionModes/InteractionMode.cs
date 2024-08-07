@@ -6,16 +6,16 @@ using UnityEngine;
 public abstract class InteractionMode : MonoBehaviour
 {
     [HideInInspector] public GameManager gameManager;
-    public abstract void OnPressStart(BuildingProperties tile, BuildingType selected);
-    public abstract void OnPress(BuildingProperties tile, BuildingType selected);
-    public abstract void OnPressEnd(BuildingProperties tile, BuildingType selected);
-    public abstract void OnTileEnter(BuildingProperties tile, BuildingType selected);
-    public abstract void OnTileExit(BuildingProperties tile, BuildingType selected);
-    public abstract void OnModeEnter(BuildingProperties tile, BuildingType selected);
-    public abstract void OnModeExit(BuildingProperties tile, BuildingType selected);
+    public abstract void OnPressStart(BuildingData tile, BuildingType selected);
+    public abstract void OnPress(BuildingData tile, BuildingType selected);
+    public abstract void OnPressEnd(BuildingData tile, BuildingType selected);
+    public abstract void OnTileEnter(BuildingData tile, BuildingType selected);
+    public abstract void OnTileExit(BuildingData tile, BuildingType selected);
+    public abstract void OnModeEnter(BuildingData tile, BuildingType selected);
+    public abstract void OnModeExit(BuildingData tile, BuildingType selected);
 
 
-    public void PlaceTile(BuildingProperties tile, BuildingType desired)
+    public void PlaceTile(BuildingData tile, BuildingType desired)
     {
         Destroy(tile.model);
 

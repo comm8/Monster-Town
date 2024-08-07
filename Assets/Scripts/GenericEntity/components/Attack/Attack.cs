@@ -25,11 +25,11 @@ public class Attack : ScriptableObject
 
     }
 
-    public virtual GenericEntity TryGetTarget(Vector3 position) { return null; }
-    public virtual void TryAttack(Vector3 AttackerPosition, Vector3 TargetPosition, GenericEntity target) 
+    public virtual EntityData TryGetTarget(Vector3 position) { return null; }
+    public virtual void TryAttack(Vector3 AttackerPosition, Vector3 TargetPosition, EntityData target) 
     {
     }
-    public virtual void Run(Vector3 AttackerPosition, Vector3 TargetPosition, GenericEntity target)
+    public virtual void Run(Vector3 AttackerPosition, Vector3 TargetPosition, EntityData target)
     {
 
     }

@@ -7,17 +7,17 @@ public class UnselectedInteraction : InteractionMode
 {
     [SerializeField] SelectionScheme NoActionScheme;
     [SerializeField] SelectionScheme InteractScheme;
-    public override void OnModeEnter(BuildingProperties tile, BuildingType selected)
+    public override void OnModeEnter(BuildingData tile, BuildingType selected)
     {
         CheckScheme(tile, selected);
     }
 
-    public override void OnModeExit(BuildingProperties tile, BuildingType selected)
+    public override void OnModeExit(BuildingData tile, BuildingType selected)
     {
 
     }
 
-    public override void OnPress(BuildingProperties tile, BuildingType selected)
+    public override void OnPress(BuildingData tile, BuildingType selected)
     {
         if (tile.buildingType != BuildingType.None)
         {
@@ -25,12 +25,12 @@ public class UnselectedInteraction : InteractionMode
         }
     }
 
-    public override void OnPressEnd(BuildingProperties tile, BuildingType selected)
+    public override void OnPressEnd(BuildingData tile, BuildingType selected)
     {
 
     }
 
-    public override void OnPressStart(BuildingProperties tile, BuildingType selected)
+    public override void OnPressStart(BuildingData tile, BuildingType selected)
     {
 
         if (tile.buildingType != BuildingType.None && tile.buildingType != BuildingType.Road && tile.locked == false)
@@ -39,17 +39,17 @@ public class UnselectedInteraction : InteractionMode
         }
     }
 
-    public override void OnTileEnter(BuildingProperties tile, BuildingType selected)
+    public override void OnTileEnter(BuildingData tile, BuildingType selected)
     {
         CheckScheme(tile, selected);
     }
 
-    public override void OnTileExit(BuildingProperties tile, BuildingType selected)
+    public override void OnTileExit(BuildingData tile, BuildingType selected)
     {
 
     }
 
-    void CheckScheme(BuildingProperties tile, BuildingType selected)
+    void CheckScheme(BuildingData tile, BuildingType selected)
     {
         if ((tile.buildingType != BuildingType.None) && (tile.buildingType != BuildingType.Road) && (tile.locked == false))
         {

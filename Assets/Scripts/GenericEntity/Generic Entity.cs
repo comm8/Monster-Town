@@ -5,7 +5,7 @@ using BuildingTools;
 using System.Linq;
 using UnityEditor;
 
-public class GenericEntity : MonoBehaviour
+public class EntityData : MonoBehaviour
 {
     public bool team;
     [SerializeField] protected byte hp;
@@ -42,11 +42,10 @@ public class GenericEntity : MonoBehaviour
 
     }
 
+}
 
+public interface HasHealth
+{
+   EntityData GetHealth();
 
-    void OnDrawGizmos()
-    {
-        if (attack == null) { return; }
-        attack.DrawGizmos(transform.position);
-    }
 }

@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool pointerOverUI = false;
 
     [Header("Memory")]
-    public BuildingProperties[] tiles;
+    public BuildingData[] tiles;
 
     public List<MonsterStats> monsters;
 
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject UI;
 
-    bool[] bitmask = new bool[400];
+    bool[] bitmask;
 
     bool Interacting;
     bool deleteMode;
@@ -80,17 +80,17 @@ public class GameManager : MonoBehaviour
     public Mesh buildingMesh;
     public Material buildingMaterial;
 
-    public BuildingProperties currentTile;
+    public BuildingData currentTile;
 
     private void Awake()
     {
         instance = this;
         //update to only store buildings
-        tiles = new BuildingProperties[gridSize];
+        tiles = new BuildingData[gridSize];
         Debug.Log(tiles.Length);
         InvokeRepeating(nameof(UpdateTiles), 0.3f, 1f);
 
-
+        bitmask = new bool[gridSize];
         Time.timeScale = 1;
         LeanTween.reset();
 
@@ -213,7 +213,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("updated bitmask to" + value + " at " + BuildingUtils.SlotIDToCoords(id, 20));
     }
 
-    public void RefreshUnitSelectionPanel(BuildingProperties tile)
+    public void RefreshUnitSelectionPanel(BuildingData tile)
     {
 
         unitSelectionPanel.currentTile = tile;

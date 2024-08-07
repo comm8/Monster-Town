@@ -4,7 +4,7 @@ using UnityEngine;
 using BuildingTools;
 
 [CreateAssetMenu(fileName = "Building", menuName = "MonsterGame/Building", order = 1)]
-public class Building : ScriptableObject
+public class BuildingStats : ScriptableObject
 {
     public bool randomRotation;
 

@@ -276,17 +276,17 @@ namespace BuildingTools
             return (BuildingType)iD;
         }
 
-        public Building GetBuilding(int iD)
+        public global::BuildingStats GetBuilding(int iD)
         {
             return buildings[iD];
         }
 
-        public Building GetBuilding(BuildingType type)
+        public global::BuildingStats GetBuilding(BuildingType type)
         {
             return buildings[(int)type];
         }
 
-        public Building[] buildings;
+        public global::BuildingStats[] buildings;
     }
 
 
@@ -313,7 +313,7 @@ namespace BuildingTools
     {
         public MonsterType type;
         public string name;
-        public BuildingProperties tile;
+        public BuildingData tile;
         public Sprite icon;
         public ushort ID;
     }

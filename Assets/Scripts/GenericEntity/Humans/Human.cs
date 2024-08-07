@@ -3,7 +3,7 @@ using UnityEngine;
 using BuildingTools;
 using Unity.Mathematics;
 
-public class Human : GenericEntity
+public class Human : EntityData
 {
     public BehaviorState state = BehaviorState.Pathfinding;
     public bool stunned;

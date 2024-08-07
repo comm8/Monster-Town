@@ -3,17 +3,14 @@ using System.Collections.Generic;
 using BuildingTools;
 using UnityEngine;
 
-public class Prop : Tile
+public class Prop : HasTile
 {
-    ushort ID;
+    TileData tileData;
 
-    public ushort GetID()
+
+    public TileData GetTile()
     {
-       return ID;
+        return tileData;
     }
 
-    TileType Tile.GetType()
-    {
-        return TileType.Prop;
-    }
 }

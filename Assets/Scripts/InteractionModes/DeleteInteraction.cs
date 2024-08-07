@@ -10,11 +10,11 @@ public class DeleteInteraction : InteractionMode
     [SerializeField] SelectionScheme validDelete;
     [SerializeField] SelectionScheme invalidDelete;
 
-    public override void OnPressEnd(BuildingProperties tile, BuildingType selected)
+    public override void OnPressEnd(BuildingData tile, BuildingType selected)
     {
         //do nothing
     }
-    public override void OnPress(BuildingProperties tile, BuildingType selected)
+    public override void OnPress(BuildingData tile, BuildingType selected)
     {
         if (tile.buildingType != BuildingType.None && !tile.locked)
         {
@@ -26,18 +26,18 @@ public class DeleteInteraction : InteractionMode
             gameManager.monsters[tile.monsterID].tile = null;
             tile.monsterID = 0;
             LeanTween.moveY(tile.model, 3, 0.4f).setEase(LeanTweenType.punch);
-            LeanTween.scale(tile.model, new Vector3(0.2f, 0, 0.2f), 0.4f).setEase(LeanTweenType.easeOutBounce).setOnComplete(delayedPlace).setOnCompleteParam(tile as BuildingProperties);
+            LeanTween.scale(tile.model, new Vector3(0.2f, 0, 0.2f), 0.4f).setEase(LeanTweenType.easeOutBounce).setOnComplete(delayedPlace).setOnCompleteParam(tile as BuildingData);
 
         }
     }
 
     void delayedPlace(object tile)
     {
-        BuildingProperties tiletemp = tile as BuildingProperties;
+        BuildingData tiletemp = tile as BuildingData;
         tiletemp.resetscale();
         PlaceTile(tiletemp, BuildingType.None);
     }
-    public override void OnPressStart(BuildingProperties tile, BuildingType selected)
+    public override void OnPressStart(BuildingData tile, BuildingType selected)
     {
         //do nothing
     }
@@ -83,12 +83,12 @@ public class DeleteInteraction : InteractionMode
         }
     }
 
-    public override void OnTileEnter(BuildingProperties tile, BuildingType selected)
+    public override void OnTileEnter(BuildingData tile, BuildingType selected)
     {
         CheckTileSelection(tile);
     }
 
-    public override void OnTileExit(BuildingProperties tile, BuildingType selected)
+    public override void OnTileExit(BuildingData tile, BuildingType selected)
     {
         if (checkValidTile(tile))
         {
@@ -96,13 +96,13 @@ public class DeleteInteraction : InteractionMode
         }
     }
 
-    public override void OnModeEnter(BuildingProperties tile, BuildingType selected)
+    public override void OnModeEnter(BuildingData tile, BuildingType selected)
     {
         CheckTileSelection(tile);
         LeanTween.value(gameObject, updateBulldozerBorderSize, 0, 0.04f, 0.4f).setEase(LeanTweenType.easeOutBounce);
     }
 
-    public override void OnModeExit(BuildingProperties tile, BuildingType selected)
+    public override void OnModeExit(BuildingData tile, BuildingType selected)
     {
         if (checkValidTile(tile))
         {
@@ -116,12 +116,12 @@ public class DeleteInteraction : InteractionMode
         bulldozerPostProcessing.SetFloat("_Border_Thickness", val);
     }
 
-    bool checkValidTile(BuildingProperties tile)
+    bool checkValidTile(BuildingData tile)
     {
         return tile.buildingType != BuildingType.Road && tile.buildingType != BuildingType.None;
     }
 
-    void CheckTileSelection(BuildingProperties tile)
+    void CheckTileSelection(BuildingData tile)
     {
         if (tile == null) { return; }
         if (checkValidTile(tile))

@@ -15,7 +15,7 @@ public Camera targetCamera;
 
     int maxEntityCount;
 
-    GenericEntity[] entities;
+    EntityData[] entities;
     CullingGroup cullGroup;
     BoundingSphere[] bounds;
 
@@ -38,12 +38,12 @@ public Camera targetCamera;
         bounds = new BoundingSphere[maxEntityCount];
 
         // spam random objects
-        entities = new GenericEntity[maxEntityCount];
+        entities = new EntityData[maxEntityCount];
         for (int i = 0; i < maxEntityCount; i++)
         {
             var pos = Random.insideUnitSphere * 30;
             var temp = Instantiate(prefab, pos, Quaternion.identity);
-            entities[i] = temp.GetComponent<GenericEntity>();
+            entities[i] = temp.GetComponent<EntityData>();
 
             // collect bounds for objects
             var b = new BoundingSphere();
@@ -60,11 +60,11 @@ public Camera targetCamera;
         cullGroup.onStateChanged += StateChanged;
     }
 
-    public GenericEntity[] FindTargetsInRadius(Vector3 position, bool team, float radius)
+    public EntityData[] FindTargetsInRadius(Vector3 position, bool team, float radius)
     {
         transform.position = position;
 
-        GenericEntity[] genericEntities = new GenericEntity[InRangeEntities.Count];
+        EntityData[] genericEntities = new EntityData[InRangeEntities.Count];
         for (int i = 0; i < InRangeEntities.Count; i++)
         {
             genericEntities[i] = entities[InRangeEntities[i]];
