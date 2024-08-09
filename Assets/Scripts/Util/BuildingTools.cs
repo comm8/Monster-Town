@@ -20,7 +20,7 @@ namespace BuildingTools
 
         public static int CoordsToSlotID(int3 coords, int3 gridDimensions)
         {
-            coords = new int3(math.clamp(coords.x, 0, gridDimensions.x-1), math.clamp(coords.y, 0, gridDimensions.y-1), math.clamp(coords.z, 0, gridDimensions.z-1));
+            coords = new int3(math.clamp(coords.x, 0, gridDimensions.x - 1), math.clamp(coords.y, 0, gridDimensions.y - 1), math.clamp(coords.z, 0, gridDimensions.z - 1));
             return coords.x + (coords.y * gridDimensions.x) + (coords.z * gridDimensions.x * gridDimensions.y);
         }
 
@@ -293,12 +293,18 @@ namespace BuildingTools
     [Serializable]
     public class RoadTable
     {
+
+        public byte table;
+        public bool up { get => (table & (1 << 0)) != 0; set { if (value) { table |= 1 << 0; } else { table &= 0b11111110; } } }
+        public bool down { get => (table & (1 << 1)) != 0; set { if (value) { table |= 1 << 1; } else { table &= 0b11111101; } } }
+        public bool left { get => (table & (1 << 2)) != 0; set { if (value) { table |= 1 << 2; } else { table &= 0b11111011; } } }
+        public bool right { get => (table & (1 << 3)) != 0; set { if (value) { table |= 1 << 3; } else { table &= 0b11110111; } } }
+
         public override string ToString()
         {
             return BuildingUtils.toNumeralString(up) + BuildingUtils.toNumeralString(down) + BuildingUtils.toNumeralString(left) + BuildingUtils.toNumeralString(right);
         }
 
-        public bool left, right, up, down;
     }
 
     [Serializable]
