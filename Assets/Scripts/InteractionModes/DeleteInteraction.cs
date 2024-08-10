@@ -26,7 +26,7 @@ public class DeleteInteraction : InteractionMode
             gameManager.monsters[tile.monsterID].tile = null;
             tile.monsterID = 0;
             LeanTween.moveY(tile.model, 3, 0.4f).setEase(LeanTweenType.punch);
-            LeanTween.scale(tile.model, new Vector3(0.2f, 0, 0.2f), 0.4f).setEase(LeanTweenType.easeOutBounce).setOnComplete(delayedPlace).setOnCompleteParam(tile as BuildingData);
+            LeanTween.scale(tile.model, new Vector3(0.2f, 0, 0.2f), 0.4f).setEase(LeanTweenType.easeOutBounce).setOnComplete(delayedPlace).setOnCompleteParam(tile);
 
         }
     }

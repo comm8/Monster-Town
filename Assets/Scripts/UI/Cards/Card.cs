@@ -51,9 +51,4 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     {
         image.raycastTarget = true;
     }
-
-    void Start()
-    {
-
-    }
 }

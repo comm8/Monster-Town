@@ -8,8 +8,6 @@ public class TileAnimator : MonoBehaviour
     [SerializeField] Vector3 blendScale;
     [SerializeField] DynamicsTransform dynamicsTransform;
 
-        Material material;
-
     float timeAtClick;
     private void FixedUpdate()
     {
