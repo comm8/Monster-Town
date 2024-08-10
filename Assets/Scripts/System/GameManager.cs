@@ -442,7 +442,7 @@ public class GameManager : MonoBehaviour
             buildingMaterial.SetPass(0);
             foreach (var item in tiles)
             {
-                Graphics.DrawMeshNow(buildingMesh, item.transform.position + (Vector3.up * 0.01f), Quaternion.identity);
+                Graphics.DrawMeshNow(buildingMesh, Matrix4x4.TRS( item.transform.position + new Vector3(0, 0.01f, 0), Quaternion.Euler(90, 0, 0), new Vector3(10, 10, 10)));
             }
 
         }

@@ -947,10 +947,10 @@
     },
     "m_Color": {
         "color": {
-            "r": 0.50377357006073,
-            "g": 0.9801509380340576,
+            "r": 0.6830188632011414,
+            "g": 0.9875204563140869,
             "b": 1.0,
-            "a": 0.6117647290229797
+            "a": 0.1764705926179886
         },
         "mode": 0
     }
@@ -981,7 +981,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "X",
     "m_StageCapability": 3,
-    "m_Value": 0.05000000074505806,
+    "m_Value": 0.30000001192092898,
     "m_DefaultValue": 0.0,
     "m_Labels": []
 }
@@ -1382,7 +1382,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "X",
     "m_StageCapability": 3,
-    "m_Value": 0.05000000074505806,
+    "m_Value": 1.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []
 }
@@ -2272,7 +2272,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "X",
     "m_StageCapability": 3,
-    "m_Value": 545.4000244140625,
+    "m_Value": 2500.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []
 }
