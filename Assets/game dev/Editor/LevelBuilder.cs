@@ -48,38 +48,42 @@ public class LevelBuilder : EditorWindow
     {
         DrawButtons();
 
-        scrollPosition = GUILayout.BeginScrollView(scrollPosition);
-
-        elementWidth = EditorGUILayout.FloatField("Element Width", elementWidth);
-
-
-
-        GUILayout.Label("Palette", EditorStyles.boldLabel);
-
-        columns = Mathf.Max(1, Mathf.FloorToInt(position.width / elementWidth));
-        int rowCount = Mathf.CeilToInt((float)props.Length / columns);
-        for (int row = 0; row < rowCount; row++)
+        if ( props != null && props.Length > 0)
         {
-            GUILayout.BeginHorizontal();
+            scrollPosition = GUILayout.BeginScrollView(scrollPosition);
 
-            for (int column = 0; column < columns; column++)
+            elementWidth = EditorGUILayout.FloatField("Element Width", elementWidth);
+
+
+
+            GUILayout.Label("Palette", EditorStyles.boldLabel);
+
+            columns = Mathf.Max(1, Mathf.FloorToInt(position.width / elementWidth));
+            int rowCount = Mathf.CeilToInt((float)props.Length / columns);
+            for (int row = 0; row < rowCount; row++)
             {
-                if (row * columns + column < props.Length)
+                GUILayout.BeginHorizontal();
+
+                for (int column = 0; column < columns; column++)
                 {
-                    if (GUILayout.Button(props[row * columns + column].Icon, GUILayout.Width(elementWidth), GUILayout.Height(elementWidth)))
+                    if (row * columns + column < props.Length)
                     {
-                        activeModel = props[row * columns + column].Model;
+                        if (GUILayout.Button(props[row * columns + column].Icon, GUILayout.Width(elementWidth), GUILayout.Height(elementWidth)))
+                        {
+                            activeModel = props[row * columns + column].Model;
+                        }
+                    }
+                    else
+                    {
+                        GUILayout.Label("", GUILayout.Width(elementWidth), GUILayout.Height(elementWidth));
                     }
                 }
-                else
-                {
-                    GUILayout.Label("", GUILayout.Width(elementWidth), GUILayout.Height(elementWidth));
-                }
+                GUILayout.EndHorizontal();
             }
-            GUILayout.EndHorizontal();
+
+            GUILayout.EndScrollView();
         }
 
-        GUILayout.EndScrollView();
 
 
 
@@ -126,7 +130,7 @@ public class LevelBuilder : EditorWindow
 
         if (e.type == EventType.MouseDown && e.button == 0)
         {
-           Undo.RegisterCreatedObjectUndo (Instantiate(activeModel, hitPositon, quaternion.identity), "Created " + activeModel.name);
+            Undo.RegisterCreatedObjectUndo(Instantiate(activeModel, hitPositon, quaternion.identity), "Created " + activeModel.name);
 
             e.Use();
         }
